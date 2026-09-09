@@ -1,77 +1,70 @@
 # Zain Hamdia - High School Senior Engineering Portfolio
 
-> **High School Senior • Aspiring Aerospace Engineer • Junior Volunteer Firefighter**  
+> **High School Senior • Aspiring Mechanical Engineer • Junior Volunteer Firefighter**  
+> Princeton Day School • Class of 2026  
 > GitHub: [@ZainHamdia](https://github.com/ZainHamdia) | Repository: [ZainPortfolio](https://github.com/ZainHamdia/ZainPortfolio)
 
-An engineering portfolio website engineered for college admissions officers, research advisors, internship evaluators, and engineering teams. The site highlights Zain's work across **Robotics**, **Aviation & Aerospace Engineering**, and **Volunteer Junior Firefighting**.
+A professional, multi-page engineering portfolio website highlighting Zain's work across **Robotics & Prototyping**, **Aviation & Aerodynamics Research**, and **Volunteer Junior Firefighting**.
 
 ---
 
-## Technical Highlights & Sections
-
-1. **Robotics & Rapid Prototyping**
-   - ***Zainiac 19***: Landmark autonomous & RC mobile robot featured at the **2019 Philadelphia Maker Faire**. Includes custom dual H-bridge motor control, ultrasonic obstacle avoidance, and live demonstration metrics.
-   - **PDS STEAM Lab & Additive Manufacturing**: High-precision parametric CAD (Onshape, SolidWorks, Fusion 360) and multi-material 3D printing (PETG, Carbon-Fiber Nylon, Polycarbonate).
-   - **Next-Gen Autonomous Ground Vehicle**: ESP32 dual-core FreeRTOS rover featuring 9-DOF IMU Kalman filtering and real-time WebSockets telemetry.
-
-2. **Aviation & Aerospace Engineering**
-   - **Princeton University (MAE Dept) - Joseph Henry Project**: Summer 2025 research internship under Professor Michael Littman studying and reconstructing historical electromechanical apparatus, electromagnetic coil winding physics, and magnetic flux mechanics.
-   - **Experimental Fixed-Wing UAV & Aerodynamics**: Computational airfoil selection (NACA 2412), wing loading and static margin calculations, composite carbon-foam construction, and real-time flight telemetry logging.
-
-3. **Volunteer Junior Firefighting & Field Engineering**
-   - Hands-on emergency response, fireground hydraulics (friction loss, GPM, nozzle pressure), Self-Contained Breathing Apparatus (SCBA) pneumatic operation (4,500 PSI), and hydraulic rescue tools (10,500 PSI).
-   - Demonstrates checklist discipline, failure-tolerant operations, and rapid decision-making in safety-critical environments.
-
-4. **Interactive Architecture**
-   - Filterable Project Gallery with real-time category filtering.
-   - Deep-Dive Engineering Spec Sheet Modals with subsystem tables and design challenges.
-   - Interactive Skills Matrix with categorized proficiencies and laboratory toolkits.
-   - Engineering Blueprint Light / Dark Theme toggle with persistent `localStorage` settings.
-
----
-
-## Directory Structure
+## Portfolio Pages & Structure
 
 ```
 ZainSite/
-├── index.html            # Semantic HTML5 portfolio markup
+├── index.html            # Home: Command hub, 3 disciplinary portals, and executive summary
+├── robotics.html         # Robotics: Zainiac 19, 2019 Philadelphia Maker Faire, STEAM Lab CAD & 3D prototyping
+├── aviation.html         # Aviation: Princeton MAE Joseph Henry Project research internship, Aerodynamics studies
+├── firefighting.html     # Firefighting: Junior volunteer firefighter service, Apparatus hydraulics & SCBA
+├── about.html            # About & Skills: Academic background, Capabilities matrix, Milestones timeline
+├── contact.html          # Contact: Direct inquiries desk, email and GitHub links
 ├── css/
-│   └── styles.css        # Engineering blueprint design system & responsive layout
+│   └── styles.css        # Multi-page design system with distinct visual themes per page
 ├── js/
-│   ├── projects-data.js  # Project specifications, metrics, and case studies
-│   └── app.js            # UI logic, modals, filtering, and theme controller
-└── README.md             # Documentation & deployment guide
+│   ├── app.js            # Theme toggle (Light/Dark) and mobile navigation controller
+│   └── projects-data.js  # Grounded structured data model
+└── README.md             # Project documentation & GitHub Pages deployment guide
 ```
+
+---
+
+## Core Focus Areas
+
+1. **Robotics & Fabrication (`robotics.html`)**
+   - ***Zainiac 19***: Custom mobile robot featured at the **2019 Philadelphia Maker Faire** in the Robotics category. Features custom chassis construction, motor control, and ultrasonic obstacle avoidance.
+   - **STEAM Lab Prototyping**: Parametric 3D CAD modeling (Onshape, Fusion 360) and additive manufacturing for functional mechanical assemblies at Princeton Day School.
+
+2. **Aviation & Aerodynamics Research (`aviation.html`)**
+   - **Princeton University (MAE Dept) - Joseph Henry Project**: Summer 2025 research internship under Professor Michael Littman studying and reconstructing historical 19th-century scientific electromechanical apparatus, electromagnetic induction, and electric motor physics.
+   - **Aeronautical & Flight Studies**: Airfoil aerodynamics, flight dynamics, lift/drag principles, and radio-controlled model aviation.
+
+3. **Volunteer Junior Firefighting & Field Operations (`firefighting.html`)**
+   - Active civic service as a junior volunteer firefighter.
+   - Applied mechanics and hydraulics: Fireground water supply, hoseline friction loss, Self-Contained Breathing Apparatus (SCBA) pneumatics, and apparatus maintenance.
+   - Operating under the Incident Command System (ICS), emphasizing safety-critical discipline and team coordination.
+
+4. **About & Technical Skills (`about.html`)**
+   - Background at Princeton Day School and aspiration to pursue a **B.S. in Mechanical Engineering**.
+   - Technical capabilities matrix covering Robotics & Hardware, CAD & Digital Fabrication, Aerodynamics & Research, and Fire Service & Safety.
+   - Chronological timeline tracking milestones from 2019 to senior year.
 
 ---
 
 ## Running Locally
 
-To preview the portfolio locally, run Python's built-in web server:
-
 ```bash
-# From the project root:
-python3 -m http.server 8000
+# Start a local HTTP server
+python3 -m http.server 3000
 ```
-
-Then open your browser to `http://localhost:8000`.
+Then open `http://localhost:3000` in your browser.
 
 ---
 
-## Deploying to GitHub Pages
+## Publishing to GitHub Pages
 
-To publish this portfolio to your GitHub repository and host it for free on GitHub Pages:
-
-1. **Commit and push to GitHub**:
-   ```bash
-   git add .
-   git commit -m "Build engineering portfolio for Zain Hamdia"
-   git push -u origin main
-   ```
-
-2. **Enable GitHub Pages**:
-   - Navigate to your repository on GitHub: `https://github.com/ZainHamdia/ZainPortfolio/settings/pages`
-   - Under **Build and deployment** > **Source**, select `Deploy from a branch`.
-   - Under **Branch**, select `main` and `/ (root)`, then click **Save**.
-   - Within 1–2 minutes, your portfolio will be live at:
-     `https://zainhamdia.github.io/ZainPortfolio/`
+```bash
+git add .
+git commit -m "Update aspiration to Mechanical Engineering across all pages"
+git push -u origin main
+```
+Enable GitHub Pages in your repository settings under **Pages** > **Deploy from a branch** > `main` / `root`.

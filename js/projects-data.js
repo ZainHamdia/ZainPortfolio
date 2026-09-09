@@ -6,13 +6,13 @@
 const PORTFOLIO_DATA = {
   profile: {
     name: "Zain Hamdia",
-    role: "High School Senior & Aspiring Aerospace Engineer",
+    role: "High School Senior & Aspiring Mechanical Engineer",
     school: "Princeton Day School",
     location: "Princeton, NJ",
     github: "https://github.com/ZainHamdia",
     repoUrl: "https://github.com/ZainHamdia/ZainPortfolio",
     email: "zainhamdia@gmail.com",
-    bio: "I am a high school senior at Princeton Day School with a focus on aerospace engineering, robotics, and community service. My experience spans building custom robotics—beginning with my first robot, Zainiac 19, which was featured at the 2019 Philadelphia Maker Faire—to interning at Princeton University's Department of Mechanical and Aerospace Engineering, and serving as a volunteer junior firefighter."
+    bio: "I am a high school senior at Princeton Day School with a focus on mechanical engineering, robotics, and community service. My experience spans building custom robotics—beginning with my first robot, Zainiac 19, which was featured at the 2019 Philadelphia Maker Faire—to interning at Princeton University's Department of Mechanical and Aerospace Engineering, and serving as a volunteer junior firefighter."
   },
 
   projects: [
@@ -65,11 +65,11 @@ const PORTFOLIO_DATA = {
       title: "Aviation & Aerodynamics Projects",
       subtitle: "Flight Principles & Aircraft Exploration",
       category: "aviation",
-      badge: "Aerospace",
+      badge: "Aerodynamics",
       date: "Ongoing",
-      summary: "Projects and study focused on aeronautical engineering, flight dynamics, model aircraft, and the physics of lift and stability.",
-      description: "Driven by a long-term goal of studying aerospace engineering in college, Zain undertakes projects exploring aerodynamics, wing profiles, and flight dynamics. This includes work with radio-controlled model aircraft and independent study of flight stability and propulsion.",
-      tags: ["Aviation", "Aerodynamics", "Aerospace Engineering", "Flight Dynamics"]
+      summary: "Projects and study focused on flight dynamics, model aircraft, aerodynamics, and fluid flow principles.",
+      description: "Driven by a long-term goal of studying mechanical engineering in college, Zain undertakes projects exploring aerodynamics, wing profiles, and flight dynamics. This includes work with radio-controlled model aircraft and independent study of flight stability and propulsion.",
+      tags: ["Aviation", "Aerodynamics", "Mechanical Engineering", "Flight Dynamics"]
     }
   ],
 
