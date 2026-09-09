@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zain Hamdia | Engineering Portfolio | Robotics • Aviation • Firefighting</title>
+  <meta name="description" content="Engineering portfolio of Zain Hamdia, high school senior and aspiring aerospace engineer. Showcasing robotics (Zainiac 19, Philadelphia Maker Faire), aviation & Princeton MAE research, and junior volunteer firefighting.">
+  <meta name="author" content="Zain Hamdia">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="Zain Hamdia | Engineering Portfolio">
+  <meta property="og:description" content="Robotics innovator, Princeton University MAE intern, and junior volunteer firefighter. Explore technical projects, CAD models, and flight prototypes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://github.com/ZainHamdia/ZainPortfolio">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Blueprint Grid Overlay & Ambient Lighting -->
+  <div class="blueprint-background" aria-hidden="true"></div>
+  <div class="ambient-glow glow-top-left" aria-hidden="true"></div>
+  <div class="ambient-glow glow-bottom-right" aria-hidden="true"></div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="#about" class="brand-logo" aria-label="Zain Hamdia Portfolio Home">
+        <div class="logo-badge">ZH</div>
+        <div class="brand-text">
+          <span class="brand-name">Zain Hamdia</span>
+          <span class="brand-sub">ENGINEERING // SENIOR</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#about" class="nav-link active">About</a></li>
+          <li><a href="#disciplines" class="nav-link">Disciplines</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#firefighting-callout" class="nav-link">Firefighting</a></li>
+          <li><a href="#skills" class="nav-link">Skills & Lab</a></li>
+          <li><a href="#timeline" class="nav-link">Timeline</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle-btn" class="btn-icon" aria-label="Toggle dark/light theme" title="Toggle Blueprint / Dark Mode">
+          <span id="theme-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </span>
+        </button>
+
+        <a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="GitHub Profile" title="GitHub Profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+
+        <button id="mobile-toggle" class="btn-icon mobile-toggle" aria-label="Toggle navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="about" class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-status-pill">
+          <span class="status-dot"></span>
+          <span>HIGH SCHOOL SENIOR • ASPIRING AEROSPACE ENGINEER</span>
+        </div>
+
+        <h1 class="hero-title">
+          Engineering the Future of <span class="highlight">Robotics & Flight</span>.
+        </h1>
+
+        <p class="hero-subtitle">
+          Zain Hamdia — Maker, Princeton MAE Intern & Junior Volunteer Firefighter
+        </p>
+
+        <p class="hero-bio">
+          I am a high school senior at Princeton Day School bridging physical hardware prototyping, autonomous robotics, and aeronautical systems. From engineering my first autonomous obstacle-detecting robot, <strong>Zainiac 19</strong>, for the <strong>Philadelphia Maker Faire</strong>, to conducting research in electromechanical physics at <strong>Princeton University's MAE Department</strong>, and serving my community in emergency operations as a <strong>volunteer junior firefighter</strong>—I build systems engineered for high-stakes reliability.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary">
+            <span>Explore Projects</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <button class="btn btn-secondary" onclick="openProjectModal('zainiac-19')">
+            <span>Inspect Zainiac 19 Specs</span>
+          </button>
+          <a href="#firefighting-callout" class="btn btn-fire">
+            <span>Firefighting & Field Ops</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero HUD / Telemetry Card -->
+      <aside class="hero-hud-card" aria-label="System Metrics & Telemetry">
+        <div class="hud-header">
+          <div class="hud-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            <span>CAD & FIELD TELEMETRY</span>
+          </div>
+          <span class="font-mono" style="font-size: 0.75rem; color: var(--accent-green);">// SYSTEM ONLINE</span>
+        </div>
+
+        <div class="hud-stats-grid" id="hud-stats-container">
+          <!-- Dynamically populated from PORTFOLIO_DATA.profile.stats -->
+        </div>
+
+        <div class="hud-telemetry-feed">
+          <div class="telemetry-row">
+            <span class="telemetry-key">CURRENT ROLE</span>
+            <span class="telemetry-val">Senior • PDS Class of '26</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-key">RESEARCH LAB</span>
+            <span class="telemetry-val">Princeton MAE Joseph Henry Project</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-key">FIRST ROBOT</span>
+            <span class="telemetry-val">Zainiac 19 (Philly Maker Faire)</span>
+          </div>
+          <div class="telemetry-row">
+            <span class="telemetry-key">CIVIC DEPLOYMENT</span>
+            <span class="telemetry-val">Junior Volunteer Firefighter</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 3 Disciplines Section -->
+  <section id="disciplines" class="pillars-section">
+    <div class="container">
+      <div class="tech-label">// DISCIPLINARY FOUNDATIONS</div>
+      <h2 class="section-title">Three Pillars of Technical Discipline</h2>
+      <p class="section-desc">
+        A multidisciplinary engineering approach integrating autonomous ground robotics, aerospace flight mechanics, and high-pressure emergency operations.
+      </p>
+
+      <div class="pillars-grid">
+        <div class="pillar-card robotics">
+          <div class="pillar-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" y1="16" x2="8" y2="16"></line><line x1="16" y1="16" x2="16" y2="16"></line></svg>
+          </div>
+          <h3 class="pillar-title">Robotics & Mechatronics</h3>
+          <p class="pillar-desc">
+            From founding <strong>Zainiac 19</strong> to multi-axis autonomous rovers, integrating embedded microcontrollers (ESP32/Arduino), PID motor control, and rapid additive prototyping in the STEAM Lab.
+          </p>
+          <div class="pillar-tag">// AUTONOMOUS SYSTEMS & DFAM</div>
+        </div>
+
+        <div class="pillar-card aviation">
+          <div class="pillar-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </div>
+          <h3 class="pillar-title">Aviation & Aerospace</h3>
+          <p class="pillar-desc">
+            Researching electromagnetic physics as an MAE intern at <strong>Princeton University</strong> and engineering custom fixed-wing RC flight models evaluated for airfoil efficiency and stability margins.
+          </p>
+          <div class="pillar-tag">// PRINCETON MAE & AERODYNAMICS</div>
+        </div>
+
+        <div class="pillar-card firefighting">
+          <div class="pillar-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+          </div>
+          <h3 class="pillar-title">Firefighting & Field Ops</h3>
+          <p class="pillar-desc">
+            Serving as an active <strong>Junior Volunteer Firefighter</strong>, mastering high-pressure hydraulics, SCBA life-support pneumatics, and strict protocol execution in life-critical operational environments.
+          </p>
+          <div class="pillar-tag">// HYDRAULICS & CRISIS LOGISTICS</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <div class="tech-label">// SUBSYSTEMS & REPOSITORIES</div>
+      <h2 class="section-title">Featured Engineering Projects</h2>
+      <p class="section-desc">
+        Click on any project to inspect full subsystem schematics, component bills of materials, and engineering trade-offs.
+      </p>
+
+      <div class="projects-filter-bar">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="robotics">Robotics & Prototyping</button>
+        <button class="filter-btn" data-filter="aviation">Aviation & Aerospace</button>
+        <button class="filter-btn" data-filter="firefighting">Firefighting & Field Ops</button>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+        <!-- Dynamically rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Firefighting & High-Stress Field Engineering Feature -->
+  <section id="firefighting-callout" class="container">
+    <div class="firefighting-callout">
+      <div class="fire-callout-grid">
+        <div>
+          <div class="tech-label" style="color: #f87171;">// COMMUNITY IMPACT & FIELD RELIABILITY</div>
+          <h2 class="fire-callout-title">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+            Junior Volunteer Firefighter Service
+          </h2>
+          <p class="fire-callout-desc">
+            Civilian emergency response is one of the most demanding engineering environments on earth. As a junior volunteer firefighter, Zain operates at the intersection of mechanical reliability and life-safety. Every deployment requires understanding fluid dynamics under pressure (friction loss in 1.75" attack lines at 150+ PSI), pneumatic regulation in Self-Contained Breathing Apparatus (SCBA) pressurized to 4,500 PSI, and deploying hydraulic rescue tools operating at 10,000+ PSI.
+          </p>
+          <p class="fire-callout-desc">
+            This operational background instills a profound commitment to checklist discipline, failure mode and effects analysis (FMEA), and rapid decision-making—directly reinforcing the precision demanded in aerospace and robotics engineering.
+          </p>
+          <button class="btn btn-fire" onclick="openProjectModal('volunteer-firefighting')">
+            <span>Inspect Firefighting Technical Specs</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+
+        <div class="fire-metrics-box">
+          <div class="fire-metric-row">
+            <span class="fire-metric-label">HOSELINE DISCHARGE</span>
+            <span class="fire-metric-value">150–200 GPM @ 100 PSI</span>
+          </div>
+          <div class="fire-metric-row">
+            <span class="fire-metric-label">SCBA CYLINDER PRESSURE</span>
+            <span class="fire-metric-value">4,500 PSI Carbon Composite</span>
+          </div>
+          <div class="fire-metric-row">
+            <span class="fire-metric-label">HYDRAULIC TOOL RATING</span>
+            <span class="fire-metric-value">10,500 PSI Operating Pressure</span>
+          </div>
+          <div class="fire-metric-row">
+            <span class="fire-metric-label">INCIDENT COMMAND SYSTEM</span>
+            <span class="fire-metric-value">ICS Protocol Compliant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Matrix & Laboratory Toolkit -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <div class="tech-label">// LABORATORY TOOLKIT & PROFICIENCIES</div>
+      <h2 class="section-title">Technical Capabilities Matrix</h2>
+      <p class="section-desc">
+        Comprehensive software, firmware, and physical fabrication proficiencies developed across school laboratories, university research, and personal workshop builds.
+      </p>
+
+      <div class="skills-tabs">
+        <button class="skill-tab-btn active" data-skill-cat="mechanical">CAD & Rapid Prototyping</button>
+        <button class="skill-tab-btn" data-skill-cat="electrical">Embedded Systems & Firmware</button>
+        <button class="skill-tab-btn" data-skill-cat="aerospace">Aeronautical & Physics</button>
+        <button class="skill-tab-btn" data-skill-cat="fieldOps">Emergency & Field Ops</button>
+      </div>
+
+      <div class="skills-content-panel" id="skills-panel">
+        <!-- Dynamically rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Engineering Timeline -->
+  <section id="timeline" class="timeline-section">
+    <div class="container">
+      <div class="tech-label">// CHRONOLOGICAL TRAJECTORY</div>
+      <h2 class="section-title">Engineering Milestones</h2>
+      <p class="section-desc">
+        Key developmental milestones tracking Zain's progression from early maker exhibits to university laboratory research.
+      </p>
+
+      <div class="timeline-container" id="timeline-container">
+        <!-- Dynamically rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Collaboration -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-card">
+        <div class="tech-label">// INQUIRIES & ADMISSIONS</div>
+        <h2 class="contact-title">Connect & Collaborate</h2>
+        <p class="contact-desc">
+          Interested in discussing aerospace engineering research, robotics fabrication, or university admissions? Reach out directly or explore my open-source code repositories.
+        </p>
+
+        <div class="contact-links">
+          <a href="mailto:zainhamdia@gmail.com" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Email Zain Hamdia</span>
+          </a>
+
+          <a href="https://github.com/ZainHamdia/ZainPortfolio" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+            <span>GitHub Repository</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div>
+        <span>© 2026 Zain Hamdia. All technical schematics & project records documented.</span>
+      </div>
+      <div class="footer-links">
+        <a href="#about">Top</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Engineering Spec Sheet Modal -->
+  <div id="project-modal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div>
+          <div class="modal-badge font-mono" id="modal-badge">// SUBSYSTEM DATA</div>
+          <h2 class="modal-title" id="modal-title">Project Title</h2>
+        </div>
+        <button id="btn-close-modal" class="btn-close-modal" aria-label="Close modal window">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/projects-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
