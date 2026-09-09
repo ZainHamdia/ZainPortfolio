@@ -5,241 +5,213 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zain Hamdia | Engineering Portfolio</title>
   <meta name="description" content="Engineering portfolio of Zain Hamdia — High school senior at Princeton Day School, aspiring aerospace engineer, robotics maker, and volunteer junior firefighter.">
-  <meta name="author" content="Zain Hamdia">
-  
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
   <!-- Site Header -->
   <header class="site-header">
-    <div class="container header-content">
-      <a href="#" class="brand-link">Zain Hamdia</a>
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link">
+        <div class="brand-badge">ZH</div>
+        <div>
+          <div class="brand-text-name">Zain Hamdia</div>
+          <div class="brand-text-sub">Engineering Portfolio</div>
+        </div>
+      </a>
+
       <nav aria-label="Main Navigation">
-        <ul class="nav-links">
-          <li><a href="#robotics">Robotics</a></li>
-          <li><a href="#aviation">Aviation</a></li>
-          <li><a href="#firefighting">Firefighting</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="robotics.html" class="nav-link">Robotics</a></li>
+          <li><a href="aviation.html" class="nav-link">Aviation</a></li>
+          <li><a href="firefighting.html" class="nav-link">Firefighting</a></li>
+          <li><a href="about.html" class="nav-link">About & Skills</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
           <li>
-            <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+            <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle theme">
               <span id="theme-icon">Dark</span>
             </button>
           </li>
         </ul>
       </nav>
+
+      <button id="mobile-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </header>
 
-  <main class="container">
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <h1 class="hero-name">Zain Hamdia</h1>
-      <p class="hero-role">High School Senior & Aspiring Aerospace Engineer • Princeton Day School</p>
-      <p class="hero-bio">
-        I am a high school senior with a passion for aerospace engineering, hands-on robotics, and community service. My experience includes designing and building custom robots—including my first robot, Zainiac 19, which was exhibited at the 2019 Philadelphia Maker Faire—conducting research at Princeton University's Department of Mechanical and Aerospace Engineering, and serving as a volunteer junior firefighter.
-      </p>
-      <div class="hero-links">
-        <a href="mailto:zainhamdia@gmail.com" class="btn-link primary">Get in Touch</a>
-        <a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer" class="btn-link outline">GitHub Profile</a>
-        <a href="https://github.com/ZainHamdia/ZainPortfolio" target="_blank" rel="noopener noreferrer" class="btn-link outline">View Repository</a>
-      </div>
-    </section>
-
-    <!-- Robotics Section -->
-    <section id="robotics" class="section">
-      <h2 class="section-heading">Robotics</h2>
-      <p class="section-intro">
-        Projects in mobile robotics, chassis design, motor controls, and rapid prototyping.
-      </p>
-
-      <div class="project-list">
-        <!-- Zainiac 19 -->
-        <article class="project-item">
-          <div class="project-header">
-            <h3 class="project-title">Zainiac 19</h3>
-            <span class="project-meta">2019 • Featured at Philadelphia Maker Faire</span>
-          </div>
-          <div class="project-subtitle">First Custom Robot • Autonomous & Mobile Platform</div>
-          <p class="project-text">
-            Zainiac 19 was Zain's first major robotics project, developed out of a drive to design and construct a functioning mobile robot from scratch. The build featured a custom chassis, motor driver integration, and ultrasonic obstacle avoidance. In 2019, Zain was selected as a featured maker at the Philadelphia Maker Faire, where he exhibited Zainiac 19 live to attendees in the Robotics category.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Robotics</span>
-            <span class="tag">Chassis Assembly</span>
-            <span class="tag">Motor Control</span>
-            <span class="tag">Ultrasonic Sensing</span>
-            <span class="tag">2019 Philadelphia Maker Faire</span>
-          </div>
-        </article>
-
-        <!-- STEAM Lab Prototyping -->
-        <article class="project-item">
-          <div class="project-header">
-            <h3 class="project-title">STEAM Lab CAD & Prototyping</h3>
-            <span class="project-meta">Princeton Day School</span>
-          </div>
-          <div class="project-subtitle">3D CAD Modeling & Additive Manufacturing</div>
-          <p class="project-text">
-            Active in Princeton Day School's STEAM Lab and personal workshop, designing 3D models and fabricating functional parts for engineering ideas. Work includes parametric modeling in CAD tools (Onshape, Fusion 360) and 3D printing custom brackets, mounts, and mechanical assemblies.
-          </p>
-          <div class="tag-list">
-            <span class="tag">CAD Modeling</span>
-            <span class="tag">3D Printing</span>
-            <span class="tag">Rapid Prototyping</span>
-            <span class="tag">Hardware Design</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Aviation & Aerospace Section -->
-    <section id="aviation" class="section">
-      <h2 class="section-heading">Aviation & Aerospace</h2>
-      <p class="section-intro">
-        Research in mechanical and aerospace engineering, flight principles, and aerodynamics.
-      </p>
-
-      <div class="project-list">
-        <!-- Joseph Henry Project -->
-        <article class="project-item">
-          <div class="project-header">
-            <h3 class="project-title">Joseph Henry Project</h3>
-            <span class="project-meta">Summer 2025 • Princeton University</span>
-          </div>
-          <div class="project-subtitle">Department of Mechanical and Aerospace Engineering (MAE)</div>
-          <p class="project-text">
-            During the summer of 2025, Zain participated as a high school research intern in the Joseph Henry Project within Princeton University's Department of Mechanical and Aerospace Engineering under Professor Michael Littman. The project involves historical engineering reconstruction—studying and rebuilding the scientific electromechanical apparatus and motors invented by 19th-century physicist Joseph Henry, connecting historical physics principles with modern engineering concepts.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Princeton University</span>
-            <span class="tag">MAE Research</span>
-            <span class="tag">Electromechanical Systems</span>
-            <span class="tag">Apparatus Reconstruction</span>
-            <span class="tag">Physics</span>
-          </div>
-        </article>
-
-        <!-- Aviation & Aerodynamics Projects -->
-        <article class="project-item">
-          <div class="project-header">
-            <h3 class="project-title">Aviation & Aerodynamics Studies</h3>
-            <span class="project-meta">Aerospace Exploration</span>
-          </div>
-          <div class="project-subtitle">Flight Principles & Aircraft Dynamics</div>
-          <p class="project-text">
-            Focused on preparing for undergraduate studies in aerospace engineering, exploring aircraft aerodynamics, lift and drag behavior, wing geometry, and radio-controlled model aviation.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Aerodynamics</span>
-            <span class="tag">Flight Dynamics</span>
-            <span class="tag">Aerospace Engineering</span>
-            <span class="tag">Model Aircraft</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Firefighting Section -->
-    <section id="firefighting" class="section">
-      <h2 class="section-heading">Firefighting & Community Service</h2>
-      <p class="section-intro">
-        Hands-on emergency response, apparatus operations, and safety-critical teamwork.
-      </p>
-
-      <div class="project-list">
-        <article class="project-item">
-          <div class="project-header">
-            <h3 class="project-title">Volunteer Junior Firefighter</h3>
-            <span class="project-meta">Active Service</span>
-          </div>
-          <div class="project-subtitle">Community Emergency Response & Apparatus Readiness</div>
-          <p class="project-text">
-            Zain serves as a junior volunteer firefighter, assisting in community emergency service and department readiness. Responsibilities and training include operating within the Incident Command System (ICS), training on fire service apparatus and tools, understanding water supply and hoseline deployment, and practicing safety procedures including Self-Contained Breathing Apparatus (SCBA) protocols.
-          </p>
-          <p class="project-text">
-            This experience reinforces practical discipline, methodical safety checks, and steady communication in demanding, fast-paced environments.
-          </p>
-          <div class="tag-list">
-            <span class="tag">Volunteer Service</span>
-            <span class="tag">Emergency Response</span>
-            <span class="tag">Apparatus Operations</span>
-            <span class="tag">Safety Protocols</span>
-            <span class="tag">Team Coordination</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- Technical Skills Section -->
-    <section id="skills" class="section">
-      <h2 class="section-heading">Technical Skills & Areas of Focus</h2>
-      <p class="section-intro">
-        Summary of hands-on tools, engineering concepts, and practical experience.
-      </p>
-
-      <div class="skills-grid">
-        <div class="skill-category-card">
-          <h3 class="skill-cat-title">Robotics & Fabrication</h3>
-          <ul class="skill-items-list">
-            <li>Robot assembly & mechanical integration</li>
-            <li>Microcontrollers (Arduino, basic electronics)</li>
-            <li>Motor control & sensor interfacing</li>
-            <li>Soldering, wiring, and hardware troubleshooting</li>
-          </ul>
+  <main>
+    <!-- Home Hero -->
+    <section class="home-hero">
+      <div class="container">
+        <div class="home-hero-badge">
+          <span class="badge-dot"></span>
+          <span>High School Senior • Princeton Day School • Class of 2026</span>
         </div>
 
-        <div class="skill-category-card">
-          <h3 class="skill-cat-title">CAD & Prototyping</h3>
-          <ul class="skill-items-list">
-            <li>3D CAD modeling (Onshape, Fusion 360)</li>
-            <li>3D printing & slicing (FDM)</li>
-            <li>Laser cutting basics</li>
-            <li>Iterative prototyping in STEAM Lab</li>
-          </ul>
-        </div>
+        <h1 class="home-hero-title">
+          Aspiring Aerospace Engineer, Maker & <span>Community Volunteer</span>.
+        </h1>
 
-        <div class="skill-category-card">
-          <h3 class="skill-cat-title">Aerospace & Research</h3>
-          <ul class="skill-items-list">
-            <li>Principles of aerodynamics and flight dynamics</li>
-            <li>Historical scientific apparatus reconstruction</li>
-            <li>Electromechanical laboratory research (Princeton MAE)</li>
-            <li>Scientific documentation & experimental analysis</li>
-          </ul>
-        </div>
+        <p class="home-hero-bio">
+          I am a high school senior with a dedicated focus on aerospace engineering, hands-on robotics, and public service. From building my first custom robot, <strong>Zainiac 19</strong>, and showcasing it at the <strong>2019 Philadelphia Maker Faire</strong>, to interning in the <strong>Department of Mechanical and Aerospace Engineering at Princeton University</strong>, and serving as an active <strong>volunteer junior firefighter</strong>—I focus on building systems engineered for real-world reliability.
+        </p>
 
-        <div class="skill-category-card">
-          <h3 class="skill-cat-title">Fire Service & Leadership</h3>
-          <ul class="skill-items-list">
-            <li>Junior volunteer firefighting operations</li>
-            <li>Incident Command System (ICS) structure</li>
-            <li>Apparatus equipment checks & maintenance</li>
-            <li>Safety protocol compliance & teamwork under pressure</li>
-          </ul>
+        <div class="home-hero-actions">
+          <a href="robotics.html" class="btn btn-primary">Explore Robotics Projects</a>
+          <a href="aviation.html" class="btn btn-secondary">Aviation & Research</a>
+          <a href="firefighting.html" class="btn btn-secondary">Firefighting Service</a>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
-      <h2 class="section-heading">Contact</h2>
-      <p class="contact-text">
-        Feel free to reach out regarding aerospace engineering, robotics projects, or academic inquiries.
-      </p>
-      <div class="hero-links">
-        <a href="mailto:zainhamdia@gmail.com" class="btn-link primary">zainhamdia@gmail.com</a>
-        <a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer" class="btn-link outline">GitHub: @ZainHamdia</a>
+    <!-- 3 Core Disciplines (Multi-Page Navigation) -->
+    <section class="disciplines-section">
+      <div class="container">
+        <div class="section-label">Core Focus Areas</div>
+        <h2 class="section-heading">Three Areas of Engineering Discipline</h2>
+        <p class="section-description">
+          A balanced foundation combining autonomous mobile robotics, university-level aerospace research, and high-stress field emergency operations.
+        </p>
+
+        <div class="disciplines-grid">
+          <!-- Card 1: Robotics -->
+          <div class="discipline-card robotics">
+            <div>
+              <div class="card-icon">🤖</div>
+              <h3 class="card-title">Robotics & Fabrication</h3>
+              <p class="card-text">
+                From developing <strong>Zainiac 19</strong> for the 2019 Philadelphia Maker Faire to iterative CAD design and 3D prototyping in the school STEAM Lab.
+              </p>
+            </div>
+            <a href="robotics.html" class="card-link">View Robotics Page →</a>
+          </div>
+
+          <!-- Card 2: Aviation -->
+          <div class="discipline-card aviation">
+            <div>
+              <div class="card-icon">✈️</div>
+              <h3 class="card-title">Aviation & Aerospace</h3>
+              <p class="card-text">
+                Summer 2025 research intern for the <strong>Joseph Henry Project</strong> in Princeton University's MAE department and independent aerodynamic flight studies.
+              </p>
+            </div>
+            <a href="aviation.html" class="card-link">View Aviation Page →</a>
+          </div>
+
+          <!-- Card 3: Firefighting -->
+          <div class="discipline-card firefighting">
+            <div>
+              <div class="card-icon">🚒</div>
+              <h3 class="card-title">Volunteer Firefighting</h3>
+              <p class="card-text">
+                Active service as a <strong>junior volunteer firefighter</strong>, mastering fireground apparatus, hydraulics, safety procedures, and high-pressure team execution.
+              </p>
+            </div>
+            <a href="firefighting.html" class="card-link">View Firefighting Page →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Summary -->
+    <section class="section" style="padding: 56px 0;">
+      <div class="container">
+        <div class="section-label">Featured Highlights</div>
+        <h2 class="section-heading">Selected Projects & Research</h2>
+        <p class="section-description">
+          Detailed case studies across robotics, scientific apparatus reconstruction, and civic emergency operations.
+        </p>
+
+        <div class="project-list">
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title"><a href="robotics.html#zainiac-19">Zainiac 19 (Maker Faire Featured)</a></h3>
+              <span class="project-meta">2019 • Robotics</span>
+            </div>
+            <div class="project-subtitle">First Custom Robot • Autonomous & Mobile Navigation</div>
+            <p class="project-text">
+              Zain's foundational robotics project, built with a custom chassis, motor driver circuits, and ultrasonic obstacle avoidance. Selected as an official maker exhibit at the 2019 Philadelphia Maker Faire in the Robotics category.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Robotics</span>
+              <span class="tag">Maker Faire 2019</span>
+              <span class="tag">Chassis Fabrication</span>
+              <span class="tag">Motor Controls</span>
+            </div>
+          </article>
+
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title"><a href="aviation.html#joseph-henry">Joseph Henry Project Internship</a></h3>
+              <span class="project-meta">Summer 2025 • Princeton University MAE</span>
+            </div>
+            <div class="project-subtitle">Department of Mechanical and Aerospace Engineering</div>
+            <p class="project-text">
+              Researched and reconstructed historic 19th-century scientific electromechanical apparatus under Professor Michael Littman, investigating fundamental electromagnetic physics, coil winding mechanics, and actuator principles.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Princeton University</span>
+              <span class="tag">Aerospace Research</span>
+              <span class="tag">Electromechanical Physics</span>
+            </div>
+          </article>
+
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title"><a href="firefighting.html#service">Volunteer Junior Firefighter Service</a></h3>
+              <span class="project-meta">Active Service • Community Fire Company</span>
+            </div>
+            <div class="project-subtitle">Emergency Response, Apparatus Operations & Life Safety</div>
+            <p class="project-text">
+              Serving the community through regular drills, apparatus readiness, water supply hoseline deployment, and safety-critical protocol compliance under the Incident Command System.
+            </p>
+            <div class="tag-list">
+              <span class="tag">Junior Volunteer</span>
+              <span class="tag">Emergency Response</span>
+              <span class="tag">Apparatus Operations</span>
+              <span class="tag">ICS Safety</span>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Site Footer -->
   <footer class="site-footer">
-    <div class="container footer-content">
-      <span>© 2026 Zain Hamdia • Engineering Portfolio</span>
-      <span>Princeton Day School</span>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-text-name" style="margin-bottom: 6px;">Zain Hamdia</div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
+            High school senior at Princeton Day School and aspiring aerospace engineer with experience in robotics, research, and emergency service.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Portfolio Pages</div>
+          <ul class="footer-col-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="robotics.html">Robotics</a></li>
+            <li><a href="aviation.html">Aviation & Aerospace</a></li>
+            <li><a href="firefighting.html">Firefighting</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Connect & Links</div>
+          <ul class="footer-col-links">
+            <li><a href="about.html">About & Skills</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer">GitHub Profile</a></li>
+            <li><a href="https://github.com/ZainHamdia/ZainPortfolio" target="_blank" rel="noopener noreferrer">Repository</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Zain Hamdia. All rights reserved.</span>
+        <span>Princeton Day School • Princeton, NJ</span>
+      </div>
     </div>
   </footer>
 

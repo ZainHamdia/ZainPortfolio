@@ -1,17 +1,18 @@
 /**
- * Zain Hamdia - Engineering Portfolio
- * Minimal theme switcher and interactions
+ * Zain Hamdia - Engineering Portfolio UI Script
+ * Theme switcher and mobile navigation handling across all pages
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
+  initMobileNav();
 });
 
+/* Theme Switcher */
 function initTheme() {
   const toggleBtn = document.getElementById('theme-toggle-btn');
   const themeIcon = document.getElementById('theme-icon');
   
-  // Check preference or saved theme
   const savedTheme = localStorage.getItem('zh_theme') || 
     (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 
@@ -31,5 +32,17 @@ function initTheme() {
     if (themeIcon) {
       themeIcon.textContent = theme === 'dark' ? 'Light' : 'Dark';
     }
+  }
+}
+
+/* Mobile Menu Navigation */
+function initMobileNav() {
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navMenu = document.getElementById('nav-menu');
+
+  if (mobileToggle && navMenu) {
+    mobileToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
   }
 }
