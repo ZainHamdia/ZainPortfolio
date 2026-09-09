@@ -1,94 +1,143 @@
 /**
  * Zain Hamdia - Engineering Portfolio Data
- * Grounded strictly in verified information
+ * 100% Grounded in Official Resume & Verified Information
  */
 
 const PORTFOLIO_DATA = {
   profile: {
     name: "Zain Hamdia",
-    role: "High School Senior & Aspiring Mechanical Engineer",
+    tagline: "Engineering & Robotics Student | Builder | Innovator | Junior Firefighter",
+    aspiring: "Aspiring Mechanical Engineer",
     school: "Princeton Day School",
-    location: "Princeton, NJ",
+    expectedGraduation: "2027",
     github: "https://github.com/ZainHamdia",
     repoUrl: "https://github.com/ZainHamdia/ZainPortfolio",
-    email: "zainhamdia@gmail.com",
-    bio: "I am a high school senior at Princeton Day School with a focus on mechanical engineering, robotics, and community service. My experience spans building custom robotics—beginning with my first robot, Zainiac 19, which was featured at the 2019 Philadelphia Maker Faire—to interning at Princeton University's Department of Mechanical and Aerospace Engineering, and serving as a volunteer junior firefighter."
+    email: "zainhamdia@gmail.com"
   },
 
-  projects: [
+  experience: [
     {
-      id: "zainiac-19",
-      title: "Zainiac 19",
-      subtitle: "First Custom Robot • 2019 Philadelphia Maker Faire",
-      category: "robotics",
-      badge: "Maker Faire 2019",
-      date: "2019",
-      summary: "Zain's first custom-built robot, designed for mobile navigation and exhibited at the 2019 Philadelphia Maker Faire in the Robotics category.",
-      description: "Zainiac 19 was Zain's first major robotics build, sparked by an early interest in hardware and mechanical design. Built as a mobile robotics platform, it incorporated custom chassis assembly, motor control, and obstacle detection. The project was selected for exhibition at the 2019 Philadelphia Maker Faire, where Zain presented the robot live to event attendees in the Robotics category.",
-      tags: ["Robotics", "Chassis Design", "Motor Control", "Maker Faire 2019", "Public Exhibition"]
+      organization: "Montgomery Township Volunteer Fire Company #2",
+      role: "Technology & Engineering Intern",
+      period: "Summer 2026 – Present",
+      bullets: [
+        "Leading the redesign and development of the fire company’s public website, transforming the existing site into a modern, accessible resource for department information, membership, community engagement, and recruitment.",
+        "Designing and building a Raspberry Pi-based digital information system for permanent use in the station’s radio room, integrating operational information, weather radar and forecasts, emergency alerts, news, and station communications into a centralized dashboard.",
+        "Engineering a custom wall-mounted enclosure for an 11-inch display and Raspberry Pi using CAD and 3D printing, incorporating ventilation, cable management, mounting hardware, and access to power and network connections.",
+        "Developing the system from requirements gathering and design through software/hardware integration, prototyping, reliability testing, installation, firefighter feedback, and technical documentation."
+      ]
     },
     {
-      id: "joseph-henry-project",
-      title: "Joseph Henry Project",
-      subtitle: "Princeton University • Department of Mechanical & Aerospace Engineering",
-      category: "aviation",
-      badge: "Princeton MAE Internship",
-      date: "Summer 2025",
-      summary: "Summer research internship in Princeton University's MAE department studying and reconstructing historical scientific electromechanical apparatus.",
-      description: "During the summer of 2025, Zain interned with the Joseph Henry Project in the Department of Mechanical and Aerospace Engineering at Princeton University under Professor Michael Littman. The project focuses on historical engineering reconstruction—investigating the physical apparatus, motors, and electromagnetic experiments developed by 19th-century physicist Joseph Henry. The work combined laboratory study, physics principles, and precision electromechanical modeling.",
-      tags: ["Research Internship", "Princeton University", "Electromechanical Systems", "Physics", "MAE"]
+      organization: "Montgomery Township Volunteer Fire Company #2",
+      role: "Junior Firefighter",
+      period: "July 2025 – Present",
+      bullets: [
+        "Participate in firefighter training, station operations, emergency response activities, and community service as a member of the department's Junior Firefighter Program.",
+        "Leading an initiative to redesign and strengthen the department's Junior Firefighter Program, including updating online information on junior firefighting, streamlining the process for certifying Juniors to respond, and making the mentor-finding process easier between all the firefighters."
+      ]
     },
     {
-      id: "volunteer-firefighting",
-      title: "Volunteer Junior Firefighting",
-      subtitle: "Emergency Response & Apparatus Training",
-      category: "firefighting",
-      badge: "Community Service",
-      date: "Active Service",
-      summary: "Serving the local community in a junior volunteer capacity, participating in emergency training, apparatus readiness, and teamwork under pressure.",
-      description: "Zain serves as a junior volunteer firefighter, contributing to local community safety and emergency response operations. The experience involves hands-on training with fire service apparatus, understanding fluid flow in hoselines, mastering safety procedures (including Self-Contained Breathing Apparatus protocols), and working effectively as a disciplined team under the Incident Command System.",
-      tags: ["Volunteer Firefighter", "Emergency Services", "Apparatus Operations", "Safety Protocols", "Team Leadership"]
+      organization: "Ivy Tutoring",
+      role: "Software/Technology Intern",
+      period: "Summer 2026 – Present",
+      bullets: [
+        "Develop and enhance features for a startup SAT preparation platform using JavaScript, Java, and C++.",
+        "Built functionality enabling users to log and track SAT practice and test scores over time.",
+        "Developed AI-powered features that analyze prior performance to identify areas for improvement and generate personalized study recommendations.",
+        "Created customized flashcards and practice exercises using the College Board’s existing question bank.",
+        "Developed proficiency in Google Antigravity as part of the platform’s development and enhancement."
+      ]
     },
     {
-      id: "steam-lab-prototyping",
-      title: "STEAM Lab Prototyping & 3D Design",
-      subtitle: "Princeton Day School",
-      category: "robotics",
-      badge: "Fabrication",
-      date: "Ongoing",
-      summary: "Using CAD modeling and 3D printing in the Princeton Day School STEAM Lab and home workshop to design and fabricate functional parts.",
-      description: "An active builder at Princeton Day School's STEAM Lab, Zain designs 3D models and manufactures physical prototypes. Projects involve CAD modeling (Onshape, Fusion 360) and 3D printing functional components, brackets, and mechanisms for robotics and engineering ideas.",
-      tags: ["CAD Modeling", "3D Printing", "Rapid Prototyping", "PDS STEAM Lab"]
+      organization: "Princeton University Laboratory Learning Program",
+      role: "Summer Research Intern",
+      period: "Summer 2025",
+      bullets: [
+        "Participated in the Joseph Henry Project research program.",
+        "Conducted scientific research and contributed to academic project work."
+      ]
     },
     {
-      id: "aviation-projects",
-      title: "Aviation & Aerodynamics Projects",
-      subtitle: "Flight Principles & Aircraft Exploration",
-      category: "aviation",
-      badge: "Aerodynamics",
-      date: "Ongoing",
-      summary: "Projects and study focused on flight dynamics, model aircraft, aerodynamics, and fluid flow principles.",
-      description: "Driven by a long-term goal of studying mechanical engineering in college, Zain undertakes projects exploring aerodynamics, wing profiles, and flight dynamics. This includes work with radio-controlled model aircraft and independent study of flight stability and propulsion.",
-      tags: ["Aviation", "Aerodynamics", "Mechanical Engineering", "Flight Dynamics"]
+      organization: "True Value",
+      role: "Part-Time Associate",
+      period: "July 2026 – Present",
+      bullets: [
+        "Assist customers with product questions, merchandise selection, and general store needs in a customer-facing retail environment.",
+        "Stock and organize new merchandise and support day-to-day store operations while balancing ongoing school, extracurricular, and community commitments."
+      ]
     }
   ],
 
-  skills: [
+  projects: [
     {
-      category: "Robotics & Hardware",
-      items: ["Robot Assembly", "Microcontroller Integration", "Motor Drivers & Actuators", "Sensor Interfacing", "Soldering & Wiring"]
+      id: "zainiac-series",
+      title: "Zainiac Robot Series — Zainiac 19, Zainiac 21 & Zainiac 25",
+      category: "robotics",
+      description: "Designed and built multiple original robots incorporating mechanical design, electronics, programming, fabrication, and iterative prototyping.",
+      tags: ["Mechanical Design", "Electronics", "Programming", "Fabrication", "Iterative Prototyping"]
     },
     {
-      category: "CAD & Prototyping",
-      items: ["3D CAD (Onshape, Fusion 360)", "3D Printing (FDM)", "Laser Cutting", "Rapid Prototyping", "Design for Fabrication"]
+      id: "little-bot-noggin",
+      title: "Little Bot & Noggin",
+      category: "robotics",
+      description: "Developed independent robotic projects exploring design, movement, hardware integration, and controls.",
+      tags: ["Robotics", "Hardware Integration", "Movement", "Controls"]
     },
     {
-      category: "Aviation & Research",
-      items: ["Aerodynamics Basics", "Historical Apparatus Reconstruction", "Electromechanical Physics", "Laboratory Research", "Scientific Documentation"]
+      id: "flight-simulator",
+      title: "3D-Printed Flight Simulator",
+      category: "aviation",
+      description: "Designed and constructed a flight simulator incorporating custom-designed and 3D-printed components.",
+      tags: ["Flight Simulator", "CAD Design", "3D Printing", "Mechanical Assembly"]
     },
     {
-      category: "Fire Service & Leadership",
-      items: ["Junior Volunteer Firefighter", "Incident Command System (ICS)", "Apparatus & Equipment Handling", "SCBA Protocols", "Emergency Teamwork"]
+      id: "n95-masks",
+      title: "3D-Printed N95 Masks (COVID-19 Relief)",
+      category: "robotics",
+      description: "Designed and produced 3D-printed N95 masks donated to a New York cancer center during the COVID-19 pandemic.",
+      tags: ["3D Printing", "CAD", "Healthcare Donation", "Community Service"]
+    },
+    {
+      id: "radio-room-system",
+      title: "Radio Room Digital Dashboard & Custom Enclosure",
+      category: "firefighting",
+      description: "Raspberry Pi-based operational information system and custom CAD-designed 3D-printed wall enclosure for an 11-inch display at Montgomery Township Volunteer Fire Company #2.",
+      tags: ["Raspberry Pi", "CAD", "3D Printing", "Hardware Integration", "MTVFC #2"]
     }
-  ]
+  ],
+
+  exhibitions: [
+    "Brussels Maker Faire (Featured on Belgian national news & opening ceremony with Brussels government leadership)",
+    "Philadelphia Maker Faire",
+    "Rochester Maker Faire",
+    "Cairo Maker Faire",
+    "Tandem Industrial Design Conference at Jefferson University"
+  ],
+
+  leadership: [
+    { role: "Co-President, Robotics Club", entity: "Princeton Day School", period: "2025–Present" },
+    { role: "Head of Design Team, Robotics Club", entity: "Princeton Day School", period: "2024–2025", note: "Led design efforts resulting in a 6th-place finish at the February 2025 Robotics Competition." },
+    { role: "Co-President, Maker Club", entity: "Princeton Day School", period: "2024–Present" },
+    { role: "Co-President, Moslem Student Association", entity: "Princeton Day School", period: "2024–Present" }
+  ],
+
+  publications: [
+    "“Virtual Reality, Just What the Doctor Ordered”",
+    "“The Clandestine Side of 3D Printing”",
+    "“Have We Been Here Before?”",
+    "“From COVID-19 to Zainiac 19”"
+  ],
+
+  recognition: [
+    "PSAT National Recognition Program — Rural and Small Town Recognition Award",
+    "Vex V5 Robotics Competition — Quarterfinalist, 2026",
+    "Vex V5 Robotics Competition — 6th Place, 2025",
+    "Featured on Belgian national news following participation in the Brussels Maker Faire, participating in the opening ceremony alongside Brussels government leadership."
+  ],
+
+  skills: {
+    programming: ["Python", "Java", "JavaScript", "C++", "Arduino"],
+    designEngineering: ["Fusion 360", "CAD", "Robotics Design", "3D Printing", "Prototyping"],
+    appliedTechnology: ["Raspberry Pi", "Hardware Integration", "Web Development"]
+  }
 };

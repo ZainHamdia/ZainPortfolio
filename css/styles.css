@@ -962,6 +962,31 @@ a:hover {
   line-height: 1.6;
 }
 
+/* Info Gap Prompt Box (Asking for specific user media / details) */
+.info-gap-box {
+  background-color: var(--bg-surface);
+  border: 1px dashed var(--border-strong);
+  border-left: 3px solid var(--accent-theme, var(--brand-blue));
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.info-gap-box .gap-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.info-gap-box strong {
+  color: var(--text-primary);
+}
+
 /* Contact Page Layout */
 .contact-layout {
   max-width: 680px;
