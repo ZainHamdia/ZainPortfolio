@@ -7,7 +7,7 @@
   <meta name="description" content="Robotics projects by Zain Hamdia, including Zainiac 19 featured at the 2019 Philadelphia Maker Faire and STEAM Lab CAD rapid prototyping.">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="theme-robotics">
 
   <!-- Header -->
   <header class="site-header">
@@ -41,7 +41,7 @@
   </header>
 
   <main>
-    <!-- Page Hero -->
+    <!-- Page Hero (Workshop & CAD Grid Style) -->
     <section class="page-hero">
       <div class="container">
         <div class="breadcrumb-nav">
@@ -49,10 +49,12 @@
           <span>/</span>
           <span>Robotics</span>
         </div>
-        <span class="page-category-badge robotics">Robotics & Fabrication</span>
+        <span class="page-category-badge" style="background-color: var(--accent-theme-bg); color: var(--accent-theme); border: 1px solid var(--accent-theme-border);">
+          🛠️ Hardware Workshop & Prototyping
+        </span>
         <h1 class="page-title">Robotics & Rapid Prototyping</h1>
         <p class="page-subtitle">
-          From custom mobile robots to precision parametric CAD modeling and additive manufacturing in the school STEAM Lab.
+          From custom mobile robotics to precision parametric CAD modeling and additive manufacturing in the school STEAM Lab.
         </p>
       </div>
     </section>
@@ -64,65 +66,73 @@
         <!-- Project 1: Zainiac 19 -->
         <article id="zainiac-19" class="project-article">
           <div class="article-header">
-            <div class="article-meta">2019 • FEATURED MAKER EXHIBIT</div>
+            <div class="article-meta font-mono" style="color: var(--accent-theme);">[ BUILD // 2019.09 ] • OFFICIAL MAKER FAIRE EXHIBIT</div>
             <h2 class="article-title">Zainiac 19: First Custom Mobile Robot</h2>
-            <div class="article-subtitle">2019 Philadelphia Maker Faire (Robotics Category)</div>
+            <div class="article-subtitle" style="color: var(--accent-theme);">2019 Philadelphia Maker Faire (Robotics Category)</div>
           </div>
 
           <div class="article-body">
             <p>
-              <strong>Zainiac 19</strong> represents the beginning of Zain Hamdia's hands-on engineering journey. Motivated by a curiosity about how physical mechanisms and electronic control systems interact, Zain set out to design and construct a functioning mobile robot from scratch.
-            </p>
-            <p>
-              The robot was built as a multi-functional mobile platform with integrated motor drives and forward-facing ultrasonic sonar sensing to detect obstacles and navigate its surroundings autonomously. Through iterative testing, Zain wired the power distribution, connected motor driver circuitry, and programmed the microcontroller logic to make decisions based on real-time distance measurements.
+              <strong>Zainiac 19</strong> marks the inception of Zain Hamdia's hands-on engineering path. Driven by a desire to understand how code directly commands mechanical motion in the real world, Zain designed, wired, and assembled this mobile robot from the ground up.
             </p>
 
-            <div class="article-callout robotics">
-              <p>
-                <strong>The 2019 Philadelphia Maker Faire:</strong> Zainiac 19 was selected as an official exhibit at the 2019 Philadelphia Maker Faire in the Robotics category. Zain showcased the robot live to thousands of attendees, explaining the chassis assembly, wiring, and obstacle avoidance logic to fellow makers, engineers, and curious visitors.
-              </p>
+            <div class="spec-box">
+              <div style="font-weight: bold; margin-bottom: 6px; color: var(--text-primary);">// CORE SYSTEM ARCHITECTURE:</div>
+              • Microcontroller Logic: Embedded processing executing real-time distance scans<br>
+              • Sensing: Forward ultrasonic sonar transducers measuring spatial clearances<br>
+              • Drivetrain & Actuation: Dual geared DC motors with integrated motor driver circuitry<br>
+              • Platform: Custom fabricated multi-layer chassis with balanced center-of-gravity
             </div>
 
             <p>
-              This early experience taught essential engineering fundamentals: the importance of weight balance, mechanical durability under repeated operation, and the ability to clearly explain complex technical ideas to an audience.
+              The robot operates autonomously by continuously scanning its surroundings, interpreting distance feedback, and executing avoidance turns when approaching obstacles.
+            </p>
+
+            <p>
+              <strong>Live Public Exhibition:</strong> Zain was selected to present Zainiac 19 at the <strong>2019 Philadelphia Maker Faire</strong>. Exhibiting in the Robotics category, he operated live technical demonstrations for attendees, walking engineers, teachers, and students through the hardware layout, wiring schematics, and obstacle navigation code.
             </p>
 
             <div class="article-tag-row">
               <span class="tag">First Robot</span>
               <span class="tag">Philly Maker Faire 2019</span>
-              <span class="tag">Mobile Navigation</span>
+              <span class="tag">Chassis Assembly</span>
               <span class="tag">Motor Controls</span>
               <span class="tag">Ultrasonic Sonar</span>
-              <span class="tag">Live Demonstrations</span>
+              <span class="tag">Public Demonstration</span>
             </div>
           </div>
         </article>
 
-        <!-- Project 2: STEAM Lab & 3D Prototyping -->
+        <!-- Project 2: STEAM Lab CAD & 3D Printing -->
         <article id="steam-lab" class="project-article">
           <div class="article-header">
-            <div class="article-meta">2023 - PRESENT • PRINCETON DAY SCHOOL</div>
+            <div class="article-meta font-mono" style="color: var(--accent-theme);">[ CAD_LAB // 2023–PRESENT ] • PRINCETON DAY SCHOOL</div>
             <h2 class="article-title">STEAM Lab CAD Modeling & 3D Prototyping</h2>
-            <div class="article-subtitle">Design for Additive Manufacturing & Mechanical Assembly</div>
+            <div class="article-subtitle" style="color: var(--accent-theme);">Design for Additive Manufacturing & Mechanical Fit</div>
           </div>
 
           <div class="article-body">
             <p>
-              At Princeton Day School, Zain actively utilizes the campus STEAM Lab and his home workshop to transform ideas into physical hardware. Rather than relying solely on pre-fabricated parts, he designs custom components using 3D CAD modeling software (such as Onshape and Fusion 360) and manufactures them using 3D printers.
+              At Princeton Day School, Zain actively utilizes the campus STEAM Lab facilities and his personal workbench to engineer custom parts for physical assemblies. Rather than adapting pre-existing generic brackets, he creates custom parametric geometries in CAD software.
             </p>
+
+            <div class="spec-box">
+              <div style="font-weight: bold; margin-bottom: 6px; color: var(--text-primary);">// FABRICATION WORKFLOW:</div>
+              • Parametric 3D Modeling: Onshape & Fusion 360<br>
+              • Additive Manufacturing: Slicing optimization, infill load direction, and perimeter tuning<br>
+              • Prototyping Cycle: CAD Model → FDM Print → Caliper Measurement → Iteration
+            </div>
+
             <p>
-              His work focuses on functional, end-use components—including motor brackets, sensor mountings, alignment jigs, and custom enclosures. By mastering print orientations, slicing settings, and geometric tolerances, Zain ensures that 3D-printed parts can withstand mechanical loads and vibration.
-            </p>
-            <p>
-              This rapid prototyping loop allows for quick iteration: designing a concept in CAD, fabricating a test specimen, measuring physical fit with calipers, and refining the geometry within hours.
+              Projects range from motor mounts and vibration dampening brackets to custom enclosures and mechanical linkages. By studying layer adhesion orientation and physical clearance tolerances (interference vs. sliding fits), he ensures every printed part performs reliably under mechanical load.
             </p>
 
             <div class="article-tag-row">
               <span class="tag">Onshape</span>
               <span class="tag">Fusion 360</span>
               <span class="tag">3D Printing (FDM)</span>
-              <span class="tag">Rapid Iteration</span>
               <span class="tag">Tolerance Control</span>
+              <span class="tag">DFAM Principles</span>
               <span class="tag">PDS STEAM Lab</span>
             </div>
           </div>
@@ -132,15 +142,15 @@
       <!-- Sidebar Column -->
       <aside class="content-sidebar">
         <div class="sidebar-card">
-          <h3 class="sidebar-title">Quick Overview</h3>
+          <h3 class="sidebar-title" style="color: var(--accent-theme);">Robotics Specs</h3>
           <ul class="sidebar-list">
             <li>
-              <div class="sidebar-item-label">First Robot</div>
-              <div class="sidebar-item-val">Zainiac 19 (Built 2019)</div>
+              <div class="sidebar-item-label">Seminal Build</div>
+              <div class="sidebar-item-val">Zainiac 19 (2019)</div>
             </li>
             <li>
-              <div class="sidebar-item-label">Exhibition</div>
-              <div class="sidebar-item-val">2019 Philadelphia Maker Faire</div>
+              <div class="sidebar-item-label">Public Showcase</div>
+              <div class="sidebar-item-val">Philadelphia Maker Faire</div>
             </li>
             <li>
               <div class="sidebar-item-label">Maker Category</div>
@@ -148,21 +158,21 @@
             </li>
             <li>
               <div class="sidebar-item-label">Lab Facility</div>
-              <div class="sidebar-item-val">Princeton Day School STEAM Lab</div>
+              <div class="sidebar-item-val">PDS STEAM Lab</div>
             </li>
             <li>
-              <div class="sidebar-item-label">CAD Software</div>
+              <div class="sidebar-item-label">CAD Suites</div>
               <div class="sidebar-item-val">Onshape, Fusion 360</div>
             </li>
           </ul>
         </div>
 
         <div class="sidebar-card">
-          <h3 class="sidebar-title">Other Disciplines</h3>
+          <h3 class="sidebar-title">Explore Next</h3>
           <ul class="sidebar-list">
             <li>
               <a href="aviation.html"><strong>Aviation & Aerospace →</strong></a>
-              <div style="font-size: 0.85rem; color: var(--text-muted);">Princeton University MAE research and flight studies.</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted);">Princeton University MAE research on the Joseph Henry Project.</div>
             </li>
             <li>
               <a href="firefighting.html"><strong>Firefighting Service →</strong></a>

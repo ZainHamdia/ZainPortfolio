@@ -1,87 +1,342 @@
 /* ==========================================================================
    Zain Hamdia - Engineering Portfolio Stylesheet
-   Multi-Page Academic & Engineering Design System
+   Multi-Page Thematic Design System
    ========================================================================== */
 
 :root {
-  /* Light Theme (Default) */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
+  /* Global Base Variables (Light) */
+  --bg-page: #ffffff;
+  --bg-surface: #f8fafc;
   --bg-card: #ffffff;
-  --bg-card-hover: #f8fafc;
+  --bg-card-hover: #f1f5f9;
   
-  --text-primary: #0f172a;
-  --text-secondary: #475569;
+  --text-main: #0f172a;
   --text-muted: #64748b;
   --text-faint: #94a3b8;
   
   --border-subtle: #e2e8f0;
   --border-strong: #cbd5e1;
-  --border-focus: #3b82f6;
   
-  --accent-blue: #2563eb;
-  --accent-blue-subtle: #eff6ff;
-  --accent-navy: #1e3a8a;
-  
-  --accent-robotics: #0284c7;
-  --accent-robotics-bg: #f0f9ff;
-  
-  --accent-aviation: #4f46e5;
-  --accent-aviation-bg: #eef2ff;
-  
-  --accent-fire: #dc2626;
-  --accent-fire-bg: #fef2f2;
-  
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
-  
+  --brand-blue: #2563eb;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
-  --max-width: 1080px;
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  --max-width: 1060px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
   --radius-full: 9999px;
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="dark"] {
-  --bg-primary: #0b0f19;
-  --bg-secondary: #111827;
-  --bg-tertiary: #1f2937;
-  --bg-card: #111827;
-  --bg-card-hover: #172033;
+  --bg-page: #0d111a;
+  --bg-surface: #141926;
+  --bg-card: #141926;
+  --bg-card-hover: #1b2234;
   
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
+  --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-faint: #64748b;
   
-  --border-subtle: #1f2937;
-  --border-strong: #374151;
-  --border-focus: #60a5fa;
+  --border-subtle: #1e2638;
+  --border-strong: #2e384f;
   
-  --accent-blue: #3b82f6;
-  --accent-blue-subtle: rgba(59, 130, 246, 0.12);
-  --accent-navy: #60a5fa;
-  
-  --accent-robotics: #38bdf8;
-  --accent-robotics-bg: rgba(56, 189, 248, 0.1);
-  
-  --accent-aviation: #818cf8;
-  --accent-aviation-bg: rgba(129, 140, 248, 0.1);
-  
-  --accent-fire: #f87171;
-  --accent-fire-bg: rgba(248, 113, 113, 0.1);
-  
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 20px -3px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
 }
 
-/* Reset & Base */
+/* ==========================================================================
+   THEME 1: ROBOTICS (Maker Workshop & Hardware CAD Prototyping)
+   Colors: Technical Cyan, Blueprint Slate, Circuit Accents
+   ========================================================================== */
+body.theme-robotics {
+  --accent-theme: #0284c7;
+  --accent-theme-hover: #0369a1;
+  --accent-theme-bg: #e0f2fe;
+  --accent-theme-border: #7dd3fc;
+}
+[data-theme="dark"] body.theme-robotics {
+  --bg-page: #0a1118;
+  --bg-surface: #0f1923;
+  --bg-card: #0f1923;
+  --bg-card-hover: #152230;
+  --border-subtle: #1c2e40;
+  --border-strong: #28445f;
+  --accent-theme: #38bdf8;
+  --accent-theme-hover: #7dd3fc;
+  --accent-theme-bg: rgba(56, 189, 248, 0.12);
+  --accent-theme-border: rgba(56, 189, 248, 0.35);
+}
+
+/* Robotics Page Styling */
+.theme-robotics .page-hero {
+  background: 
+    radial-gradient(circle at 1px 1px, var(--accent-theme-border) 1px, transparent 0),
+    linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-page) 100%);
+  background-size: 24px 24px, 100% 100%;
+  border-bottom: 2px solid var(--accent-theme);
+  position: relative;
+}
+
+.theme-robotics .nav-link.active {
+  color: var(--accent-theme);
+  background-color: var(--accent-theme-bg);
+  border: 1px solid var(--accent-theme-border);
+}
+
+.theme-robotics .project-article {
+  border-left: 4px solid var(--accent-theme);
+  position: relative;
+}
+
+.theme-robotics .project-article::before {
+  content: "// HARDWARE_BUILD";
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-theme);
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.theme-robotics .tag {
+  background-color: var(--accent-theme-bg);
+  color: var(--accent-theme);
+  border: 1px solid var(--accent-theme-border);
+  font-family: var(--font-mono);
+}
+
+.theme-robotics .spec-box {
+  background-color: var(--bg-surface);
+  border: 1px dashed var(--accent-theme-border);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin: 16px 0;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}
+
+/* ==========================================================================
+   THEME 2: AVIATION & AEROSPACE (Academic Research Lab & Wind Tunnel)
+   Colors: Deep Aerospace Cobalt, Atmospheric Sky Blue, Clean Ivory
+   ========================================================================== */
+body.theme-aviation {
+  --accent-theme: #4338ca;
+  --accent-theme-hover: #3730a3;
+  --accent-theme-bg: #eef2ff;
+  --accent-theme-border: #a5b4fc;
+}
+[data-theme="dark"] body.theme-aviation {
+  --bg-page: #0d0e1a;
+  --bg-surface: #141628;
+  --bg-card: #141628;
+  --bg-card-hover: #1c1f38;
+  --border-subtle: #242745;
+  --border-strong: #373c68;
+  --accent-theme: #818cf8;
+  --accent-theme-hover: #a5b4fc;
+  --accent-theme-bg: rgba(129, 140, 248, 0.12);
+  --accent-theme-border: rgba(129, 140, 248, 0.35);
+}
+
+/* Aviation Page Styling */
+.theme-aviation .page-hero {
+  background: linear-gradient(135deg, var(--bg-surface) 0%, var(--accent-theme-bg) 100%);
+  border-bottom: 2px solid var(--accent-theme);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-aviation .nav-link.active {
+  color: var(--accent-theme);
+  background-color: var(--accent-theme-bg);
+  border: 1px solid var(--accent-theme-border);
+}
+
+.theme-aviation .project-article {
+  border-top: 3px solid var(--accent-theme);
+  box-shadow: var(--shadow-md);
+}
+
+.theme-aviation .research-abstract-box {
+  background-color: var(--bg-surface);
+  border-left: 4px solid var(--accent-theme);
+  padding: 20px 24px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin: 16px 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.theme-aviation .tag {
+  background-color: var(--accent-theme-bg);
+  color: var(--accent-theme);
+  border: 1px solid var(--accent-theme-border);
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   THEME 3: FIREFIGHTING (Emergency Response & High-Vis Field Operations)
+   Colors: Engine Red, High-Vis Gold, Turnout Charcoal
+   ========================================================================== */
+body.theme-firefighting {
+  --accent-theme: #dc2626;
+  --accent-theme-hover: #b91c1c;
+  --accent-theme-bg: #fef2f2;
+  --accent-theme-border: #fca5a5;
+  --accent-gold: #d97706;
+}
+[data-theme="dark"] body.theme-firefighting {
+  --bg-page: #120e0e;
+  --bg-surface: #1c1515;
+  --bg-card: #1c1515;
+  --bg-card-hover: #261e1e;
+  --border-subtle: #332424;
+  --border-strong: #4d3636;
+  --accent-theme: #ef4444;
+  --accent-theme-hover: #f87171;
+  --accent-theme-bg: rgba(239, 68, 68, 0.12);
+  --accent-theme-border: rgba(239, 68, 68, 0.35);
+  --accent-gold: #f59e0b;
+}
+
+/* Firefighting Page Styling */
+.theme-firefighting .page-hero {
+  background: var(--bg-surface);
+  border-bottom: 4px solid var(--accent-theme);
+  position: relative;
+}
+
+/* High-Vis Reflective Ribbon Accent on Firefighting Page */
+.theme-firefighting .page-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    45deg,
+    #dc2626,
+    #dc2626 14px,
+    #f59e0b 14px,
+    #f59e0b 28px
+  );
+}
+
+.theme-firefighting .nav-link.active {
+  color: var(--accent-theme);
+  background-color: var(--accent-theme-bg);
+  border: 1px solid var(--accent-theme-border);
+  font-weight: 700;
+}
+
+.theme-firefighting .project-article {
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid var(--accent-theme);
+  position: relative;
+}
+
+.theme-firefighting .incident-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--accent-theme-bg);
+  color: var(--accent-theme);
+  border: 1px solid var(--accent-theme-border);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.theme-firefighting .tag {
+  background-color: var(--accent-theme-bg);
+  color: var(--accent-theme);
+  border: 1px solid var(--accent-theme-border);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   THEME 4: ABOUT & DOSSIER (Academic Credentials & Milestone Timeline)
+   ========================================================================== */
+body.theme-about {
+  --accent-theme: #0f766e;
+  --accent-theme-hover: #115e59;
+  --accent-theme-bg: #f0fdfa;
+  --accent-theme-border: #99f6e4;
+}
+[data-theme="dark"] body.theme-about {
+  --bg-page: #0b1313;
+  --bg-surface: #101c1c;
+  --bg-card: #101c1c;
+  --bg-card-hover: #162626;
+  --border-subtle: #1c3333;
+  --border-strong: #2a4c4c;
+  --accent-theme: #2dd4bf;
+  --accent-theme-hover: #5eead4;
+  --accent-theme-bg: rgba(45, 212, 191, 0.12);
+  --accent-theme-border: rgba(45, 212, 191, 0.35);
+}
+
+.theme-about .page-hero {
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-page) 100%);
+  border-bottom: 2px solid var(--accent-theme);
+}
+
+.theme-about .nav-link.active {
+  color: var(--accent-theme);
+  background-color: var(--accent-theme-bg);
+  border: 1px solid var(--accent-theme-border);
+}
+
+.theme-about .timeline-dot {
+  border-color: var(--accent-theme);
+}
+
+.theme-about .timeline-year {
+  color: var(--accent-theme);
+}
+
+/* ==========================================================================
+   THEME 5: CONTACT (Direct Terminal / Communication Desk)
+   ========================================================================== */
+body.theme-contact {
+  --accent-theme: #2563eb;
+  --accent-theme-hover: #1d4ed8;
+  --accent-theme-bg: #eff6ff;
+  --accent-theme-border: #bfdbfe;
+}
+[data-theme="dark"] body.theme-contact {
+  --bg-page: #0d121c;
+  --bg-surface: #131926;
+  --bg-card: #131926;
+  --bg-card-hover: #1a2233;
+  --border-subtle: #1f293d;
+  --border-strong: #2e3c59;
+  --accent-theme: #60a5fa;
+  --accent-theme-hover: #93c5fd;
+  --accent-theme-bg: rgba(96, 165, 250, 0.12);
+  --accent-theme-border: rgba(96, 165, 250, 0.35);
+}
+
+.theme-contact .nav-link.active {
+  color: var(--accent-theme);
+  background-color: var(--accent-theme-bg);
+  border: 1px solid var(--accent-theme-border);
+}
+
+/* ==========================================================================
+   Core Layout & Shared Elements
+   ========================================================================== */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -94,8 +349,8 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+  background-color: var(--bg-page);
+  color: var(--text-main);
   line-height: 1.65;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -117,7 +372,7 @@ main {
 }
 
 a {
-  color: var(--accent-blue);
+  color: var(--brand-blue);
   text-decoration: none;
   transition: color 0.15s ease, opacity 0.15s ease;
 }
@@ -126,9 +381,9 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Header & Navigation */
+/* Site Header */
 .site-header {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-page);
   border-bottom: 1px solid var(--border-subtle);
   position: sticky;
   top: 0;
@@ -140,7 +395,7 @@ a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 70px;
+  height: 68px;
 }
 
 .brand-link {
@@ -148,7 +403,7 @@ a:hover {
   align-items: center;
   gap: 12px;
   text-decoration: none;
-  color: var(--text-primary);
+  color: var(--text-main);
 }
 
 .brand-link:hover {
@@ -158,7 +413,7 @@ a:hover {
 .brand-badge {
   width: 36px;
   height: 36px;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-sm);
   display: flex;
@@ -166,7 +421,7 @@ a:hover {
   justify-content: center;
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--accent-blue);
+  color: var(--brand-blue);
   font-family: var(--font-mono);
 }
 
@@ -184,14 +439,14 @@ a:hover {
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   list-style: none;
 }
 
 .nav-link {
   padding: 8px 14px;
   border-radius: var(--radius-sm);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
@@ -199,14 +454,14 @@ a:hover {
 }
 
 .nav-link:hover {
-  color: var(--text-primary);
-  background-color: var(--bg-secondary);
+  color: var(--text-main);
+  background-color: var(--bg-surface);
   text-decoration: none;
 }
 
 .nav-link.active {
-  color: var(--accent-blue);
-  background-color: var(--accent-blue-subtle);
+  color: var(--brand-blue);
+  background-color: var(--bg-surface);
   font-weight: 600;
 }
 
@@ -224,9 +479,9 @@ a:hover {
 }
 
 .theme-toggle-btn:hover {
-  color: var(--text-primary);
+  color: var(--text-main);
   border-color: var(--border-strong);
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-surface);
 }
 
 .mobile-menu-toggle {
@@ -240,11 +495,10 @@ a:hover {
   cursor: pointer;
 }
 
-/* Page Hero Banner (for Sub-Pages) */
+/* Page Hero (Sub-Pages) */
 .page-hero {
   padding: 56px 0 36px;
   border-bottom: 1px solid var(--border-subtle);
-  background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
 }
 
 .breadcrumb-nav {
@@ -261,38 +515,20 @@ a:hover {
 }
 
 .breadcrumb-nav a:hover {
-  color: var(--accent-blue);
+  color: var(--text-main);
 }
 
 .page-category-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 12px;
-}
-
-.page-category-badge.robotics {
-  background-color: var(--accent-robotics-bg);
-  color: var(--accent-robotics);
-  border: 1px solid var(--accent-robotics);
-}
-
-.page-category-badge.aviation {
-  background-color: var(--accent-aviation-bg);
-  color: var(--accent-aviation);
-  border: 1px solid var(--accent-aviation);
-}
-
-.page-category-badge.firefighting {
-  background-color: var(--accent-fire-bg);
-  color: var(--accent-fire);
-  border: 1px solid var(--accent-fire);
+  margin-bottom: 14px;
 }
 
 .page-title {
@@ -310,7 +546,7 @@ a:hover {
   line-height: 1.6;
 }
 
-/* Index / Home Hero */
+/* Home Hero */
 .home-hero {
   padding: 64px 0 52px;
   border-bottom: 1px solid var(--border-subtle);
@@ -321,7 +557,7 @@ a:hover {
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-surface);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-full);
   font-size: 0.85rem;
@@ -346,7 +582,7 @@ a:hover {
 }
 
 .home-hero-title span {
-  color: var(--accent-blue);
+  color: var(--brand-blue);
 }
 
 .home-hero-bio {
@@ -379,8 +615,8 @@ a:hover {
 }
 
 .btn-primary {
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
+  background-color: var(--text-main);
+  color: var(--bg-page);
 }
 
 .btn-primary:hover {
@@ -390,18 +626,18 @@ a:hover {
 }
 
 .btn-secondary {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-surface);
   border-color: var(--border-strong);
   color: var(--text-primary);
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-tertiary);
+  background-color: var(--bg-card-hover);
   text-decoration: none;
   transform: translateY(-1px);
 }
 
-/* 3 Main Disciplines Grid (Home) */
+/* 3 Main Disciplines Grid */
 .disciplines-section {
   padding: 56px 0;
   border-bottom: 1px solid var(--border-subtle);
@@ -412,7 +648,7 @@ a:hover {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--accent-blue);
+  color: var(--text-muted);
   margin-bottom: 8px;
 }
 
@@ -454,6 +690,18 @@ a:hover {
   box-shadow: var(--shadow-md);
 }
 
+.discipline-card.robotics {
+  border-top: 3px solid #0284c7;
+}
+
+.discipline-card.aviation {
+  border-top: 3px solid #4338ca;
+}
+
+.discipline-card.firefighting {
+  border-top: 3px solid #dc2626;
+}
+
 .card-icon {
   width: 44px;
   height: 44px;
@@ -463,28 +711,13 @@ a:hover {
   justify-content: center;
   font-size: 1.25rem;
   margin-bottom: 18px;
-}
-
-.discipline-card.robotics .card-icon {
-  background-color: var(--accent-robotics-bg);
-  color: var(--accent-robotics);
-}
-
-.discipline-card.aviation .card-icon {
-  background-color: var(--accent-aviation-bg);
-  color: var(--accent-aviation);
-}
-
-.discipline-card.firefighting .card-icon {
-  background-color: var(--accent-fire-bg);
-  color: var(--accent-fire);
+  background-color: var(--bg-surface);
 }
 
 .card-title {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 10px;
-  color: var(--text-primary);
 }
 
 .card-text {
@@ -500,7 +733,7 @@ a:hover {
   gap: 6px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--accent-blue);
+  color: var(--brand-blue);
 }
 
 .card-link:hover {
@@ -528,7 +761,7 @@ a:hover {
 }
 
 .sidebar-card {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 24px;
@@ -592,8 +825,8 @@ a:hover {
 
 .article-subtitle {
   font-size: 1.05rem;
-  color: var(--accent-blue);
   font-weight: 500;
+  margin-bottom: 4px;
 }
 
 .article-body {
@@ -603,28 +836,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-.article-callout {
-  background-color: var(--bg-secondary);
-  border-left: 4px solid var(--accent-blue);
-  padding: 18px 22px;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-  margin: 12px 0;
-}
-
-.article-callout.fire {
-  border-left-color: var(--accent-fire);
-}
-
-.article-callout.robotics {
-  border-left-color: var(--accent-robotics);
-}
-
-.article-callout p {
-  font-size: 0.96rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
 }
 
 .article-tag-row {
@@ -637,16 +848,13 @@ a:hover {
 }
 
 .tag {
-  background-color: var(--bg-tertiary);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
   padding: 4px 10px;
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
   font-weight: 500;
 }
 
-/* Skills Page Grid */
+/* Skills Container Grid */
 .skills-container-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -663,7 +871,7 @@ a:hover {
 }
 
 .skill-box-title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 700;
   margin-bottom: 16px;
   color: var(--text-primary);
@@ -689,11 +897,11 @@ a:hover {
 
 .skill-list li::before {
   content: "•";
-  color: var(--accent-blue);
+  color: var(--accent-theme, var(--brand-blue));
   font-weight: bold;
 }
 
-/* Timeline / Milestones Block */
+/* Milestones Timeline */
 .milestones-section {
   padding: 48px 0 64px;
 }
@@ -730,14 +938,14 @@ a:hover {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: var(--bg-primary);
-  border: 3px solid var(--accent-blue);
+  background-color: var(--bg-page);
+  border: 3px solid var(--brand-blue);
 }
 
 .timeline-year {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--accent-blue);
+  color: var(--brand-blue);
   font-family: var(--font-mono);
   margin-bottom: 4px;
 }
@@ -794,7 +1002,7 @@ a:hover {
   padding: 16px 20px;
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-surface);
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 600;
@@ -802,16 +1010,74 @@ a:hover {
 }
 
 .contact-row-btn:hover {
-  border-color: var(--accent-blue);
-  background-color: var(--bg-tertiary);
+  border-color: var(--brand-blue);
+  background-color: var(--bg-card-hover);
   text-decoration: none;
   transform: translateX(4px);
+}
+
+/* Project Items (List on Home) */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-item {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  background-color: var(--bg-card);
+  transition: border-color 0.15s ease;
+}
+
+.project-item:hover {
+  border-color: var(--border-strong);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.project-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.project-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.project-subtitle {
+  font-size: 0.92rem;
+  color: var(--brand-blue);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.project-text {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 /* Footer */
 .site-footer {
   border-top: 1px solid var(--border-subtle);
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-surface);
   padding: 48px 0 32px;
   margin-top: auto;
   font-size: 0.9rem;
@@ -893,13 +1159,13 @@ a:hover {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 70px;
+    top: 68px;
     left: 0;
     width: 100%;
-    background-color: var(--bg-primary);
+    background-color: var(--bg-page);
     border-bottom: 1px solid var(--border-subtle);
     padding: 16px 24px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md);
   }
   
   .mobile-menu-toggle {
