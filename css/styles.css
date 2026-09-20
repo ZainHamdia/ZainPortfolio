@@ -35,25 +35,6 @@
   --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
 }
 
-[data-theme="dark"] {
-  --bg-page: #0b0f17;
-  --bg-surface: #111726;
-  --bg-card: #151d2f;
-  --bg-card-hover: #1c263d;
-  
-  --text-main: #f8fafc;
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --text-faint: #64748b;
-  
-  --border-subtle: #1e293b;
-  --border-strong: #334155;
-  
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
-  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
-}
-
 /* ==========================================================================
    THEME 1: ROBOTICS (Maker Workshop & Hardware CAD Prototyping)
    Multi-Color Engineering Palette:
@@ -68,12 +49,6 @@ body.theme-robotics {
   --accent-theme-bg: #eff6ff;
   --accent-theme-border: #bfdbfe;
 }
-[data-theme="dark"] body.theme-robotics {
-  --accent-theme: #60a5fa;
-  --accent-theme-hover: #93c5fd;
-  --accent-theme-bg: rgba(96, 165, 250, 0.12);
-  --accent-theme-border: rgba(96, 165, 250, 0.3);
-}
 
 /* Robotics Page Hero - Luminous, airy with subtle blueprint grid and multi-accent highlight */
 .theme-robotics .page-hero {
@@ -84,14 +59,6 @@ body.theme-robotics {
   background-size: 100% 100%, 24px 24px, 100% 100%;
   border-bottom: 2px solid #bfdbfe;
   position: relative;
-}
-[data-theme="dark"] .theme-robotics .page-hero {
-  background: 
-    linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(245, 158, 11, 0.06) 100%),
-    radial-gradient(circle at 1px 1px, rgba(96, 165, 250, 0.15) 1px, transparent 0),
-    var(--bg-surface);
-  background-size: 100% 100%, 24px 24px, 100% 100%;
-  border-bottom: 2px solid #1e3a8a;
 }
 
 .theme-robotics .nav-link.active {
@@ -186,19 +153,16 @@ body.theme-robotics {
   border-top: 3px solid #2563eb;
   background: #f0f7ff;
 }
-[data-theme="dark"] .lineage-card.card-z19 { background: rgba(37, 99, 235, 0.1); border-color: #1e3a8a; }
 
 .lineage-card.card-z21 {
   border-top: 3px solid #0d9488;
   background: #f0fdfa;
 }
-[data-theme="dark"] .lineage-card.card-z21 { background: rgba(13, 148, 136, 0.1); border-color: #134e4a; }
 
 .lineage-card.card-z25 {
   border-top: 3px solid #f59e0b;
   background: #fffbeb;
 }
-[data-theme="dark"] .lineage-card.card-z25 { background: rgba(245, 158, 11, 0.1); border-color: #78350f; }
 
 .lineage-title {
   font-weight: 700;
@@ -235,10 +199,6 @@ body.theme-robotics {
   background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
   border: 1px solid #fcd34d;
   box-shadow: 0 2px 6px rgba(245, 158, 11, 0.1);
-}
-[data-theme="dark"] .exhibition-item.featured-brussels {
-  background: rgba(245, 158, 11, 0.12);
-  border-color: #78350f;
 }
 .exhibition-flag {
   font-size: 1.3rem;
@@ -281,21 +241,11 @@ body.theme-robotics {
   border: 1px solid #fde68a;
   border-left: 4px solid #f59e0b;
 }
-[data-theme="dark"] .comp-result-card.gold-result {
-  background: rgba(245, 158, 11, 0.12);
-  border-color: #78350f;
-  border-left-color: #f59e0b;
-}
 
 .comp-result-card.ruby-result {
   background: #fef2f2;
   border: 1px solid #fecaca;
   border-left: 4px solid #dc2626;
-}
-[data-theme="dark"] .comp-result-card.ruby-result {
-  background: rgba(220, 38, 38, 0.12);
-  border-color: #7f1d1d;
-  border-left-color: #dc2626;
 }
 
 .comp-result-icon {
@@ -353,10 +303,6 @@ body.theme-robotics {
   color: #0f766e;
   background: #f0fdfa;
 }
-[data-theme="dark"] .stat-pill.pill-blue { background: rgba(37, 99, 235, 0.15); color: #93c5fd; border-color: #1e3a8a; }
-[data-theme="dark"] .stat-pill.pill-amber { background: rgba(245, 158, 11, 0.15); color: #fcd34d; border-color: #78350f; }
-[data-theme="dark"] .stat-pill.pill-red { background: rgba(220, 38, 38, 0.15); color: #fca5a5; border-color: #7f1d1d; }
-[data-theme="dark"] .stat-pill.pill-teal { background: rgba(13, 148, 136, 0.15); color: #5eead4; border-color: #134e4a; }
 
 /* Multi-Color Pill Tags */
 .tag-blue {
@@ -395,14 +341,6 @@ body.theme-robotics {
   border: 1px solid #cbd5e1;
 }
 
-[data-theme="dark"] .tag-blue { background: rgba(37, 99, 235, 0.15); color: #93c5fd; border-color: #1e3a8a; }
-[data-theme="dark"] .tag-amber { background: rgba(245, 158, 11, 0.15); color: #fcd34d; border-color: #78350f; }
-[data-theme="dark"] .tag-purple { background: rgba(124, 58, 237, 0.15); color: #c4b5fd; border-color: #4c1d95; }
-[data-theme="dark"] .tag-red { background: rgba(220, 38, 38, 0.15); color: #fca5a5; border-color: #7f1d1d; }
-[data-theme="dark"] .tag-teal { background: rgba(13, 148, 136, 0.15); color: #5eead4; border-color: #134e4a; }
-[data-theme="dark"] .tag-green { background: rgba(22, 163, 74, 0.15); color: #86efac; border-color: #14532d; }
-[data-theme="dark"] .tag-slate { background: rgba(100, 116, 139, 0.15); color: #cbd5e1; border-color: #334155; }
-
 .theme-robotics .spec-box {
   background-color: #f0f7ff;
   border: 1px dashed #bfdbfe;
@@ -412,11 +350,6 @@ body.theme-robotics {
   margin: 16px 0;
   font-family: var(--font-mono);
   font-size: 0.88rem;
-}
-[data-theme="dark"] .theme-robotics .spec-box {
-  background-color: rgba(37, 99, 235, 0.1);
-  border-color: #1e3a8a;
-  border-left-color: #60a5fa;
 }
 
 /* ==========================================================================
@@ -428,18 +361,6 @@ body.theme-aviation {
   --accent-theme-hover: #3730a3;
   --accent-theme-bg: #eef2ff;
   --accent-theme-border: #a5b4fc;
-}
-[data-theme="dark"] body.theme-aviation {
-  --bg-page: #0d0e1a;
-  --bg-surface: #141628;
-  --bg-card: #141628;
-  --bg-card-hover: #1c1f38;
-  --border-subtle: #242745;
-  --border-strong: #373c68;
-  --accent-theme: #818cf8;
-  --accent-theme-hover: #a5b4fc;
-  --accent-theme-bg: rgba(129, 140, 248, 0.12);
-  --accent-theme-border: rgba(129, 140, 248, 0.35);
 }
 
 /* Aviation Page Styling */
@@ -488,19 +409,6 @@ body.theme-firefighting {
   --accent-theme-bg: #fef2f2;
   --accent-theme-border: #fca5a5;
   --accent-gold: #d97706;
-}
-[data-theme="dark"] body.theme-firefighting {
-  --bg-page: #120e0e;
-  --bg-surface: #1c1515;
-  --bg-card: #1c1515;
-  --bg-card-hover: #261e1e;
-  --border-subtle: #332424;
-  --border-strong: #4d3636;
-  --accent-theme: #ef4444;
-  --accent-theme-hover: #f87171;
-  --accent-theme-bg: rgba(239, 68, 68, 0.12);
-  --accent-theme-border: rgba(239, 68, 68, 0.35);
-  --accent-gold: #f59e0b;
 }
 
 /* Firefighting Page Styling */
@@ -572,18 +480,6 @@ body.theme-about {
   --accent-theme-bg: #f0fdfa;
   --accent-theme-border: #99f6e4;
 }
-[data-theme="dark"] body.theme-about {
-  --bg-page: #0b1313;
-  --bg-surface: #101c1c;
-  --bg-card: #101c1c;
-  --bg-card-hover: #162626;
-  --border-subtle: #1c3333;
-  --border-strong: #2a4c4c;
-  --accent-theme: #2dd4bf;
-  --accent-theme-hover: #5eead4;
-  --accent-theme-bg: rgba(45, 212, 191, 0.12);
-  --accent-theme-border: rgba(45, 212, 191, 0.35);
-}
 
 .theme-about .page-hero {
   background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-page) 100%);
@@ -612,18 +508,6 @@ body.theme-contact {
   --accent-theme-hover: #1d4ed8;
   --accent-theme-bg: #eff6ff;
   --accent-theme-border: #bfdbfe;
-}
-[data-theme="dark"] body.theme-contact {
-  --bg-page: #0d121c;
-  --bg-surface: #131926;
-  --bg-card: #131926;
-  --bg-card-hover: #1a2233;
-  --border-subtle: #1f293d;
-  --border-strong: #2e3c59;
-  --accent-theme: #60a5fa;
-  --accent-theme-hover: #93c5fd;
-  --accent-theme-bg: rgba(96, 165, 250, 0.12);
-  --accent-theme-border: rgba(96, 165, 250, 0.35);
 }
 
 .theme-contact .nav-link.active {
@@ -681,12 +565,13 @@ a:hover {
 
 /* Site Header */
 .site-header {
-  background-color: var(--bg-page);
+  background-color: #ffffff;
   border-bottom: 1px solid var(--border-subtle);
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: border-color 0.2s ease;
 }
 
 .header-inner {
@@ -709,17 +594,17 @@ a:hover {
 }
 
 .brand-badge {
-  width: 36px;
-  height: 36px;
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-strong);
+  width: 38px;
+  height: 38px;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--brand-blue);
+  color: #2563eb;
   font-family: var(--font-mono);
 }
 
@@ -1426,7 +1311,7 @@ a:hover {
 /* Footer */
 .site-footer {
   border-top: 1px solid var(--border-subtle);
-  background-color: var(--bg-surface);
+  background-color: #ffffff;
   padding: 48px 0 32px;
   margin-top: auto;
   font-size: 0.9rem;

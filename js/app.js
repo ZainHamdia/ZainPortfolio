@@ -1,39 +1,17 @@
 /**
  * Zain Hamdia - Engineering Portfolio UI Script
- * Theme switcher and mobile navigation handling across all pages
+ * Clean light aesthetic & mobile navigation handling across all pages
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
+  // Permanently enforce crisp, bright light theme
+  document.documentElement.setAttribute('data-theme', 'light');
+  try {
+    localStorage.setItem('zh_theme', 'light');
+  } catch (e) {}
+
   initMobileNav();
 });
-
-/* Theme Switcher */
-function initTheme() {
-  const toggleBtn = document.getElementById('theme-toggle-btn');
-  const themeIcon = document.getElementById('theme-icon');
-  
-  // Default to clean, professional light theme
-  const savedTheme = localStorage.getItem('zh_theme') || 'light';
-
-  setTheme(savedTheme);
-
-  if (toggleBtn) {
-    toggleBtn.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-      const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      setTheme(nextTheme);
-    });
-  }
-
-  function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('zh_theme', theme);
-    if (themeIcon) {
-      themeIcon.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
-    }
-  }
-}
 
 /* Mobile Menu Navigation */
 function initMobileNav() {
