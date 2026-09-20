@@ -79,17 +79,17 @@
               <span class="tag tag-blue" style="font-weight: 700;">Active Platform Lineage</span>
             </div>
             <div class="article-subtitle" style="color: #1d4ed8; margin-top: 6px;">
-              Multi-Material Fabrication, LEGO MINDSTORMS, Articulated Kinematics & Iterative Prototyping
+              Full-Scale Humanoid (~5 Ft), Multi-Material Fabrication, LEGO MINDSTORMS & Kinematics
             </div>
 
             <p style="margin-top: 14px; font-size: 0.98rem; color: var(--text-secondary); line-height: 1.65;">
-              The <strong>Zainiac Robot Series</strong> represents an ongoing lineage of original robots conceived, designed, and constructed independently by Zain Hamdia. His landmark first build, <strong>Zainiac 19</strong>, demonstrated mechanical creativity and rapid prototyping by synthesizing everyday construction materials with robotics: engineered with <strong>wood for the legs</strong>, a <strong>particle board and PVC pipe framework for the body</strong>, a <strong>sculpted paper-mâché head</strong>, and <strong>custom 3D-printed parts</strong>. Controlled by <strong>LEGO MINDSTORMS</strong>, Zainiac 19 features physical mechanical kinematics engineered so that its <strong>neck pans only</strong>, its <strong>waist pans only</strong>, and its <strong>arms move in synchronized movement with each arm moving in the opposite direction</strong>.
+              The <strong>Zainiac Robot Series</strong> represents an ongoing lineage of original robots conceived, designed, and constructed independently by Zain Hamdia. His landmark first build, <strong>Zainiac 19</strong>, is a full-scale humanoid robot standing approximately <strong>5 feet tall</strong>. Conceived and constructed using an authentic synthesis of rapid fabrication materials: engineered with <strong>wood for the legs</strong>, a <strong>particle board and PVC pipe framework for the body</strong>, a <strong>sculpted paper-mâché head</strong>, and <strong>custom 3D-printed parts</strong>. Powered by <strong>LEGO MINDSTORMS</strong>, Zainiac 19 features physical mechanical kinematics engineered so that its <strong>neck pans only</strong>, its <strong>waist pans only</strong>, and its <strong>straight arms (elbows do not bend) move in synchronized movement with each arm moving in the opposite direction</strong>.
             </p>
 
             <!-- Interactive Generation Tab Switcher -->
             <div class="lineage-tab-bar">
               <button class="lineage-tab-btn active" data-gen="z19">
-                <span>🚀</span> <strong>Zainiac 19</strong> <small>(First Gen • LEGO Mindstorms • 2019)</small>
+                <span>🚀</span> <strong>Zainiac 19</strong> <small>(~5 Ft Full Scale • LEGO Mindstorms • 2019)</small>
               </button>
               <button class="lineage-tab-btn" data-gen="z21">
                 <span>⚙️</span> <strong>Zainiac 21</strong> <small>(Second Gen • LEGO Mindstorms • 2021)</small>
@@ -102,8 +102,8 @@
             <!-- Technical Vector Blueprint Viewport -->
             <div class="blueprint-viewport">
               <div class="blueprint-header">
-                <span>// CAD SCHEMATIC: ZAINIAC 19 KINEMATICS & MULTI-MATERIAL ASSEMBLY</span>
-                <span>LEGO MINDSTORMS CORE • REV 1.5 • SCALE 1:4</span>
+                <span>// CAD SCHEMATIC: ZAINIAC 19 FULL-SCALE (~5 FT) HUMANOID ROBOTIC SYSTEM</span>
+                <span>LEGO MINDSTORMS CORE • REV 1.6 • SCALE 1:5</span>
               </div>
 
               <!-- Clean SVG Blueprint Wireframe -->
@@ -113,10 +113,10 @@
                 <line x1="780" y1="20" x2="780" y2="335" stroke="#bfdbfe" stroke-dasharray="3 3" stroke-width="0.8"/>
                 <line x1="40" y1="175" x2="780" y2="175" stroke="#dbeafe" stroke-dasharray="4 4" stroke-width="0.8"/>
 
-                <!-- Height Dimension Line -->
-                <line x1="90" y1="25" x2="90" y2="334" stroke="#64748b" stroke-width="1.2"/>
-                <path d="M 85 25 L 95 25 M 85 334 L 95 334" stroke="#64748b" stroke-width="1.2"/>
-                <text x="75" y="180" font-family="monospace" font-size="10" fill="#334155" text-anchor="middle" transform="rotate(-90 75 180)" font-weight="700">ARTICULATED ASSEMBLY</text>
+                <!-- Height Dimension Line: ~5 FEET TALL -->
+                <line x1="90" y1="25" x2="90" y2="334" stroke="#dc2626" stroke-width="1.5"/>
+                <path d="M 82 25 L 98 25 M 82 334 L 98 334" stroke="#dc2626" stroke-width="1.5"/>
+                <text x="75" y="180" font-family="monospace" font-size="10.5" fill="#991b1b" text-anchor="middle" transform="rotate(-90 75 180)" font-weight="700">HEIGHT: ~5 FEET TALL (~1.52 M)</text>
 
                 <!-- Centerline Axis -->
                 <line x1="380" y1="15" x2="380" y2="335" stroke="#93c5fd" stroke-dasharray="5 3" stroke-width="0.9"/>
@@ -160,39 +160,34 @@
                 <circle cx="380" cy="162" r="3.5" fill="#94a3b8"/>
                 <circle cx="380" cy="182" r="3.5" fill="#94a3b8"/>
 
-                <!-- [5] SYNCED OPPOSITE DIRECTION ARTICULATED ARMS -->
+                <!-- [5] SYNCED OPPOSITE DIRECTION STRAIGHT ARMS (NO ELBOW BEND) -->
                 <!-- Left Shoulder (3D printed bracket) -->
                 <rect x="302" y="122" width="16" height="16" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
                 <circle cx="310" cy="130" r="4" fill="#0d9488"/>
-                <!-- Left Upper Arm (Swinging Down / Back) -->
-                <line x1="306" y1="130" x2="245" y2="165" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
-                <!-- Left Elbow Joint -->
-                <circle cx="245" cy="165" r="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
-                <!-- Left Forearm (Downward Motion) -->
-                <line x1="245" y1="165" x2="210" y2="225" stroke="#2563eb" stroke-width="4.5" stroke-linecap="round"/>
+                <!-- Left Straight Rigid Arm Linkage (Continuous, No Elbow Bend, Downward Stroke) -->
+                <line x1="306" y1="130" x2="216" y2="225" stroke="#2563eb" stroke-width="5.5" stroke-linecap="round"/>
                 <!-- Left Hand / Gripper -->
-                <path d="M 204 225 L 216 225 M 200 235 L 208 225 L 216 235" stroke="#1d4ed8" stroke-width="2"/>
-                <!-- Left Arm Motion Arc: SWING DOWN ARROW -->
-                <path d="M 225 180 C 215 195 210 210 215 220" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="3 2" fill="none"/>
-                <polygon points="215,225 210,217 218,218" fill="#7c3aed"/>
-                <text x="175" y="160" font-family="monospace" font-size="8" fill="#7c3aed" font-weight="700">ARM 1: SWING DOWN</text>
+                <path d="M 210 225 L 222 225 M 206 235 L 214 225 L 222 235" stroke="#1d4ed8" stroke-width="2"/>
+                <!-- Left Motion Arc: SWING DOWN -->
+                <path d="M 235 175 C 220 190 215 208 220 220" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="3 2" fill="none"/>
+                <polygon points="220,225 215,217 223,218" fill="#7c3aed"/>
+                <text x="175" y="155" font-family="monospace" font-size="7.8" fill="#7c3aed" font-weight="700">ARM 1: SWING DOWN</text>
+                <text x="175" y="166" font-family="monospace" font-size="7" fill="#64748b">(NO ELBOW BEND)</text>
 
                 <!-- Right Shoulder (3D printed bracket) -->
                 <rect x="442" y="122" width="16" height="16" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
                 <circle cx="450" cy="130" r="4" fill="#0d9488"/>
-                <!-- Right Upper Arm (Swinging Up / Forward) -->
-                <line x1="450" y1="130" x2="515" y2="140" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
-                <!-- Right Elbow Joint -->
-                <circle cx="515" cy="140" r="7" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
-                <!-- Right Forearm (Raised / Forward Motion) -->
-                <line x1="515" y1="140" x2="555" y2="95" stroke="#2563eb" stroke-width="4.5" stroke-linecap="round"/>
+                <!-- Right Straight Rigid Arm Linkage (Continuous, No Elbow Bend, Upward Stroke) -->
+                <line x1="450" y1="130" x2="550" y2="92" stroke="#2563eb" stroke-width="5.5" stroke-linecap="round"/>
                 <!-- Right Hand / Gripper -->
-                <path d="M 550 92 L 560 98 M 557 85 L 555 95 L 565 92" stroke="#1d4ed8" stroke-width="2"/>
-                <!-- Right Arm Motion Arc: SWING UP ARROW -->
-                <path d="M 535 135 C 545 120 550 105 550 98" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="3 2" fill="none"/>
-                <polygon points="550,92 546,101 554,101" fill="#7c3aed"/>
-                <text x="565" y="80" font-family="monospace" font-size="8" fill="#7c3aed" font-weight="700">ARM 2: SWING UP</text>
-                <text x="380" y="90" font-family="monospace" font-size="8" fill="#7c3aed" text-anchor="middle" font-weight="700">// SYNCED OPPOSITE DIRECTION ARM MOVEMENT //</text>
+                <path d="M 545 88 L 555 94 M 552 82 L 550 92 L 560 88" stroke="#1d4ed8" stroke-width="2"/>
+                <!-- Right Motion Arc: SWING UP -->
+                <path d="M 525 130 C 538 115 545 105 545 95" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="3 2" fill="none"/>
+                <polygon points="545,90 541,99 549,99" fill="#7c3aed"/>
+                <text x="560" y="76" font-family="monospace" font-size="7.8" fill="#7c3aed" font-weight="700">ARM 2: SWING UP</text>
+                <text x="560" y="87" font-family="monospace" font-size="7" fill="#64748b">(NO ELBOW BEND)</text>
+
+                <text x="380" y="90" font-family="monospace" font-size="7.8" fill="#7c3aed" text-anchor="middle" font-weight="700">// SYNCED OPPOSITE DIRECTION RIGID ARM SWING (NO ELBOW BEND) //</text>
 
                 <!-- [6] ARTICULATED WAIST ROTATION PIVOT (PAN ONLY) -->
                 <rect x="348" y="215" width="64" height="20" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
@@ -218,29 +213,33 @@
                 <text x="380" y="332" font-family="monospace" font-size="8" fill="#92400e" text-anchor="middle" font-weight="700">SOLID WOOD LEGS & BASEPLATE</text>
 
                 <!-- CALLOUT BOX: VERIFIED SPECIFICATIONS (Right Side) -->
-                <rect x="600" y="35" width="195" height="280" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
-                <rect x="600" y="35" width="195" height="28" rx="8" fill="#eff6ff"/>
-                <text x="610" y="53" font-family="monospace" font-size="9.5" fill="#1e40af" font-weight="700">// ZAINIAC 19 KINEMATICS</text>
+                <rect x="600" y="30" width="195" height="295" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+                <rect x="600" y="30" width="195" height="28" rx="8" fill="#eff6ff"/>
+                <text x="610" y="48" font-family="monospace" font-size="9.5" fill="#1e40af" font-weight="700">// ZAINIAC 19 KINEMATICS</text>
 
                 <g font-family="monospace" font-size="8.5" fill="#334155">
-                  <text x="610" y="80" fill="#2563eb" font-weight="700">1. HEAD:</text>
-                  <text x="610" y="94" fill="#475569">Sculpted Paper-Mâché</text>
+                  <text x="610" y="74" fill="#dc2626" font-weight="700">SCALE / HEIGHT:</text>
+                  <text x="610" y="87" fill="#b91c1c" font-weight="700">~5 Feet Tall (~1.52 m)</text>
 
-                  <text x="610" y="114" fill="#2563eb" font-weight="700">2. NECK ARTICULATION:</text>
-                  <text x="610" y="128" fill="#0284c7" font-weight="700">Pans Only (Horizontal)</text>
+                  <text x="610" y="105" fill="#2563eb" font-weight="700">1. HEAD:</text>
+                  <text x="610" y="118" fill="#475569">Sculpted Paper-Mâché</text>
 
-                  <text x="610" y="148" fill="#2563eb" font-weight="700">3. WAIST ARTICULATION:</text>
-                  <text x="610" y="162" fill="#6d28d9" font-weight="700">Pans Only (Horizontal)</text>
+                  <text x="610" y="136" fill="#2563eb" font-weight="700">2. NECK ARTICULATION:</text>
+                  <text x="610" y="149" fill="#0284c7" font-weight="700">Pans Only (Horizontal)</text>
 
-                  <text x="610" y="182" fill="#2563eb" font-weight="700">4. ARM MOVEMENT:</text>
-                  <text x="610" y="196" fill="#7c3aed" font-weight="700">Synced Opposite Direction</text>
+                  <text x="610" y="167" fill="#2563eb" font-weight="700">3. WAIST ARTICULATION:</text>
+                  <text x="610" y="180" fill="#6d28d9" font-weight="700">Pans Only (Horizontal)</text>
 
-                  <text x="610" y="216" fill="#2563eb" font-weight="700">5. BODY & LEGS:</text>
-                  <text x="610" y="230" fill="#475569">PVC, Particle Board, Wood</text>
+                  <text x="610" y="198" fill="#2563eb" font-weight="700">4. ARM MOVEMENT:</text>
+                  <text x="610" y="211" fill="#7c3aed" font-weight="700">Synced Opposite Direction</text>
+                  <text x="610" y="223" fill="#64748b">(Elbows Do Not Bend)</text>
 
-                  <text x="610" y="250" fill="#2563eb" font-weight="700">6. BRAIN & FITTINGS:</text>
-                  <text x="610" y="264" fill="#dc2626" font-weight="700">LEGO MINDSTORMS</text>
-                  <text x="610" y="278" fill="#0d9488">+ 3D-Printed Parts</text>
+                  <text x="610" y="241" fill="#2563eb" font-weight="700">5. BODY & LEGS:</text>
+                  <text x="610" y="254" fill="#475569">PVC, Particle Board, Wood</text>
+
+                  <text x="610" y="272" fill="#2563eb" font-weight="700">6. BRAIN & FITTINGS:</text>
+                  <text x="610" y="285" fill="#dc2626" font-weight="700">LEGO MINDSTORMS</text>
+                  <text x="610" y="297" fill="#0d9488">+ 3D-Printed Parts</text>
                 </g>
               </svg>
             </div>
@@ -250,27 +249,27 @@
               <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 16px;">
                 <div style="font-weight: 700; color: #1e40af; font-size: 0.96rem; margin-bottom: 4px;">// GENERATION 1 ARCHITECTURE: ZAINIAC 19 (DEBUT: 2019)</div>
                 <div style="font-size: 0.94rem; color: #1d4ed8; line-height: 1.6;">
-                  The landmark first build of the series, showcased internationally at the <strong>Brussels Maker Faire</strong> (featured on Belgian National Television News and invited to the official opening ceremony) and the <strong>Philadelphia Maker Faire</strong>. Conceived and constructed using an authentic synthesis of rapid fabrication materials: <strong>wood for the legs</strong>, a <strong>particle board and PVC pipe framework for the body</strong>, a <strong>sculpted paper-mâché head</strong>, and <strong>custom 3D-printed parts</strong>. Powered by <strong>LEGO MINDSTORMS</strong>, Zainiac 19 features physical mechanical kinematics engineered so that its <strong>neck pans only</strong>, its <strong>waist pans only</strong>, and its <strong>arms move in synchronized movement with each arm moving in the opposite direction</strong>.
+                  The landmark first build of the series, showcased internationally at the <strong>Brussels Maker Faire</strong> (featured on Belgian National Television News and invited to the official opening ceremony) and the <strong>Philadelphia Maker Faire</strong>. Standing approximately <strong>5 feet tall</strong>, Zainiac 19 was conceived and constructed using an authentic synthesis of rapid fabrication materials: <strong>wood for the legs</strong>, a <strong>particle board and PVC pipe framework for the body</strong>, a <strong>sculpted paper-mâché head</strong>, and <strong>custom 3D-printed parts</strong>. Powered by <strong>LEGO MINDSTORMS</strong>, Zainiac 19 features physical mechanical kinematics engineered so that its <strong>neck pans only</strong>, its <strong>waist pans only</strong>, and its <strong>straight arms (no elbow bend) move in synchronized movement with each arm swinging in the opposite direction</strong>.
                 </div>
               </div>
 
               <!-- Telemetry Specs Grid -->
               <div class="telemetry-specs-grid">
                 <div class="telemetry-spec-box">
-                  <div class="spec-kpi-label">Controller Core</div>
-                  <div class="spec-kpi-val" style="color: #dc2626;">LEGO MINDSTORMS</div>
+                  <div class="spec-kpi-label">Scale / Height</div>
+                  <div class="spec-kpi-val" style="color: #dc2626;">~5 Feet (~1.52m)</div>
                 </div>
                 <div class="telemetry-spec-box">
                   <div class="spec-kpi-label">Arm Kinematics</div>
-                  <div class="spec-kpi-val" style="color: #7c3aed;">Synced Opposite Dir</div>
+                  <div class="spec-kpi-val" style="color: #7c3aed;">Synced Opposing (Rigid)</div>
                 </div>
                 <div class="telemetry-spec-box">
                   <div class="spec-kpi-label">Neck & Waist Motion</div>
                   <div class="spec-kpi-val" style="color: #0284c7;">Pan Only</div>
                 </div>
                 <div class="telemetry-spec-box">
-                  <div class="spec-kpi-label">Physical Build</div>
-                  <div class="spec-kpi-val" style="color: #b45309;">Wood, PVC & 3D</div>
+                  <div class="spec-kpi-label">Controller Core</div>
+                  <div class="spec-kpi-val" style="color: #2563eb;">LEGO MINDSTORMS</div>
                 </div>
               </div>
             </div>
@@ -390,15 +389,16 @@
 
             <!-- Tags -->
             <div class="article-tag-row" style="margin-top: 18px;">
+              <span class="tag tag-red">~5 Feet Tall Full-Scale</span>
               <span class="tag tag-red">LEGO MINDSTORMS</span>
-              <span class="tag tag-purple">Synced Opposing Arms</span>
+              <span class="tag tag-purple">Synced Opposing Straight Arms</span>
               <span class="tag tag-blue">Pan-Only Neck & Waist</span>
-              <span class="tag tag-blue">Zainiac 19</span>
-              <span class="tag tag-teal">Zainiac 21</span>
-              <span class="tag tag-amber">Zainiac 25</span>
               <span class="tag tag-amber">Wood & PVC Build</span>
               <span class="tag tag-teal">3D-Printed Parts</span>
               <span class="tag tag-purple">Brussels Maker Faire</span>
+              <span class="tag tag-blue">Zainiac 19</span>
+              <span class="tag tag-teal">Zainiac 21</span>
+              <span class="tag tag-amber">Zainiac 25</span>
             </div>
           </div>
         </article>
