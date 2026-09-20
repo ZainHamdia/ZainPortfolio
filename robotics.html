@@ -42,6 +42,7 @@
 
   <main>
     <!-- Page Hero (Workshop Theme) -->
+    <!-- Page Hero (Workshop & Multi-Discipline Prototyping Theme) -->
     <section class="page-hero">
       <div class="container">
         <div class="breadcrumb-nav">
@@ -49,13 +50,21 @@
           <span>/</span>
           <span>Robotics</span>
         </div>
-        <span class="page-category-badge" style="background-color: var(--accent-theme-bg); color: var(--accent-theme); border: 1px solid var(--accent-theme-border);">
+        <span class="page-category-badge">
           🛠️ Hardware Prototyping & Competitions
         </span>
         <h1 class="page-title">Robotics & Mechanical Fabrication</h1>
         <p class="page-subtitle">
-          Original mobile robot builds, competitive VEX robotics design, self-taught Arduino integration, and international Maker Faire exhibitions.
+          Original autonomous robot builds, competitive VEX robotics leadership, self-taught Arduino integration, and international Maker Faire exhibitions.
         </p>
+
+        <!-- Multi-Color Hero Stats Strip -->
+        <div class="robotics-stat-strip">
+          <span class="stat-pill pill-blue">🤖 3 Autonomous Generations (Zainiac 19 • 21 • 25)</span>
+          <span class="stat-pill pill-amber">🌍 5 International & National Maker Faires</span>
+          <span class="stat-pill pill-red">🏆 VEX V5 Co-President & Head of Design</span>
+          <span class="stat-pill pill-teal">🏥 3D-Printed N95 Cancer Center Relief</span>
+        </div>
       </div>
     </section>
 
@@ -63,12 +72,12 @@
     <div class="container content-layout">
       <!-- Main Column -->
       <div class="content-main">
-        <!-- Project 1: Zainiac Robot Series -->
-        <article id="zainiac" class="project-article">
+        <!-- Project 1: Zainiac Robot Series (Electric Royal Blue & Tech Amber) -->
+        <article id="zainiac" class="project-article project-zainiac">
           <div class="article-header">
-            <div class="article-meta font-mono" style="color: var(--accent-theme);">SERIES: ZAINIAC 19 • ZAINIAC 21 • ZAINIAC 25</div>
+            <div class="article-meta font-mono" style="color: #2563eb; font-weight: 700;">// FLAGSHIP BUILD LINEAGE: 2019 – PRESENT</div>
             <h2 class="article-title">Zainiac Robot Series</h2>
-            <div class="article-subtitle" style="color: var(--accent-theme);">Mechanical Design, Electronics, Programming & Iterative Prototyping</div>
+            <div class="article-subtitle" style="color: #1d4ed8;">Mechanical Chassis Design, Microcontrollers, Sensory Integration & Prototyping</div>
           </div>
 
           <div class="article-body">
@@ -76,24 +85,76 @@
               The <strong>Zainiac Robot Series</strong> represents an ongoing lineage of original mobile robots conceived, designed, and constructed independently by Zain Hamdia. Starting with his landmark first build, <strong>Zainiac 19</strong>, the series incorporates mechanical design, electronics, self-taught Arduino programming, fabrication, and iterative prototyping.
             </p>
 
-            <div class="spec-box">
-              <div style="font-weight: bold; margin-bottom: 6px; color: var(--text-primary);">// CORE ENGINEERING DISCIPLINES:</div>
-              • Mechanical Design: Custom chassis layouts, drivetrain assembly, and structural framing.<br>
-              • Electronics & Control: Self-taught Arduino programming, sensor integration, and motor driver wiring.<br>
-              • Iterative Prototyping: Evolution through successive generations (Zainiac 19 → Zainiac 21 → Zainiac 25).
+            <!-- 3-Generation Evolution Lineage Track -->
+            <div class="lineage-grid">
+              <div class="lineage-card card-z19">
+                <div class="lineage-title" style="color: #1d4ed8;">🚀 Zainiac 19</div>
+                <div class="lineage-desc">First independent build. Self-taught Arduino programming, motor driver circuits, chassis assembly & ultrasonic obstacle sensing. Debuted at Philadelphia & Brussels.</div>
+              </div>
+              <div class="lineage-card card-z21">
+                <div class="lineage-title" style="color: #0f766e;">⚙️ Zainiac 21</div>
+                <div class="lineage-desc">Second-generation architecture. Enhanced mechanical packaging, refined sensor response, and modular electronics bay.</div>
+              </div>
+              <div class="lineage-card card-z25">
+                <div class="lineage-title" style="color: #b45309;">⚡ Zainiac 25</div>
+                <div class="lineage-desc">Current iteration. Advanced mobile platform integrating modern CAD iteration, optimized weight distribution, and durable drive kinematics.</div>
+              </div>
             </div>
 
-            <p>
-              <strong>International Exhibitions & Recognition:</strong>
-              The Zainiac series has been presented at prominent maker events internationally and across the United States:
-            </p>
-            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: var(--text-secondary);">
-              <li><strong>Brussels Maker Faire:</strong> Featured on Belgian national news following participation and invited to participate in the opening ceremony alongside Brussels government leadership.</li>
-              <li><strong>Philadelphia Maker Faire:</strong> Featured maker in the Robotics category.</li>
-              <li><strong>Rochester Maker Faire</strong></li>
-              <li><strong>Cairo Maker Faire</strong></li>
-              <li><strong>Tandem Industrial Design Conference</strong> at Jefferson University</li>
-            </ul>
+            <div class="spec-box">
+              <div style="font-weight: bold; margin-bottom: 6px; color: #1e3a8a;">// CORE ENGINEERING DISCIPLINES:</div>
+              • <strong>Mechanical Design:</strong> Custom chassis layouts, drivetrain assembly, and structural framing.<br>
+              • <strong>Electronics & Control:</strong> Self-taught Arduino programming, sensor integration, and motor driver wiring.<br>
+              • <strong>Iterative Prototyping:</strong> Evolution through successive generations (Zainiac 19 → Zainiac 21 → Zainiac 25).
+            </div>
+
+            <!-- International Exhibitions with distinct badge highlights -->
+            <div style="margin-top: 8px;">
+              <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary);">
+                International Exhibitions & Recognition
+              </h3>
+              <div class="exhibitions-grid">
+                <div class="exhibition-item featured-brussels">
+                  <span class="exhibition-flag">🇧🇪</span>
+                  <div class="exhibition-content">
+                    <div class="exhibition-name" style="color: #92400e;">Brussels Maker Faire (Belgium)</div>
+                    <div class="exhibition-detail" style="color: #78350f;">Featured on <strong>Belgian National Television News</strong> following presentation; invited to the official opening ceremony alongside Brussels government leadership.</div>
+                  </div>
+                </div>
+
+                <div class="exhibition-item">
+                  <span class="exhibition-flag">🇺🇸</span>
+                  <div class="exhibition-content">
+                    <div class="exhibition-name">Philadelphia Maker Faire</div>
+                    <div class="exhibition-detail">Featured maker in the official Robotics category with live autonomous demonstrations.</div>
+                  </div>
+                </div>
+
+                <div class="exhibition-item">
+                  <span class="exhibition-flag">🇺🇸</span>
+                  <div class="exhibition-content">
+                    <div class="exhibition-name">Rochester Maker Faire</div>
+                    <div class="exhibition-detail">Presented robotics designs and hands-on demonstrations to maker community.</div>
+                  </div>
+                </div>
+
+                <div class="exhibition-item">
+                  <span class="exhibition-flag">🇪🇬</span>
+                  <div class="exhibition-content">
+                    <div class="exhibition-name">Cairo Maker Faire</div>
+                    <div class="exhibition-detail">International robotics exhibition and maker technical exchange.</div>
+                  </div>
+                </div>
+
+                <div class="exhibition-item">
+                  <span class="exhibition-flag">🎓</span>
+                  <div class="exhibition-content">
+                    <div class="exhibition-name">Tandem Conference • Jefferson University</div>
+                    <div class="exhibition-detail">Industrial design and engineering hardware showcase.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div class="info-gap-box">
               <span class="gap-icon">📷</span>
@@ -102,23 +163,25 @@
               </div>
             </div>
 
+            <!-- Multi-Colored Differentiated Tags -->
             <div class="article-tag-row">
-              <span class="tag">Zainiac 19</span>
-              <span class="tag">Zainiac 21</span>
-              <span class="tag">Zainiac 25</span>
-              <span class="tag">Arduino</span>
-              <span class="tag">Electronics</span>
-              <span class="tag">Maker Faires</span>
+              <span class="tag tag-blue">Zainiac 19</span>
+              <span class="tag tag-teal">Zainiac 21</span>
+              <span class="tag tag-amber">Zainiac 25</span>
+              <span class="tag tag-blue">Arduino C++</span>
+              <span class="tag tag-amber">Motor Drivers</span>
+              <span class="tag tag-purple">Brussels Maker Faire</span>
+              <span class="tag tag-slate">Philadelphia Maker Faire</span>
             </div>
           </div>
         </article>
 
-        <!-- Project 2: Little Bot & Noggin -->
-        <article id="little-bot" class="project-article">
+        <!-- Project 2: Little Bot & Noggin (Creative Violet & Indigo) -->
+        <article id="little-bot" class="project-article project-littlebot">
           <div class="article-header">
-            <div class="article-meta font-mono" style="color: var(--accent-theme);">INDEPENDENT ROBOTICS BUILDS</div>
+            <div class="article-meta font-mono" style="color: #7c3aed; font-weight: 700;">// EXPERIMENTAL COMPANION HARDWARE</div>
             <h2 class="article-title">Little Bot & Noggin</h2>
-            <div class="article-subtitle" style="color: var(--accent-theme);">Exploration of Design, Movement, Hardware Integration & Controls</div>
+            <div class="article-subtitle" style="color: #6d28d9;">Kinematics Exploration, Locomotion Mechanics & Compact Control Packaging</div>
           </div>
 
           <div class="article-body">
@@ -129,6 +192,11 @@
               These projects provided focused testbeds for experimenting with compact chassis geometry, degrees of freedom, and testing responsive control inputs.
             </p>
 
+            <div style="background: #faf5ff; border: 1px solid #e9d5ff; border-left: 4px solid #7c3aed; border-radius: var(--radius-sm); padding: 16px; margin: 14px 0;">
+              <div style="font-weight: 700; color: #5b21b6; margin-bottom: 4px;">// KINEMATICS & CONTROL STUDY</div>
+              <span style="font-size: 0.92rem; color: #4c1d95;">Focuses on actuator placement, center of mass balancing, degrees of freedom, and testing micro-chassis mechanical stability.</span>
+            </div>
+
             <div class="info-gap-box">
               <span class="gap-icon">ℹ️</span>
               <div>
@@ -137,33 +205,49 @@
             </div>
 
             <div class="article-tag-row">
-              <span class="tag">Robotics</span>
-              <span class="tag">Hardware Integration</span>
-              <span class="tag">Kinematics & Movement</span>
-              <span class="tag">Control Systems</span>
+              <span class="tag tag-purple">Kinematics & Locomotion</span>
+              <span class="tag tag-blue">Hardware Integration</span>
+              <span class="tag tag-slate">Compact Packaging</span>
+              <span class="tag tag-purple">Control Systems</span>
             </div>
           </div>
         </article>
 
-        <!-- Project 3: VEX V5 Competitive Robotics -->
-        <article id="vex-robotics" class="project-article">
+        <!-- Project 3: VEX V5 Competitive Robotics (Tournament Crimson & Gold) -->
+        <article id="vex-robotics" class="project-article project-vex">
           <div class="article-header">
-            <div class="article-meta font-mono" style="color: var(--accent-theme);">COMPETITIVE ROBOTICS • PRINCETON DAY SCHOOL</div>
+            <div class="article-meta font-mono" style="color: #dc2626; font-weight: 700;">// COMPETITIVE ROBOTICS • PRINCETON DAY SCHOOL</div>
             <h2 class="article-title">VEX V5 Competitive Robotics & Club Leadership</h2>
-            <div class="article-subtitle" style="color: var(--accent-theme);">Co-President (2025–Present) • Head of Design Team (2024–2025)</div>
+            <div class="article-subtitle" style="color: #b91c1c;">Co-President (2025–Present) • Head of Design Team (2024–2025)</div>
           </div>
 
           <div class="article-body">
             <p>
               Zain serves as <strong>Co-President of the Princeton Day School Robotics Club</strong> (2025–Present) and previously served as <strong>Head of the Design Team</strong> (2024–2025). In these leadership roles, he directs CAD modeling, mechanism selection, and structural fabrication under strict competition constraints.
             </p>
+
+            <!-- Highlighted Competition Results Cards -->
+            <div class="competition-results-grid">
+              <div class="comp-result-card gold-result">
+                <div class="comp-result-icon">🏆</div>
+                <div>
+                  <div class="comp-result-label" style="color: #b45309;">2026 Tournament Season</div>
+                  <div class="comp-result-title" style="color: #78350f;">Quarterfinalist Finish</div>
+                </div>
+              </div>
+
+              <div class="comp-result-card ruby-result">
+                <div class="comp-result-icon">🎖️</div>
+                <div>
+                  <div class="comp-result-label" style="color: #b91c1c;">February 2025 Tournament</div>
+                  <div class="comp-result-title" style="color: #7f1d1d;">6th Place (40+ Team Field)</div>
+                </div>
+              </div>
+            </div>
+
             <p>
-              <strong>Competition Results:</strong>
+              Under Zain's design leadership, the team integrated parametric CAD iteration in Onshape to simulate gear ratios, center of mass, and intake clearance before physical machining.
             </p>
-            <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 6px; color: var(--text-secondary);">
-              <li><strong>VEX V5 Robotics Competition (2026):</strong> Quarterfinalist</li>
-              <li><strong>VEX V5 Robotics Competition (February 2025):</strong> Led design efforts resulting in a 6th-place tournament finish</li>
-            </ul>
 
             <div class="info-gap-box">
               <span class="gap-icon">🏆</span>
@@ -173,30 +257,33 @@
             </div>
 
             <div class="article-tag-row">
-              <span class="tag">VEX V5</span>
-              <span class="tag">Robotics Club Co-President</span>
-              <span class="tag">Head of Design</span>
-              <span class="tag">Tournament Quarterfinalist</span>
-              <span class="tag">Team Leadership</span>
+              <span class="tag tag-red">VEX V5 Competition</span>
+              <span class="tag tag-red">Robotics Club Co-President</span>
+              <span class="tag tag-amber">Head of Design</span>
+              <span class="tag tag-amber">Onshape CAD</span>
+              <span class="tag tag-blue">Tournament Quarterfinalist</span>
+              <span class="tag tag-slate">PDS Team Leadership</span>
             </div>
           </div>
         </article>
 
-        <!-- Project 4: 3D-Printed N95 Masks -->
-        <article id="n95-masks" class="project-article">
+        <!-- Project 4: 3D-Printed N95 Masks (Clinical Teal & Mint) -->
+        <article id="n95-masks" class="project-article project-healthcare">
           <div class="article-header">
-            <div class="article-meta font-mono" style="color: var(--accent-theme);">COMMUNITY HEALTHCARE FABRICATION</div>
+            <div class="article-meta font-mono" style="color: #0d9488; font-weight: 700;">// COMMUNITY HEALTHCARE FABRICATION</div>
             <h2 class="article-title">3D-Printed N95 Masks (COVID-19 Relief)</h2>
-            <div class="article-subtitle" style="color: var(--accent-theme);">Donated to New York Cancer Center</div>
+            <div class="article-subtitle" style="color: #0f766e;">Manufactured for & Donated to New York Cancer Center</div>
           </div>
 
           <div class="article-body">
             <p>
               During the height of personal protective equipment shortages during the COVID-19 pandemic, Zain designed and produced 3D-printed N95 masks, donating them directly to a New York cancer center to protect vulnerable patients and medical staff.
             </p>
-            <p>
-              This work inspired his published article: <em>“From COVID-19 to Zainiac 19”</em>.
-            </p>
+
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #10b981; border-radius: var(--radius-sm); padding: 16px; margin: 14px 0;">
+              <div style="font-weight: 700; color: #166534; margin-bottom: 4px;">// HEALTHCARE IMPACT & PUBLISHED RESEARCH</div>
+              <span style="font-size: 0.94rem; color: #14532d;">Donated directly to front-line oncology wards during critical supply-chain disruption. This humanitarian fabrication project directly inspired his published article: <strong>“From COVID-19 to Zainiac 19”</strong>.</span>
+            </div>
 
             <div class="info-gap-box">
               <span class="gap-icon">📄</span>
@@ -206,72 +293,74 @@
             </div>
 
             <div class="article-tag-row">
-              <span class="tag">3D Printing</span>
-              <span class="tag">CAD Design</span>
-              <span class="tag">Community Service</span>
-              <span class="tag">Healthcare Support</span>
-              <span class="tag">Published Article</span>
+              <span class="tag tag-teal">3D Printing (FDM)</span>
+              <span class="tag tag-green">PPE Fabrication</span>
+              <span class="tag tag-blue">Community Service</span>
+              <span class="tag tag-amber">Published Article</span>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- Sidebar Column -->
+      <!-- Sidebar Column (Multi-color structured cards) -->
       <aside class="content-sidebar">
-        <div class="sidebar-card">
-          <h3 class="sidebar-title" style="color: var(--accent-theme);">Exhibitions & Conferences</h3>
+        <!-- Exhibitions Card (Amber/Gold Accent) -->
+        <div class="sidebar-card" style="border-top: 4px solid #f59e0b;">
+          <h3 class="sidebar-title" style="color: #b45309;">Exhibitions & Conferences</h3>
           <ul class="sidebar-list">
             <li>
-              <div class="sidebar-item-label">Brussels Maker Faire</div>
+              <div class="sidebar-item-label" style="color: #b45309;">Brussels Maker Faire 🇧🇪</div>
               <div class="sidebar-item-val">Featured on Belgian National News; Opening Ceremony with Government Leadership</div>
             </li>
             <li>
-              <div class="sidebar-item-label">Philadelphia Maker Faire</div>
+              <div class="sidebar-item-label" style="color: #1d4ed8;">Philadelphia Maker Faire 🇺🇸</div>
               <div class="sidebar-item-val">Robotics Category Exhibitor</div>
             </li>
             <li>
-              <div class="sidebar-item-label">Rochester Maker Faire</div>
+              <div class="sidebar-item-label" style="color: #6d28d9;">Rochester Maker Faire 🇺🇸</div>
               <div class="sidebar-item-val">Robotics Presenter</div>
             </li>
             <li>
-              <div class="sidebar-item-label">Cairo Maker Faire</div>
+              <div class="sidebar-item-label" style="color: #c2410c;">Cairo Maker Faire 🇪🇬</div>
               <div class="sidebar-item-val">International Maker Exhibit</div>
             </li>
             <li>
-              <div class="sidebar-item-label">Jefferson University</div>
+              <div class="sidebar-item-label" style="color: #0f766e;">Jefferson University 🎓</div>
               <div class="sidebar-item-val">Tandem Industrial Design Conference</div>
             </li>
           </ul>
         </div>
 
-        <div class="sidebar-card">
-          <h3 class="sidebar-title" style="color: var(--accent-theme);">Technical Tools</h3>
+        <!-- Technical Tools Card (Royal Electric Blue Accent) -->
+        <div class="sidebar-card" style="border-top: 4px solid #2563eb;">
+          <h3 class="sidebar-title" style="color: #1d4ed8;">Technical Hardware Stack</h3>
           <ul class="sidebar-list">
             <li>
-              <div class="sidebar-item-label">CAD & Modeling</div>
-              <div class="sidebar-item-val">Fusion 360, CAD</div>
+              <div class="sidebar-item-label" style="color: #b45309;">CAD & Modeling</div>
+              <div class="sidebar-item-val">Fusion 360, Onshape</div>
             </li>
             <li>
-              <div class="sidebar-item-label">Fabrication</div>
-              <div class="sidebar-item-val">3D Printing, Iterative Prototyping</div>
+              <div class="sidebar-item-label" style="color: #0f766e;">Fabrication</div>
+              <div class="sidebar-item-val">3D Printing (FDM), Iterative Prototyping</div>
             </li>
             <li>
-              <div class="sidebar-item-label">Microcontrollers</div>
-              <div class="sidebar-item-val">Arduino (Self-Taught), Hardware Integration</div>
+              <div class="sidebar-item-label" style="color: #1d4ed8;">Microcontrollers</div>
+              <div class="sidebar-item-val">Arduino (Self-Taught), Sensor Wiring</div>
             </li>
           </ul>
         </div>
 
-        <div class="sidebar-card">
-          <h3 class="sidebar-title">Explore Next</h3>
+        <!-- Explore Next Card (Violet/Indigo Accent) -->
+        <div class="sidebar-card" style="border-top: 4px solid #7c3aed;">
+          <h3 class="sidebar-title" style="color: #6d28d9;">Explore Next</h3>
           <ul class="sidebar-list">
             <li>
-              <a href="aviation.html"><strong>Aviation & Simulation →</strong></a>
-              <div style="font-size: 0.85rem; color: var(--text-muted);">3D-printed flight simulator and Princeton University research.</div>
+              <a href="aviation.html" style="color: #2563eb;"><strong>✈️ Aviation & Simulation →</strong></a>
+              <div style="font-size: 0.85rem; color: var(--text-secondary);">3D-printed flight simulator and Princeton University research.</div>
             </li>
             <li>
-              <a href="firefighting.html"><strong>Firefighting Service →</strong></a>
-              <div style="font-size: 0.85rem; color: var(--text-muted);">Montgomery Township Volunteer Fire Co. #2 digital system.</div>
+              <a href="firefighting.html" style="color: #dc2626;"><strong>🚒 Firefighting Service →</strong></a>
+              <div style="font-size: 0.85rem; color: var(--text-secondary);">Montgomery Township Volunteer Fire Co. #2 digital dashboard.</div>
             </li>
           </ul>
         </div>

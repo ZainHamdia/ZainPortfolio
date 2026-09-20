@@ -13,8 +13,8 @@ function initTheme() {
   const toggleBtn = document.getElementById('theme-toggle-btn');
   const themeIcon = document.getElementById('theme-icon');
   
-  const savedTheme = localStorage.getItem('zh_theme') || 
-    (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  // Default to clean, professional light theme
+  const savedTheme = localStorage.getItem('zh_theme') || 'light';
 
   setTheme(savedTheme);
 
@@ -30,7 +30,7 @@ function initTheme() {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('zh_theme', theme);
     if (themeIcon) {
-      themeIcon.textContent = theme === 'dark' ? 'Light' : 'Dark';
+      themeIcon.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
     }
   }
 }
