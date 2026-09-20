@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch (e) {}
 
   initMobileNav();
+  initLineageTabs();
 });
 
 /* Mobile Menu Navigation */
@@ -23,4 +24,27 @@ function initMobileNav() {
       navMenu.classList.toggle('open');
     });
   }
+}
+
+/* Interactive Tab Switcher for Zainiac Generation Lineage */
+function initLineageTabs() {
+  const tabBtns = document.querySelectorAll('.lineage-tab-btn');
+  const panels = document.querySelectorAll('.lineage-panel');
+
+  if (!tabBtns.length) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetGen = btn.getAttribute('data-gen');
+      
+      tabBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      
+      btn.classList.add('active');
+      const activePanel = document.getElementById(`panel-${targetGen}`);
+      if (activePanel) {
+        activePanel.classList.add('active');
+      }
+    });
+  });
 }

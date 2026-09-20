@@ -61,6 +61,279 @@ body.theme-robotics {
   font-weight: 600;
 }
 
+/* ==========================================================================
+   BENTO GRID ARCHITECTURE (Modern Editorial Dynamic Layout)
+   ========================================================================== */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  margin: 32px 0 64px;
+}
+
+.bento-col-12 { grid-column: span 12; }
+.bento-col-8  { grid-column: span 8; }
+.bento-col-7  { grid-column: span 7; }
+.bento-col-6  { grid-column: span 6; }
+.bento-col-5  { grid-column: span 5; }
+.bento-col-4  { grid-column: span 4; }
+
+.bento-card {
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bento-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: #cbd5e1;
+}
+
+/* Card Visual Accent Lines */
+.bento-card.accent-blue { border-top: 3px solid #2563eb; }
+.bento-card.accent-purple { border-top: 3px solid #7c3aed; }
+.bento-card.accent-red { border-top: 3px solid #dc2626; }
+.bento-card.accent-teal { border-top: 3px solid #0d9488; }
+.bento-card.accent-amber { border-top: 3px solid #f59e0b; }
+
+/* Interactive Blueprint Viewport */
+.blueprint-viewport {
+  background: #fbfdff;
+  border: 1px solid #dbeafe;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin: 18px 0;
+  position: relative;
+}
+
+.blueprint-viewport::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+  background-size: 18px 18px;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.blueprint-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: #2563eb;
+  margin-bottom: 14px;
+  border-bottom: 1px dashed #bfdbfe;
+  padding-bottom: 8px;
+  font-weight: 600;
+}
+
+.blueprint-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.06));
+}
+
+/* Lineage Interactive Tab Switcher */
+.lineage-tab-bar {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0 14px;
+  background: #f8fafc;
+  padding: 5px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-strong);
+}
+
+.lineage-tab-btn {
+  flex: 1;
+  padding: 9px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.lineage-tab-btn:hover {
+  color: #2563eb;
+  background: #ffffff;
+}
+
+.lineage-tab-btn.active {
+  background: #ffffff;
+  color: #2563eb;
+  border-color: #bfdbfe;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.1);
+}
+
+.lineage-panel {
+  display: none;
+}
+.lineage-panel.active {
+  display: block;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Telemetry Stats Grid */
+.telemetry-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.telemetry-spec-box {
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+
+.spec-kpi-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.spec-kpi-val {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Home Hero Asymmetric Grid */
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.telemetry-hud-card {
+  background: #ffffff;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+
+.hud-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 12px;
+}
+
+.hud-pulse-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+}
+
+.hud-metric-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hud-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  font-size: 0.88rem;
+}
+
+.hud-item-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.hud-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.74rem;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+/* Quick Filter Pill Strip */
+.filter-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid var(--border-strong);
+  background: #ffffff;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+
 /* Multi-Color Project Cards on Robotics - Light & Crisp */
 .project-article.project-zainiac {
   border: 1px solid var(--border-strong);
@@ -1361,6 +1634,24 @@ a:hover {
 }
 
 /* Responsive */
+@media (max-width: 992px) {
+  .bento-grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+  .bento-col-12 { grid-column: span 6; }
+  .bento-col-8  { grid-column: span 6; }
+  .bento-col-7  { grid-column: span 6; }
+  .bento-col-6  { grid-column: span 6; }
+  .bento-col-5  { grid-column: span 6; }
+  .bento-col-4  { grid-column: span 6; }
+
+  .home-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}
+
 @media (max-width: 860px) {
   .disciplines-grid {
     grid-template-columns: 1fr;
@@ -1387,6 +1678,10 @@ a:hover {
   .page-title {
     font-size: 2rem;
   }
+
+  .telemetry-specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   
   .nav-menu {
     display: none;
@@ -1407,5 +1702,24 @@ a:hover {
   
   .mobile-menu-toggle {
     display: block;
+  }
+}
+
+@media (max-width: 580px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .bento-col-12, .bento-col-8, .bento-col-7, .bento-col-6, .bento-col-5, .bento-col-4 {
+    grid-column: span 1;
+  }
+  .bento-card {
+    padding: 20px 16px;
+  }
+  .telemetry-specs-grid {
+    grid-template-columns: 1fr;
+  }
+  .lineage-tab-bar {
+    flex-direction: column;
   }
 }

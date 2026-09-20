@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zain Hamdia | Engineering & Robotics Portfolio</title>
   <meta name="description" content="Engineering & Robotics portfolio of Zain Hamdia — Builder, innovator, junior firefighter, and student at Princeton Day School (Class of 2027) aspiring to study mechanical engineering.">
-  <link rel="stylesheet" href="css/styles.css?v=light-2">
+  <link rel="stylesheet" href="css/styles.css?v=bento-3">
 </head>
 <body class="theme-home">
 
@@ -36,26 +36,108 @@
   </header>
 
   <main>
-    <!-- Home Hero -->
+    <!-- Home Hero Asymmetric Grid -->
     <section class="home-hero">
       <div class="container">
-        <div class="home-hero-badge">
-          <span class="badge-dot"></span>
-          <span>Princeton Day School • Expected Graduation: 2027</span>
-        </div>
+        <div class="home-hero-grid">
+          
+          <!-- Left Column: Editorial Overview -->
+          <div>
+            <div class="home-hero-badge">
+              <span class="badge-dot"></span>
+              <span>Princeton Day School • Class of 2027 • Aspiring Mechanical Engineer</span>
+            </div>
 
-        <h1 class="home-hero-title">
-          Engineering & Robotics Student, <span>Builder & Innovator</span>.
-        </h1>
+            <h1 class="home-hero-title">
+              Engineering & Robotics Student, <span>Builder & Innovator</span>.
+            </h1>
 
-        <p class="home-hero-bio">
-          I am an engineering and robotics student at Princeton Day School and an aspiring mechanical engineer. My work centers on designing and fabricating original robots (the <strong>Zainiac Robot Series</strong>), developing custom hardware systems—including a Raspberry Pi digital information system for <strong>Montgomery Township Volunteer Fire Company #2</strong>—constructing a <strong>3D-printed flight simulator</strong>, and conducting research in <strong>Princeton University's Laboratory Learning Program</strong>.
-        </p>
+            <p class="home-hero-bio">
+              I am an engineering and robotics student at Princeton Day School and an aspiring mechanical engineer. My work centers on designing and fabricating original robots (the <strong>Zainiac Robot Series</strong>), developing custom hardware systems—including a Raspberry Pi digital information system for <strong>Montgomery Township Volunteer Fire Company #2</strong>—constructing a <strong>3D-printed flight simulator</strong>, and conducting scientific research in <strong>Princeton University's Laboratory Learning Program</strong>.
+            </p>
 
-        <div class="home-hero-actions">
-          <a href="robotics.html" class="btn btn-primary">Robotics Projects</a>
-          <a href="aviation.html" class="btn btn-secondary">Aviation & Flight Simulator</a>
-          <a href="firefighting.html" class="btn btn-secondary">Fire Company Engineering</a>
+            <div class="home-hero-actions">
+              <a href="robotics.html" class="btn btn-primary">Robotics Showcase →</a>
+              <a href="aviation.html" class="btn btn-secondary">Aviation & Flight Sim</a>
+              <a href="firefighting.html" class="btn btn-secondary">Fire Station Engineering</a>
+            </div>
+
+            <div class="filter-strip">
+              <span style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Quick Focus:</span>
+              <a href="robotics.html#zainiac" class="filter-btn">🤖 Zainiac 19/21/25</a>
+              <a href="robotics.html#vex-robotics" class="filter-btn">🏆 VEX V5 Podium</a>
+              <a href="aviation.html#flight-sim" class="filter-btn">✈️ Flight Simulator</a>
+              <a href="firefighting.html#tech-intern" class="filter-btn">🚒 Radio Room Dashboard</a>
+            </div>
+          </div>
+
+          <!-- Right Column: Engineering Operations Telemetry HUD -->
+          <div>
+            <div class="telemetry-hud-card">
+              <div class="hud-header">
+                <div>
+                  <div style="font-family: var(--font-mono); font-size: 0.74rem; color: #2563eb; font-weight: 700; letter-spacing: 0.05em;">
+                    // HARDWARE SYSTEMS STATUS
+                  </div>
+                  <div style="font-weight: 800; font-size: 1.05rem; color: var(--text-primary);">
+                    Active Technical Portals
+                  </div>
+                </div>
+                <div class="hud-pulse-status">
+                  <span class="pulse-dot"></span>
+                  <span>ONLINE</span>
+                </div>
+              </div>
+
+              <div class="hud-metric-row">
+                <a href="robotics.html#zainiac" class="hud-item" style="text-decoration: none;">
+                  <div class="hud-item-title">
+                    <span>🤖</span>
+                    <span>Zainiac Mobile Robotics</span>
+                  </div>
+                  <span class="hud-badge tag-blue">3 Generations</span>
+                </a>
+
+                <a href="robotics.html#vex-robotics" class="hud-item" style="text-decoration: none;">
+                  <div class="hud-item-title">
+                    <span>🏆</span>
+                    <span>PDS VEX V5 Robotics</span>
+                  </div>
+                  <span class="hud-badge tag-amber">Co-President</span>
+                </a>
+
+                <a href="aviation.html#flight-sim" class="hud-item" style="text-decoration: none;">
+                  <div class="hud-item-title">
+                    <span>✈️</span>
+                    <span>3D Flight Simulator</span>
+                  </div>
+                  <span class="hud-badge tag-teal">CAD Assemblies</span>
+                </a>
+
+                <a href="firefighting.html#tech-intern" class="hud-item" style="text-decoration: none;">
+                  <div class="hud-item-title">
+                    <span>🚒</span>
+                    <span>Station 46 Radio System</span>
+                  </div>
+                  <span class="hud-badge tag-red">11" CAD Mount</span>
+                </a>
+
+                <a href="aviation.html#princeton-llp" class="hud-item" style="text-decoration: none;">
+                  <div class="hud-item-title">
+                    <span>🔬</span>
+                    <span>Princeton University LLP</span>
+                  </div>
+                  <span class="hud-badge tag-purple">Joseph Henry Lab</span>
+                </a>
+              </div>
+
+              <div style="margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
+                <span>LOCATION: PRINCETON, NJ</span>
+                <span style="color: #15803d; font-weight: 700;">ALL TELEMETRY NOMINAL</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -78,6 +160,11 @@
               <p class="card-text">
                 Creator of the <strong>Zainiac Robot Series</strong> (Zainiac 19, 21 & 25), <em>Little Bot & Noggin</em>, and VEX V5 competitive robotics. Exhibited internationally at the Brussels Maker Faire and across the US.
               </p>
+              <div style="margin: 12px 0; display: flex; gap: 6px; flex-wrap: wrap;">
+                <span class="tag tag-blue">3 Generations</span>
+                <span class="tag tag-amber">5 Maker Faires</span>
+                <span class="tag tag-red">VEX Leadership</span>
+              </div>
             </div>
             <a href="robotics.html" class="card-link">View Robotics Page →</a>
           </div>
@@ -88,8 +175,13 @@
               <div class="card-icon">✈️</div>
               <h3 class="card-title">Aviation & Simulation</h3>
               <p class="card-text">
-                Designer and builder of a <strong>3D-printed flight simulator</strong> with custom-engineered components, and summer research intern in Princeton University's <strong>Joseph Henry Project</strong>.
+                Designer and builder of a <strong>3D-printed flight simulator</strong> with custom-engineered mechanical components, and summer research intern in Princeton University's <strong>Joseph Henry Project</strong>.
               </p>
+              <div style="margin: 12px 0; display: flex; gap: 6px; flex-wrap: wrap;">
+                <span class="tag tag-teal">Flight Simulator</span>
+                <span class="tag tag-purple">Princeton LLP</span>
+                <span class="tag tag-blue">Mechanical Controls</span>
+              </div>
             </div>
             <a href="aviation.html" class="card-link">View Aviation Page →</a>
           </div>
@@ -102,6 +194,11 @@
               <p class="card-text">
                 Junior Firefighter and Technology Intern at <strong>Montgomery Township Volunteer Fire Company #2</strong>. Designed the radio room Raspberry Pi digital dashboard, custom CAD enclosure, and website redesign.
               </p>
+              <div style="margin: 12px 0; display: flex; gap: 6px; flex-wrap: wrap;">
+                <span class="tag tag-red">Station 46 Intern</span>
+                <span class="tag tag-amber">Raspberry Pi</span>
+                <span class="tag tag-slate">11" CAD Enclosure</span>
+              </div>
             </div>
             <a href="firefighting.html" class="card-link">View Firefighting Page →</a>
           </div>
@@ -130,18 +227,18 @@
               Designing and building a permanent Raspberry Pi-based operational dashboard for the station's radio room, integrating weather radar, forecasts, emergency alerts, news, and communications. Engineered a custom wall-mounted CAD-modeled 3D-printed enclosure for an 11-inch display. Leading the redesign of the fire company's public website.
             </p>
             <div class="tag-list">
-              <span class="tag">Raspberry Pi</span>
-              <span class="tag">CAD Modeling</span>
-              <span class="tag">3D Printing</span>
-              <span class="tag">Web Development</span>
-              <span class="tag">Hardware Integration</span>
+              <span class="tag tag-red">Raspberry Pi</span>
+              <span class="tag tag-amber">CAD Modeling</span>
+              <span class="tag tag-blue">3D Printing</span>
+              <span class="tag tag-teal">Web Development</span>
+              <span class="tag tag-slate">Hardware Integration</span>
             </div>
           </article>
 
           <!-- Item 2: Princeton University LLP -->
           <article class="project-item">
             <div class="project-header">
-              <h3 class="project-title"><a href="aviation.html#princeton">Princeton University Laboratory Learning Program</a></h3>
+              <h3 class="project-title"><a href="aviation.html#princeton-llp">Princeton University Laboratory Learning Program</a></h3>
               <span class="project-meta">Summer 2025</span>
             </div>
             <div class="project-subtitle">Summer Research Intern • Joseph Henry Project</div>
@@ -149,10 +246,10 @@
               Participated in the Joseph Henry Project research program. Conducted scientific research and contributed to academic project work investigating historical electromechanical apparatus and physics principles.
             </p>
             <div class="tag-list">
-              <span class="tag">Princeton University</span>
-              <span class="tag">Laboratory Learning Program</span>
-              <span class="tag">Scientific Research</span>
-              <span class="tag">Electromechanical Systems</span>
+              <span class="tag tag-purple">Princeton University</span>
+              <span class="tag tag-blue">Laboratory Learning Program</span>
+              <span class="tag tag-teal">Scientific Research</span>
+              <span class="tag tag-slate">Electromechanical Systems</span>
             </div>
           </article>
 
@@ -167,11 +264,11 @@
               Designed and built multiple original robots incorporating mechanical assemblies, motor integration, self-taught Arduino programming, and iterative fabrication. Featured on Belgian national news following participation in the Brussels Maker Faire.
             </p>
             <div class="tag-list">
-              <span class="tag">Robotics</span>
-              <span class="tag">Mechanical Design</span>
-              <span class="tag">Arduino</span>
-              <span class="tag">3D Printing</span>
-              <span class="tag">International Exhibitions</span>
+              <span class="tag tag-blue">Robotics</span>
+              <span class="tag tag-amber">Mechanical Design</span>
+              <span class="tag tag-teal">Arduino C++</span>
+              <span class="tag tag-purple">3D Printing</span>
+              <span class="tag tag-slate">International Exhibitions</span>
             </div>
           </article>
         </div>

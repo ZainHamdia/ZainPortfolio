@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Firefighting & Engineering | Zain Hamdia</title>
   <meta name="description" content="Montgomery Township Volunteer Fire Company #2 Junior Firefighter and Technology & Engineering Intern — Raspberry Pi radio room dashboard, CAD 3D-printed enclosure, and website redesign.">
-  <link rel="stylesheet" href="css/styles.css?v=light-2">
+  <link rel="stylesheet" href="css/styles.css?v=bento-3">
 </head>
 <body class="theme-firefighting">
 
@@ -44,67 +44,154 @@
           <span>/</span>
           <span>Firefighting</span>
         </div>
-        <div class="incident-badge">
-          🚨 Montgomery Township Volunteer Fire Company #2
-        </div>
+        <span class="incident-badge">
+          🚨 Montgomery Township Volunteer Fire Company #2 (Station 46)
+        </span>
         <h1 class="page-title">Fire Service & Technology Engineering</h1>
         <p class="page-subtitle">
           Junior Firefighter and Technology & Engineering Intern at Montgomery Township Volunteer Fire Company #2.
         </p>
+
+        <div class="robotics-stat-strip">
+          <span class="stat-pill pill-red">🚒 Station 46 Technology & Engineering Intern</span>
+          <span class="stat-pill pill-amber">🖥️ 11-inch Radio Room Operational Dashboard</span>
+          <span class="stat-pill pill-blue">🛠️ Custom CAD Wall-Mounted 3D Enclosure</span>
+          <span class="stat-pill pill-teal">🚨 Active Junior Firefighter & Leadership</span>
+        </div>
       </div>
     </section>
 
-    <!-- Main Content Layout -->
-    <div class="container content-layout">
-      <!-- Main Column -->
-      <div class="content-main">
-        <!-- Section 1: Technology & Engineering Internship -->
-        <article id="tech-intern" class="project-article">
-          <div class="article-header">
-            <div class="article-meta font-mono" style="color: var(--accent-theme);">MONTGOMERY TOWNSHIP VOLUNTEER FIRE COMPANY #2 • SUMMER 2026 – PRESENT</div>
-            <h2 class="article-title">Technology & Engineering Intern</h2>
-            <div class="article-subtitle" style="color: var(--accent-theme);">Radio Room Digital System, Custom CAD Enclosure & Website Redesign</div>
-          </div>
+    <!-- Bento Grid Showcase -->
+    <div class="container">
+      <div class="bento-grid">
 
-          <div class="article-body">
-            <p>
-              In his role as Technology & Engineering Intern at Montgomery Township Volunteer Fire Company #2, Zain leads end-to-end hardware and software initiatives to enhance station operations and community engagement:
+        <!-- =================================================================
+             BENTO CARD 1: Technology & Engineering Internship (Full 12 cols, accent-red)
+             ================================================================= -->
+        <article id="tech-intern" class="bento-card bento-col-12 accent-red">
+          <div>
+            <div class="article-meta font-mono" style="color: #dc2626; font-weight: 700; margin-bottom: 6px;">
+              // MONTGOMERY TOWNSHIP VOLUNTEER FIRE COMPANY #2 • SUMMER 2026 – PRESENT
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
+              <h2 class="article-title" style="margin-bottom: 0;">Technology & Engineering Intern</h2>
+              <span class="tag tag-red" style="font-weight: 700;">Active Station Deployment</span>
+            </div>
+            <div class="article-subtitle" style="color: #b91c1c; margin-top: 6px;">
+              Radio Room Digital System, Custom CAD Enclosure & Fire Company Website Redesign
+            </div>
+
+            <p style="margin-top: 14px; font-size: 0.98rem; color: var(--text-secondary); line-height: 1.65;">
+              In his role as Technology & Engineering Intern at Montgomery Township Volunteer Fire Company #2 (Station 46), Zain leads end-to-end hardware and software initiatives to enhance station situational awareness, operational response, and community engagement.
             </p>
 
-            <div style="display: flex; flex-direction: column; gap: 14px; margin: 12px 0;">
-              <div style="background-color: var(--bg-surface); padding: 16px 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-                <strong style="color: var(--text-primary); font-size: 1rem; display: block; margin-bottom: 6px;">
-                  1. Raspberry Pi Digital Information Dashboard
+            <!-- Vector Blueprint Viewport for 11" CAD Enclosure -->
+            <div class="blueprint-viewport">
+              <div class="blueprint-header">
+                <span>// CAD SCHEMATIC: 11-INCH WALL-MOUNTED RADIO ROOM ENCLOSURE</span>
+                <span>STATION 46 FABRICATION • SCALE 1:2 • TOLERANCE ±0.3mm</span>
+              </div>
+
+              <svg class="blueprint-svg" viewBox="0 0 760 250" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Outer Enclosure Bezel -->
+                <rect x="180" y="25" width="400" height="200" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+                <rect x="200" y="45" width="360" height="160" rx="6" fill="#f8fafc" stroke="#fca5a5" stroke-width="1.2"/>
+
+                <!-- 11" Display Cutout -->
+                <rect x="220" y="60" width="230" height="130" rx="4" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+                <text x="335" y="125" font-family="monospace" font-size="11" fill="#1e40af" text-anchor="middle" font-weight="700">11" OPERATIONAL LCD</text>
+                <text x="335" y="142" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">Live Radar • Weather • Dispatch</text>
+
+                <!-- Raspberry Pi Mounting Bay Inside Enclosure -->
+                <rect x="470" y="65" width="75" height="90" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.4"/>
+                <text x="507" y="105" font-family="monospace" font-size="9" fill="#991b1b" text-anchor="middle" font-weight="700">RASPBERRY PI</text>
+                <text x="507" y="120" font-family="monospace" font-size="8" fill="#b91c1c" text-anchor="middle">Single-Board</text>
+                <!-- Mounting Standoffs -->
+                <circle cx="478" cy="73" r="3" fill="#fca5a5"/>
+                <circle cx="537" cy="73" r="3" fill="#fca5a5"/>
+                <circle cx="478" cy="147" r="3" fill="#fca5a5"/>
+                <circle cx="537" cy="147" r="3" fill="#fca5a5"/>
+
+                <!-- Ventilation Louvers (Thermal Management) -->
+                <g stroke="#94a3b8" stroke-width="1.5">
+                  <line x1="470" y1="168" x2="545" y2="168"/>
+                  <line x1="470" y1="174" x2="545" y2="174"/>
+                  <line x1="470" y1="180" x2="545" y2="180"/>
+                </g>
+                <text x="507" y="196" font-family="monospace" font-size="7" fill="#64748b" text-anchor="middle">COOLING LOUVERS</text>
+
+                <!-- Wall Mount Keyholes -->
+                <circle cx="195" cy="40" r="4" fill="#cbd5e1"/>
+                <circle cx="565" cy="40" r="4" fill="#cbd5e1"/>
+                <circle cx="195" cy="210" r="4" fill="#cbd5e1"/>
+                <circle cx="565" cy="210" r="4" fill="#cbd5e1"/>
+
+                <!-- Dimension Lines -->
+                <line x1="180" y1="14" x2="580" y2="14" stroke="#64748b" stroke-width="1"/>
+                <path d="M 180 10 L 180 18 M 580 10 L 580 18" stroke="#64748b" stroke-width="1"/>
+                <text x="380" y="11" font-family="monospace" font-size="10" fill="#334155" text-anchor="middle" font-weight="700">WIDTH: 280 mm</text>
+
+                <line x1="160" y1="25" x2="160" y2="225" stroke="#64748b" stroke-width="1"/>
+                <path d="M 156 25 L 164 25 M 156 225 L 164 225" stroke="#64748b" stroke-width="1"/>
+                <text x="140" y="125" font-family="monospace" font-size="10" fill="#334155" text-anchor="middle" transform="rotate(-90 140 125)" font-weight="700">HEIGHT: 190 mm</text>
+              </svg>
+            </div>
+
+            <!-- Telemetry Specs Grid -->
+            <div class="telemetry-specs-grid">
+              <div class="telemetry-spec-box">
+                <div class="spec-kpi-label">Computing Core</div>
+                <div class="spec-kpi-val" style="color: #dc2626;">Raspberry Pi</div>
+              </div>
+              <div class="telemetry-spec-box">
+                <div class="spec-kpi-label">Display Interface</div>
+                <div class="spec-kpi-val" style="color: #2563eb;">11" LCD Panel</div>
+              </div>
+              <div class="telemetry-spec-box">
+                <div class="spec-kpi-label">Mounting Hardware</div>
+                <div class="spec-kpi-val" style="color: #b45309;">Custom CAD Enclosure</div>
+              </div>
+              <div class="telemetry-spec-box">
+                <div class="spec-kpi-label">Thermal Control</div>
+                <div class="spec-kpi-val" style="color: #0d9488;">Integrated Louvers</div>
+              </div>
+            </div>
+
+            <!-- 4 Structured Engineering Development Modules -->
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 18px 0;">
+              <div style="background: #ffffff; border: 1px solid var(--border-strong); border-left: 3px solid #dc2626; border-radius: var(--radius-sm); padding: 14px 16px;">
+                <strong style="color: #991b1b; font-size: 0.95rem; display: block; margin-bottom: 4px;">
+                  1. Raspberry Pi Digital Information System
                 </strong>
-                <span style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.6;">
-                  Designing and building a Raspberry Pi-based digital information system for permanent use in the station’s radio room. Integrates real-time operational information, live weather radar and forecasts, emergency alerts, news, and station communications into a centralized dashboard for firefighters.
+                <span style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55; display: block;">
+                  Designing and building an operational dashboard for permanent use in Station 46's radio room. Integrates live radar, weather forecasts, emergency alerts, news, and station communications for firefighters.
                 </span>
               </div>
 
-              <div style="background-color: var(--bg-surface); padding: 16px 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-                <strong style="color: var(--text-primary); font-size: 1rem; display: block; margin-bottom: 6px;">
-                  2. Custom CAD & 3D-Printed Wall-Mounted Enclosure
+              <div style="background: #ffffff; border: 1px solid var(--border-strong); border-left: 3px solid #2563eb; border-radius: var(--radius-sm); padding: 14px 16px;">
+                <strong style="color: #1e40af; font-size: 0.95rem; display: block; margin-bottom: 4px;">
+                  2. CAD-Modeled 3D-Printed Enclosure
                 </strong>
-                <span style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.6;">
-                  Engineering a custom wall-mounted enclosure for an 11-inch display and Raspberry Pi using CAD and 3D printing. Incorporates active ventilation, internal cable management, mounting hardware, and secure access to power and network connections.
+                <span style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55; display: block;">
+                  Engineering a custom wall-mounted housing for the 11-inch display and Raspberry Pi. Incorporates active ventilation, internal cable management channels, and secure access to power and network ports.
                 </span>
               </div>
 
-              <div style="background-color: var(--bg-surface); padding: 16px 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-                <strong style="color: var(--text-primary); font-size: 1rem; display: block; margin-bottom: 6px;">
+              <div style="background: #ffffff; border: 1px solid var(--border-strong); border-left: 3px solid #0d9488; border-radius: var(--radius-sm); padding: 14px 16px;">
+                <strong style="color: #115e59; font-size: 0.95rem; display: block; margin-bottom: 4px;">
                   3. Full Lifecycle Engineering Development
                 </strong>
-                <span style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.6;">
-                  Developing the system from initial requirements gathering and design through software/hardware integration, prototyping, reliability testing, physical installation, firefighter feedback, and technical documentation.
+                <span style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55; display: block;">
+                  Leading the project through requirements gathering, hardware/software integration, physical prototyping, reliability testing, installation in the radio room, and firefighter feedback.
                 </span>
               </div>
 
-              <div style="background-color: var(--bg-surface); padding: 16px 20px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
-                <strong style="color: var(--text-primary); font-size: 1rem; display: block; margin-bottom: 6px;">
+              <div style="background: #ffffff; border: 1px solid var(--border-strong); border-left: 3px solid #f59e0b; border-radius: var(--radius-sm); padding: 14px 16px;">
+                <strong style="color: #92400e; font-size: 0.95rem; display: block; margin-bottom: 4px;">
                   4. Department Public Website Redesign
                 </strong>
-                <span style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.6;">
-                  Leading the redesign and development of the fire company’s public website, transforming the existing site into a modern, accessible resource for department information, membership, community engagement, and recruitment.
+                <span style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55; display: block;">
+                  Directing the redesign of the fire company's public website to deliver a modern, accessible portal for department information, recruitment, and community engagement.
                 </span>
               </div>
             </div>
@@ -115,96 +202,102 @@
                 <strong>Photos & Link Needed:</strong> Add a photo of the 3D-printed wall enclosure and 11-inch screen installed in the radio room, CAD render screenshots, and the URL or screenshots of the redesigned public website.
               </div>
             </div>
+          </div>
 
-            <div class="article-tag-row">
-              <span class="tag">Raspberry Pi</span>
-              <span class="tag">CAD Modeling</span>
-              <span class="tag">3D Printing</span>
-              <span class="tag">Hardware Integration</span>
-              <span class="tag">Enclosure Design</span>
-              <span class="tag">Web Redesign</span>
-              <span class="tag">MTVFC #2</span>
-            </div>
+          <div class="article-tag-row" style="margin-top: 16px;">
+            <span class="tag tag-red">Raspberry Pi</span>
+            <span class="tag tag-amber">CAD Modeling</span>
+            <span class="tag tag-blue">3D Printing</span>
+            <span class="tag tag-teal">Hardware Integration</span>
+            <span class="tag tag-slate">Enclosure Design</span>
+            <span class="tag tag-red">Station 46</span>
           </div>
         </article>
 
-        <!-- Section 2: Junior Firefighter Service -->
-        <article id="junior-firefighter" class="project-article">
-          <div class="article-header">
-            <div class="article-meta font-mono" style="color: var(--accent-theme);">MONTGOMERY TOWNSHIP VOLUNTEER FIRE COMPANY #2 • JULY 2025 – PRESENT</div>
-            <h2 class="article-title">Junior Firefighter & Program Leadership</h2>
-            <div class="article-subtitle" style="color: var(--accent-theme);">Emergency Training, Station Operations & Junior Program Redesign</div>
-          </div>
+        <!-- =================================================================
+             BENTO CARD 2: Junior Firefighter Service (7 cols, accent-amber)
+             ================================================================= -->
+        <article id="junior-firefighter" class="bento-card bento-col-7 accent-amber">
+          <div>
+            <div class="article-meta font-mono" style="color: #b45309; font-weight: 700; margin-bottom: 6px;">
+              // MONTGOMERY TOWNSHIP VOLUNTEER FIRE COMPANY #2 • JULY 2025 – PRESENT
+            </div>
+            <h2 class="article-title" style="font-size: 1.35rem; margin-bottom: 4px;">Junior Firefighter & Program Leadership</h2>
+            <div class="article-subtitle" style="color: #92400e; margin-bottom: 14px;">
+              Emergency Training, Station Operations & Junior Program Modernization
+            </div>
 
-          <div class="article-body">
-            <p>
-              As an active junior firefighter with Montgomery Township Volunteer Fire Company #2, Zain participates in firefighter training, station operations, emergency response activities, and community service as a member of the department's Junior Firefighter Program.
+            <p style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.6;">
+              As an active junior firefighter with Montgomery Township Volunteer Fire Company #2, Zain participates in firefighter training, station operations, emergency response activities, and community service.
             </p>
 
-            <div style="background-color: var(--bg-surface); border-left: 4px solid var(--accent-theme); padding: 16px 20px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin: 12px 0;">
-              <strong style="color: var(--accent-theme); font-size: 0.92rem; text-transform: uppercase;">Leadership Initiative:</strong>
-              <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; margin-top: 6px;">
-                Zain is leading an initiative to redesign and strengthen the department's Junior Firefighter Program. This includes updating online information on junior firefighting, streamlining the process for certifying Juniors to respond, and making the mentor-finding process easier between all the firefighters.
+            <div style="background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid #f59e0b; padding: 16px; border-radius: var(--radius-sm); margin: 16px 0;">
+              <div style="font-weight: 700; color: #b45309; font-size: 0.92rem; text-transform: uppercase; margin-bottom: 4px;">
+                Leadership Initiative: Junior Program Redesign
+              </div>
+              <p style="font-size: 0.92rem; color: #78350f; line-height: 1.6; margin: 0;">
+                Zain is leading an initiative to redesign and strengthen the department's Junior Firefighter Program. This includes updating online resources, streamlining the certification process for Juniors to respond to alarms, and facilitating mentorship between senior firefighters and new recruits.
               </p>
             </div>
 
             <div class="info-gap-box">
               <span class="gap-icon">🚒</span>
               <div>
-                <strong>Program Details / Photos Needed:</strong> Add photos of your training evolutions, department activities, or details on your certification streamlining initiative.
+                <strong>Program Details Needed:</strong> Add details on specific apparatus training (e.g. Engine 46, Tower 46) or community outreach events you have organized or participated in.
               </div>
             </div>
+          </div>
 
-            <div class="article-tag-row">
-              <span class="tag">Junior Firefighter</span>
-              <span class="tag">MTVFC #2</span>
-              <span class="tag">Station Operations</span>
-              <span class="tag">Emergency Response</span>
-              <span class="tag">Program Redesign</span>
-              <span class="tag">Mentorship Initiative</span>
-            </div>
+          <div class="article-tag-row" style="margin-top: 16px;">
+            <span class="tag tag-amber">Junior Firefighter</span>
+            <span class="tag tag-red">Emergency Response</span>
+            <span class="tag tag-blue">Program Leadership</span>
+            <span class="tag tag-teal">Community Service</span>
           </div>
         </article>
+
+        <!-- =================================================================
+             BENTO CARD 3: Station 46 Quick Profile (5 cols, accent-teal)
+             ================================================================= -->
+        <aside class="bento-card bento-col-5 accent-teal">
+          <div>
+            <div class="article-meta font-mono" style="color: #0d9488; font-weight: 700; margin-bottom: 6px;">
+              // STATION PROFILE
+            </div>
+            <h2 class="article-title" style="font-size: 1.35rem; margin-bottom: 12px;">Station 46 Overview</h2>
+
+            <ul class="sidebar-list">
+              <li>
+                <div class="sidebar-item-label" style="color: #b45309;">Department</div>
+                <div class="sidebar-item-val">Montgomery Township Volunteer Fire Co. #2</div>
+              </li>
+              <li>
+                <div class="sidebar-item-label" style="color: #dc2626;">Station Designation</div>
+                <div class="sidebar-item-val">Station 46 (Blawenburg / Skillman, NJ)</div>
+              </li>
+              <li>
+                <div class="sidebar-item-label" style="color: #0d9488;">Zain's Active Roles</div>
+                <div class="sidebar-item-val">Junior Firefighter & Tech/Engineering Intern</div>
+              </li>
+              <li>
+                <div class="sidebar-item-label" style="color: #2563eb;">Hardware Stack</div>
+                <div class="sidebar-item-val">Raspberry Pi, Onshape/Fusion 360, FDM 3D Printing</div>
+              </li>
+            </ul>
+          </div>
+
+          <div style="margin-top: 20px; padding-top: 14px; border-top: 1px solid var(--border-subtle);">
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+              Explore More
+            </div>
+            <a href="about.html" style="font-size: 0.9rem; font-weight: 700; color: #2563eb; display: flex; align-items: center; justify-content: space-between;">
+              <span>👤 About & Technical Skills</span>
+              <span>→</span>
+            </a>
+          </div>
+        </aside>
+
       </div>
-
-      <!-- Sidebar Column -->
-      <aside class="content-sidebar">
-        <div class="sidebar-card">
-          <h3 class="sidebar-title" style="color: var(--accent-theme);">Fire Company Roles</h3>
-          <ul class="sidebar-list">
-            <li>
-              <div class="sidebar-item-label">Organization</div>
-              <div class="sidebar-item-val">Montgomery Township Volunteer Fire Company #2</div>
-            </li>
-            <li>
-              <div class="sidebar-item-label">Technical Role</div>
-              <div class="sidebar-item-val">Technology & Engineering Intern (Summer 2026–Present)</div>
-            </li>
-            <li>
-              <div class="sidebar-item-label">Operational Role</div>
-              <div class="sidebar-item-val">Junior Firefighter (July 2025–Present)</div>
-            </li>
-            <li>
-              <div class="sidebar-item-label">Key Projects</div>
-              <div class="sidebar-item-val">Radio Room System, CAD Enclosure, Website Redesign, Junior Program Redesign</div>
-            </li>
-          </ul>
-        </div>
-
-        <div class="sidebar-card">
-          <h3 class="sidebar-title">Explore Next</h3>
-          <ul class="sidebar-list">
-            <li>
-              <a href="robotics.html"><strong>Robotics & Fabrication →</strong></a>
-              <div style="font-size: 0.85rem; color: var(--text-muted);">Zainiac Robot Series and Maker Faires.</div>
-            </li>
-            <li>
-              <a href="aviation.html"><strong>Aviation & Simulation →</strong></a>
-              <div style="font-size: 0.85rem; color: var(--text-muted);">3D-printed flight simulator and Princeton University research.</div>
-            </li>
-          </ul>
-        </div>
-      </aside>
     </div>
   </main>
 
