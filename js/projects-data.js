@@ -73,8 +73,8 @@ const PORTFOLIO_DATA = {
       id: "zainiac-series",
       title: "Zainiac Robot Series — Zainiac 19, Zainiac 21 & Zainiac 25",
       category: "robotics",
-      description: "Original articulated and mobile robot lineage. Zainiac 19 and 21 were built on LEGO MINDSTORMS; Zainiac 19 was constructed using wood for the legs, a particle board and PVC pipe framework for the body, a sculpted paper-mâché head, and custom 3D-printed parts, with mechanical articulation moving its arms, waist, and neck.",
-      tags: ["LEGO MINDSTORMS", "Articulated Kinematics", "Wood & PVC Framing", "3D Printing", "Brussels Maker Faire"]
+      description: "Original articulated and mobile robot lineage. Zainiac 19 and 21 were built on LEGO MINDSTORMS; Zainiac 19 was constructed using wood for the legs, a particle board and PVC pipe framework for the body, a sculpted paper-mâché head, and custom 3D-printed parts, with kinematics featuring a panning neck, panning waist, and synchronized arm motion moving in opposite directions.",
+      tags: ["LEGO MINDSTORMS", "Synced Opposing Arms", "Pan-Only Kinematics", "Wood & PVC Framing", "3D Printing", "Brussels Maker Faire"]
     },
     {
       id: "little-bot-noggin",
