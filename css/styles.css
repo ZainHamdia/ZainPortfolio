@@ -4,20 +4,20 @@
    ========================================================================== */
 
 :root {
-  /* Global Base Variables (Light) - Crisp, luminous, and refined */
-  --bg-page: #f8fafc;
+  /* Global Base Variables - Pure radiant white, ultra-light & modern */
+  --bg-page: #ffffff;
   --bg-surface: #ffffff;
   --bg-card: #ffffff;
-  --bg-card-hover: #f1f5f9;
+  --bg-card-hover: #fbfcfe;
   
-  --text-main: #0f172a;
-  --text-primary: #0f172a;
-  --text-secondary: #334155;
+  --text-main: #1e293b;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
   --text-muted: #64748b;
   --text-faint: #94a3b8;
   
-  --border-subtle: #e2e8f0;
-  --border-strong: #cbd5e1;
+  --border-subtle: #f1f5f9;
+  --border-strong: #e2e8f0;
   
   --brand-blue: #2563eb;
   --brand-blue-hover: #1d4ed8;
@@ -30,18 +30,14 @@
   --radius-lg: 16px;
   --radius-full: 9999px;
   
-  --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(15, 23, 42, 0.03);
-  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.08), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 24px -4px rgba(0, 0, 0, 0.05);
 }
 
 /* ==========================================================================
    THEME 1: ROBOTICS (Maker Workshop & Hardware CAD Prototyping)
-   Multi-Color Engineering Palette:
-   - Lineage & Hardware: Electric Royal Blue (#2563eb) & Tech Amber (#f59e0b)
-   - Kinematics & Companion: Creative Violet (#7c3aed) & Indigo (#4f46e5)
-   - VEX Competition: Tournament Crimson (#dc2626) & Championship Gold (#d97706)
-   - Healthcare Fabrication: Clinical Teal (#0d9488) & Mint (#10b981)
+   Ultra-Light Multi-Color Engineering Palette
    ========================================================================== */
 body.theme-robotics {
   --accent-theme: #2563eb;
@@ -50,14 +46,11 @@ body.theme-robotics {
   --accent-theme-border: #bfdbfe;
 }
 
-/* Robotics Page Hero - Luminous, airy with subtle blueprint grid and multi-accent highlight */
+/* Robotics Page Hero - Pure White, Airy, Luminous */
 .theme-robotics .page-hero {
-  background: 
-    linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, rgba(245, 158, 11, 0.03) 50%, rgba(13, 148, 136, 0.04) 100%),
-    radial-gradient(circle at 1px 1px, rgba(37, 99, 235, 0.12) 1px, transparent 0),
-    #ffffff;
-  background-size: 100% 100%, 24px 24px, 100% 100%;
-  border-bottom: 2px solid #bfdbfe;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 48px 0 32px;
   position: relative;
 }
 
@@ -68,9 +61,10 @@ body.theme-robotics {
   font-weight: 600;
 }
 
-/* Multi-Color Project Cards on Robotics */
+/* Multi-Color Project Cards on Robotics - Light & Crisp */
 .project-article.project-zainiac {
-  border-top: 4px solid #2563eb;
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid #3b82f6;
   position: relative;
 }
 .project-article.project-zainiac::before {
@@ -80,13 +74,14 @@ body.theme-robotics {
   right: 22px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #2563eb;
+  color: #3b82f6;
   letter-spacing: 0.08em;
   font-weight: 700;
 }
 
 .project-article.project-littlebot {
-  border-top: 4px solid #7c3aed;
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid #8b5cf6;
   position: relative;
 }
 .project-article.project-littlebot::before {
@@ -96,13 +91,14 @@ body.theme-robotics {
   right: 22px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #7c3aed;
+  color: #8b5cf6;
   letter-spacing: 0.08em;
   font-weight: 700;
 }
 
 .project-article.project-vex {
-  border-top: 4px solid #dc2626;
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid #ef4444;
   position: relative;
 }
 .project-article.project-vex::before {
@@ -112,13 +108,14 @@ body.theme-robotics {
   right: 22px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #dc2626;
+  color: #ef4444;
   letter-spacing: 0.08em;
   font-weight: 700;
 }
 
 .project-article.project-healthcare {
-  border-top: 4px solid #0d9488;
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid #10b981;
   position: relative;
 }
 .project-article.project-healthcare::before {
@@ -128,7 +125,7 @@ body.theme-robotics {
   right: 22px;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  color: #0d9488;
+  color: #10b981;
   letter-spacing: 0.08em;
   font-weight: 700;
 }
@@ -342,14 +339,15 @@ body.theme-robotics {
 }
 
 .theme-robotics .spec-box {
-  background-color: #f0f7ff;
-  border: 1px dashed #bfdbfe;
-  border-left: 3px solid #2563eb;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-left: 3px solid #3b82f6;
   border-radius: var(--radius-sm);
-  padding: 16px;
+  padding: 16px 20px;
   margin: 16px 0;
   font-family: var(--font-mono);
   font-size: 0.88rem;
+  color: #334155;
 }
 
 /* ==========================================================================
@@ -365,10 +363,10 @@ body.theme-aviation {
 
 /* Aviation Page Styling */
 .theme-aviation .page-hero {
-  background: linear-gradient(135deg, var(--bg-surface) 0%, var(--accent-theme-bg) 100%);
-  border-bottom: 2px solid var(--accent-theme);
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 48px 0 32px;
   position: relative;
-  overflow: hidden;
 }
 
 .theme-aviation .nav-link.active {
@@ -378,13 +376,14 @@ body.theme-aviation {
 }
 
 .theme-aviation .project-article {
-  border-top: 3px solid var(--accent-theme);
-  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-strong);
+  border-top: 3px solid #3b82f6;
+  box-shadow: var(--shadow-sm);
 }
 
 .theme-aviation .research-abstract-box {
-  background-color: var(--bg-surface);
-  border-left: 4px solid var(--accent-theme);
+  background-color: #f8fafc;
+  border-left: 3px solid #3b82f6;
   padding: 20px 24px;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   margin: 16px 0;
@@ -400,8 +399,8 @@ body.theme-aviation {
 }
 
 /* ==========================================================================
-   THEME 3: FIREFIGHTING (Emergency Response & High-Vis Field Operations)
-   Colors: Engine Red, High-Vis Gold, Turnout Charcoal
+   THEME 3: FIREFIGHTING (Emergency Response & Field Operations)
+   Colors: Engine Red, Soft Ivory
    ========================================================================== */
 body.theme-firefighting {
   --accent-theme: #dc2626;
@@ -411,40 +410,24 @@ body.theme-firefighting {
   --accent-gold: #d97706;
 }
 
-/* Firefighting Page Styling */
+/* Firefighting Page Styling - Clean Light */
 .theme-firefighting .page-hero {
-  background: var(--bg-surface);
-  border-bottom: 4px solid var(--accent-theme);
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 48px 0 32px;
   position: relative;
-}
-
-/* High-Vis Reflective Ribbon Accent on Firefighting Page */
-.theme-firefighting .page-hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: repeating-linear-gradient(
-    45deg,
-    #dc2626,
-    #dc2626 14px,
-    #f59e0b 14px,
-    #f59e0b 28px
-  );
 }
 
 .theme-firefighting .nav-link.active {
   color: var(--accent-theme);
   background-color: var(--accent-theme-bg);
   border: 1px solid var(--accent-theme-border);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .theme-firefighting .project-article {
   border: 1px solid var(--border-strong);
-  border-top: 3px solid var(--accent-theme);
+  border-top: 3px solid #ef4444;
   position: relative;
 }
 
@@ -452,9 +435,9 @@ body.theme-firefighting {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--accent-theme-bg);
-  color: var(--accent-theme);
-  border: 1px solid var(--accent-theme-border);
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
   padding: 4px 10px;
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
@@ -465,10 +448,10 @@ body.theme-firefighting {
 }
 
 .theme-firefighting .tag {
-  background-color: var(--accent-theme-bg);
-  color: var(--accent-theme);
-  border: 1px solid var(--accent-theme-border);
-  font-weight: 600;
+  background-color: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  font-weight: 500;
 }
 
 /* ==========================================================================
@@ -482,8 +465,9 @@ body.theme-about {
 }
 
 .theme-about .page-hero {
-  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-page) 100%);
-  border-bottom: 2px solid var(--accent-theme);
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 48px 0 32px;
 }
 
 .theme-about .nav-link.active {
@@ -493,11 +477,11 @@ body.theme-about {
 }
 
 .theme-about .timeline-dot {
-  border-color: var(--accent-theme);
+  border-color: #0f766e;
 }
 
 .theme-about .timeline-year {
-  color: var(--accent-theme);
+  color: #0f766e;
 }
 
 /* ==========================================================================
@@ -508,6 +492,12 @@ body.theme-contact {
   --accent-theme-hover: #1d4ed8;
   --accent-theme-bg: #eff6ff;
   --accent-theme-border: #bfdbfe;
+}
+
+.theme-contact .page-hero {
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 48px 0 32px;
 }
 
 .theme-contact .nav-link.active {
@@ -715,15 +705,16 @@ a:hover {
 }
 
 .page-title {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: 2.35rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.15;
+  line-height: 1.2;
   margin-bottom: 12px;
+  color: #1e293b;
 }
 
 .page-subtitle {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: var(--text-secondary);
   max-width: 750px;
   line-height: 1.6;
@@ -733,6 +724,7 @@ a:hover {
 .home-hero {
   padding: 64px 0 52px;
   border-bottom: 1px solid var(--border-subtle);
+  background-color: #ffffff;
 }
 
 .home-hero-badge {
@@ -740,7 +732,7 @@ a:hover {
   align-items: center;
   gap: 8px;
   padding: 6px 14px;
-  background-color: var(--bg-surface);
+  background-color: #f8fafc;
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-full);
   font-size: 0.85rem;
@@ -757,11 +749,12 @@ a:hover {
 }
 
 .home-hero-title {
-  font-size: 3rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  font-size: 2.85rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
   margin-bottom: 16px;
+  color: #1e293b;
 }
 
 .home-hero-title span {
@@ -787,7 +780,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px 18px;
+  padding: 10px 20px;
   border-radius: var(--radius-sm);
   font-size: 0.92rem;
   font-weight: 600;
@@ -798,26 +791,33 @@ a:hover {
 }
 
 .btn-primary {
-  background-color: var(--text-main);
-  color: var(--bg-page);
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #1d4ed8;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.25);
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
-  text-decoration: none;
+  background-color: #1d4ed8;
+  color: #ffffff;
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  text-decoration: none;
 }
 
 .btn-secondary {
-  background-color: var(--bg-surface);
-  border-color: var(--border-strong);
-  color: var(--text-primary);
+  background-color: #ffffff;
+  border: 1px solid var(--border-strong);
+  color: #334155;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-card-hover);
-  text-decoration: none;
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+  color: #1e293b;
   transform: translateY(-1px);
+  text-decoration: none;
 }
 
 /* 3 Main Disciplines Grid */
@@ -856,8 +856,8 @@ a:hover {
 }
 
 .discipline-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background-color: #ffffff;
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
   padding: 28px;
   display: flex;
@@ -868,13 +868,13 @@ a:hover {
 }
 
 .discipline-card:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .discipline-card.robotics {
-  border-top: 4px solid #2563eb;
+  border-top: 3px solid #3b82f6;
 }
 .discipline-card.robotics .card-icon {
   background-color: #eff6ff;
@@ -885,18 +885,18 @@ a:hover {
 }
 
 .discipline-card.aviation {
-  border-top: 4px solid #4338ca;
+  border-top: 3px solid #6366f1;
 }
 .discipline-card.aviation .card-icon {
   background-color: #eef2ff;
   border: 1px solid #c7d2fe;
 }
 .discipline-card.aviation .card-link {
-  color: #4338ca;
+  color: #4f46e5;
 }
 
 .discipline-card.firefighting {
-  border-top: 4px solid #dc2626;
+  border-top: 3px solid #ef4444;
 }
 .discipline-card.firefighting .card-icon {
   background-color: #fef2f2;
@@ -1072,8 +1072,8 @@ a:hover {
 }
 
 .skill-box {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-subtle);
+  background-color: #ffffff;
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
   padding: 28px;
   box-shadow: var(--shadow-sm);
@@ -1173,18 +1173,18 @@ a:hover {
 
 /* Info Gap Prompt Box (Asking for specific user media / details) */
 .info-gap-box {
-  background-color: var(--bg-surface);
-  border: 1px dashed var(--border-strong);
-  border-left: 3px solid var(--accent-theme, var(--brand-blue));
+  background-color: #fbfcfe;
+  border: 1px dashed #cbd5e1;
+  border-left: 3px solid #3b82f6;
   border-radius: var(--radius-sm);
-  padding: 12px 16px;
+  padding: 14px 18px;
   margin: 16px 0;
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: #64748b;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  line-height: 1.5;
+  gap: 12px;
+  line-height: 1.55;
 }
 
 .info-gap-box .gap-icon {
@@ -1234,18 +1234,19 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding: 16px 20px;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
-  background-color: var(--bg-surface);
+  background-color: #ffffff;
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 600;
   transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
 .contact-row-btn:hover {
   border-color: var(--brand-blue);
-  background-color: var(--bg-card-hover);
+  background-color: #f8fafc;
   text-decoration: none;
   transform: translateX(4px);
 }
@@ -1258,15 +1259,17 @@ a:hover {
 }
 
 .project-item {
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius-md);
   padding: 24px;
-  background-color: var(--bg-card);
-  transition: border-color 0.15s ease;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.15s ease;
 }
 
 .project-item:hover {
-  border-color: var(--border-strong);
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
 }
 
 .project-header {
