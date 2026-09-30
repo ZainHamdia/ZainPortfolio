@@ -99,153 +99,153 @@
               </button>
             </div>
 
-            <!-- Technical Vector Blueprint Viewport -->
-            <div class="blueprint-viewport">
-              <div class="blueprint-header">
-                <span>// CAD SCHEMATIC: ZAINIAC 19 FULL-SCALE (~5 FT) HUMANOID ROBOTIC SYSTEM</span>
-                <span>LEGO MINDSTORMS CORE • REV 1.6 • SCALE 1:5</span>
-              </div>
-
-              <!-- Clean SVG Blueprint Wireframe -->
-              <svg class="blueprint-svg" viewBox="0 0 820 355" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- Background Grid Guidelines -->
-                <line x1="40" y1="20" x2="40" y2="335" stroke="#bfdbfe" stroke-dasharray="3 3" stroke-width="0.8"/>
-                <line x1="780" y1="20" x2="780" y2="335" stroke="#bfdbfe" stroke-dasharray="3 3" stroke-width="0.8"/>
-                <line x1="40" y1="175" x2="780" y2="175" stroke="#dbeafe" stroke-dasharray="4 4" stroke-width="0.8"/>
-
-                <!-- Height Dimension Line: ~5 FEET TALL -->
-                <line x1="90" y1="25" x2="90" y2="334" stroke="#dc2626" stroke-width="1.5"/>
-                <path d="M 82 25 L 98 25 M 82 334 L 98 334" stroke="#dc2626" stroke-width="1.5"/>
-                <text x="75" y="180" font-family="monospace" font-size="10.5" fill="#991b1b" text-anchor="middle" transform="rotate(-90 75 180)" font-weight="700">HEIGHT: ~5 FEET TALL (~1.52 M)</text>
-
-                <!-- Centerline Axis -->
-                <line x1="380" y1="15" x2="380" y2="335" stroke="#93c5fd" stroke-dasharray="5 3" stroke-width="0.9"/>
-
-                <!-- [1] PAPER-MACHE HEAD -->
-                <ellipse cx="380" cy="55" rx="36" ry="40" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
-                <!-- Eye/Sensor Visor slot -->
-                <rect x="362" y="46" width="36" height="12" rx="3" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
-                <circle cx="372" cy="52" r="3" fill="#2563eb"/>
-                <circle cx="388" cy="52" r="3" fill="#2563eb"/>
-                <text x="380" y="20" font-family="monospace" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="700">PAPER-MÂCHÉ HEAD</text>
-
-                <!-- [2] ARTICULATED NECK MECHANISM (PAN ONLY) -->
-                <rect x="372" y="95" width="16" height="20" rx="3" fill="#eff6ff" stroke="#0284c7" stroke-width="1.8"/>
-                <circle cx="380" cy="105" r="4" fill="#0284c7"/>
-                <!-- Horizontal Pan Arc -->
-                <path d="M 354 105 A 26 26 0 0 1 406 105" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
-                <path d="M 353 102 L 354 106 L 358 103 M 407 102 L 406 106 L 402 103" stroke="#0284c7" stroke-width="1.5"/>
-                <text x="420" y="103" font-family="monospace" font-size="8" fill="#0284c7" font-weight="700">NECK: PAN ONLY</text>
-
-                <!-- [3] TORSO FRAMEWORK: PVC PIPES & PARTICLE BOARD -->
-                <rect x="316" y="115" width="128" height="100" rx="6" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
-                <!-- Particle Board Infill -->
-                <rect x="334" y="119" width="92" height="92" fill="#fffbeb" stroke="#fde68a" stroke-width="1"/>
-                <text x="380" y="205" font-family="monospace" font-size="7.5" fill="#b45309" text-anchor="middle">PARTICLE BOARD INFILL</text>
-
-                <!-- Left & Right Structural PVC Pipes -->
-                <rect x="318" y="115" width="16" height="100" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
-                <rect x="426" y="115" width="16" height="100" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
-                <text x="300" y="165" font-family="monospace" font-size="8" fill="#64748b" text-anchor="end" font-weight="700">PVC PIPE STRUCTURAL FRAME</text>
-
-                <!-- [4] LEGO MINDSTORMS INTELLIGENT BRICK -->
-                <rect x="342" y="125" width="76" height="68" rx="6" fill="#f8fafc" stroke="#dc2626" stroke-width="1.8"/>
-                <rect x="350" y="131" width="60" height="26" rx="2" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
-                <text x="380" y="145" font-family="monospace" font-size="8" fill="#1e40af" text-anchor="middle" font-weight="700">LEGO MINDSTORMS</text>
-                <text x="380" y="153" font-family="monospace" font-size="6.5" fill="#3b82f6" text-anchor="middle">INTELLIGENT BRICK CORE</text>
-                <!-- Mindstorms buttons -->
-                <circle cx="380" cy="172" r="6" fill="#dc2626"/>
-                <circle cx="366" cy="172" r="3.5" fill="#94a3b8"/>
-                <circle cx="394" cy="172" r="3.5" fill="#94a3b8"/>
-                <circle cx="380" cy="162" r="3.5" fill="#94a3b8"/>
-                <circle cx="380" cy="182" r="3.5" fill="#94a3b8"/>
-
-                <!-- [5] SYNCED OPPOSITE DIRECTION STRAIGHT ARMS (NO ELBOW BEND) -->
-                <!-- Left Shoulder (3D printed bracket) -->
-                <rect x="302" y="122" width="16" height="16" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
-                <circle cx="310" cy="130" r="4" fill="#0d9488"/>
-                <!-- Left Straight Rigid Arm Linkage (Continuous, No Elbow Bend, Downward Stroke) -->
-                <line x1="306" y1="130" x2="216" y2="225" stroke="#2563eb" stroke-width="5.5" stroke-linecap="round"/>
-                <!-- Left Hand / Gripper -->
-                <path d="M 210 225 L 222 225 M 206 235 L 214 225 L 222 235" stroke="#1d4ed8" stroke-width="2"/>
-                <!-- Left Motion Arc: SWING DOWN -->
-                <path d="M 235 175 C 220 190 215 208 220 220" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="3 2" fill="none"/>
-                <polygon points="220,225 215,217 223,218" fill="#7c3aed"/>
-                <text x="175" y="155" font-family="monospace" font-size="7.8" fill="#7c3aed" font-weight="700">ARM 1: SWING DOWN</text>
-                <text x="175" y="166" font-family="monospace" font-size="7" fill="#64748b">(NO ELBOW BEND)</text>
-
-                <!-- Right Shoulder (3D printed bracket) -->
-                <rect x="442" y="122" width="16" height="16" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
-                <circle cx="450" cy="130" r="4" fill="#0d9488"/>
-                <!-- Right Straight Rigid Arm Linkage (Continuous, No Elbow Bend, Upward Stroke) -->
-                <line x1="450" y1="130" x2="550" y2="92" stroke="#2563eb" stroke-width="5.5" stroke-linecap="round"/>
-                <!-- Right Hand / Gripper -->
-                <path d="M 545 88 L 555 94 M 552 82 L 550 92 L 560 88" stroke="#1d4ed8" stroke-width="2"/>
-                <!-- Right Motion Arc: SWING UP -->
-                <path d="M 525 130 C 538 115 545 105 545 95" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="3 2" fill="none"/>
-                <polygon points="545,90 541,99 549,99" fill="#7c3aed"/>
-                <text x="560" y="76" font-family="monospace" font-size="7.8" fill="#7c3aed" font-weight="700">ARM 2: SWING UP</text>
-                <text x="560" y="87" font-family="monospace" font-size="7" fill="#64748b">(NO ELBOW BEND)</text>
-
-                <text x="380" y="90" font-family="monospace" font-size="7.8" fill="#7c3aed" text-anchor="middle" font-weight="700">// SYNCED OPPOSITE DIRECTION RIGID ARM SWING (NO ELBOW BEND) //</text>
-
-                <!-- [6] ARTICULATED WAIST ROTATION PIVOT (PAN ONLY) -->
-                <rect x="348" y="215" width="64" height="20" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
-                <circle cx="380" cy="225" r="5" fill="#6d28d9"/>
-                <!-- Horizontal Pan Arc -->
-                <path d="M 330 225 Q 380 238 430 225" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
-                <path d="M 329 222 L 330 227 L 334 223 M 431 222 L 430 227 L 426 223" stroke="#7c3aed" stroke-width="1.5"/>
-                <text x="380" y="247" font-family="monospace" font-size="8.5" fill="#6d28d9" text-anchor="middle" font-weight="700">WAIST: PAN ONLY (HORIZONTAL ROTATION ±60°)</text>
-
-                <!-- [7] WOODEN LEGS & FOOT PLATES -->
-                <!-- Left Leg -->
-                <rect x="340" y="250" width="26" height="71" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
-                <line x1="348" y1="258" x2="348" y2="315" stroke="#f59e0b" stroke-width="1"/>
-                <line x1="358" y1="253" x2="358" y2="310" stroke="#f59e0b" stroke-width="1"/>
-                <!-- Right Leg -->
-                <rect x="394" y="250" width="26" height="71" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
-                <line x1="402" y1="258" x2="402" y2="315" stroke="#f59e0b" stroke-width="1"/>
-                <line x1="412" y1="253" x2="412" y2="310" stroke="#f59e0b" stroke-width="1"/>
-                <!-- Cross Support Bracket -->
-                <rect x="340" y="280" width="80" height="12" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
-                <!-- Base Foot Plates -->
-                <rect x="318" y="321" width="124" height="14" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
-                <text x="380" y="332" font-family="monospace" font-size="8" fill="#92400e" text-anchor="middle" font-weight="700">SOLID WOOD LEGS & BASEPLATE</text>
-
-                <!-- CALLOUT BOX: VERIFIED SPECIFICATIONS (Right Side) -->
-                <rect x="600" y="30" width="195" height="295" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
-                <rect x="600" y="30" width="195" height="28" rx="8" fill="#eff6ff"/>
-                <text x="610" y="48" font-family="monospace" font-size="9.5" fill="#1e40af" font-weight="700">// ZAINIAC 19 KINEMATICS</text>
-
-                <g font-family="monospace" font-size="8.5" fill="#334155">
-                  <text x="610" y="74" fill="#dc2626" font-weight="700">SCALE / HEIGHT:</text>
-                  <text x="610" y="87" fill="#b91c1c" font-weight="700">~5 Feet Tall (~1.52 m)</text>
-
-                  <text x="610" y="105" fill="#2563eb" font-weight="700">1. HEAD:</text>
-                  <text x="610" y="118" fill="#475569">Sculpted Paper-Mâché</text>
-
-                  <text x="610" y="136" fill="#2563eb" font-weight="700">2. NECK ARTICULATION:</text>
-                  <text x="610" y="149" fill="#0284c7" font-weight="700">Pans Only (Horizontal)</text>
-
-                  <text x="610" y="167" fill="#2563eb" font-weight="700">3. WAIST ARTICULATION:</text>
-                  <text x="610" y="180" fill="#6d28d9" font-weight="700">Pans Only (Horizontal)</text>
-
-                  <text x="610" y="198" fill="#2563eb" font-weight="700">4. ARM MOVEMENT:</text>
-                  <text x="610" y="211" fill="#7c3aed" font-weight="700">Synced Opposite Direction</text>
-                  <text x="610" y="223" fill="#64748b">(Elbows Do Not Bend)</text>
-
-                  <text x="610" y="241" fill="#2563eb" font-weight="700">5. BODY & LEGS:</text>
-                  <text x="610" y="254" fill="#475569">PVC, Particle Board, Wood</text>
-
-                  <text x="610" y="272" fill="#2563eb" font-weight="700">6. BRAIN & FITTINGS:</text>
-                  <text x="610" y="285" fill="#dc2626" font-weight="700">LEGO MINDSTORMS</text>
-                  <text x="610" y="297" fill="#0d9488">+ 3D-Printed Parts</text>
-                </g>
-              </svg>
-            </div>
-
             <!-- TAB PANEL 1: Zainiac 19 (Active) -->
             <div id="panel-z19" class="lineage-panel active">
+              <!-- Technical Vector Blueprint Viewport: Zainiac 19 -->
+              <div class="blueprint-viewport">
+                <div class="blueprint-header">
+                  <span>// CAD SCHEMATIC: ZAINIAC 19 FULL-SCALE (~5 FT) HUMANOID ROBOTIC SYSTEM</span>
+                  <span>LEGO MINDSTORMS CORE • REV 1.6 • SCALE 1:5</span>
+                </div>
+
+                <!-- Clean SVG Blueprint Wireframe -->
+                <svg class="blueprint-svg" viewBox="0 0 820 355" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Background Grid Guidelines -->
+                  <line x1="40" y1="20" x2="40" y2="335" stroke="#bfdbfe" stroke-dasharray="3 3" stroke-width="0.8"/>
+                  <line x1="780" y1="20" x2="780" y2="335" stroke="#bfdbfe" stroke-dasharray="3 3" stroke-width="0.8"/>
+                  <line x1="40" y1="175" x2="780" y2="175" stroke="#dbeafe" stroke-dasharray="4 4" stroke-width="0.8"/>
+
+                  <!-- Height Dimension Line: ~5 FEET TALL -->
+                  <line x1="90" y1="25" x2="90" y2="334" stroke="#dc2626" stroke-width="1.5"/>
+                  <path d="M 82 25 L 98 25 M 82 334 L 98 334" stroke="#dc2626" stroke-width="1.5"/>
+                  <text x="75" y="180" font-family="monospace" font-size="10.5" fill="#991b1b" text-anchor="middle" transform="rotate(-90 75 180)" font-weight="700">HEIGHT: ~5 FEET TALL (~1.52 M)</text>
+
+                  <!-- Centerline Axis -->
+                  <line x1="380" y1="15" x2="380" y2="335" stroke="#93c5fd" stroke-dasharray="5 3" stroke-width="0.9"/>
+
+                  <!-- [1] PAPER-MACHE HEAD -->
+                  <ellipse cx="380" cy="55" rx="36" ry="40" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+                  <!-- Eye/Sensor Visor slot -->
+                  <rect x="362" y="46" width="36" height="12" rx="3" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+                  <circle cx="372" cy="52" r="3" fill="#2563eb"/>
+                  <circle cx="388" cy="52" r="3" fill="#2563eb"/>
+                  <text x="380" y="20" font-family="monospace" font-size="9" fill="#2563eb" text-anchor="middle" font-weight="700">PAPER-MÂCHÉ HEAD</text>
+
+                  <!-- [2] ARTICULATED NECK MECHANISM (PAN ONLY) -->
+                  <rect x="372" y="95" width="16" height="20" rx="3" fill="#eff6ff" stroke="#0284c7" stroke-width="1.8"/>
+                  <circle cx="380" cy="105" r="4" fill="#0284c7"/>
+                  <!-- Horizontal Pan Arc -->
+                  <path d="M 354 105 A 26 26 0 0 1 406 105" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
+                  <path d="M 353 102 L 354 106 L 358 103 M 407 102 L 406 106 L 402 103" stroke="#0284c7" stroke-width="1.5"/>
+                  <text x="420" y="103" font-family="monospace" font-size="8" fill="#0284c7" font-weight="700">NECK: PAN ONLY</text>
+
+                  <!-- [3] TORSO FRAMEWORK: PVC PIPES & PARTICLE BOARD -->
+                  <rect x="316" y="115" width="128" height="100" rx="6" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+                  <!-- Particle Board Infill -->
+                  <rect x="334" y="119" width="92" height="92" fill="#fffbeb" stroke="#fde68a" stroke-width="1"/>
+                  <text x="380" y="205" font-family="monospace" font-size="7.5" fill="#b45309" text-anchor="middle">PARTICLE BOARD INFILL</text>
+
+                  <!-- Left & Right Structural PVC Pipes -->
+                  <rect x="318" y="115" width="16" height="100" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+                  <rect x="426" y="115" width="16" height="100" rx="3" fill="#f1f5f9" stroke="#64748b" stroke-width="1.5"/>
+                  <text x="300" y="165" font-family="monospace" font-size="8" fill="#64748b" text-anchor="end" font-weight="700">PVC PIPE STRUCTURAL FRAME</text>
+
+                  <!-- [4] LEGO MINDSTORMS INTELLIGENT BRICK -->
+                  <rect x="342" y="125" width="76" height="68" rx="6" fill="#f8fafc" stroke="#dc2626" stroke-width="1.8"/>
+                  <rect x="350" y="131" width="60" height="26" rx="2" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+                  <text x="380" y="145" font-family="monospace" font-size="8" fill="#1e40af" text-anchor="middle" font-weight="700">LEGO MINDSTORMS</text>
+                  <text x="380" y="153" font-family="monospace" font-size="6.5" fill="#3b82f6" text-anchor="middle">INTELLIGENT BRICK CORE</text>
+                  <!-- Mindstorms buttons -->
+                  <circle cx="380" cy="172" r="6" fill="#dc2626"/>
+                  <circle cx="366" cy="172" r="3.5" fill="#94a3b8"/>
+                  <circle cx="394" cy="172" r="3.5" fill="#94a3b8"/>
+                  <circle cx="380" cy="162" r="3.5" fill="#94a3b8"/>
+                  <circle cx="380" cy="182" r="3.5" fill="#94a3b8"/>
+
+                  <!-- [5] SYNCED OPPOSITE DIRECTION STRAIGHT ARMS (NO ELBOW BEND) -->
+                  <!-- Left Shoulder (3D printed bracket) -->
+                  <rect x="302" y="122" width="16" height="16" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+                  <circle cx="310" cy="130" r="4" fill="#0d9488"/>
+                  <!-- Left Straight Rigid Arm Linkage (Continuous, No Elbow Bend, Downward Stroke) -->
+                  <line x1="306" y1="130" x2="216" y2="225" stroke="#2563eb" stroke-width="5.5" stroke-linecap="round"/>
+                  <!-- Left Hand / Gripper -->
+                  <path d="M 210 225 L 222 225 M 206 235 L 214 225 L 222 235" stroke="#1d4ed8" stroke-width="2"/>
+                  <!-- Left Motion Arc: SWING DOWN -->
+                  <path d="M 235 175 C 220 190 215 208 220 220" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="3 2" fill="none"/>
+                  <polygon points="220,225 215,217 223,218" fill="#7c3aed"/>
+                  <text x="175" y="155" font-family="monospace" font-size="7.8" fill="#7c3aed" font-weight="700">ARM 1: SWING DOWN</text>
+                  <text x="175" y="166" font-family="monospace" font-size="7" fill="#64748b">(NO ELBOW BEND)</text>
+
+                  <!-- Right Shoulder (3D printed bracket) -->
+                  <rect x="442" y="122" width="16" height="16" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+                  <circle cx="450" cy="130" r="4" fill="#0d9488"/>
+                  <!-- Right Straight Rigid Arm Linkage (Continuous, No Elbow Bend, Upward Stroke) -->
+                  <line x1="450" y1="130" x2="550" y2="92" stroke="#2563eb" stroke-width="5.5" stroke-linecap="round"/>
+                  <!-- Right Hand / Gripper -->
+                  <path d="M 545 88 L 555 94 M 552 82 L 550 92 L 560 88" stroke="#1d4ed8" stroke-width="2"/>
+                  <!-- Right Motion Arc: SWING UP -->
+                  <path d="M 525 130 C 538 115 545 105 545 95" stroke="#7c3aed" stroke-width="1.6" stroke-dasharray="3 2" fill="none"/>
+                  <polygon points="545,90 541,99 549,99" fill="#7c3aed"/>
+                  <text x="560" y="76" font-family="monospace" font-size="7.8" fill="#7c3aed" font-weight="700">ARM 2: SWING UP</text>
+                  <text x="560" y="87" font-family="monospace" font-size="7" fill="#64748b">(NO ELBOW BEND)</text>
+
+                  <text x="380" y="90" font-family="monospace" font-size="7.8" fill="#7c3aed" text-anchor="middle" font-weight="700">// SYNCED OPPOSITE DIRECTION RIGID ARM SWING (NO ELBOW BEND) //</text>
+
+                  <!-- [6] ARTICULATED WAIST ROTATION PIVOT (PAN ONLY) -->
+                  <rect x="348" y="215" width="64" height="20" rx="4" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.8"/>
+                  <circle cx="380" cy="225" r="5" fill="#6d28d9"/>
+                  <!-- Horizontal Pan Arc -->
+                  <path d="M 330 225 Q 380 238 430 225" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
+                  <path d="M 329 222 L 330 227 L 334 223 M 431 222 L 430 227 L 426 223" stroke="#7c3aed" stroke-width="1.5"/>
+                  <text x="380" y="247" font-family="monospace" font-size="8.5" fill="#6d28d9" text-anchor="middle" font-weight="700">WAIST: PAN ONLY (HORIZONTAL ROTATION ±60°)</text>
+
+                  <!-- [7] WOODEN LEGS & FOOT PLATES -->
+                  <!-- Left Leg -->
+                  <rect x="340" y="250" width="26" height="71" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+                  <line x1="348" y1="258" x2="348" y2="315" stroke="#f59e0b" stroke-width="1"/>
+                  <line x1="358" y1="253" x2="358" y2="310" stroke="#f59e0b" stroke-width="1"/>
+                  <!-- Right Leg -->
+                  <rect x="394" y="250" width="26" height="71" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+                  <line x1="402" y1="258" x2="402" y2="315" stroke="#f59e0b" stroke-width="1"/>
+                  <line x1="412" y1="253" x2="412" y2="310" stroke="#f59e0b" stroke-width="1"/>
+                  <!-- Cross Support Bracket -->
+                  <rect x="340" y="280" width="80" height="12" fill="#fde68a" stroke="#d97706" stroke-width="1.2"/>
+                  <!-- Base Foot Plates -->
+                  <rect x="318" y="321" width="124" height="14" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+                  <text x="380" y="332" font-family="monospace" font-size="8" fill="#92400e" text-anchor="middle" font-weight="700">SOLID WOOD LEGS & BASEPLATE</text>
+
+                  <!-- CALLOUT BOX: VERIFIED SPECIFICATIONS (Right Side) -->
+                  <rect x="600" y="30" width="195" height="295" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+                  <rect x="600" y="30" width="195" height="28" rx="8" fill="#eff6ff"/>
+                  <text x="610" y="48" font-family="monospace" font-size="9.5" fill="#1e40af" font-weight="700">// ZAINIAC 19 KINEMATICS</text>
+
+                  <g font-family="monospace" font-size="8.5" fill="#334155">
+                    <text x="610" y="74" fill="#dc2626" font-weight="700">SCALE / HEIGHT:</text>
+                    <text x="610" y="87" fill="#b91c1c" font-weight="700">~5 Feet Tall (~1.52 m)</text>
+
+                    <text x="610" y="105" fill="#2563eb" font-weight="700">1. HEAD:</text>
+                    <text x="610" y="118" fill="#475569">Sculpted Paper-Mâché</text>
+
+                    <text x="610" y="136" fill="#2563eb" font-weight="700">2. NECK ARTICULATION:</text>
+                    <text x="610" y="149" fill="#0284c7" font-weight="700">Pans Only (Horizontal)</text>
+
+                    <text x="610" y="167" fill="#2563eb" font-weight="700">3. WAIST ARTICULATION:</text>
+                    <text x="610" y="180" fill="#6d28d9" font-weight="700">Pans Only (Horizontal)</text>
+
+                    <text x="610" y="198" fill="#2563eb" font-weight="700">4. ARM MOVEMENT:</text>
+                    <text x="610" y="211" fill="#7c3aed" font-weight="700">Synced Opposite Direction</text>
+                    <text x="610" y="223" fill="#64748b">(Elbows Do Not Bend)</text>
+
+                    <text x="610" y="241" fill="#2563eb" font-weight="700">5. BODY & LEGS:</text>
+                    <text x="610" y="254" fill="#475569">PVC, Particle Board, Wood</text>
+
+                    <text x="610" y="272" fill="#2563eb" font-weight="700">6. BRAIN & FITTINGS:</text>
+                    <text x="610" y="285" fill="#dc2626" font-weight="700">LEGO MINDSTORMS</text>
+                    <text x="610" y="297" fill="#0d9488">+ 3D-Printed Parts</text>
+                  </g>
+                </svg>
+              </div>
+
               <div style="background: #eff6ff; border-left: 4px solid #2563eb; padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 16px;">
                 <div style="font-weight: 700; color: #1e40af; font-size: 0.96rem; margin-bottom: 4px;">// GENERATION 1 ARCHITECTURE: ZAINIAC 19 (DEBUT: 2019)</div>
                 <div style="font-size: 0.94rem; color: #1d4ed8; line-height: 1.6;">
@@ -276,6 +276,135 @@
 
             <!-- TAB PANEL 2: Zainiac 21 -->
             <div id="panel-z21" class="lineage-panel">
+              <!-- Technical Vector Blueprint Viewport: Zainiac 21 -->
+              <div class="blueprint-viewport" style="border-color: #99f6e4;">
+                <div class="blueprint-header" style="color: #0d9488; border-color: #99f6e4;">
+                  <span>// CAD SCHEMATIC: ZAINIAC 21 SECOND GENERATION EVOLUTION</span>
+                  <span>LEGO MINDSTORMS PLATFORM • REV 2.1 • LINKAGE STABILIZATION</span>
+                </div>
+
+                <!-- Clean SVG Blueprint Wireframe: Zainiac 21 -->
+                <svg class="blueprint-svg" viewBox="0 0 820 355" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Background Grid Guidelines -->
+                  <line x1="40" y1="20" x2="40" y2="335" stroke="#ccfbf1" stroke-dasharray="3 3" stroke-width="0.8"/>
+                  <line x1="780" y1="20" x2="780" y2="335" stroke="#ccfbf1" stroke-dasharray="3 3" stroke-width="0.8"/>
+                  <line x1="40" y1="175" x2="780" y2="175" stroke="#ccfbf1" stroke-dasharray="4 4" stroke-width="0.8"/>
+                  <line x1="380" y1="15" x2="380" y2="335" stroke="#5eead4" stroke-dasharray="5 3" stroke-width="0.9"/>
+
+                  <!-- Dimension Line: Stabilized Envelope -->
+                  <line x1="180" y1="340" x2="580" y2="340" stroke="#0d9488" stroke-width="1.5"/>
+                  <path d="M 180 334 L 180 346 M 580 334 L 580 346" stroke="#0d9488" stroke-width="1.5"/>
+                  <text x="380" y="352" font-family="monospace" font-size="8.5" fill="#0f766e" text-anchor="middle" font-weight="700">STABILIZED CHASSIS ENVELOPE: 480 MM</text>
+
+                  <!-- [1] MODULAR SENSOR HEAD ASSEMBLY -->
+                  <polygon points="345,35 415,35 430,68 415,90 345,90 330,68" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
+                  <!-- Dual Sensor Emitters -->
+                  <circle cx="362" cy="62" r="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
+                  <circle cx="398" cy="62" r="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
+                  <circle cx="362" cy="62" r="4" fill="#0284c7"/>
+                  <circle cx="398" cy="62" r="4" fill="#0284c7"/>
+                  <!-- Sensor Cones -->
+                  <path d="M 362 54 L 320 22 M 398 54 L 440 22" stroke="#14b8a6" stroke-width="1.2" stroke-dasharray="3 2"/>
+                  <!-- Neck Mounting Bracket -->
+                  <rect x="370" y="90" width="20" height="18" rx="3" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+                  <text x="380" y="24" font-family="monospace" font-size="8.5" fill="#0d9488" text-anchor="middle" font-weight="700">MODULAR SENSOR & VISION HOUSING</text>
+
+                  <!-- [2] MAIN TORSO & LEGO MINDSTORMS CORE -->
+                  <rect x="314" y="108" width="132" height="110" rx="8" fill="#ffffff" stroke="#0d9488" stroke-width="2"/>
+                  <!-- LEGO MINDSTORMS Intelligent Brick -->
+                  <rect x="338" y="116" width="84" height="74" rx="6" fill="#f8fafc" stroke="#dc2626" stroke-width="1.8"/>
+                  <rect x="348" y="123" width="64" height="28" rx="2" fill="#eff6ff" stroke="#2563eb" stroke-width="1"/>
+                  <text x="380" y="137" font-family="monospace" font-size="8" fill="#1e40af" text-anchor="middle" font-weight="700">LEGO MINDSTORMS</text>
+                  <text x="380" y="146" font-family="monospace" font-size="6.5" fill="#3b82f6" text-anchor="middle">GEN-2 CONTROLLER CORE</text>
+                  <!-- Nav buttons -->
+                  <circle cx="380" cy="168" r="5.5" fill="#dc2626"/>
+                  <circle cx="366" cy="168" r="3" fill="#94a3b8"/>
+                  <circle cx="394" cy="168" r="3" fill="#94a3b8"/>
+                  <circle cx="380" cy="158" r="3" fill="#94a3b8"/>
+                  <circle cx="380" cy="178" r="3" fill="#94a3b8"/>
+
+                  <!-- [3] DUAL STABILIZED LINKAGE KINEMATICS (LEFT & RIGHT) -->
+                  <!-- Left Shoulder Pivot & Primary Link -->
+                  <rect x="296" y="115" width="18" height="18" rx="4" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+                  <circle cx="305" cy="124" r="4.5" fill="#0d9488"/>
+                  <line x1="305" y1="124" x2="235" y2="175" stroke="#0284c7" stroke-width="5" stroke-linecap="round"/>
+                  <!-- Left Stabilization Damper Link -->
+                  <line x1="314" y1="150" x2="248" y2="185" stroke="#0d9488" stroke-width="2" stroke-dasharray="3 2"/>
+                  <!-- Left Intermediate Knuckle -->
+                  <circle cx="235" cy="175" r="7.5" fill="#0f766e" stroke="#14b8a6" stroke-width="2"/>
+                  <!-- Left Lower Linkage -->
+                  <line x1="235" y1="175" x2="195" y2="245" stroke="#0284c7" stroke-width="4.5" stroke-linecap="round"/>
+                  <circle cx="195" cy="245" r="5" fill="#0284c7"/>
+                  <!-- Left Stabilization Arc -->
+                  <path d="M 215 150 C 190 180 185 220 195 245" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
+                  <polygon points="195,248 190,240 198,241" fill="#0d9488"/>
+                  <text x="145" y="165" font-family="monospace" font-size="7.5" fill="#0f766e" font-weight="700">STABILIZED LINKAGE A</text>
+                  <text x="145" y="176" font-family="monospace" font-size="6.8" fill="#64748b">LOW DEFLECTION</text>
+
+                  <!-- Right Shoulder Pivot & Primary Link -->
+                  <rect x="446" y="115" width="18" height="18" rx="4" fill="#ccfbf1" stroke="#0d9488" stroke-width="1.5"/>
+                  <circle cx="455" cy="124" r="4.5" fill="#0d9488"/>
+                  <line x1="455" y1="124" x2="525" y2="175" stroke="#0284c7" stroke-width="5" stroke-linecap="round"/>
+                  <!-- Right Stabilization Damper Link -->
+                  <line x1="446" y1="150" x2="512" y2="185" stroke="#0d9488" stroke-width="2" stroke-dasharray="3 2"/>
+                  <!-- Right Intermediate Knuckle -->
+                  <circle cx="525" cy="175" r="7.5" fill="#0f766e" stroke="#14b8a6" stroke-width="2"/>
+                  <!-- Right Lower Linkage -->
+                  <line x1="525" y1="175" x2="565" y2="245" stroke="#0284c7" stroke-width="4.5" stroke-linecap="round"/>
+                  <circle cx="565" cy="245" r="5" fill="#0284c7"/>
+                  <!-- Right Stabilization Arc -->
+                  <path d="M 545 150 C 570 180 575 220 565 245" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
+                  <polygon points="565,248 562,240 570,241" fill="#0d9488"/>
+                  <text x="600" y="165" font-family="monospace" font-size="7.5" fill="#0f766e" font-weight="700">STABILIZED LINKAGE B</text>
+                  <text x="600" y="176" font-family="monospace" font-size="6.8" fill="#64748b">OPTIMIZED RESPONSE</text>
+
+                  <text x="380" y="98" font-family="monospace" font-size="7.8" fill="#0d9488" text-anchor="middle" font-weight="700">// REFINED MULTI-JOINT LINKAGE GEOMETRY & BALANCED DYNAMICS //</text>
+
+                  <!-- [4] MODULAR EXPANSION BAY -->
+                  <rect x="328" y="192" width="104" height="24" rx="3" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.3"/>
+                  <text x="380" y="207" font-family="monospace" font-size="7.5" fill="#0d9488" text-anchor="middle" font-weight="700">MODULAR EXPANSION BUS</text>
+
+                  <!-- [5] STRUCTURAL PYLONS & HIGH-STABILITY REINFORCED BASE -->
+                  <rect x="336" y="222" width="22" height="78" rx="3" fill="#f8fafc" stroke="#0f766e" stroke-width="1.6"/>
+                  <rect x="402" y="222" width="22" height="78" rx="3" fill="#f8fafc" stroke="#0f766e" stroke-width="1.6"/>
+                  <!-- Cross-Gussets -->
+                  <line x1="336" y1="240" x2="424" y2="282" stroke="#0d9488" stroke-width="1.4"/>
+                  <line x1="424" y1="240" x2="336" y2="282" stroke="#0d9488" stroke-width="1.4"/>
+                  <!-- Base Assembly -->
+                  <rect x="296" y="300" width="168" height="18" rx="4" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+                  <text x="380" y="313" font-family="monospace" font-size="8" fill="#115e59" text-anchor="middle" font-weight="700">REINFORCED STRUCTURAL BASE ASSEMBLY</text>
+
+                  <!-- CALLOUT BOX: VERIFIED SPECIFICATIONS (Right Side) -->
+                  <rect x="600" y="30" width="195" height="295" rx="8" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+                  <rect x="600" y="30" width="195" height="28" rx="8" fill="#f0fdfa"/>
+                  <text x="610" y="48" font-family="monospace" font-size="9.5" fill="#0f766e" font-weight="700">// ZAINIAC 21 KINEMATICS</text>
+
+                  <g font-family="monospace" font-size="8.5" fill="#334155">
+                    <text x="610" y="74" fill="#dc2626" font-weight="700">CONTROLLER CORE:</text>
+                    <text x="610" y="87" fill="#b91c1c" font-weight="700">LEGO MINDSTORMS</text>
+
+                    <text x="610" y="105" fill="#0d9488" font-weight="700">1. GENERATION:</text>
+                    <text x="610" y="118" fill="#475569">Second Gen (2021)</text>
+
+                    <text x="610" y="136" fill="#0d9488" font-weight="700">2. KEY REFINEMENT:</text>
+                    <text x="610" y="149" fill="#0f766e" font-weight="700">Linkage Stabilization</text>
+
+                    <text x="610" y="167" fill="#0d9488" font-weight="700">3. JOINT MECHANICS:</text>
+                    <text x="610" y="180" fill="#0284c7" font-weight="700">Multi-Joint Kinematics</text>
+
+                    <text x="610" y="198" fill="#0d9488" font-weight="700">4. FRAMEWORK:</text>
+                    <text x="610" y="211" fill="#475569">Reinforced Modular Chassis</text>
+
+                    <text x="610" y="229" fill="#0d9488" font-weight="700">5. MOTOR DYNAMICS:</text>
+                    <text x="610" y="242" fill="#7c3aed" font-weight="700">Enhanced Responsiveness</text>
+
+                    <text x="610" y="260" fill="#0d9488" font-weight="700">6. LINEAGE STATUS:</text>
+                    <text x="610" y="273" fill="#15803d" font-weight="700">Gen-2 Milestone Build</text>
+                    <text x="610" y="285" fill="#64748b">Predecessor to Gen-3 CAD</text>
+                  </g>
+                </svg>
+              </div>
+
               <div style="background: #f0fdfa; border-left: 4px solid #0d9488; padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 16px;">
                 <div style="font-weight: 700; color: #115e59; font-size: 0.96rem; margin-bottom: 4px;">// GENERATION 2 ARCHITECTURE: ZAINIAC 21 (EVOLUTION: 2021)</div>
                 <div style="font-size: 0.94rem; color: #0f766e; line-height: 1.6;">
@@ -301,10 +430,131 @@
                   <div class="spec-kpi-val" style="color: #7c3aed;">Generation 2</div>
                 </div>
               </div>
+
+              <div class="info-gap-box" style="margin-top: 14px;">
+                <span class="gap-icon">📸</span>
+                <div>
+                  <strong>Zainiac 21 Media:</strong> Have workshop photos, test footage, or additional dimensions of Zainiac 21? Add them here to showcase the second-generation build progression.
+                </div>
+              </div>
             </div>
 
             <!-- TAB PANEL 3: Zainiac 25 -->
             <div id="panel-z25" class="lineage-panel">
+              <!-- Technical Vector Blueprint Viewport: Zainiac 25 -->
+              <div class="blueprint-viewport" style="border-color: #fde68a;">
+                <div class="blueprint-header" style="color: #d97706; border-color: #fde68a;">
+                  <span>// CAD SCHEMATIC: ZAINIAC 25 PARAMETRIC MOBILE ROBOTIC PLATFORM</span>
+                  <span>ONSHAPE / FUSION 360 3D CAD • REV 3.0 • PROTOTYPING PLATFORM</span>
+                </div>
+
+                <!-- Clean SVG Blueprint Wireframe: Zainiac 25 -->
+                <svg class="blueprint-svg" viewBox="0 0 820 355" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Background Grid Guidelines -->
+                  <line x1="40" y1="20" x2="40" y2="335" stroke="#fef3c7" stroke-dasharray="3 3" stroke-width="0.8"/>
+                  <line x1="780" y1="20" x2="780" y2="335" stroke="#fef3c7" stroke-dasharray="3 3" stroke-width="0.8"/>
+                  <line x1="40" y1="175" x2="780" y2="175" stroke="#fef3c7" stroke-dasharray="4 4" stroke-width="0.8"/>
+                  <line x1="380" y1="15" x2="380" y2="335" stroke="#f59e0b" stroke-dasharray="5 3" stroke-width="0.9"/>
+
+                  <!-- Dimension Line: Track Width -->
+                  <line x1="230" y1="28" x2="530" y2="28" stroke="#d97706" stroke-width="1.5"/>
+                  <path d="M 230 22 L 230 34 M 530 22 L 530 34" stroke="#d97706" stroke-width="1.5"/>
+                  <text x="380" y="24" font-family="monospace" font-size="8.5" fill="#b45309" text-anchor="middle" font-weight="700">CHASSIS TRACK: 360 MM (±0.15 MM CAD TOLERANCE)</text>
+
+                  <!-- [1] 360° SENSOR ARRAY & SENSOR MAST -->
+                  <ellipse cx="380" cy="46" rx="32" ry="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+                  <rect x="364" y="46" width="32" height="20" rx="3" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+                  <circle cx="380" cy="46" r="5" fill="#2563eb"/>
+                  <path d="M 380 46 L 315 20 M 380 46 L 445 20 M 380 46 L 380 14" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="2 2"/>
+                  <text x="380" y="76" font-family="monospace" font-size="8" fill="#1d4ed8" text-anchor="middle" font-weight="700">PARAMETRIC SENSOR & COMPUTATION MAST</text>
+
+                  <!-- [2] 3D-PRINTED TIGHT-TOLERANCE STRUCTURAL BULKHEAD -->
+                  <rect x="290" y="85" width="180" height="170" rx="10" fill="#ffffff" stroke="#d97706" stroke-width="2.2"/>
+                  <!-- Honeycomb Lattice Pockets -->
+                  <polygon points="312,105 324,98 336,105 336,119 324,126 312,119" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
+                  <polygon points="424,105 436,98 448,105 448,119 436,126 424,119" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
+                  <polygon points="312,145 324,138 336,145 336,159 324,166 312,159" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
+                  <polygon points="424,145 436,138 448,145 448,159 436,166 424,159" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
+
+                  <!-- [3] CENTRAL ENCLOSURE: LIPO POWER & CONTROLLER BAY -->
+                  <rect x="325" y="105" width="110" height="120" rx="6" fill="#f8fafc" stroke="#2563eb" stroke-width="1.8"/>
+                  <rect x="337" y="115" width="86" height="34" rx="3" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.2"/>
+                  <text x="380" y="132" font-family="monospace" font-size="7.5" fill="#1e40af" text-anchor="middle" font-weight="700">HIGH-CAPACITY LIPO CORE (CG)</text>
+                  <rect x="337" y="158" width="86" height="52" rx="3" fill="#ecfdf5" stroke="#10b981" stroke-width="1.2"/>
+                  <text x="380" y="178" font-family="monospace" font-size="7.5" fill="#047857" text-anchor="middle" font-weight="700">MOTOR DRIVERS & SENSOR BUS</text>
+                  <text x="380" y="190" font-family="monospace" font-size="6.8" fill="#059669" text-anchor="middle">CLOSED-LOOP ENCODER FEEDBACK</text>
+
+                  <!-- [4] BALANCED DUAL-AXLE DRIVETRAIN & WHEEL ASSEMBLIES -->
+                  <!-- Front Axle -->
+                  <rect x="238" y="80" width="40" height="70" rx="7" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
+                  <line x1="242" y1="95" x2="274" y2="95" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="242" y1="115" x2="274" y2="115" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="242" y1="135" x2="274" y2="135" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="278" y1="115" x2="325" y2="115" stroke="#2563eb" stroke-width="3.5"/>
+                  <rect x="282" y="105" width="14" height="20" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+
+                  <rect x="482" y="80" width="40" height="70" rx="7" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
+                  <line x1="486" y1="95" x2="518" y2="95" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="486" y1="115" x2="518" y2="115" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="486" y1="135" x2="518" y2="135" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="435" y1="115" x2="482" y2="115" stroke="#2563eb" stroke-width="3.5"/>
+                  <rect x="464" y="105" width="14" height="20" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+
+                  <!-- Rear Axle -->
+                  <rect x="238" y="175" width="40" height="70" rx="7" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
+                  <line x1="242" y1="190" x2="274" y2="190" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="242" y1="210" x2="274" y2="210" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="242" y1="230" x2="274" y2="230" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="278" y1="210" x2="325" y2="210" stroke="#2563eb" stroke-width="3.5"/>
+                  <rect x="282" y="200" width="14" height="20" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+
+                  <rect x="482" y="175" width="40" height="70" rx="7" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
+                  <line x1="486" y1="190" x2="518" y2="190" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="486" y1="210" x2="518" y2="210" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="486" y1="230" x2="518" y2="230" stroke="#64748b" stroke-width="1.5"/>
+                  <line x1="435" y1="210" x2="482" y2="210" stroke="#2563eb" stroke-width="3.5"/>
+                  <rect x="464" y="200" width="14" height="20" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+
+                  <!-- [5] LOWER SKID PLATE & BALANCED LOAD VECTOR -->
+                  <rect x="270" y="265" width="220" height="18" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+                  <text x="380" y="278" font-family="monospace" font-size="8" fill="#b45309" text-anchor="middle" font-weight="700">TIGHT-TOLERANCE 3D-PRINTED LOWER CHASSIS</text>
+
+                  <path d="M 330 305 L 430 305" stroke="#2563eb" stroke-width="1.8"/>
+                  <polygon points="330,305 337,301 337,309" fill="#2563eb"/>
+                  <polygon points="430,305 423,301 423,309" fill="#2563eb"/>
+                  <text x="380" y="322" font-family="monospace" font-size="8" fill="#2563eb" text-anchor="middle" font-weight="700">50/50 AXLE LOAD DISTRIBUTION • LOW CG</text>
+
+                  <!-- CALLOUT BOX: VERIFIED SPECIFICATIONS (Right Side) -->
+                  <rect x="600" y="30" width="195" height="295" rx="8" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+                  <rect x="600" y="30" width="195" height="28" rx="8" fill="#fffbeb"/>
+                  <text x="610" y="48" font-family="monospace" font-size="9.5" fill="#b45309" font-weight="700">// ZAINIAC 25 ARCHITECTURE</text>
+
+                  <g font-family="monospace" font-size="8.5" fill="#334155">
+                    <text x="610" y="74" fill="#d97706" font-weight="700">CAD ENVIRONMENT:</text>
+                    <text x="610" y="87" fill="#b45309" font-weight="700">Onshape & Fusion 360</text>
+
+                    <text x="610" y="105" fill="#0d9488" font-weight="700">1. FABRICATION:</text>
+                    <text x="610" y="118" fill="#475569">Tight-Tolerance 3D Print</text>
+
+                    <text x="610" y="136" fill="#2563eb" font-weight="700">2. KINEMATICS:</text>
+                    <text x="610" y="149" fill="#1d4ed8" font-weight="700">Balanced Dual-Axle Drive</text>
+
+                    <text x="610" y="167" fill="#7c3aed" font-weight="700">3. WEIGHT BALANCE:</text>
+                    <text x="610" y="180" fill="#6d28d9" font-weight="700">50/50 Axle CG Alignment</text>
+
+                    <text x="610" y="198" fill="#d97706" font-weight="700">4. TOLERANCING:</text>
+                    <text x="610" y="211" fill="#475569">±0.15mm Interlocking Fit</text>
+
+                    <text x="610" y="229" fill="#0d9488" font-weight="700">5. RUNTIME FOCUS:</text>
+                    <text x="610" y="242" fill="#0f766e" font-weight="700">Extended Field Endurance</text>
+
+                    <text x="610" y="260" fill="#15803d" font-weight="700">6. STATUS:</text>
+                    <text x="610" y="273" fill="#16a34a" font-weight="700">Active Prototyping (2025)</text>
+                    <text x="610" y="285" fill="#64748b">Flagship Mobile Platform</text>
+                  </g>
+                </svg>
+              </div>
+
               <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 16px;">
                 <div style="font-weight: 700; color: #92400e; font-size: 0.96rem; margin-bottom: 4px;">// GENERATION 3 ARCHITECTURE: ZAINIAC 25 (CURRENT PLATFORM: 2025)</div>
                 <div style="font-size: 0.94rem; color: #b45309; line-height: 1.6;">
@@ -328,6 +578,13 @@
                 <div class="telemetry-spec-box">
                   <div class="spec-kpi-label">Status</div>
                   <div class="spec-kpi-val" style="color: #15803d;">Active Prototyping</div>
+                </div>
+              </div>
+
+              <div class="info-gap-box" style="margin-top: 14px;">
+                <span class="gap-icon">⚡</span>
+                <div>
+                  <strong>Zainiac 25 CAD & Media:</strong> Upload screenshots of your Onshape / Fusion 360 CAD assembly or 3D-printed chassis test photos here to showcase current progress.
                 </div>
               </div>
             </div>
@@ -437,6 +694,123 @@
                   <div class="comp-result-title" style="color: #7f1d1d;">6th Place (40+ Team Field)</div>
                 </div>
               </div>
+            </div>
+
+            <!-- VEX V5 Vector Blueprint CAD Schematic -->
+            <div class="blueprint-viewport" style="border-color: #fecaca; margin: 16px 0; padding: 14px;">
+              <div class="blueprint-header" style="color: #dc2626; border-color: #fecaca; margin-bottom: 10px;">
+                <span>// CAD SCHEMATIC: VEX V5 COMPETITION ROBOT PLATFORM</span>
+                <span>ONSHAPE 3D CAD • 18" SIZING ENVELOPE • PDS ROBOTICS</span>
+              </div>
+              <svg class="blueprint-svg" viewBox="0 0 520 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Grid -->
+                <line x1="20" y1="15" x2="20" y2="205" stroke="#fee2e2" stroke-dasharray="3 3" stroke-width="0.8"/>
+                <line x1="500" y1="15" x2="500" y2="205" stroke="#fee2e2" stroke-dasharray="3 3" stroke-width="0.8"/>
+                <line x1="20" y1="110" x2="500" y2="110" stroke="#fee2e2" stroke-dasharray="3 3" stroke-width="0.8"/>
+
+                <!-- 18" Competition Sizing Limit Box -->
+                <rect x="35" y="20" width="280" height="180" rx="4" fill="none" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="4 3"/>
+                <text x="40" y="32" font-family="monospace" font-size="7.5" fill="#dc2626" font-weight="700">18" × 18" VEX SIZING ENVELOPE</text>
+
+                <!-- Aluminum C-Channel Chassis Rails -->
+                <rect x="65" y="45" width="220" height="130" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+                <rect x="75" y="55" width="200" height="110" rx="2" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+
+                <!-- C-Channel Hole Pitch Pattern -->
+                <circle cx="85" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="95" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="105" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="115" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="125" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="135" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="145" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="155" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="165" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="175" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="185" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="195" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="205" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="215" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="225" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="235" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="245" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="255" cy="50" r="1.5" fill="#94a3b8"/>
+                <circle cx="265" cy="50" r="1.5" fill="#94a3b8"/>
+
+                <!-- Drive Wheels (Omni Wheels) -->
+                <!-- Front-Left Omni Wheel -->
+                <rect x="45" y="42" width="22" height="38" rx="3" fill="#334155" stroke="#0f172a" stroke-width="1.2"/>
+                <circle cx="56" cy="61" r="5" fill="#94a3b8"/>
+                <!-- Rear-Left Omni Wheel -->
+                <rect x="45" y="140" width="22" height="38" rx="3" fill="#334155" stroke="#0f172a" stroke-width="1.2"/>
+                <circle cx="56" cy="159" r="5" fill="#94a3b8"/>
+                <!-- Front-Right Omni Wheel -->
+                <rect x="283" y="42" width="22" height="38" rx="3" fill="#334155" stroke="#0f172a" stroke-width="1.2"/>
+                <circle cx="294" cy="61" r="5" fill="#94a3b8"/>
+                <!-- Rear-Right Omni Wheel -->
+                <rect x="283" y="140" width="22" height="38" rx="3" fill="#334155" stroke="#0f172a" stroke-width="1.2"/>
+                <circle cx="294" cy="159" r="5" fill="#94a3b8"/>
+
+                <!-- Front Intake Roller Assembly -->
+                <rect x="110" y="26" width="130" height="20" rx="4" fill="#fee2e2" stroke="#dc2626" stroke-width="1.5"/>
+                <!-- Roller flex wheels -->
+                <circle cx="130" cy="36" r="7" fill="#dc2626"/>
+                <circle cx="155" cy="36" r="7" fill="#dc2626"/>
+                <circle cx="175" cy="36" r="7" fill="#dc2626"/>
+                <circle cx="195" cy="36" r="7" fill="#dc2626"/>
+                <circle cx="220" cy="36" r="7" fill="#dc2626"/>
+                <text x="175" y="22" font-family="monospace" font-size="7" fill="#dc2626" text-anchor="middle" font-weight="700">HIGH-SPEED INTAKE ROLLER</text>
+
+                <!-- V5 Brain Enclosure -->
+                <rect x="135" y="75" width="80" height="50" rx="4" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+                <rect x="145" y="83" width="60" height="24" rx="2" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+                <text x="175" y="96" font-family="monospace" font-size="7.5" fill="#1e40af" text-anchor="middle" font-weight="700">V5 BRAIN</text>
+                <text x="175" y="104" font-family="monospace" font-size="6" fill="#3b82f6" text-anchor="middle">TOUCH SCREEN</text>
+                <!-- Smart Ports -->
+                <rect x="142" y="113" width="12" height="6" fill="#cbd5e1"/>
+                <rect x="158" y="113" width="12" height="6" fill="#cbd5e1"/>
+                <rect x="174" y="113" width="12" height="6" fill="#cbd5e1"/>
+                <rect x="190" y="113" width="12" height="6" fill="#cbd5e1"/>
+
+                <!-- V5 Smart Motors -->
+                <rect x="85" y="70" width="30" height="18" rx="2" fill="#1e293b" stroke="#0f172a"/>
+                <text x="100" y="82" font-family="monospace" font-size="6" fill="#ffffff" text-anchor="middle">M1 11W</text>
+                <rect x="235" y="70" width="30" height="18" rx="2" fill="#1e293b" stroke="#0f172a"/>
+                <text x="250" y="82" font-family="monospace" font-size="6" fill="#ffffff" text-anchor="middle">M2 11W</text>
+                <rect x="85" y="132" width="30" height="18" rx="2" fill="#1e293b" stroke="#0f172a"/>
+                <text x="100" y="144" font-family="monospace" font-size="6" fill="#ffffff" text-anchor="middle">M3 11W</text>
+                <rect x="235" y="132" width="30" height="18" rx="2" fill="#1e293b" stroke="#0f172a"/>
+                <text x="250" y="144" font-family="monospace" font-size="6" fill="#ffffff" text-anchor="middle">M4 11W</text>
+
+                <!-- Center of Mass Marker -->
+                <circle cx="175" cy="110" r="5" fill="none" stroke="#dc2626" stroke-width="1.2"/>
+                <line x1="170" y1="110" x2="180" y2="110" stroke="#dc2626" stroke-width="1.2"/>
+                <line x1="175" y1="105" x2="175" y2="115" stroke="#dc2626" stroke-width="1.2"/>
+
+                <!-- Right Side Spec Callout Panel -->
+                <rect x="330" y="20" width="175" height="180" rx="6" fill="#ffffff" stroke="#fecaca" stroke-width="1.2"/>
+                <rect x="330" y="20" width="175" height="22" rx="6" fill="#fee2e2"/>
+                <text x="338" y="34" font-family="monospace" font-size="8.5" fill="#991b1b" font-weight="700">// VEX V5 SUBSYSTEMS</text>
+
+                <g font-family="monospace" font-size="7.5" fill="#334155">
+                  <text x="338" y="55" fill="#dc2626" font-weight="700">CAD MODELING:</text>
+                  <text x="338" y="66" fill="#475569">Onshape Parametric 3D</text>
+
+                  <text x="338" y="82" fill="#dc2626" font-weight="700">CHASSIS STRUCTURE:</text>
+                  <text x="338" y="93" fill="#475569">Aluminum C-Channel Grid</text>
+
+                  <text x="338" y="109" fill="#dc2626" font-weight="700">DRIVE ACTUATION:</text>
+                  <text x="338" y="120" fill="#475569">4× V5 Smart Motors (11W)</text>
+
+                  <text x="338" y="136" fill="#dc2626" font-weight="700">SIZING ENVELOPE:</text>
+                  <text x="338" y="147" fill="#b91c1c" font-weight="700">18" × 18" Legal Limit</text>
+
+                  <text x="338" y="163" fill="#dc2626" font-weight="700">INTAKE SYSTEM:</text>
+                  <text x="338" y="174" fill="#475569">High-Velocity Flex Rollers</text>
+
+                  <text x="338" y="190" fill="#15803d" font-weight="700">FINISH: 2026 Quarterfinalist</text>
+                </g>
+              </svg>
             </div>
 
             <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6;">
