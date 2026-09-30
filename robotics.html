@@ -95,7 +95,7 @@
                 <span>⚙️</span> <strong>Zainiac 21</strong> <small>(Second Gen • LEGO Mindstorms • 2021)</small>
               </button>
               <button class="lineage-tab-btn" data-gen="z25">
-                <span>⚡</span> <strong>Zainiac 25</strong> <small>(Current Platform • CAD & 3D • 2025)</small>
+                <span>🎭</span> <strong>Zainiac 25</strong> <small>(Animatronic Head • Creative Engineering • 2025)</small>
               </button>
             </div>
 
@@ -441,14 +441,14 @@
 
             <!-- TAB PANEL 3: Zainiac 25 -->
             <div id="panel-z25" class="lineage-panel">
-              <!-- Technical Vector Blueprint Viewport: Zainiac 25 -->
+              <!-- Technical Vector Blueprint Viewport: Zainiac 25 (Animatronic Head) -->
               <div class="blueprint-viewport" style="border-color: #fde68a;">
                 <div class="blueprint-header" style="color: #d97706; border-color: #fde68a;">
-                  <span>// CAD SCHEMATIC: ZAINIAC 25 PARAMETRIC MOBILE ROBOTIC PLATFORM</span>
-                  <span>ONSHAPE / FUSION 360 3D CAD • REV 3.0 • PROTOTYPING PLATFORM</span>
+                  <span>// CAD SCHEMATIC: ZAINIAC 25 ANIMATRONIC HEAD MECHANISM</span>
+                  <span>CREATIVE ENGINEERING ARCHITECTURE • MULTI-SERVO KINEMATICS • REV 3.0</span>
                 </div>
 
-                <!-- Clean SVG Blueprint Wireframe: Zainiac 25 -->
+                <!-- Clean SVG Blueprint Wireframe: Zainiac 25 Animatronic Head -->
                 <svg class="blueprint-svg" viewBox="0 0 820 355" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <!-- Background Grid Guidelines -->
                   <line x1="40" y1="20" x2="40" y2="335" stroke="#fef3c7" stroke-dasharray="3 3" stroke-width="0.8"/>
@@ -456,135 +456,172 @@
                   <line x1="40" y1="175" x2="780" y2="175" stroke="#fef3c7" stroke-dasharray="4 4" stroke-width="0.8"/>
                   <line x1="380" y1="15" x2="380" y2="335" stroke="#f59e0b" stroke-dasharray="5 3" stroke-width="0.9"/>
 
-                  <!-- Dimension Line: Track Width -->
-                  <line x1="230" y1="28" x2="530" y2="28" stroke="#d97706" stroke-width="1.5"/>
-                  <path d="M 230 22 L 230 34 M 530 22 L 530 34" stroke="#d97706" stroke-width="1.5"/>
-                  <text x="380" y="24" font-family="monospace" font-size="8.5" fill="#b45309" text-anchor="middle" font-weight="700">CHASSIS TRACK: 360 MM (±0.15 MM CAD TOLERANCE)</text>
+                  <!-- Dimension Line: Cranial Width Envelope -->
+                  <line x1="280" y1="28" x2="480" y2="28" stroke="#d97706" stroke-width="1.5"/>
+                  <path d="M 280 22 L 280 34 M 480 22 L 480 34" stroke="#d97706" stroke-width="1.5"/>
+                  <text x="380" y="24" font-family="monospace" font-size="8.5" fill="#b45309" text-anchor="middle" font-weight="700">CREATIVE ENGINEERING HEAD ARCHITECTURE (CRANIAL WIDTH: 200 MM)</text>
 
-                  <!-- [1] 360° SENSOR ARRAY & SENSOR MAST -->
-                  <ellipse cx="380" cy="46" rx="32" ry="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
-                  <rect x="364" y="46" width="32" height="20" rx="3" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
-                  <circle cx="380" cy="46" r="5" fill="#2563eb"/>
-                  <path d="M 380 46 L 315 20 M 380 46 L 445 20 M 380 46 L 380 14" stroke="#3b82f6" stroke-width="1.2" stroke-dasharray="2 2"/>
-                  <text x="380" y="76" font-family="monospace" font-size="8" fill="#1d4ed8" text-anchor="middle" font-weight="700">PARAMETRIC SENSOR & COMPUTATION MAST</text>
+                  <!-- [1] SKULL ARMATURE & CRANIAL FRAMEWORK -->
+                  <path d="M 290 145 C 290 60 470 60 470 145" stroke="#d97706" stroke-width="2.5" fill="#fffbeb"/>
+                  <!-- Upper Cranial Mounting Plate -->
+                  <rect x="320" y="65" width="120" height="20" rx="4" fill="#ffffff" stroke="#d97706" stroke-width="1.6"/>
+                  <circle cx="335" cy="75" r="3" fill="#d97706"/>
+                  <circle cx="425" cy="75" r="3" fill="#d97706"/>
+                  <text x="380" y="78" font-family="monospace" font-size="7.5" fill="#92400e" text-anchor="middle" font-weight="700">SKULL MOUNTING ARMATURE</text>
 
-                  <!-- [2] 3D-PRINTED TIGHT-TOLERANCE STRUCTURAL BULKHEAD -->
-                  <rect x="290" y="85" width="180" height="170" rx="10" fill="#ffffff" stroke="#d97706" stroke-width="2.2"/>
-                  <!-- Honeycomb Lattice Pockets -->
-                  <polygon points="312,105 324,98 336,105 336,119 324,126 312,119" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
-                  <polygon points="424,105 436,98 448,105 448,119 436,126 424,119" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
-                  <polygon points="312,145 324,138 336,145 336,159 324,166 312,159" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
-                  <polygon points="424,145 436,138 448,145 448,159 436,166 424,159" fill="#fffbeb" stroke="#fcd34d" stroke-width="1"/>
+                  <!-- [2] DUAL EYE MECHANISMS (2 SERVOS TO MOVE EACH EYE) -->
+                  <!-- Left Eye Assembly -->
+                  <circle cx="338" cy="122" r="20" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+                  <circle cx="338" cy="122" r="8" fill="#1e40af"/>
+                  <circle cx="336" cy="120" r="2.5" fill="#ffffff"/>
+                  <!-- Left Eye Gimbal Ring -->
+                  <rect x="314" y="98" width="48" height="48" rx="6" fill="none" stroke="#60a5fa" stroke-width="1.2" stroke-dasharray="3 2"/>
+                  <!-- Left Eye Servo 1: Pan (Horizontal) -->
+                  <rect x="250" y="92" width="28" height="18" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.2"/>
+                  <circle cx="260" cy="101" r="3" fill="#3b82f6"/>
+                  <line x1="260" y1="101" x2="318" y2="114" stroke="#2563eb" stroke-width="2"/>
+                  <text x="238" y="103" font-family="monospace" font-size="7" fill="#1d4ed8" font-weight="700">EYE 1 PAN</text>
+                  <!-- Left Eye Servo 2: Tilt (Vertical) -->
+                  <rect x="250" y="132" width="28" height="18" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.2"/>
+                  <circle cx="260" cy="141" r="3" fill="#3b82f6"/>
+                  <line x1="260" y1="141" x2="322" y2="132" stroke="#2563eb" stroke-width="2"/>
+                  <text x="238" y="145" font-family="monospace" font-size="7" fill="#1d4ed8" font-weight="700">EYE 1 TILT</text>
+                  <!-- Left Eye Pan/Tilt Motion Arrows -->
+                  <path d="M 326 122 L 350 122 M 338 110 L 338 134" stroke="#7c3aed" stroke-width="1.4"/>
 
-                  <!-- [3] CENTRAL ENCLOSURE: LIPO POWER & CONTROLLER BAY -->
-                  <rect x="325" y="105" width="110" height="120" rx="6" fill="#f8fafc" stroke="#2563eb" stroke-width="1.8"/>
-                  <rect x="337" y="115" width="86" height="34" rx="3" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.2"/>
-                  <text x="380" y="132" font-family="monospace" font-size="7.5" fill="#1e40af" text-anchor="middle" font-weight="700">HIGH-CAPACITY LIPO CORE (CG)</text>
-                  <rect x="337" y="158" width="86" height="52" rx="3" fill="#ecfdf5" stroke="#10b981" stroke-width="1.2"/>
-                  <text x="380" y="178" font-family="monospace" font-size="7.5" fill="#047857" text-anchor="middle" font-weight="700">MOTOR DRIVERS & SENSOR BUS</text>
-                  <text x="380" y="190" font-family="monospace" font-size="6.8" fill="#059669" text-anchor="middle">CLOSED-LOOP ENCODER FEEDBACK</text>
+                  <!-- Right Eye Assembly -->
+                  <circle cx="422" cy="122" r="20" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+                  <circle cx="422" cy="122" r="8" fill="#1e40af"/>
+                  <circle cx="420" cy="120" r="2.5" fill="#ffffff"/>
+                  <!-- Right Eye Gimbal Ring -->
+                  <rect x="398" y="98" width="48" height="48" rx="6" fill="none" stroke="#60a5fa" stroke-width="1.2" stroke-dasharray="3 2"/>
+                  <!-- Right Eye Servo 1: Pan (Horizontal) -->
+                  <rect x="482" y="92" width="28" height="18" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.2"/>
+                  <circle cx="500" cy="101" r="3" fill="#3b82f6"/>
+                  <line x1="500" y1="101" x2="442" y2="114" stroke="#2563eb" stroke-width="2"/>
+                  <text x="522" y="103" font-family="monospace" font-size="7" fill="#1d4ed8" font-weight="700">EYE 2 PAN</text>
+                  <!-- Right Eye Servo 2: Tilt (Vertical) -->
+                  <rect x="482" y="132" width="28" height="18" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.2"/>
+                  <circle cx="500" cy="141" r="3" fill="#3b82f6"/>
+                  <line x1="500" y1="141" x2="438" y2="132" stroke="#2563eb" stroke-width="2"/>
+                  <text x="522" y="145" font-family="monospace" font-size="7" fill="#1d4ed8" font-weight="700">EYE 2 TILT</text>
+                  <!-- Right Eye Pan/Tilt Motion Arrows -->
+                  <path d="M 410 122 L 434 122 M 422 110 L 422 134" stroke="#7c3aed" stroke-width="1.4"/>
 
-                  <!-- [4] BALANCED DUAL-AXLE DRIVETRAIN & WHEEL ASSEMBLIES -->
-                  <!-- Front Axle -->
-                  <rect x="238" y="80" width="40" height="70" rx="7" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
-                  <line x1="242" y1="95" x2="274" y2="95" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="242" y1="115" x2="274" y2="115" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="242" y1="135" x2="274" y2="135" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="278" y1="115" x2="325" y2="115" stroke="#2563eb" stroke-width="3.5"/>
-                  <rect x="282" y="105" width="14" height="20" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+                  <text x="380" y="106" font-family="monospace" font-size="7.5" fill="#1e40af" text-anchor="middle" font-weight="700">// 2 SERVOS TO MOVE EACH EYE (4 SERVOS TOTAL) //</text>
 
-                  <rect x="482" y="80" width="40" height="70" rx="7" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
-                  <line x1="486" y1="95" x2="518" y2="95" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="486" y1="115" x2="518" y2="115" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="486" y1="135" x2="518" y2="135" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="435" y1="115" x2="482" y2="115" stroke="#2563eb" stroke-width="3.5"/>
-                  <rect x="464" y="105" width="14" height="20" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+                  <!-- [3] JAW MECHANISM (1 SERVO TO MOVE THE JAW) -->
+                  <!-- Mandible Frame Hinges -->
+                  <circle cx="304" cy="180" r="5" fill="#dc2626"/>
+                  <circle cx="456" cy="180" r="5" fill="#dc2626"/>
+                  <!-- U-Shaped Mandible Jaw Armature -->
+                  <path d="M 304 180 L 316 215 L 380 226 L 444 215 L 456 180" stroke="#dc2626" stroke-width="2.5" fill="#fee2e2" fill-opacity="0.6"/>
+                  <!-- Central Jaw Actuation Servo -->
+                  <rect x="362" y="160" width="36" height="22" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.2"/>
+                  <circle cx="380" cy="171" r="3.5" fill="#ef4444"/>
+                  <!-- Jaw Servo Horn & Pushrod Linkage -->
+                  <line x1="380" y1="171" x2="380" y2="198" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/>
+                  <line x1="380" y1="198" x2="380" y2="224" stroke="#b91c1c" stroke-width="2.2"/>
+                  <circle cx="380" cy="225" r="3" fill="#b91c1c"/>
+                  <text x="380" y="154" font-family="monospace" font-size="7.2" fill="#dc2626" text-anchor="middle" font-weight="700">1 SERVO TO MOVE JAW</text>
+                  <!-- Jaw Motion Arc: Opening & Closing Motion -->
+                  <path d="M 368 226 C 374 238 386 238 392 226" stroke="#b91c1c" stroke-width="1.8" stroke-dasharray="3 2" fill="none"/>
+                  <polygon points="380,240 376,233 384,233" fill="#b91c1c"/>
+                  <text x="380" y="252" font-family="monospace" font-size="7.8" fill="#b91c1c" text-anchor="middle" font-weight="700">MANDIBULAR SPEECH / JAW OPEN-CLOSE</text>
 
-                  <!-- Rear Axle -->
-                  <rect x="238" y="175" width="40" height="70" rx="7" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
-                  <line x1="242" y1="190" x2="274" y2="190" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="242" y1="210" x2="274" y2="210" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="242" y1="230" x2="274" y2="230" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="278" y1="210" x2="325" y2="210" stroke="#2563eb" stroke-width="3.5"/>
-                  <rect x="282" y="200" width="14" height="20" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+                  <!-- [4] NECK BASE MECHANISM (2 SERVOS AT BASE OF NECK) -->
+                  <!-- Articulated Neck Column / Gimbal -->
+                  <rect x="372" y="235" width="16" height="45" rx="3" fill="#f8fafc" stroke="#0d9488" stroke-width="2"/>
+                  <circle cx="380" cy="258" r="6" fill="#0d9488"/>
+                  <!-- Neck Base Mounting Plate -->
+                  <rect x="290" y="288" width="180" height="26" rx="5" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+                  <text x="380" y="305" font-family="monospace" font-size="8" fill="#115e59" text-anchor="middle" font-weight="700">NECK BASE MOUNTING PLATE</text>
 
-                  <rect x="482" y="175" width="40" height="70" rx="7" fill="#1e293b" stroke="#0f172a" stroke-width="1.5"/>
-                  <line x1="486" y1="190" x2="518" y2="190" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="486" y1="210" x2="518" y2="210" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="486" y1="230" x2="518" y2="230" stroke="#64748b" stroke-width="1.5"/>
-                  <line x1="435" y1="210" x2="482" y2="210" stroke="#2563eb" stroke-width="3.5"/>
-                  <rect x="464" y="200" width="14" height="20" rx="3" fill="#fef3c7" stroke="#b45309" stroke-width="1.2"/>
+                  <!-- Left Neck Servo at Base -->
+                  <rect x="306" y="268" width="34" height="22" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.2"/>
+                  <circle cx="323" cy="279" r="3.5" fill="#14b8a6"/>
+                  <!-- Left Horn & Pushrod to Head Core -->
+                  <line x1="323" y1="268" x2="323" y2="252" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="323" y1="252" x2="366" y2="238" stroke="#0f766e" stroke-width="2"/>
+                  <circle cx="366" cy="238" r="2.5" fill="#0f766e"/>
+                  <text x="270" y="280" font-family="monospace" font-size="7.2" fill="#0d9488" font-weight="700">NECK SERVO 1</text>
+                  <text x="270" y="290" font-family="monospace" font-size="6.5" fill="#64748b">(PITCH / NOD)</text>
 
-                  <!-- [5] LOWER SKID PLATE & BALANCED LOAD VECTOR -->
-                  <rect x="270" y="265" width="220" height="18" rx="5" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
-                  <text x="380" y="278" font-family="monospace" font-size="8" fill="#b45309" text-anchor="middle" font-weight="700">TIGHT-TOLERANCE 3D-PRINTED LOWER CHASSIS</text>
+                  <!-- Right Neck Servo at Base -->
+                  <rect x="420" y="268" width="34" height="22" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.2"/>
+                  <circle cx="437" cy="279" r="3.5" fill="#14b8a6"/>
+                  <!-- Right Horn & Pushrod to Head Core -->
+                  <line x1="437" y1="268" x2="437" y2="252" stroke="#0d9488" stroke-width="2.5" stroke-linecap="round"/>
+                  <line x1="437" y1="252" x2="394" y2="238" stroke="#0f766e" stroke-width="2"/>
+                  <circle cx="394" cy="238" r="2.5" fill="#0f766e"/>
+                  <text x="495" y="280" font-family="monospace" font-size="7.2" fill="#0d9488" font-weight="700">NECK SERVO 2</text>
+                  <text x="495" y="290" font-family="monospace" font-size="6.5" fill="#64748b">(TILT / ROLL)</text>
 
-                  <path d="M 330 305 L 430 305" stroke="#2563eb" stroke-width="1.8"/>
-                  <polygon points="330,305 337,301 337,309" fill="#2563eb"/>
-                  <polygon points="430,305 423,301 423,309" fill="#2563eb"/>
-                  <text x="380" y="322" font-family="monospace" font-size="8" fill="#2563eb" text-anchor="middle" font-weight="700">50/50 AXLE LOAD DISTRIBUTION • LOW CG</text>
+                  <text x="380" y="332" font-family="monospace" font-size="8" fill="#0f766e" text-anchor="middle" font-weight="700">// 2 SERVOS AT BASE OF NECK: DUAL-AXIS ARTICULATION (PITCH & TILT) //</text>
 
                   <!-- CALLOUT BOX: VERIFIED SPECIFICATIONS (Right Side) -->
                   <rect x="600" y="30" width="195" height="295" rx="8" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
                   <rect x="600" y="30" width="195" height="28" rx="8" fill="#fffbeb"/>
-                  <text x="610" y="48" font-family="monospace" font-size="9.5" fill="#b45309" font-weight="700">// ZAINIAC 25 ARCHITECTURE</text>
+                  <text x="610" y="48" font-family="monospace" font-size="9" fill="#b45309" font-weight="700">// ZAINIAC 25 ANIMATRONICS</text>
 
-                  <g font-family="monospace" font-size="8.5" fill="#334155">
-                    <text x="610" y="74" fill="#d97706" font-weight="700">CAD ENVIRONMENT:</text>
-                    <text x="610" y="87" fill="#b45309" font-weight="700">Onshape & Fusion 360</text>
+                  <g font-family="monospace" font-size="8.2" fill="#334155">
+                    <text x="610" y="72" fill="#d97706" font-weight="700">ROBOT TYPE:</text>
+                    <text x="610" y="84" fill="#b45309" font-weight="700">Animatronic Head</text>
 
-                    <text x="610" y="105" fill="#0d9488" font-weight="700">1. FABRICATION:</text>
-                    <text x="610" y="118" fill="#475569">Tight-Tolerance 3D Print</text>
+                    <text x="610" y="102" fill="#7c3aed" font-weight="700">DESIGN HERITAGE:</text>
+                    <text x="610" y="114" fill="#6d28d9" font-weight="700">Creative Engineering</text>
 
-                    <text x="610" y="136" fill="#2563eb" font-weight="700">2. KINEMATICS:</text>
-                    <text x="610" y="149" fill="#1d4ed8" font-weight="700">Balanced Dual-Axle Drive</text>
+                    <text x="610" y="132" fill="#0d9488" font-weight="700">1. NECK BASE:</text>
+                    <text x="610" y="144" fill="#0f766e" font-weight="700">2 Servos at Base</text>
+                    <text x="610" y="155" fill="#64748b">(Multi-Axis Articulation)</text>
 
-                    <text x="610" y="167" fill="#7c3aed" font-weight="700">3. WEIGHT BALANCE:</text>
-                    <text x="610" y="180" fill="#6d28d9" font-weight="700">50/50 Axle CG Alignment</text>
+                    <text x="610" y="173" fill="#2563eb" font-weight="700">2. EYE KINEMATICS:</text>
+                    <text x="610" y="185" fill="#1d4ed8" font-weight="700">2 Servos to Move Each Eye</text>
+                    <text x="610" y="196" fill="#64748b">(Independent Pan & Tilt)</text>
 
-                    <text x="610" y="198" fill="#d97706" font-weight="700">4. TOLERANCING:</text>
-                    <text x="610" y="211" fill="#475569">±0.15mm Interlocking Fit</text>
+                    <text x="610" y="214" fill="#dc2626" font-weight="700">3. JAW ACTUATION:</text>
+                    <text x="610" y="226" fill="#b91c1c" font-weight="700">1 Servo to Move Jaw</text>
+                    <text x="610" y="237" fill="#64748b">(Mandibular Drop / Speech)</text>
 
-                    <text x="610" y="229" fill="#0d9488" font-weight="700">5. RUNTIME FOCUS:</text>
-                    <text x="610" y="242" fill="#0f766e" font-weight="700">Extended Field Endurance</text>
+                    <text x="610" y="255" fill="#7c3aed" font-weight="700">4. TOTAL ACTUATORS:</text>
+                    <text x="610" y="267" fill="#475569">7 Precision Servos</text>
 
-                    <text x="610" y="260" fill="#15803d" font-weight="700">6. STATUS:</text>
-                    <text x="610" y="273" fill="#16a34a" font-weight="700">Active Prototyping (2025)</text>
-                    <text x="610" y="285" fill="#64748b">Flagship Mobile Platform</text>
+                    <text x="610" y="285" fill="#15803d" font-weight="700">5. STATUS:</text>
+                    <text x="610" y="297" fill="#16a34a" font-weight="700">Active Build Prototyping</text>
                   </g>
                 </svg>
               </div>
 
               <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 16px 20px; border-radius: var(--radius-sm); margin-bottom: 16px;">
-                <div style="font-weight: 700; color: #92400e; font-size: 0.96rem; margin-bottom: 4px;">// GENERATION 3 ARCHITECTURE: ZAINIAC 25 (CURRENT PLATFORM: 2025)</div>
+                <div style="font-weight: 700; color: #92400e; font-size: 0.96rem; margin-bottom: 4px;">// GENERATION 3 ARCHITECTURE: ZAINIAC 25 (ANIMATRONIC HEAD: 2025)</div>
                 <div style="font-size: 0.94rem; color: #b45309; line-height: 1.6;">
-                  Current flagship mobile platform. Built utilizing modern parametric CAD assemblies in Onshape and Fusion 360 with tight-tolerance 3D-printed structural bracketry, optimized load balancing, and durable drive kinematics for extended field runtime.
+                  <strong>Zainiac 25</strong> is an animatronic head engineered around the mechanical design principles pioneered by <strong>Creative Engineering</strong>. The animatronic mechanism features an authentic multi-servo kinematics layout: <strong>two servos mounted at the base of the neck</strong> for articulated head pitch and tilt movement, <strong>two servos to move each eye</strong> providing responsive independent pan and tilt tracking, and <strong>one dedicated servo to move the jaw</strong> for expressive mandibular articulation and speech timing.
                 </div>
               </div>
 
               <div class="telemetry-specs-grid">
                 <div class="telemetry-spec-box">
-                  <div class="spec-kpi-label">CAD Iteration</div>
-                  <div class="spec-kpi-val" style="color: #b45309;">Onshape / Fusion 360</div>
+                  <div class="spec-kpi-label">Design Heritage</div>
+                  <div class="spec-kpi-val" style="color: #7c3aed;">Creative Engineering</div>
                 </div>
                 <div class="telemetry-spec-box">
-                  <div class="spec-kpi-label">Chassis Rigidity</div>
-                  <div class="spec-kpi-val" style="color: #0d9488;">Tight-Tolerance 3D</div>
+                  <div class="spec-kpi-label">Eye Kinematics</div>
+                  <div class="spec-kpi-val" style="color: #2563eb;">2 Servos Per Eye</div>
                 </div>
                 <div class="telemetry-spec-box">
-                  <div class="spec-kpi-label">Kinematics</div>
-                  <div class="spec-kpi-val" style="color: #2563eb;">Balanced Framing</div>
+                  <div class="spec-kpi-label">Neck Articulation</div>
+                  <div class="spec-kpi-val" style="color: #0d9488;">2 Servos at Base</div>
                 </div>
                 <div class="telemetry-spec-box">
-                  <div class="spec-kpi-label">Status</div>
-                  <div class="spec-kpi-val" style="color: #15803d;">Active Prototyping</div>
+                  <div class="spec-kpi-label">Jaw Mechanism</div>
+                  <div class="spec-kpi-val" style="color: #dc2626;">1 Dedicated Servo</div>
                 </div>
               </div>
 
               <div class="info-gap-box" style="margin-top: 14px;">
-                <span class="gap-icon">⚡</span>
+                <span class="gap-icon">🎭</span>
                 <div>
-                  <strong>Zainiac 25 CAD & Media:</strong> Upload screenshots of your Onshape / Fusion 360 CAD assembly or 3D-printed chassis test photos here to showcase current progress.
+                  <strong>Zainiac 25 Animatronic Media:</strong> Have workshop photos, linkage testing videos, or CAD designs of your Creative Engineering-inspired head, eye gimbal, or jaw mechanism? Add them here!
                 </div>
               </div>
             </div>
@@ -655,7 +692,9 @@
               <span class="tag tag-purple">Brussels Maker Faire</span>
               <span class="tag tag-blue">Zainiac 19</span>
               <span class="tag tag-teal">Zainiac 21</span>
-              <span class="tag tag-amber">Zainiac 25</span>
+              <span class="tag tag-amber">Zainiac 25 (Animatronic Head)</span>
+              <span class="tag tag-purple">Creative Engineering Design</span>
+              <span class="tag tag-teal">7-Servo Kinematics</span>
             </div>
           </div>
         </article>

@@ -73,8 +73,8 @@ const PORTFOLIO_DATA = {
       id: "zainiac-series",
       title: "Zainiac Robot Series — Zainiac 19, Zainiac 21 & Zainiac 25",
       category: "robotics",
-      description: "Original full-scale (~5 ft tall) humanoid robot lineage. Zainiac 19 and 21 were built on LEGO MINDSTORMS; Zainiac 19 was constructed using wood for the legs, a particle board and PVC pipe framework for the body, a sculpted paper-mâché head, and custom 3D-printed parts, with kinematics featuring a panning neck, panning waist, and synchronized straight arm motion (elbows do not bend) moving in opposite directions.",
-      tags: ["~5 Ft Full-Scale", "LEGO MINDSTORMS", "Synced Straight Arms", "Pan-Only Kinematics", "Wood & PVC Framing", "3D Printing", "Brussels Maker Faire"]
+      description: "Original humanoid and animatronic robot lineage. Zainiac 19 and 21 were built on LEGO MINDSTORMS; Zainiac 19 (~5 ft tall) was constructed using wood for the legs, particle board and PVC pipe framework for the body, a sculpted paper-mâché head, and custom 3D-printed parts, with kinematics featuring a panning neck, panning waist, and synchronized straight arm motion (elbows do not bend) moving in opposite directions. Zainiac 25 is an animatronic head based on Creative Engineering's animatronic architecture, featuring dual neck base servos, two servos to move each eye, and a dedicated jaw servo.",
+      tags: ["~5 Ft Full-Scale", "LEGO MINDSTORMS", "Synced Straight Arms", "Pan-Only Kinematics", "Wood & PVC Framing", "Zainiac 25 Animatronic Head", "Creative Engineering", "Multi-Servo Kinematics", "Brussels Maker Faire"]
     },
     {
       id: "little-bot-noggin",
