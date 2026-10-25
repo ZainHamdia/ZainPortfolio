@@ -1,277 +1,180 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zain Hamdia | Engineering & Robotics Portfolio</title>
-  <meta name="description" content="Engineering & Robotics portfolio of Zain Hamdia — Builder, innovator, junior firefighter, and student at Princeton Day School (Class of 2027) aspiring to study mechanical engineering.">
-  <link rel="stylesheet" href="css/styles.css?v=bento-3">
+  <title>Zain Hamdia — Mechanical Engineering & Robotics</title>
+  <meta name="description" content="Portfolio of Zain Hamdia — Student at Princeton Day School (Class of 2027), robotics builder, junior firefighter, and aspiring mechanical engineer.">
+  <link rel="stylesheet" href="css/styles.css?v=editorial-1">
 </head>
-<body class="theme-home">
+<body>
 
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link">
-        <div class="brand-badge">ZH</div>
-        <div>
-          <div class="brand-text-name">Zain Hamdia</div>
-          <div class="brand-text-sub">Engineering & Robotics</div>
-        </div>
+        <span class="brand-text-name">Zain Hamdia</span>
+        <span class="brand-text-sub">Princeton, NJ</span>
       </a>
 
       <nav aria-label="Main Navigation">
         <ul class="nav-menu" id="nav-menu">
           <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="robotics.html" class="nav-link">Robotics</a></li>
-          <li><a href="aviation.html" class="nav-link">Aviation</a></li>
-          <li><a href="firefighting.html" class="nav-link">Firefighting</a></li>
-          <li><a href="about.html" class="nav-link">About & Skills</a></li>
+          <li><a href="aviation.html" class="nav-link">Aviation & Research</a></li>
+          <li><a href="firefighting.html" class="nav-link">Fire Service</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
 
-      <button id="mobile-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+      <button id="mobile-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">Menu</button>
     </div>
   </header>
 
   <main>
-    <!-- Home Hero Asymmetric Grid -->
+    <!-- Hero -->
     <section class="home-hero">
       <div class="container">
         <div class="home-hero-grid">
-          
-          <!-- Left Column: Editorial Overview -->
           <div>
-            <div class="home-hero-badge">
-              <span class="badge-dot"></span>
-              <span>Princeton Day School • Class of 2027 • Aspiring Mechanical Engineer</span>
-            </div>
-
+            <span class="hero-kicker">Princeton Day School • Class of 2027</span>
             <h1 class="home-hero-title">
-              Engineering & Robotics Student, <span>Builder & Innovator</span>.
+              I build robots, mechanical controls, and <em>useful hardware</em>.
             </h1>
-
             <p class="home-hero-bio">
-              I am an engineering and robotics student at Princeton Day School and an aspiring mechanical engineer. My work centers on designing and fabricating original robots (the <strong>Zainiac Robot Series</strong>), developing custom hardware systems—including a Raspberry Pi digital information system for <strong>Montgomery Township Volunteer Fire Company #2</strong>—constructing a <strong>3D-printed flight simulator</strong>, and conducting scientific research in <strong>Princeton University's Laboratory Learning Program</strong>.
+              I’m a high school student in Princeton, New Jersey, planning to study mechanical engineering. Over the past seven years, I’ve built a five-foot humanoid robot out of wood and PVC, designed a 3D-printed animatronic head, fabricated flight simulator controls, built a wall-mounted Raspberry Pi dispatch display for my local firehouse, and spent a summer doing lab research at Princeton University.
             </p>
-
             <div class="home-hero-actions">
-              <a href="robotics.html" class="btn btn-primary">Robotics Showcase →</a>
-              <a href="aviation.html" class="btn btn-secondary">Aviation & Flight Sim</a>
-              <a href="firefighting.html" class="btn btn-secondary">Fire Station Engineering</a>
-            </div>
-
-            <div class="filter-strip">
-              <span style="font-size: 0.78rem; font-family: var(--font-mono); color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Quick Focus:</span>
-              <a href="robotics.html#zainiac" class="filter-btn">🤖 Zainiac 19/21/25</a>
-              <a href="robotics.html#vex-robotics" class="filter-btn">🏆 VEX V5 Podium</a>
-              <a href="aviation.html#flight-sim" class="filter-btn">✈️ Flight Simulator</a>
-              <a href="firefighting.html#tech-intern" class="filter-btn">🚒 Radio Room Dashboard</a>
+              <a href="robotics.html" class="btn btn-primary">Explore the Robots →</a>
+              <a href="firefighting.html" class="btn btn-secondary">Firehouse Projects</a>
+              <a href="about.html" class="btn btn-secondary">Background & Resume</a>
             </div>
           </div>
 
-          <!-- Right Column: Engineering Operations Telemetry HUD -->
-          <div>
-            <div class="telemetry-hud-card">
-              <div class="hud-header">
-                <div>
-                  <div style="font-family: var(--font-mono); font-size: 0.74rem; color: #2563eb; font-weight: 700; letter-spacing: 0.05em;">
-                    // HARDWARE SYSTEMS STATUS
-                  </div>
-                  <div style="font-weight: 800; font-size: 1.05rem; color: var(--text-primary);">
-                    Active Technical Portals
-                  </div>
-                </div>
-                <div class="hud-pulse-status">
-                  <span class="pulse-dot"></span>
-                  <span>ONLINE</span>
-                </div>
-              </div>
-
-              <div class="hud-metric-row">
-                <a href="robotics.html#zainiac" class="hud-item" style="text-decoration: none;">
-                  <div class="hud-item-title">
-                    <span>🤖</span>
-                    <span>Zainiac Robotics & Animatronics</span>
-                  </div>
-                  <span class="hud-badge tag-blue">3 Generations</span>
-                </a>
-
-                <a href="robotics.html#vex-robotics" class="hud-item" style="text-decoration: none;">
-                  <div class="hud-item-title">
-                    <span>🏆</span>
-                    <span>PDS VEX V5 Robotics</span>
-                  </div>
-                  <span class="hud-badge tag-amber">Co-President</span>
-                </a>
-
-                <a href="aviation.html#flight-sim" class="hud-item" style="text-decoration: none;">
-                  <div class="hud-item-title">
-                    <span>✈️</span>
-                    <span>3D Flight Simulator</span>
-                  </div>
-                  <span class="hud-badge tag-teal">CAD Assemblies</span>
-                </a>
-
-                <a href="firefighting.html#tech-intern" class="hud-item" style="text-decoration: none;">
-                  <div class="hud-item-title">
-                    <span>🚒</span>
-                    <span>Station 46 Radio System</span>
-                  </div>
-                  <span class="hud-badge tag-red">11" CAD Mount</span>
-                </a>
-
-                <a href="aviation.html#princeton-llp" class="hud-item" style="text-decoration: none;">
-                  <div class="hud-item-title">
-                    <span>🔬</span>
-                    <span>Princeton University LLP</span>
-                  </div>
-                  <span class="hud-badge tag-purple">Joseph Henry Lab</span>
-                </a>
-              </div>
-
-              <div style="margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">
-                <span>LOCATION: PRINCETON, NJ</span>
-                <span style="color: #15803d; font-weight: 700;">ALL TELEMETRY NOMINAL</span>
-              </div>
-            </div>
-          </div>
-
+          <!-- Right Column: Clean Editorial Index Card -->
+          <aside class="hero-index-card">
+            <h2 class="hero-index-heading">Notebook Index</h2>
+            <p class="hero-index-sub">Selected builds, research & community work</p>
+            <ul class="hero-index-list">
+              <li class="hero-index-item">
+                <a href="robotics.html#zainiac">Zainiac 19, 21 & 25</a>
+                <span class="hero-index-meta">2019 – 2025</span>
+              </li>
+              <li class="hero-index-item">
+                <a href="robotics.html#vex-robotics">PDS VEX V5 Robotics</a>
+                <span class="hero-index-meta">Co-President</span>
+              </li>
+              <li class="hero-index-item">
+                <a href="aviation.html#flight-sim">3D-Printed Flight Simulator</a>
+                <span class="hero-index-meta">CAD & Controls</span>
+              </li>
+              <li class="hero-index-item">
+                <a href="aviation.html#princeton-llp">Princeton University LLP</a>
+                <span class="hero-index-meta">Joseph Henry Lab</span>
+              </li>
+              <li class="hero-index-item">
+                <a href="firefighting.html#tech-intern">Station 46 Radio Room System</a>
+                <span class="hero-index-meta">Montgomery Fire #2</span>
+              </li>
+            </ul>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- 3 Core Discipline Portals -->
-    <section class="disciplines-section">
+    <!-- Three Core Areas -->
+    <section class="section">
       <div class="container">
-        <div class="section-label">Core Technical Areas</div>
-        <h2 class="section-heading">Featured Engineering Disciplines</h2>
-        <p class="section-description">
-          Detailed technical documentation across robotics hardware, flight simulator engineering, and fire service systems.
-        </p>
+        <div class="section-header">
+          <div>
+            <div class="section-label">Where I Spend My Time</div>
+            <h2 class="section-heading">Three Areas of Work</h2>
+          </div>
+          <p class="section-description">
+            Most of my projects start with a physical problem—figuring out how to make a joint move cleanly, how to mount hardware in a busy fire station, or how to turn a rough sketch into a part that actually fits.
+          </p>
+        </div>
 
         <div class="disciplines-grid">
-          <!-- Card 1: Robotics -->
-          <div class="discipline-card robotics">
+          <article class="discipline-card">
             <div>
-              <div class="card-icon">🤖</div>
-              <h3 class="card-title">Robotics & Fabrication</h3>
+              <span class="card-number">01 / Robotics</span>
+              <h3 class="card-title">Robots & Animatronics</h3>
               <p class="card-text">
-                Creator of the <strong>Zainiac Robot Series</strong> (Zainiac 19, 21 & 25), <em>Little Bot & Noggin</em>, and VEX V5 competitive robotics. Exhibited internationally at the Brussels Maker Faire and across the US.
+                From Zainiac 19—a five-foot robot built with wood legs, a PVC and particle-board torso, and LEGO Mindstorms—to Zainiac 25, a fully 3D-printed animatronic head driven by seven servos and mechanical linkages. Plus competitive VEX V5 robotics at PDS.
               </p>
-              <div style="margin: 12px 0; display: flex; gap: 6px; flex-wrap: wrap;">
-                <span class="tag tag-blue">3 Generations</span>
-                <span class="tag tag-amber">5 Maker Faires</span>
-                <span class="tag tag-red">VEX Leadership</span>
-              </div>
             </div>
-            <a href="robotics.html" class="card-link">View Robotics Page →</a>
-          </div>
+            <a href="robotics.html" class="card-link">Read the build notes →</a>
+          </article>
 
-          <!-- Card 2: Aviation -->
-          <div class="discipline-card aviation">
+          <article class="discipline-card">
             <div>
-              <div class="card-icon">✈️</div>
-              <h3 class="card-title">Aviation & Simulation</h3>
+              <span class="card-number">02 / Aviation & Lab Work</span>
+              <h3 class="card-title">Flight Sim & Princeton Research</h3>
               <p class="card-text">
-                Designer and builder of a <strong>3D-printed flight simulator</strong> with custom-engineered mechanical components, and summer research intern in Princeton University's <strong>Joseph Henry Project</strong>.
+                Designing and 3D-printing mechanical flight controls from scratch, alongside a summer research internship in Princeton University’s Laboratory Learning Program working on the Joseph Henry Project.
               </p>
-              <div style="margin: 12px 0; display: flex; gap: 6px; flex-wrap: wrap;">
-                <span class="tag tag-teal">Flight Simulator</span>
-                <span class="tag tag-purple">Princeton LLP</span>
-                <span class="tag tag-blue">Mechanical Controls</span>
-              </div>
             </div>
-            <a href="aviation.html" class="card-link">View Aviation Page →</a>
-          </div>
+            <a href="aviation.html" class="card-link">See aviation & research →</a>
+          </article>
 
-          <!-- Card 3: Firefighting -->
-          <div class="discipline-card firefighting">
+          <article class="discipline-card">
             <div>
-              <div class="card-icon">🚒</div>
-              <h3 class="card-title">Fire Service Engineering</h3>
+              <span class="card-number">03 / Fire Service</span>
+              <h3 class="card-title">Station 46 & Engineering</h3>
               <p class="card-text">
-                Junior Firefighter and Technology Intern at <strong>Montgomery Township Volunteer Fire Company #2</strong>. Designed the radio room Raspberry Pi digital dashboard, custom CAD enclosure, and website redesign.
+                Serving as a Junior Firefighter and Technology Intern at Montgomery Township Volunteer Fire Company #2. I built a custom 11-inch Raspberry Pi radio room display in a 3D-printed wall enclosure and redesigned the company’s website.
               </p>
-              <div style="margin: 12px 0; display: flex; gap: 6px; flex-wrap: wrap;">
-                <span class="tag tag-red">Station 46 Intern</span>
-                <span class="tag tag-amber">Raspberry Pi</span>
-                <span class="tag tag-slate">11" CAD Enclosure</span>
-              </div>
             </div>
-            <a href="firefighting.html" class="card-link">View Firefighting Page →</a>
-          </div>
+            <a href="firefighting.html" class="card-link">View firehouse work →</a>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- Recent Highlights -->
-    <section class="section" style="padding: 56px 0;">
+    <!-- Selected Highlights -->
+    <section class="section" style="border-bottom: none;">
       <div class="container">
-        <div class="section-label">Selected Experience</div>
-        <h2 class="section-heading">Engineering, Technology & Research</h2>
-        <p class="section-description">
-          Active technical roles and independent engineering projects.
-        </p>
+        <div class="section-header">
+          <div>
+            <div class="section-label">Recent Work</div>
+            <h2 class="section-heading">Selected Projects & Roles</h2>
+          </div>
+        </div>
 
         <div class="project-list">
-          <!-- Item 1: Fire Company Internship -->
           <article class="project-item">
             <div class="project-header">
-              <h3 class="project-title"><a href="firefighting.html#tech-intern">Montgomery Township Volunteer Fire Company #2</a></h3>
-              <span class="project-meta">Summer 2026 – Present</span>
+              <h3 class="project-title"><a href="firefighting.html#tech-intern">Montgomery Township Volunteer Fire Company #2 (Station 46)</a></h3>
+              <span class="project-meta">2025 – Present</span>
             </div>
-            <div class="project-subtitle">Technology & Engineering Intern • Radio Room Digital System & Custom CAD Enclosure</div>
+            <div class="project-subtitle">Junior Firefighter & Technology Intern</div>
             <p class="project-text">
-              Designing and building a permanent Raspberry Pi-based operational dashboard for the station's radio room, integrating weather radar, forecasts, emergency alerts, news, and communications. Engineered a custom wall-mounted CAD-modeled 3D-printed enclosure for an 11-inch display. Leading the redesign of the fire company's public website.
+              Built a permanent Raspberry Pi dashboard for the station’s radio room showing live weather radar, alerts, and station info, housed inside a custom CAD-modeled and 3D-printed wall enclosure for an 11-inch screen. I also led the redesign of the fire company’s public website and helped revamp the Junior Firefighter onboarding and mentorship process.
             </p>
-            <div class="tag-list">
-              <span class="tag tag-red">Raspberry Pi</span>
-              <span class="tag tag-amber">CAD Modeling</span>
-              <span class="tag tag-blue">3D Printing</span>
-              <span class="tag tag-teal">Web Development</span>
-              <span class="tag tag-slate">Hardware Integration</span>
-            </div>
           </article>
 
-          <!-- Item 2: Princeton University LLP -->
+          <article class="project-item">
+            <div class="project-header">
+              <h3 class="project-title"><a href="robotics.html#zainiac">The Zainiac Series (Zainiac 19, 21 & 25)</a></h3>
+              <span class="project-meta">Brussels, Philadelphia, Rochester & Cairo Maker Faires</span>
+            </div>
+            <div class="project-subtitle">Independent Robotics Builds</div>
+            <p class="project-text">
+              What started in 2019 as a five-foot humanoid robot built with wood, PVC pipe, particle board, paper-mâché, 3D-printed brackets, and LEGO Mindstorms took me to Maker Faires in the US, Europe, and Egypt—including an appearance on Belgian national television news at the Brussels Maker Faire. The newest build, Zainiac 25, is an entirely 3D-printed animatronic head inspired by 1980s animatronics, using seven servos and linkage arms instead of pneumatic cylinders.
+            </p>
+          </article>
+
           <article class="project-item">
             <div class="project-header">
               <h3 class="project-title"><a href="aviation.html#princeton-llp">Princeton University Laboratory Learning Program</a></h3>
               <span class="project-meta">Summer 2025</span>
             </div>
-            <div class="project-subtitle">Summer Research Intern • Joseph Henry Project</div>
+            <div class="project-subtitle">Summer Research Intern — Joseph Henry Project</div>
             <p class="project-text">
-              Participated in the Joseph Henry Project research program. Conducted scientific research and contributed to academic project work investigating historical electromechanical apparatus and physics principles.
+              Spent the summer working in a Princeton University laboratory as part of the Joseph Henry Project, studying historical electromechanical instruments and contributing to hands-on physics and engineering research.
             </p>
-            <div class="tag-list">
-              <span class="tag tag-purple">Princeton University</span>
-              <span class="tag tag-blue">Laboratory Learning Program</span>
-              <span class="tag tag-teal">Scientific Research</span>
-              <span class="tag tag-slate">Electromechanical Systems</span>
-            </div>
-          </article>
-
-          <!-- Item 3: Zainiac Robot Series -->
-          <article class="project-item">
-            <div class="project-header">
-              <h3 class="project-title"><a href="robotics.html#zainiac">Zainiac Robot Series (Zainiac 19, 21 & 25)</a></h3>
-              <span class="project-meta">Selected Exhibitions: Brussels, Philadelphia, Rochester, Cairo</span>
-            </div>
-            <div class="project-subtitle">Full-Scale Humanoid (~5 Ft), LEGO MINDSTORMS & Kinematics</div>
-            <p class="project-text">
-              Conceived and fabricated a full-scale (~5 feet tall) humanoid robot synthesizing wood legs, a particle board and PVC pipe body, paper-mâché head, and custom 3D-printed parts with LEGO MINDSTORMS control—achieving mechanical kinematics with a panning neck, panning waist, and synchronized straight arms (no elbow bend) moving in opposite directions. Featured on Belgian national television news following participation in the Brussels Maker Faire.
-            </p>
-            <div class="tag-list">
-              <span class="tag tag-red">~5 Feet Full-Scale</span>
-              <span class="tag tag-red">LEGO MINDSTORMS</span>
-              <span class="tag tag-purple">Synced Opposing Straight Arms</span>
-              <span class="tag tag-blue">Pan-Only Neck & Waist</span>
-              <span class="tag tag-amber">Wood & PVC Build</span>
-              <span class="tag tag-teal">3D Printing</span>
-              <span class="tag tag-purple">Brussels Maker Faire</span>
-            </div>
           </article>
         </div>
       </div>
@@ -283,33 +186,32 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <div class="brand-text-name" style="margin-bottom: 6px;">Zain Hamdia</div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px;">
-            Engineering & Robotics Student at Princeton Day School (Class of 2027), builder, innovator, junior firefighter, and aspiring mechanical engineer.
+          <div class="brand-text-name" style="color: #ffffff; margin-bottom: 10px;">Zain Hamdia</div>
+          <p style="font-size: 0.92rem; color: var(--text-on-ink-muted); max-width: 340px;">
+            Student at Princeton Day School (Class of 2027), robotics builder, junior firefighter at Station 46, and aspiring mechanical engineer.
           </p>
         </div>
         <div>
-          <div class="footer-col-title">Portfolio Pages</div>
+          <div class="footer-col-title">Pages</div>
           <ul class="footer-col-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="robotics.html">Robotics</a></li>
-            <li><a href="aviation.html">Aviation & Simulation</a></li>
-            <li><a href="firefighting.html">Fire Service Engineering</a></li>
+            <li><a href="aviation.html">Aviation & Research</a></li>
+            <li><a href="firefighting.html">Fire Service</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-col-title">Connect & Links</div>
+          <div class="footer-col-title">More</div>
           <ul class="footer-col-links">
-            <li><a href="about.html">About & Skills</a></li>
+            <li><a href="about.html">About & Resume</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer">GitHub Profile</a></li>
-            <li><a href="https://github.com/ZainHamdia/ZainPortfolio" target="_blank" rel="noopener noreferrer">Repository</a></li>
+            <li><a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer">GitHub</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Zain Hamdia. All rights reserved.</span>
-        <span>Princeton Day School • Princeton, NJ</span>
+        <span>© 2026 Zain Hamdia</span>
+        <span>Princeton, New Jersey</span>
       </div>
     </div>
   </footer>
