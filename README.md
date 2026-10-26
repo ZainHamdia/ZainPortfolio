@@ -31,7 +31,7 @@ ZainSite/
 ## Verified Core Focus Areas (Strictly Grounded in Resume)
 
 1. **Robotics & Maker Innovation (`robotics.html`)**
-   - ***Zainiac Series (19, 21, 25 / “Noggin”)***: Designed and fabricated personal humanoid and animatronic robots, culminating in Zainiac 25 (“Noggin”)—an entirely 3D-printed animatronic head that replaces 1980s pneumatics with 7 servo motors and linkage arms for smoother, cheaper, easier, and more programmable motion.
+   - ***Zainiac Series (19, 21, 25 / “Noggin”)***: Designed and fabricated personal humanoid and animatronic robots—from Zainiac 19 (~5 ft wood/PVC/paper-mâché humanoid on LEGO Mindstorms) and Zainiac 21 (~4.5 ft humanoid fully 3D printed in white using LEGO Mindstorms to move the jaw, rotate the neck, and swing each arm independently) to Zainiac 25 (“Noggin”), an entirely 3D-printed animatronic head that replaces 1980s pneumatics with 7 servo motors and linkage arms for smoother, cheaper, easier, and more programmable motion.
    - **International & Regional Maker Faires (Zainiac 19)**: Presented Zainiac 19 (the only robot in the series taken to public exhibitions) at Brussels (featured on Belgian national news and attended by Brussels government leadership), Philadelphia, Rochester, Cairo, and Tandem at Jefferson University.
    - ***Little Bot***: Designed a custom compact companion robot.
    - **VEX V5 Robotics Competition**: Co-President & Head of Design; Quarterfinalist (2026), 6th Place (2025) out of 40+ teams. Led CAD (Onshape), fabrication, and driver controls.

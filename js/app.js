@@ -150,16 +150,21 @@ function initZ19Interactive() {
 }
 
 /* ==========================================================================
-   PANEL 2: Zainiac 21 Interactive Braced Linkages
+   PANEL 2: Zainiac 21 Interactive (~4.5 ft White 3D-Printed, LEGO Mindstorms)
+   (Motorized Moving Jaw, Rotating Neck, Independent Left & Right Arm Swing)
    ========================================================================== */
 function initZ21Interactive() {
-  const slider = document.getElementById('z21-linkage-slider');
+  const jawSlider = document.getElementById('z21-jaw-slider');
+  const neckSlider = document.getElementById('z21-neck-slider');
+  const leftArmSlider = document.getElementById('z21-left-arm-slider');
+  const rightArmSlider = document.getElementById('z21-right-arm-slider');
   const demoBtn = document.getElementById('z21-demo-btn');
-  if (!slider) return;
+  if (!jawSlider) return;
 
-  const leftLink = document.getElementById('z21-left-link');
-  const rightLink = document.getElementById('z21-right-link');
+  const jawGroup = document.getElementById('z21-jaw-group');
   const headGroup = document.getElementById('z21-head-group');
+  const leftArm = document.getElementById('z21-left-link');
+  const rightArm = document.getElementById('z21-right-link');
   const readout = document.getElementById('z21-readout');
 
   let animId = null;
@@ -171,30 +176,44 @@ function initZ21Interactive() {
     }
     if (demoBtn) {
       demoBtn.classList.remove('active');
-      demoBtn.textContent = '▶ Animate Linkages';
+      demoBtn.textContent = '▶ Animate Mindstorms';
     }
   }
 
-  function updateZ21(rawVal) {
-    const v = parseFloat(rawVal) || 0; // -35 to 35
-    if (leftLink) {
-      leftLink.setAttribute('transform', `rotate(${(v * 0.65).toFixed(2)} 268 100)`);
-    }
-    if (rightLink) {
-      rightLink.setAttribute('transform', `rotate(${(-v * 0.65).toFixed(2)} 432 100)`);
+  function updateZ21() {
+    const jawVal = parseFloat(jawSlider.value) || 0; // 0 to 14
+    const neckVal = parseFloat(neckSlider ? neckSlider.value : 0) || 0; // -35 to 35
+    const leftVal = parseFloat(leftArmSlider ? leftArmSlider.value : 0) || 0; // -40 to 40
+    const rightVal = parseFloat(rightArmSlider ? rightArmSlider.value : 0) || 0; // -40 to 40
+
+    if (jawGroup) {
+      jawGroup.setAttribute('transform', `translate(0, ${jawVal.toFixed(2)})`);
     }
     if (headGroup) {
-      headGroup.setAttribute('transform', `translate(${(v * 0.25).toFixed(2)}, 0)`);
+      headGroup.setAttribute('transform', `translate(${(neckVal * 0.35).toFixed(2)}, 0)`);
+    }
+    if (leftArm) {
+      leftArm.setAttribute('transform', `rotate(${(leftVal * 0.7).toFixed(2)} 267 122)`);
+    }
+    if (rightArm) {
+      rightArm.setAttribute('transform', `rotate(${(-rightVal * 0.7).toFixed(2)} 433 122)`);
     }
     if (readout) {
-      const deg = Math.round(v);
-      readout.textContent = `Linkage Swing: ${deg > 0 ? '+' : ''}${deg}°`;
+      const jawDeg = Math.round(jawVal * 2);
+      const neckDeg = Math.round(neckVal);
+      const lDeg = Math.round(leftVal);
+      const rDeg = Math.round(rightVal);
+      readout.textContent = `Jaw: ${jawDeg}° • Neck: ${neckDeg > 0 ? '+' : ''}${neckDeg}° • L Arm: ${lDeg > 0 ? '+' : ''}${lDeg}° • R Arm: ${rDeg > 0 ? '+' : ''}${rDeg}°`;
     }
   }
 
-  slider.addEventListener('input', e => {
-    if (animId) stopAnim();
-    updateZ21(e.target.value);
+  [jawSlider, neckSlider, leftArmSlider, rightArmSlider].forEach(s => {
+    if (s) {
+      s.addEventListener('input', () => {
+        if (animId) stopAnim();
+        updateZ21();
+      });
+    }
   });
 
   if (demoBtn) {
@@ -208,16 +227,19 @@ function initZ21Interactive() {
       let t = 0;
       function loop() {
         t += 0.045;
-        const val = Math.sin(t) * 32;
-        slider.value = val.toFixed(1);
-        updateZ21(val);
+        jawSlider.value = ((Math.sin(t * 2.2) + 1) * 6.5).toFixed(1);
+        if (neckSlider) neckSlider.value = (Math.sin(t * 0.85) * 30).toFixed(1);
+        // Independent frequencies for left and right arms to demonstrate independent swing
+        if (leftArmSlider) leftArmSlider.value = (Math.sin(t * 1.1) * 35).toFixed(1);
+        if (rightArmSlider) rightArmSlider.value = (Math.cos(t * 1.5) * 35).toFixed(1);
+        updateZ21();
         animId = requestAnimationFrame(loop);
       }
       loop();
     });
   }
 
-  updateZ21(slider.value);
+  updateZ21();
 }
 
 /* ==========================================================================
