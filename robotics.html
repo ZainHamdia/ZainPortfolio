@@ -342,13 +342,17 @@
           <div id="panel-z25" class="lineage-panel">
             <div class="control-bar">
               <div class="control-group">
-                <label for="z25-eye-slider" class="control-label">Eye Gaze (4 Servos):</label>
-                <input type="range" id="z25-eye-slider" class="control-slider" min="-12" max="12" step="0.1" value="0" aria-label="Eye gaze slider">
-                <label for="z25-jaw-slider" class="control-label">Jaw Linkage (1 Servo):</label>
+                <label for="z25-eye-slider" class="control-label">Eyes L/R:</label>
+                <input type="range" id="z25-eye-slider" class="control-slider" min="-12" max="12" step="0.1" value="0" aria-label="Eye horizontal pan slider">
+                <label for="z25-eye-tilt-slider" class="control-label">Eyes U/D:</label>
+                <input type="range" id="z25-eye-tilt-slider" class="control-slider" min="-9" max="9" step="0.1" value="0" aria-label="Eye vertical tilt slider">
+                <label for="z25-jaw-slider" class="control-label">Jaw:</label>
                 <input type="range" id="z25-jaw-slider" class="control-slider" min="0" max="20" step="0.1" value="0" aria-label="Jaw opening slider">
-                <label for="z25-neck-slider" class="control-label">Neck Tilt (2 Servos):</label>
-                <input type="range" id="z25-neck-slider" class="control-slider" min="-10" max="10" step="0.1" value="0" aria-label="Neck tilt slider">
-                <span id="z25-readout" class="servo-readout-pill">Eyes: 0° • Jaw: 0° • Neck: 0°</span>
+                <label for="z25-neck-slider" class="control-label">Head Roll (L/R):</label>
+                <input type="range" id="z25-neck-slider" class="control-slider" min="-10" max="10" step="0.1" value="0" aria-label="Neck roll tilt slider">
+                <label for="z25-neck-pitch-slider" class="control-label">Head Pitch (U/D):</label>
+                <input type="range" id="z25-neck-pitch-slider" class="control-slider" min="-10" max="10" step="0.1" value="0" aria-label="Neck pitch up and down slider">
+                <span id="z25-readout" class="servo-readout-pill">Eyes: 0°, 0° • Jaw: 0° • Head: 0°, 0°</span>
               </div>
               <button type="button" id="z25-demo-btn" class="control-btn">▶ Run Servo Demo</button>
             </div>
@@ -391,7 +395,7 @@
                   <rect x="338" y="242" width="24" height="62" rx="4" fill="#94a3b8" stroke="#1e293b" stroke-width="1.8"/>
                   <circle cx="350" cy="254" r="4.5" fill="#1e293b"/>
 
-                  <!-- Left & Right Metal Neck Pushrod Linkages with Black Ball Ends (Animated with Neck Tilt) -->
+                  <!-- Left & Right Metal Neck Pushrod Linkages with Black Ball Ends (Animated with Neck Roll & Pitch) -->
                   <line id="z25-pushrod-left" x1="283" y1="298" x2="298" y2="222" stroke="#475569" stroke-width="3.2" stroke-linecap="round"/>
                   <circle id="z25-ball-left-bot" cx="283" cy="298" r="3.5" fill="#09090b"/>
                   <circle id="z25-ball-left-top" cx="298" cy="222" r="3.5" fill="#09090b"/>
@@ -401,25 +405,28 @@
                   <circle id="z25-ball-right-top" cx="402" cy="222" r="3.5" fill="#09090b"/>
 
                   <text x="518" y="298" font-family="'Inter', sans-serif" font-size="9.5" fill="#0f766e" font-weight="700">2 Base Neck Servos</text>
-                  <text x="518" y="310" font-family="'Inter', sans-serif" font-size="8.5" fill="#475569" font-weight="600">Pushrod Tilt Linkages</text>
+                  <text x="518" y="310" font-family="'Inter', sans-serif" font-size="8.5" fill="#475569" font-weight="600">Pitch (U/D) &amp; Roll (L/R) Tilt</text>
 
-                  <!-- Tilting 3D-Printed Grey Trapezoidal Head Cage Group (Pivots at 350, 254) -->
+                  <!-- Tilting 3D-Printed Grey Trapezoidal Head Cage Group (Pivots at 350, 254 in Roll & Pitch) -->
                   <g id="z25-head-cage">
-                    <!-- Rear Top Perimeter Frame & 4 Eye Servos + 3D-Printed Linkage Arms (from z25-top.jpg) -->
-                    <rect x="224" y="38" width="252" height="12" rx="2" fill="#64748b" stroke="#1e293b" stroke-width="1.8"/>
-                    <!-- Left Eye Dual Servos & Moving Linkage Arms -->
-                    <rect x="242" y="50" width="38" height="18" rx="2" fill="#1e293b"/>
-                    <circle cx="253" cy="59" r="2.5" fill="#38bdf8"/>
-                    <circle cx="269" cy="59" r="2.5" fill="#38bdf8"/>
-                    <line id="z25-left-eye-link" x1="258" y1="56" x2="274" y2="74" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
-                    <line id="z25-left-eye-link2" x1="270" y1="56" x2="278" y2="74" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
+                    <!-- Upper Pitch-Shifting Frame & Eye Shelf Group -->
+                    <g id="z25-upper-pitch-group">
+                      <!-- Rear Top Perimeter Frame & 4 Eye Servos + 3D-Printed Linkage Arms (from z25-top.jpg) -->
+                      <rect x="224" y="38" width="252" height="12" rx="2" fill="#64748b" stroke="#1e293b" stroke-width="1.8"/>
+                      <!-- Left Eye Dual Servos & Moving Linkage Arms (Pan L/R + Tilt U/D) -->
+                      <rect x="242" y="50" width="38" height="18" rx="2" fill="#1e293b"/>
+                      <circle cx="253" cy="59" r="2.5" fill="#38bdf8"/>
+                      <circle cx="269" cy="59" r="2.5" fill="#38bdf8"/>
+                      <line id="z25-left-eye-link" x1="258" y1="56" x2="274" y2="74" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                      <line id="z25-left-eye-link2" x1="270" y1="56" x2="278" y2="74" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
 
-                    <!-- Right Eye Dual Servos & Moving Linkage Arms -->
-                    <rect x="420" y="50" width="38" height="18" rx="2" fill="#1e293b"/>
-                    <circle cx="431" cy="59" r="2.5" fill="#38bdf8"/>
-                    <circle cx="447" cy="59" r="2.5" fill="#38bdf8"/>
-                    <line id="z25-right-eye-link" x1="442" y1="56" x2="426" y2="74" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
-                    <line id="z25-right-eye-link2" x1="430" y1="56" x2="422" y2="74" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
+                      <!-- Right Eye Dual Servos & Moving Linkage Arms (Pan L/R + Tilt U/D) -->
+                      <rect x="420" y="50" width="38" height="18" rx="2" fill="#1e293b"/>
+                      <circle cx="431" cy="59" r="2.5" fill="#38bdf8"/>
+                      <circle cx="447" cy="59" r="2.5" fill="#38bdf8"/>
+                      <line id="z25-right-eye-link" x1="442" y1="56" x2="426" y2="74" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                      <line id="z25-right-eye-link2" x1="430" y1="56" x2="422" y2="74" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
+                    </g>
 
                     <!-- Tapered V-Shaped Outer Struts (Matches z25-front.jpg & z25-back-dark.jpg) -->
                     <polygon points="226,126 242,126 306,222 292,222" fill="#94a3b8" stroke="#1e293b" stroke-width="2"/>
@@ -444,7 +451,7 @@
                     <rect x="476" y="64" width="14" height="48" rx="2" fill="#94a3b8" stroke="#1e293b" stroke-width="2"/>
                     <circle cx="483" cy="76" r="4" fill="#e2e8f0" stroke="#1e293b" stroke-width="1.2"/>
 
-                    <!-- LEFT EYEBALL (3D-Printed White Sphere, Dark Brown Iris, No Eyelid) -->
+                    <!-- LEFT EYEBALL (3D-Printed White Sphere, Dark Brown Iris, Moves L/R & U/D) -->
                     <rect x="262" y="102" width="24" height="8" rx="2" fill="#a16207" stroke="#1e293b" stroke-width="1.5"/>
                     <circle cx="274" cy="74" r="34" fill="#f8fafc" stroke="#1e293b" stroke-width="2.2"/>
                     <g id="z25-left-iris">
@@ -453,9 +460,9 @@
                       <circle cx="271" cy="69" r="2.5" fill="#ffffff"/>
                     </g>
                     <text x="198" y="64" font-family="'Inter', sans-serif" font-size="9.5" fill="#0f172a" text-anchor="end" font-weight="700">Left Eye (3D Printed)</text>
-                    <text x="198" y="76" font-family="'Inter', sans-serif" font-size="8.5" fill="#2563eb" text-anchor="end" font-weight="600">2 Servos + Linkage Arms</text>
+                    <text x="198" y="76" font-family="'Inter', sans-serif" font-size="8.5" fill="#2563eb" text-anchor="end" font-weight="600">2 Servos (L/R + Up/Down)</text>
 
-                    <!-- RIGHT EYEBALL (3D-Printed White Sphere, Dark Brown Iris, No Eyelid) -->
+                    <!-- RIGHT EYEBALL (3D-Printed White Sphere, Dark Brown Iris, Moves L/R & U/D) -->
                     <rect x="414" y="102" width="24" height="8" rx="2" fill="#a16207" stroke="#1e293b" stroke-width="1.5"/>
                     <circle cx="426" cy="74" r="34" fill="#f8fafc" stroke="#1e293b" stroke-width="2.2"/>
                     <g id="z25-right-iris">
@@ -464,7 +471,7 @@
                       <circle cx="423" cy="69" r="2.5" fill="#ffffff"/>
                     </g>
                     <text x="502" y="64" font-family="'Inter', sans-serif" font-size="9.5" fill="#0f172a" font-weight="700">Right Eye (3D Printed)</text>
-                    <text x="502" y="76" font-family="'Inter', sans-serif" font-size="8.5" fill="#2563eb" font-weight="600">2 Servos + Linkage Arms</text>
+                    <text x="502" y="76" font-family="'Inter', sans-serif" font-size="8.5" fill="#2563eb" font-weight="600">2 Servos (L/R + Up/Down)</text>
 
                     <!-- Jaw Servo & Moving 3-Hole D-Shaped Jaw Paddle (Matches z25-front.jpg & z25-top.jpg) -->
                     <rect x="336" y="130" width="28" height="24" rx="3" fill="#1e293b"/>
@@ -487,7 +494,7 @@
 
               <div class="spec-stack">
                 <div class="spec-card">
-                  <div class="spec-card-label">Identity & Origin</div>
+                  <div class="spec-card-label">Identity &amp; Origin</div>
                   <div class="spec-card-val">Zainiac 25 (“Noggin”)</div>
                   <div class="spec-card-desc">Based on Creative Engineering’s 1980s animatronic head layout</div>
                 </div>
@@ -499,11 +506,11 @@
                 <div class="spec-card">
                   <div class="spec-card-label">7 Servo Layout</div>
                   <div class="spec-card-val">2 Neck • 4 Eye • 1 Jaw</div>
-                  <div class="spec-card-desc">2 at base of neck, 2 per eye, 1 for the jaw</div>
+                  <div class="spec-card-desc">Eyes move L/R &amp; Up/Down (2 servos each); head tilts Up/Down &amp; L/R</div>
                 </div>
                 <div class="spec-card">
                   <div class="spec-card-label">Pneumatics → Servos</div>
-                  <div class="spec-card-val">Servos & Linkage Arms</div>
+                  <div class="spec-card-val">Servos &amp; Linkage Arms</div>
                   <div class="spec-card-desc">Smoother, cheaper, easier, and more programmable motion</div>
                 </div>
               </div>
@@ -668,6 +675,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=visual-9"></script>
+  <script src="js/app.js?v=visual-10"></script>
 </body>
 </html>

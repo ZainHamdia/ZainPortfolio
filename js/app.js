@@ -222,12 +222,14 @@ function initZ21Interactive() {
 
 /* ==========================================================================
    PANEL 3: Zainiac 25 ("Noggin") 7-Servo Animatronic Head Demo
-   (4 Eye Servos + 3D-Printed Linkages, 1 Jaw Servo + D-Paddle, 2 Base Neck Servos + Pushrods)
+   (4 Eye Servos: L/R Pan + U/D Tilt, 1 Jaw Servo: D-Paddle, 2 Base Neck Servos: L/R Roll + U/D Pitch)
    ========================================================================== */
 function initZ25Interactive() {
   const eyeSlider = document.getElementById('z25-eye-slider');
+  const eyeTiltSlider = document.getElementById('z25-eye-tilt-slider');
   const jawSlider = document.getElementById('z25-jaw-slider');
   const neckSlider = document.getElementById('z25-neck-slider');
+  const neckPitchSlider = document.getElementById('z25-neck-pitch-slider');
   const demoBtn = document.getElementById('z25-demo-btn');
   if (!eyeSlider || !jawSlider) return;
 
@@ -241,6 +243,7 @@ function initZ25Interactive() {
   const jawGroup = document.getElementById('z25-jaw-group');
   const jawHorn = document.getElementById('z25-jaw-horn');
   const headCage = document.getElementById('z25-head-cage');
+  const upperPitchGroup = document.getElementById('z25-upper-pitch-group');
 
   const neckHornLeft = document.getElementById('z25-neck-horn-left');
   const neckHornRight = document.getElementById('z25-neck-horn-right');
@@ -266,13 +269,17 @@ function initZ25Interactive() {
     }
   }
 
-  function updateZ25(customEyeX, customJawY, customNeckDeg, customEyeY) {
+  function updateZ25(customEyeX, customJawY, customNeckRoll, customEyeTilt, customNeckPitch) {
     const eyeX = typeof customEyeX === 'number' ? customEyeX : (parseFloat(eyeSlider.value) || 0);
+    const eyeTilt = typeof customEyeTilt === 'number' ? customEyeTilt : (eyeTiltSlider ? (parseFloat(eyeTiltSlider.value) || 0) : 0);
     const jawY = typeof customJawY === 'number' ? customJawY : (parseFloat(jawSlider.value) || 0);
-    const neckDeg = typeof customNeckDeg === 'number' ? customNeckDeg : (neckSlider ? (parseFloat(neckSlider.value) || 0) : 0);
-    const eyeY = typeof customEyeY === 'number' ? customEyeY : 0;
+    const neckRoll = typeof customNeckRoll === 'number' ? customNeckRoll : (neckSlider ? (parseFloat(neckSlider.value) || 0) : 0);
+    const neckPitch = typeof customNeckPitch === 'number' ? customNeckPitch : (neckPitchSlider ? (parseFloat(neckPitchSlider.value) || 0) : 0);
 
-    // 1. Move 3D-printed left & right irises (Pan X + Tilt Y)
+    // SVG Y is positive downward, so positive eyeTilt (looking up) maps to negative SVG Y offset
+    const eyeY = -eyeTilt;
+
+    // 1. Move 3D-printed left & right irises horizontally (L/R) and vertically (Up/Down)
     if (leftIris) {
       leftIris.setAttribute('transform', `translate(${eyeX.toFixed(2)}, ${eyeY.toFixed(2)})`);
     }
@@ -280,14 +287,15 @@ function initZ25Interactive() {
       rightIris.setAttribute('transform', `translate(${eyeX.toFixed(2)}, ${eyeY.toFixed(2)})`);
     }
 
-    // 2. Move the 4 overhead eye servo linkage arms to track the eyeballs
+    // 2. Move the 4 overhead eye servo linkage arms (2 per eye: Pan L/R + Tilt Up/Down)
     if (leftEyeLink1) {
       leftEyeLink1.setAttribute('x1', (258 + eyeX * 0.35).toFixed(2));
       leftEyeLink1.setAttribute('x2', (274 + eyeX * 0.85).toFixed(2));
       leftEyeLink1.setAttribute('y2', (74 + eyeY * 0.85).toFixed(2));
     }
     if (leftEyeLink2) {
-      leftEyeLink2.setAttribute('x1', (270 + eyeY * 0.4).toFixed(2));
+      leftEyeLink2.setAttribute('x1', (270 + eyeY * 0.35).toFixed(2));
+      leftEyeLink2.setAttribute('y1', (56 + eyeY * 0.35).toFixed(2));
       leftEyeLink2.setAttribute('x2', (278 + eyeX * 0.85).toFixed(2));
       leftEyeLink2.setAttribute('y2', (74 + eyeY * 0.85).toFixed(2));
     }
@@ -297,7 +305,8 @@ function initZ25Interactive() {
       rightEyeLink1.setAttribute('y2', (74 + eyeY * 0.85).toFixed(2));
     }
     if (rightEyeLink2) {
-      rightEyeLink2.setAttribute('x1', (430 + eyeY * 0.4).toFixed(2));
+      rightEyeLink2.setAttribute('x1', (430 + eyeY * 0.35).toFixed(2));
+      rightEyeLink2.setAttribute('y1', (56 + eyeY * 0.35).toFixed(2));
       rightEyeLink2.setAttribute('x2', (422 + eyeX * 0.85).toFixed(2));
       rightEyeLink2.setAttribute('y2', (74 + eyeY * 0.85).toFixed(2));
     }
@@ -310,36 +319,42 @@ function initZ25Interactive() {
       jawHorn.setAttribute('transform', `rotate(${(jawY * 2.4).toFixed(2)} 350 142)`);
     }
 
-    // 4. Tilt 3D-Printed Head Cage around central neck pivot (350, 254)
+    // 4. Tilt 3D-Printed Head Cage in both Roll (L/R) and Pitch (Up/Down)
+    const pitchShiftY = -neckPitch * 1.15;
     if (headCage) {
-      headCage.setAttribute('transform', `rotate(${neckDeg.toFixed(2)} 350 254)`);
+      headCage.setAttribute('transform', `translate(0, ${pitchShiftY.toFixed(2)}) rotate(${neckRoll.toFixed(2)} 350 254)`);
+    }
+    if (upperPitchGroup) {
+      upperPitchGroup.setAttribute('transform', `translate(0, ${(neckPitch * 0.45).toFixed(2)})`);
     }
 
-    // 5. Differential Base Neck Servos & Metal Pushrod Linkages
-    const hornAngle = neckDeg * 2.2;
+    // 5. Base Neck Servos & Metal Pushrod Linkages
+    // Differential motion = Roll (L/R); Coupled same-direction motion = Pitch (Up/Down)
+    const leftHornAngle = neckRoll * 2.0 + neckPitch * 2.0;
+    const rightHornAngle = neckRoll * 2.0 - neckPitch * 2.0;
     if (neckHornLeft) {
-      neckHornLeft.setAttribute('transform', `rotate(${hornAngle.toFixed(2)} 294 300)`);
+      neckHornLeft.setAttribute('transform', `rotate(${leftHornAngle.toFixed(2)} 294 300)`);
     }
     if (neckHornRight) {
-      neckHornRight.setAttribute('transform', `rotate(${hornAngle.toFixed(2)} 406 300)`);
+      neckHornRight.setAttribute('transform', `rotate(${rightHornAngle.toFixed(2)} 406 300)`);
     }
 
-    // Calculate pushrod endpoints so pushrods stay connected to the tilting head cage
-    const rad = (neckDeg * Math.PI) / 180;
+    // Calculate pushrod endpoints so pushrods stay connected during combined Roll + Pitch
+    const rad = (neckRoll * Math.PI) / 180;
     const cosA = Math.cos(rad);
     const sinA = Math.sin(rad);
 
-    // Upper left mount at (298, 222) rotated around (350, 254)
+    // Upper left mount at (298, 222) rotated by neckRoll around (350, 254) + shifted by pitchShiftY
     const lx2 = 350 + (298 - 350) * cosA - (222 - 254) * sinA;
-    const ly2 = 254 + (298 - 350) * sinA + (222 - 254) * cosA;
+    const ly2 = 254 + (298 - 350) * sinA + (222 - 254) * cosA + pitchShiftY;
     const lx1 = 283;
-    const ly1 = 298 - neckDeg * 0.45;
+    const ly1 = 298 - neckRoll * 0.45 - neckPitch * 0.5;
 
-    // Upper right mount at (402, 222) rotated around (350, 254)
+    // Upper right mount at (402, 222) rotated by neckRoll around (350, 254) + shifted by pitchShiftY
     const rx2 = 350 + (402 - 350) * cosA - (222 - 254) * sinA;
-    const ry2 = 254 + (402 - 350) * sinA + (222 - 254) * cosA;
+    const ry2 = 254 + (402 - 350) * sinA + (222 - 254) * cosA + pitchShiftY;
     const rx1 = 417;
-    const ry1 = 298 + neckDeg * 0.45;
+    const ry1 = 298 + neckRoll * 0.45 - neckPitch * 0.5;
 
     if (pushrodLeft) {
       pushrodLeft.setAttribute('x1', lx1.toFixed(2));
@@ -372,10 +387,12 @@ function initZ25Interactive() {
     }
 
     if (readout) {
-      const eyeDeg = Math.round(eyeX * 2.5);
+      const ePan = Math.round(eyeX * 2.5);
+      const eTilt = Math.round(eyeTilt * 2.5);
       const jawDeg = Math.round(jawY * 1.8);
-      const nDeg = Math.round(neckDeg * 10) / 10;
-      readout.textContent = `Eyes: ${eyeDeg > 0 ? '+' : ''}${eyeDeg}° • Jaw: ${jawDeg}° • Neck: ${nDeg > 0 ? '+' : ''}${nDeg}°`;
+      const hRoll = Math.round(neckRoll);
+      const hPitch = Math.round(neckPitch);
+      readout.textContent = `Eyes: ${ePan > 0 ? '+' : ''}${ePan}°, ${eTilt > 0 ? '+' : ''}${eTilt}° • Jaw: ${jawDeg}° • Head: ${hRoll > 0 ? '+' : ''}${hRoll}°, ${hPitch > 0 ? '+' : ''}${hPitch}°`;
     }
   }
 
@@ -385,8 +402,10 @@ function initZ25Interactive() {
   }
 
   eyeSlider.addEventListener('input', onManualSliderInput);
+  if (eyeTiltSlider) eyeTiltSlider.addEventListener('input', onManualSliderInput);
   jawSlider.addEventListener('input', onManualSliderInput);
   if (neckSlider) neckSlider.addEventListener('input', onManualSliderInput);
+  if (neckPitchSlider) neckPitchSlider.addEventListener('input', onManualSliderInput);
 
   if (demoBtn) {
     demoBtn.addEventListener('click', () => {
@@ -401,19 +420,22 @@ function initZ25Interactive() {
       function loop() {
         t += 0.05;
         const eyeX = Math.sin(t * 1.1) * 10.5;
-        const eyeY = Math.cos(t * 1.6) * 3.8;
+        const eyeTilt = Math.cos(t * 1.55) * 7.5;
         const jawY = (Math.sin(t * 2.6) + 1) * 8.5;
-        const neckDeg = Math.sin(t * 0.65) * 7.5;
+        const neckRoll = Math.sin(t * 0.65) * 7.5;
+        const neckPitch = Math.cos(t * 0.85) * 7.5;
 
         eyeSlider.value = eyeX.toFixed(1);
+        if (eyeTiltSlider) eyeTiltSlider.value = eyeTilt.toFixed(1);
         jawSlider.value = jawY.toFixed(1);
-        if (neckSlider) neckSlider.value = neckDeg.toFixed(1);
+        if (neckSlider) neckSlider.value = neckRoll.toFixed(1);
+        if (neckPitchSlider) neckPitchSlider.value = neckPitch.toFixed(1);
 
         if (arduinoLed) {
           arduinoLed.setAttribute('fill', Math.sin(t * 6) > 0 ? '#4ade80' : '#22d3ee');
         }
 
-        updateZ25(eyeX, jawY, neckDeg, eyeY);
+        updateZ25(eyeX, jawY, neckRoll, eyeTilt, neckPitch);
         animId = requestAnimationFrame(loop);
       }
       loop();
