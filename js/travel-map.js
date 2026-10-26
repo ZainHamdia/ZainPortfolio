@@ -192,13 +192,57 @@ document.addEventListener("DOMContentLoaded", () => {
   // Position Zoom Control top-left
   L.control.zoom({ position: "topleft" }).addTo(map);
 
-  // CartoDB Dark Matter Tiles (Sleek Dark Map matching portfolio theme)
-  const darkTiles = L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank">CARTO</a>',
-    subdomains: "abcd",
+  // 1. Esri World Dark Gray (Base + Reference) — Free, no API key, no watermark
+  const esriDarkBase = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", {
+    attribution: '&copy; <a href="https://www.esri.com" target="_blank" rel="noopener noreferrer">Esri</a> &mdash; DeLorme, NAVTEQ',
+    maxZoom: 16
+  });
+  const esriDarkRef = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}", {
+    maxZoom: 16
+  });
+  const darkLayer = L.layerGroup([esriDarkBase, esriDarkRef]);
+
+  // 2. Esri World Imagery (Satellite + Boundaries/Places) — High-res satellite
+  const satBase = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+    attribution: '&copy; <a href="https://www.esri.com" target="_blank" rel="noopener noreferrer">Esri</a>, Earthstar Geographics',
+    maxZoom: 18
+  });
+  const satRef = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}", {
+    maxZoom: 18
+  });
+  const satelliteLayer = L.layerGroup([satBase, satRef]);
+
+  // 3. OpenStreetMap (Streets)
+  const osmLayer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors',
     maxZoom: 19
   });
-  darkTiles.addTo(map);
+
+  // Layer lookup
+  const mapLayers = {
+    dark: darkLayer,
+    satellite: satelliteLayer,
+    streets: osmLayer
+  };
+
+  let activeLayer = darkLayer;
+  activeLayer.addTo(map);
+
+  // Map style switcher listener
+  const styleButtons = document.querySelectorAll("[data-map-style]");
+  styleButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const chosen = btn.dataset.mapStyle;
+      if (!mapLayers[chosen] || mapLayers[chosen] === activeLayer) return;
+
+      styleButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      map.removeLayer(activeLayer);
+      activeLayer = mapLayers[chosen];
+      map.addLayer(activeLayer);
+    });
+  });
 
   // Store marker references
   const markerMap = new Map();

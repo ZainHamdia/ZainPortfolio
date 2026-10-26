@@ -1006,7 +1006,7 @@ function initPublicationViewers() {
       } else {
         targetEl.style.display = 'none';
         btn.setAttribute('aria-expanded', 'false');
-        const defaultLabel = btn.getAttribute('data-default-text') || '📖 Read Full Text ↓';
+        const defaultLabel = btn.getAttribute('data-default-text') || 'Read Full Text ↓';
         btn.innerHTML = defaultLabel;
       }
     });
@@ -1024,11 +1024,11 @@ function initPublicationViewers() {
       if (isHidden) {
         targetEl.style.display = 'block';
         btn.setAttribute('aria-expanded', 'true');
-        btn.innerHTML = 'Close PDF Preview ✕';
+        btn.innerHTML = 'Close PDF ✕';
       } else {
         targetEl.style.display = 'none';
         btn.setAttribute('aria-expanded', 'false');
-        btn.innerHTML = '📑 Inline PDF Preview ↓';
+        btn.innerHTML = 'Inline PDF ↓';
       }
     });
   });

@@ -39,10 +39,10 @@
     <!-- Princeton University Orange & Black Hero -->
     <section class="page-hero">
       <div class="container">
-        <span class="page-kicker">Summer 2025 • Princeton University Engineering Internship (MAE 412)</span>
+        <span class="page-kicker">Summer 2025 • Princeton University Laboratory Learning Program (MAE 412)</span>
         <h1 class="page-title">Princeton University Research</h1>
         <p class="page-subtitle">
-          Modernizing the ~20-year-old <strong>DCC Railroad Track Switch Thrower</strong> for Princeton University’s microprocessor curriculum (<strong>MAE 412: Microprocessors and Their Applications</strong>)—designing, sourcing, and hand-soldering a <strong>single-sided PCB</strong> with an onboard <strong>ATMEGA-328P</strong> microprocessor and <strong>dual 4700µF trickle-charged capacitors</strong>.
+          Modernizing the ~20-year-old DCC Railroad Track Switch Thrower for Princeton University’s microprocessor curriculum (MAE 412: Microprocessors and Their Applications)—designing, sourcing, and hand-soldering a single-sided PCB with an onboard ATmega328P microcontroller and dual 4700µF trickle-charged capacitors.
         </p>
       </div>
     </section>
@@ -50,24 +50,24 @@
     <!-- Section 1: Interactive Princeton University DCC Railroad Track Switch Thrower Simulator -->
     <div class="container">
       <section id="princeton-switch-sim" class="interactive-showcase">
-        <div class="showcase-top-bar" style="background: #141414; border-bottom: 2px solid #e77500;">
+        <div class="showcase-top-bar">
           <div>
-            <h2 class="showcase-title">Princeton MAE 412 — Modernized DCC Railroad Track Switch Thrower</h2>
-            <div class="showcase-sub">Interactive schematic of my single-sided PCB redesign featuring an onboard ATmega328P microprocessor and dual 4700µF trickle-charged capacitors</div>
+            <h2 class="showcase-title">Princeton MAE 412 — Modernized DCC Track Switch Thrower</h2>
+            <div class="showcase-sub">Interactive schematic of the single-sided PCB redesign featuring an onboard ATmega328P and dual 4700µF trickle-charged capacitors.</div>
           </div>
         </div>
 
         <div class="showcase-body">
           <div class="control-bar">
-            <div class="control-group" style="gap: 10px;">
-              <button type="button" id="dcc-dir-btn" class="control-btn" style="background: #171717; color: var(--band-accent); border: 1px solid #e77500;">
+            <div class="control-group">
+              <button type="button" id="dcc-dir-btn" class="control-btn">
                 ⇄ Toggle DIR (Straight / Turnout)
               </button>
-              <button type="button" id="dcc-trig-btn" class="control-btn" style="background: #e77500; color: #ffffff;">
+              <button type="button" id="dcc-trig-btn" class="control-btn active">
                 Trigger Switch Throw (TRIG)
               </button>
-              <button type="button" id="dcc-double-btn" class="control-btn" style="background: #b45309; color: #ffffff;">
-                Test Swift Double-Throw (2 Caps)
+              <button type="button" id="dcc-double-btn" class="control-btn">
+                Test Double-Throw (2 Caps)
               </button>
             </div>
             <span style="font-size: 0.8rem; font-weight: 600; color: #475569;">
@@ -196,40 +196,40 @@
       </section>
     </div>
 
-    <!-- Section 2: Full-Bleed Princeton Orange & Black Feature Band for Research Paper & Figures -->
-    <section id="princeton-llp" class="feature-band" style="margin-bottom: 0; background: linear-gradient(150deg, #0a0a0a 0%, #171717 60%, #241304 100%); border-top: 3px solid #e77500;">
+    <!-- Section 2: Princeton Research Paper & Schematics -->
+    <section id="princeton-llp" class="feature-band">
       <div class="container">
         <div class="home-hero-grid" style="margin-bottom: 28px;">
           <div>
-            <div class="section-label" style="color: var(--band-accent);">Summer 2025 • Princeton University Engineering Internship (MAE 412)</div>
-            <h2 class="section-heading" style="color: #ffffff; margin-bottom: 14px;">
+            <div class="section-label">Princeton University Engineering Internship • MAE 412</div>
+            <h2 class="section-heading">
               Modernizing the DCC Railroad Track Switch Thrower
             </h2>
             <p style="font-size: 1.02rem; color: rgba(255,255,255,0.88); line-height: 1.65;">
-              Part of Princeton University’s engineering curriculum (<strong>MAE 412: Microprocessors and Their Applications</strong>) uses automated model train sets as the platform for students to design and test microprocessor control systems. With the original <strong>DCC railroad track switch thrower with a trickle-charged capacitor</strong> being ~20 years old, I analyzed the legacy schematic and designed, sourced, and hand-soldered a modernized <strong>single-sided PCB</strong> featuring an onboard <strong>ATMEGA-328P</strong> microprocessor and <strong>two 4700µF capacitors</strong>.
+              Princeton University's MAE 412 curriculum (Microprocessors and Their Applications) uses automated model train layouts to teach embedded control systems. The department's existing DCC track switch thrower was ~20 years old. I analyzed the legacy circuit and designed, sourced, and hand-soldered a single-sided PCB integrating an onboard ATmega328P microcontroller and dual 4700µF capacitors for rapid successive throws.
             </p>
           </div>
 
           <div class="stage-tiles">
-            <div class="stage-tile" style="background: rgba(24, 24, 27, 0.85); border-color: rgba(231, 117, 0, 0.35);">
-              <span class="stage-tile-tag" style="color: var(--band-accent);">Key Addition #1</span>
-              <div class="stage-tile-title">Onboard ATMEGA-328P Chip</div>
-              <div class="stage-tile-sub">Eliminated external connections for direct track automation</div>
+            <div class="stage-tile">
+              <span class="stage-tile-tag">Microcontroller</span>
+              <div class="stage-tile-title">Onboard ATmega328P</div>
+              <div class="stage-tile-sub">Eliminated external TTL lines for autonomous track control</div>
             </div>
-            <div class="stage-tile" style="background: rgba(24, 24, 27, 0.85); border-color: rgba(231, 117, 0, 0.35);">
-              <span class="stage-tile-tag" style="color: var(--band-accent);">Key Addition #2</span>
-              <div class="stage-tile-title">Dual Trickle-Charged Capacitors</div>
-              <div class="stage-tile-sub">Two 4700µF caps allow two switch throws in swift succession</div>
+            <div class="stage-tile">
+              <span class="stage-tile-tag">Energy Storage</span>
+              <div class="stage-tile-title">Dual Trickle Capacitors</div>
+              <div class="stage-tile-sub">Two 4700µF capacitors enable two switch throws in rapid succession</div>
             </div>
-            <div class="stage-tile" style="background: rgba(24, 24, 27, 0.85); border-color: rgba(231, 117, 0, 0.35);">
-              <span class="stage-tile-tag" style="color: var(--band-accent);">Board Architecture</span>
+            <div class="stage-tile">
+              <span class="stage-tile-tag">Fabrication</span>
               <div class="stage-tile-title">Single-Sided PCB Conversion</div>
-              <div class="stage-tile-sub">Replaced the ~20-year-old double-sided board (~2 wks design)</div>
+              <div class="stage-tile-sub">Replaced legacy double-sided board with single-layer copper routing</div>
             </div>
-            <div class="stage-tile" style="background: rgba(24, 24, 27, 0.85); border-color: rgba(231, 117, 0, 0.35);">
-              <span class="stage-tile-tag" style="color: var(--band-accent);">Build &amp; Deployment</span>
-              <div class="stage-tile-title">Hand-Soldered &amp; In Active Use</div>
-              <div class="stage-tile-sub">~1 wk sourcing &amp; assembly • Approved &amp; deployed in lab</div>
+            <div class="stage-tile">
+              <span class="stage-tile-tag">Deployment</span>
+              <div class="stage-tile-title">Hand-Soldered &amp; Deployed</div>
+              <div class="stage-tile-sub">Fabricated in lab, fully tested, and integrated into course hardware</div>
             </div>
           </div>
         </div>
@@ -366,7 +366,7 @@
         <div>
           <div class="brand-text-name" style="margin-bottom: 8px;">Zain Hamdia</div>
           <p style="font-size: 0.9rem; max-width: 340px;">
-            Princeton Day School (Class of 2027) • Innovator, maker and robotics student, volunteer firefighter at Fire Station 46, and aspiring mechanical engineer.
+            Student at Princeton Day School ('27) &amp; volunteer firefighter at Fire Station 46.
           </p>
         </div>
         <div>
