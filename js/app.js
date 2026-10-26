@@ -828,7 +828,7 @@ function initPrincetonDccSwitchInteractive() {
       if (mcuLed) mcuLed.setAttribute('fill', '#ef4444');
       if (trigPinLabel) {
         trigPinLabel.textContent = 'TRIG Pin: IDLE';
-        trigPinLabel.setAttribute('fill', '#38bdf8');
+        trigPinLabel.setAttribute('fill', '#fb923c');
       }
       if (pulseBar) pulseBar.setAttribute('fill', '#e2e8f0');
       if (dischargeWire) {

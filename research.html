@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Princeton University Research — Zain Hamdia</title>
+  <meta name="description" content="Princeton University Laboratory Learning Program (MAE 412) research paper, custom ATmega328P single-sided DCC railroad switch thrower PCB redesign, and interactive schematic by Zain Hamdia.">
+  <link rel="stylesheet" href="css/styles.css?v=visual-15">
+</head>
+<body class="theme-research">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link">
+        <span class="brand-dot"></span>
+        <span class="brand-text-name">Zain Hamdia</span>
+        <span class="brand-text-sub">Princeton, NJ</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="robotics.html" class="nav-link">Robotics</a></li>
+          <li><a href="aviation.html" class="nav-link">Aviation</a></li>
+          <li><a href="research.html" class="nav-link active">Research</a></li>
+          <li><a href="firefighting.html" class="nav-link">Fire Service</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button id="mobile-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Princeton University Orange & Black Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-kicker">Summer 2025 • Princeton University Engineering Internship (MAE 412)</span>
+        <h1 class="page-title">Princeton University Research</h1>
+        <p class="page-subtitle">
+          Modernizing the ~20-year-old <strong>DCC Railroad Track Switch Thrower</strong> for Princeton University’s microprocessor curriculum (<strong>MAE 412: Microprocessors and Their Applications</strong>)—designing, sourcing, and hand-soldering a <strong>single-sided PCB</strong> with an onboard <strong>ATMEGA-328P</strong> microprocessor and <strong>dual 4700µF trickle-charged capacitors</strong>.
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 1: Interactive Princeton University DCC Railroad Track Switch Thrower Simulator -->
+    <div class="container">
+      <section id="princeton-switch-sim" class="interactive-showcase">
+        <div class="showcase-top-bar" style="background: #141414; border-bottom: 2px solid #e77500;">
+          <div>
+            <h2 class="showcase-title">Princeton MAE 412 — Modernized DCC Railroad Track Switch Thrower</h2>
+            <div class="showcase-sub">Interactive schematic of my single-sided PCB redesign featuring an onboard ATmega328P microprocessor and dual 4700µF trickle-charged capacitors</div>
+          </div>
+          <span id="dcc-readout" style="font-size: 0.82rem; font-weight: 700; background: rgba(231, 117, 0, 0.18); border: 1px solid rgba(231, 117, 0, 0.5); color: #fed7aa; padding: 6px 14px; border-radius: 8px;">
+            Track: STRAIGHT (Green) • Cap 1: 100% • Cap 2: 100% • Ready for 2 Rapid Throws
+          </span>
+        </div>
+
+        <div class="showcase-body">
+          <div class="control-bar">
+            <div class="control-group" style="gap: 10px;">
+              <button type="button" id="dcc-dir-btn" class="control-btn" style="background: #171717; color: #fb923c; border: 1px solid #e77500;">
+                ⇄ Toggle DIR (Straight / Turnout)
+              </button>
+              <button type="button" id="dcc-trig-btn" class="control-btn" style="background: #e77500; color: #ffffff;">
+                ⚡ Trigger Switch Throw (TRIG)
+              </button>
+              <button type="button" id="dcc-double-btn" class="control-btn" style="background: #b45309; color: #ffffff;">
+                ⚡⚡ Test Swift Double-Throw (2 Caps)
+              </button>
+            </div>
+            <span style="font-size: 0.8rem; font-weight: 600; color: #475569;">
+              Trickle-charges from Track Power (~12s full cycle) • 2nd 4700µF capacitor enables 2 throws in swift succession
+            </span>
+          </div>
+
+          <div class="diagram-stage">
+            <div class="sketch-frame">
+              <svg class="sketch-svg" viewBox="0 0 740 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background Grid Accent -->
+                <line x1="20" y1="145" x2="720" y2="145" stroke="#f1f5f9" stroke-dasharray="4 4"/>
+
+                <!-- 1. ONBOARD ATMEGA-328P MICROPROCESSOR (Key Addition #1) -->
+                <rect x="24" y="42" width="142" height="196" rx="6" fill="#141414" stroke="#e77500" stroke-width="2.2"/>
+                <text x="95" y="64" font-family="'Inter', sans-serif" font-size="10" fill="#fb923c" text-anchor="middle" font-weight="800">ATMEGA-328P</text>
+                <text x="95" y="77" font-family="'Inter', sans-serif" font-size="7.5" fill="#d4d4d8" text-anchor="middle" font-weight="600">28-Pin Onboard MCU (New)</text>
+
+                <!-- 1x6 Header JP1 & Reset -->
+                <rect x="36" y="92" width="46" height="22" rx="3" fill="#262626" stroke="#737373" stroke-width="1.4"/>
+                <text x="59" y="106" font-family="'Inter', sans-serif" font-size="7.5" fill="#f5f5f5" text-anchor="middle" font-weight="700">JP1 (1x6)</text>
+
+                <!-- Onboard Status LED -->
+                <circle id="dcc-mcu-led" cx="132" cy="103" r="6.5" fill="#ef4444" stroke="#fecaca" stroke-width="1.5"/>
+                <text x="132" y="121" font-family="'Inter', sans-serif" font-size="7" fill="#d4d4d8" text-anchor="middle" font-weight="600">LED D1</text>
+
+                <!-- Pin Outputs: TRIG (PB7) & DIR (PD4) -->
+                <rect x="38" y="142" width="114" height="32" rx="4" fill="#262626" stroke="#e77500" stroke-width="1.3"/>
+                <text id="dcc-dir-pin-label" x="95" y="156" font-family="'Inter', sans-serif" font-size="8" fill="#4ade80" text-anchor="middle" font-weight="700">DIR Pin: LOW (Straight)</text>
+                <text id="dcc-trig-pin-label" x="95" y="168" font-family="'Inter', sans-serif" font-size="8" fill="#fb923c" text-anchor="middle" font-weight="700">TRIG Pin: IDLE</text>
+
+                <text x="95" y="202" font-family="'Inter', sans-serif" font-size="7.5" fill="#d4d4d8" text-anchor="middle" font-weight="600">Eliminates external TTL</text>
+                <text x="95" y="214" font-family="'Inter', sans-serif" font-size="7.5" fill="#d4d4d8" text-anchor="middle" font-weight="600">wiring for track automation</text>
+
+                <!-- 2. TRACK POWER & BRIDGE RECTIFIER + DUAL 4700uF CAPACITORS (Key Addition #2) -->
+                <rect x="196" y="28" width="166" height="114" rx="6" fill="#fff7ed" stroke="#e77500" stroke-width="2"/>
+                <text x="279" y="45" font-family="'Inter', sans-serif" font-size="9.5" fill="#c2410c" text-anchor="middle" font-weight="800">DUAL 4700µF CAPACITORS</text>
+                <text x="279" y="56" font-family="'Inter', sans-serif" font-size="7.5" fill="#52525b" text-anchor="middle" font-weight="600">Bridge Rectifier + R5 (1kΩ) Trickle</text>
+
+                <!-- Capacitor 1 (C1 - 4700uF) -->
+                <rect x="216" y="66" width="52" height="58" rx="5" fill="#e4e4e7" stroke="#18181b" stroke-width="1.8"/>
+                <rect id="dcc-cap1-fill" x="218" y="68" width="48" height="54" rx="3.5" fill="#e77500"/>
+                <text x="242" y="92" font-family="'Inter', sans-serif" font-size="8.5" fill="#09090b" text-anchor="middle" font-weight="800">C1: 4700µF</text>
+                <text id="dcc-cap1-pct" x="242" y="106" font-family="'Inter', sans-serif" font-size="8.5" fill="#09090b" text-anchor="middle" font-weight="800">100%</text>
+
+                <!-- Capacitor 2 (C3 - 4700uF — Added on New Board) -->
+                <rect x="290" y="66" width="52" height="58" rx="5" fill="#e4e4e7" stroke="#18181b" stroke-width="1.8"/>
+                <rect id="dcc-cap2-fill" x="292" y="68" width="48" height="54" rx="3.5" fill="#f59e0b"/>
+                <text x="316" y="92" font-family="'Inter', sans-serif" font-size="8.5" fill="#09090b" text-anchor="middle" font-weight="800">C3: 4700µF</text>
+                <text id="dcc-cap2-pct" x="316" y="106" font-family="'Inter', sans-serif" font-size="8.5" fill="#09090b" text-anchor="middle" font-weight="800">100%</text>
+
+                <!-- 3. OPTOCOUPLER (4N25) + TIP120 + KS2E DPDT RELAY STAGE -->
+                <rect x="196" y="158" width="166" height="102" rx="6" fill="#fafafa" stroke="#27272a" stroke-width="1.8"/>
+                <text x="279" y="175" font-family="'Inter', sans-serif" font-size="9" fill="#18181b" text-anchor="middle" font-weight="800">RELAY &amp; ISOLATION STAGE</text>
+                <text x="279" y="191" font-family="'Inter', sans-serif" font-size="8" fill="#c2410c" text-anchor="middle" font-weight="700">OP1 (4N25) + Q2 (TIP120)</text>
+                <text x="279" y="205" font-family="'Inter', sans-serif" font-size="8" fill="#9a3412" text-anchor="middle" font-weight="700">Q3 (BC327 PNP) + KS2E DPDT</text>
+                <rect id="dcc-pulse-bar" x="214" y="218" width="130" height="24" rx="4" fill="#e4e4e7" stroke="#71717a" stroke-width="1.4"/>
+                <text id="dcc-pulse-text" x="279" y="234" font-family="'Inter', sans-serif" font-size="8" fill="#18181b" text-anchor="middle" font-weight="700">Relay: N.C. (11) Straight</text>
+
+                <!-- Wiring Traces Between Stages -->
+                <line x1="166" y1="152" x2="196" y2="190" stroke="#e77500" stroke-width="2.2"/>
+                <line x1="166" y1="166" x2="196" y2="215" stroke="#b45309" stroke-width="2.2"/>
+                <line id="dcc-discharge-wire" x1="362" y1="95" x2="418" y2="145" stroke="#52525b" stroke-width="3"/>
+                <line x1="362" y1="210" x2="418" y2="175" stroke="#e77500" stroke-width="2.2"/>
+
+                <!-- 4. MODEL RAILROAD TRACK SWITCH (TURNOUT) -->
+                <rect x="418" y="28" width="298" height="232" rx="8" fill="#141414" stroke="#3f3f46" stroke-width="2.2"/>
+                <text x="567" y="48" font-family="'Inter', sans-serif" font-size="10" fill="#fafafa" text-anchor="middle" font-weight="800">DCC MODEL RAILROAD TRACK SWITCH</text>
+                <text x="567" y="61" font-family="'Inter', sans-serif" font-size="7.8" fill="#a1a1aa" text-anchor="middle" font-weight="600">BLACK (Common) • GREEN (Straight) • RED (Turnout)</text>
+
+                <!-- Railroad Ties -->
+                <g stroke="#52525b" stroke-width="4" stroke-linecap="round">
+                  <line x1="448" y1="155" x2="448" y2="195"/>
+                  <line x1="478" y1="155" x2="478" y2="195"/>
+                  <line x1="508" y1="155" x2="508" y2="195"/>
+                  <line x1="538" y1="150" x2="538" y2="195"/>
+                  <line x1="568" y1="140" x2="568" y2="195"/>
+                  <line x1="598" y1="130" x2="598" y2="195"/>
+                  <line x1="628" y1="115" x2="628" y2="195"/>
+                  <line x1="658" y1="105" x2="658" y2="195"/>
+                  <line x1="688" y1="95" x2="688" y2="195"/>
+                </g>
+
+                <!-- Straight Track Rails (GREEN) -->
+                <g id="dcc-rail-straight" opacity="1">
+                  <line x1="436" y1="164" x2="698" y2="164" stroke="#22c55e" stroke-width="3.5" stroke-linecap="round"/>
+                  <line x1="436" y1="186" x2="698" y2="186" stroke="#22c55e" stroke-width="3.5" stroke-linecap="round"/>
+                </g>
+
+                <!-- Diverging Turnout Rails (RED) -->
+                <g id="dcc-rail-turnout" opacity="0.35">
+                  <path d="M 508 164 Q 585 160 694 102" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                  <path d="M 508 186 Q 595 180 700 124" stroke="#ef4444" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+                </g>
+
+                <!-- Moving Switch Points Blade -->
+                <g id="dcc-switch-blade">
+                  <line x1="508" y1="175" x2="578" y2="175" stroke="#fb923c" stroke-width="4" stroke-linecap="round"/>
+                </g>
+
+                <!-- Track Status Pill Inside SVG -->
+                <rect x="444" y="216" width="246" height="28" rx="6" fill="#262626" stroke="#e77500" stroke-width="1.4"/>
+                <text id="dcc-track-status" x="567" y="234" font-family="'Inter', sans-serif" font-size="8.8" fill="#4ade80" text-anchor="middle" font-weight="800">ACTIVE PATH: STRAIGHT (GREEN WIRE)</text>
+              </svg>
+            </div>
+
+            <div class="spec-stack">
+              <div class="spec-card">
+                <div class="spec-card-label">Addition 1 • Microprocessor</div>
+                <div class="spec-card-val">Onboard ATMEGA-328P</div>
+                <div class="spec-card-desc">Eliminates external TTL wiring so the model train track switch can be directly automated on-board</div>
+              </div>
+              <div class="spec-card">
+                <div class="spec-card-label">Addition 2 • Energy Storage</div>
+                <div class="spec-card-val">Dual 4700µF Capacitors</div>
+                <div class="spec-card-desc">Stores double the trickle-charged energy so two switch throws can be executed in swift succession</div>
+              </div>
+              <div class="spec-card">
+                <div class="spec-card-label">Fabrication Constraint</div>
+                <div class="spec-card-val">Single-Sided Copper PCB</div>
+                <div class="spec-card-desc">Converted the ~20-year-old double-sided board into a single-sided layout (~2 wks design, ~1 wk build)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Section 2: Full-Bleed Princeton Orange & Black Feature Band for Research Paper & Figures -->
+    <section id="princeton-llp" class="feature-band" style="margin-bottom: 0; background: linear-gradient(150deg, #0a0a0a 0%, #171717 60%, #241304 100%); border-top: 3px solid #e77500;">
+      <div class="container">
+        <div class="home-hero-grid" style="margin-bottom: 28px;">
+          <div>
+            <div class="section-label" style="color: #fb923c;">Summer 2025 • Princeton University Engineering Internship (MAE 412)</div>
+            <h2 class="section-heading" style="color: #ffffff; margin-bottom: 14px;">
+              Modernizing the DCC Railroad Track Switch Thrower
+            </h2>
+            <p style="font-size: 1.02rem; color: rgba(255,255,255,0.88); line-height: 1.65;">
+              Part of Princeton University’s engineering curriculum (<strong>MAE 412: Microprocessors and Their Applications</strong>) uses automated model train sets as the platform for students to design and test microprocessor control systems. With the original <strong>DCC railroad track switch thrower with a trickle-charged capacitor</strong> being ~20 years old, I analyzed the legacy schematic and designed, sourced, and hand-soldered a modernized <strong>single-sided PCB</strong> featuring an onboard <strong>ATMEGA-328P</strong> microprocessor and <strong>two 4700µF capacitors</strong>.
+            </p>
+          </div>
+
+          <div class="stage-tiles">
+            <div class="stage-tile" style="background: rgba(24, 24, 27, 0.85); border-color: rgba(231, 117, 0, 0.35);">
+              <span class="stage-tile-tag" style="color: #fb923c;">Key Addition #1</span>
+              <div class="stage-tile-title">Onboard ATMEGA-328P Chip</div>
+              <div class="stage-tile-sub">Eliminated external connections for direct track automation</div>
+            </div>
+            <div class="stage-tile" style="background: rgba(24, 24, 27, 0.85); border-color: rgba(231, 117, 0, 0.35);">
+              <span class="stage-tile-tag" style="color: #fbbf24;">Key Addition #2</span>
+              <div class="stage-tile-title">Dual Trickle-Charged Capacitors</div>
+              <div class="stage-tile-sub">Two 4700µF caps allow two switch throws in swift succession</div>
+            </div>
+            <div class="stage-tile" style="background: rgba(24, 24, 27, 0.85); border-color: rgba(231, 117, 0, 0.35);">
+              <span class="stage-tile-tag" style="color: #fb923c;">Board Architecture</span>
+              <div class="stage-tile-title">Single-Sided PCB Conversion</div>
+              <div class="stage-tile-sub">Replaced the ~20-year-old double-sided board (~2 wks design)</div>
+            </div>
+            <div class="stage-tile" style="background: rgba(24, 24, 27, 0.85); border-color: rgba(231, 117, 0, 0.35);">
+              <span class="stage-tile-tag" style="color: #fbbf24;">Build &amp; Deployment</span>
+              <div class="stage-tile-title">Hand-Soldered &amp; In Active Use</div>
+              <div class="stage-tile-sub">~1 wk sourcing &amp; assembly • Approved &amp; deployed in lab</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Research Paper Full Write-Up & Document Viewer Card -->
+        <div class="band-card" style="margin-bottom: 28px; padding: 28px; background: rgba(20, 20, 22, 0.9); border: 1px solid rgba(231, 117, 0, 0.4);">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px;">
+            <div>
+              <div class="section-label" style="color: #fb923c; margin-bottom: 6px;">Internship Research Paper • Zain Hamdia</div>
+              <h3 style="color: #ffffff; font-size: 1.28rem; margin: 0;">Modernizing the DCC Railroad Track Switch Thrower (MAE 412)</h3>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <a href="princeton-research-paper.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background: #e77500; border-color: #fb923c; color: #ffffff; padding: 9px 16px; font-size: 0.86rem; box-shadow: 0 4px 14px rgba(231, 117, 0, 0.35);">
+                📄 Open Research Paper (PDF)
+              </a>
+              <a href="princeton-research-paper.pdf" download="Zain_Hamdia_Princeton_Research_Paper.pdf" class="btn btn-outline" style="border-color: rgba(251, 146, 60, 0.6); color: #f5f5f5; padding: 9px 16px; font-size: 0.86rem;">
+                ⬇ Download PDF
+              </a>
+              <a href="princeton-research-paper.docx" download="Zain_Hamdia_Princeton_Research_Paper.docx" class="btn btn-outline" style="border-color: rgba(251, 191, 36, 0.55); color: #f5f5f5; padding: 9px 16px; font-size: 0.86rem;">
+                ⬇ Download Word (.docx)
+              </a>
+            </div>
+          </div>
+
+          <!-- Verbatim Research Paper Text -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; color: rgba(255,255,255,0.88); font-size: 0.95rem; line-height: 1.72; margin-bottom: 24px;">
+            <div>
+              <strong style="color: #fb923c; display: block; margin-bottom: 6px;">1. Background &amp; Legacy Schematic Analysis (Figure 1)</strong>
+              <p style="margin: 0 0 12px 0;">
+                Part of Princeton University’s engineering curriculum is a class centered on microprocessors and their applications. This class uses model train sets as the platform for students to create and test their own automated model train sets, utilizing the knowledge they have gathered from the class. Students are given several tools to create their models and aid in the automation. One of the most useful is a <strong>DCC railroad track switch thrower with a trickle-charged capacitor</strong> (DCC RR switch thrower). However, with the board’s design being ~20 years old, and the limits becoming clear, it was decided that it was necessary to remake the board with updates to modernize it.
+              </p>
+              <p style="margin: 0;">
+                What was done first was analyze the schematic (<strong>Figure 1</strong>) of the old board. Before remaking it, I had to understand the schematic, and what each individual part does. This schematic used the power supplied by the track, as well as an optional 5V DC input, and charges a capacitor over the course of about <strong>12 seconds</strong>. When the relay is triggered, it releases the charge of the capacitor, and throws the switch.
+              </p>
+            </div>
+            <div>
+              <strong style="color: #fbbf24; display: block; margin-bottom: 6px;">2. Modernized Single-Sided PCB Design &amp; Deployment (Figures 2 &amp; 3)</strong>
+              <p style="margin: 0;">
+                The new board was to serve the same purpose, but with two key new additions. The first, and most important, was putting an <strong>ATMEGA-328P chip</strong> on the board. By adding a microprocessor, it eliminated the need for external connections, and allowed the track to be more easily controlled and automated. The second addition was a <strong>second capacitor</strong>, so that more charge is stored, and two actions can be done in swift succession. The original DCC RR switch thrower was a double-sided board. This board was to be <strong>single-sided</strong>, which made the board more complex to design. It took about <strong>two weeks</strong> to finish the design of the new DCC RR switch thrower (<strong>New schematic Figure 2</strong>). It took about <strong>a week</strong> to gather all the parts, and solder the board together. After being reviewed by my superior, it was given two notes, which were immediately corrected, and is now being put to use.
+              </p>
+            </div>
+          </div>
+
+          <!-- Embedded Interactive PDF Document Viewer -->
+          <div style="border-radius: 10px; overflow: hidden; border: 1px solid rgba(231, 117, 0, 0.45); background: #0a0a0a;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: rgba(231, 117, 0, 0.16); border-bottom: 1px solid rgba(231, 117, 0, 0.35); font-size: 0.82rem; color: #fed7aa; font-weight: 600;">
+              <span>📑 Full Research Paper Document Preview (2 Pages • Figures 1–3 Included)</span>
+              <a href="princeton-research-paper.pdf" target="_blank" rel="noopener noreferrer" style="color: #fb923c; text-decoration: underline;">Open in Full Tab ↗</a>
+            </div>
+            <object data="princeton-research-paper.pdf#view=FitH" type="application/pdf" width="100%" height="620" style="display: block; width: 100%; height: 620px; border: none; background: #ffffff;">
+              <iframe src="princeton-research-paper.pdf" width="100%" height="620" style="border: none;" title="Zain Hamdia Princeton University Research Paper PDF">
+                <p style="padding: 20px; color: #ffffff;">
+                  Your browser does not support inline PDF viewing.
+                  <a href="princeton-research-paper.pdf" target="_blank" rel="noopener noreferrer" style="color: #fb923c; text-decoration: underline;">Click here to view or download the research paper PDF.</a>
+                </p>
+              </iframe>
+            </object>
+          </div>
+        </div>
+
+        <!-- Row 1: New Custom Single-Sided PCB Build Photos -->
+        <div class="photo-grid-2" style="margin-top: 24px;">
+          <div class="photo-card" style="background: rgba(20, 20, 22, 0.88); border-color: rgba(231, 117, 0, 0.32);">
+            <img src="img/princeton-llp-2.jpg" alt="New single-sided DCC railroad switch thrower PCB populated with ATmega328P, relay socket, optocoupler socket, LED, and resistors" class="photo-card-img tall">
+            <div class="photo-card-body">
+              <div class="photo-card-tag" style="color: #fb923c;">New Single-Sided PCB • Component Side</div>
+              <div class="photo-card-title" style="color: #ffffff;">Onboard ATmega328P &amp; Relay Socket Assembly</div>
+              <p class="photo-card-desc" style="color: rgba(255,255,255,0.78);">My newly fabricated single-sided DCC RR switch thrower PCB held up to the lab lights, showing the 28-pin ATmega328P chip, DPDT relay socket, 4N25 optocoupler socket, status LED, resistors, 6-pin header, and single-sided copper routing.</p>
+            </div>
+          </div>
+
+          <div class="photo-card" style="background: rgba(20, 20, 22, 0.88); border-color: rgba(231, 117, 0, 0.32);">
+            <img src="img/princeton-llp-1.jpg" alt="Single-sided copper trace layout and hand-soldered underside of the new DCC track switch thrower PCB" class="photo-card-img tall">
+            <div class="photo-card-body">
+              <div class="photo-card-tag" style="color: #fb923c;">New Single-Sided PCB • Copper Trace Side</div>
+              <div class="photo-card-title" style="color: #ffffff;">Single-Sided Copper Routing &amp; Hand-Soldered Joints</div>
+              <p class="photo-card-desc" style="color: rgba(255,255,255,0.78);">Underside of the new single-sided copper-clad board showing the complex single-layer trace routing and hand-soldered through-hole pads completed in the Princeton lab.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Research Paper Schematics & Legacy Board (Figures 1, 2 & 3) -->
+        <div class="photo-grid-3" style="margin-top: 24px;">
+          <div class="photo-card" style="background: rgba(20, 20, 22, 0.88); border-color: rgba(231, 117, 0, 0.32);">
+            <img src="img/princeton-schematic-new.jpg" alt="Figure 2: New DCC Track Switch Thrower Schematic with ATmega328P and dual 4700uF capacitors" class="photo-card-img" style="object-fit: contain; background: #ffffff; padding: 8px;">
+            <div class="photo-card-body">
+              <div class="photo-card-tag" style="color: #fbbf24;">Figure 2 • New Board Schematic</div>
+              <div class="photo-card-title" style="color: #ffffff;">Modernized ATmega328P &amp; Dual-Capacitor Schematic</div>
+              <p class="photo-card-desc" style="color: rgba(255,255,255,0.78);">My redesigned schematic integrating the 28-pin ATmega328P, dual 4700µF trickle-charged capacitors (C1 &amp; C3), KS2E DPDT relay, 4N25 optocoupler, BC327 PNP, and TIP120 transistor.</p>
+            </div>
+          </div>
+
+          <div class="photo-card" style="background: rgba(20, 20, 22, 0.88); border-color: rgba(231, 117, 0, 0.32);">
+            <img src="img/princeton-schematic-old.jpg" alt="Figure 1: Original 2008 Princeton MAE 412 RR Switch Control Trickle Charge Schematic" class="photo-card-img" style="object-fit: contain; background: #ffffff; padding: 8px;">
+            <div class="photo-card-body">
+              <div class="photo-card-tag" style="color: #fb923c;">Figure 1 • Legacy 2008 Schematic</div>
+              <div class="photo-card-title" style="color: #ffffff;">Original MAE 412 Trickle-Charge Schematic</div>
+              <p class="photo-card-desc" style="color: rgba(255,255,255,0.78);">The original Princeton MAE 412 schematic (Rev C, Aug 2008) using track power, a bridge rectifier, a single capacitor (~12s charge time), 4N33 optocoupler, and external TTL control lines.</p>
+            </div>
+          </div>
+
+          <div class="photo-card" style="background: rgba(20, 20, 22, 0.88); border-color: rgba(231, 117, 0, 0.32);">
+            <img src="img/princeton-board-old.jpg" alt="Figure 3: Old double-sided DCC RR Track Switch Thrower board connected to model train track" class="photo-card-img">
+            <div class="photo-card-body">
+              <div class="photo-card-tag" style="color: #fbbf24;">Figure 3 • Legacy ~20-Year-Old Board</div>
+              <div class="photo-card-title" style="color: #ffffff;">Original Double-Sided DCC Switch Thrower</div>
+              <p class="photo-card-desc" style="color: rgba(255,255,255,0.78);">The ~20-year-old double-sided Princeton MAE 412 board with a single large electrolytic capacitor, Omron G5V-2-H1 relay, and TIP122 wired to a model railroad turnout.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="margin-top: 0;">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-text-name" style="margin-bottom: 8px;">Zain Hamdia</div>
+          <p style="font-size: 0.9rem; max-width: 340px;">
+            Princeton Day School (Class of 2027) • Robotics builder, junior firefighter at Station 46, and aspiring mechanical engineer.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Showcases</div>
+          <ul class="footer-col-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="robotics.html">Robotics</a></li>
+            <li><a href="aviation.html">Aviation</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="firefighting.html">Fire Service</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <ul class="footer-col-links">
+            <li><a href="about.html">About &amp; Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Zain Hamdia</span>
+        <span>Princeton, New Jersey</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js?v=visual-15"></script>
+</body>
+</html>
