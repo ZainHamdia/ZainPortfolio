@@ -61,12 +61,12 @@ function initZ19Interactive() {
     if (waistInd) {
       waistInd.setAttribute('transform', `translate(${v * 0.25}, 0)`);
     }
-    // Straight rigid arms (no elbow bend) swinging in opposite directions
+    // Straight rigid arms (no elbow bend) swinging in opposite directions from orange 3D-printed shoulder mounts
     if (leftArm) {
-      leftArm.setAttribute('transform', `rotate(${v * 0.65} 286 130)`);
+      leftArm.setAttribute('transform', `rotate(${v * 0.65} 259 104)`);
     }
     if (rightArm) {
-      rightArm.setAttribute('transform', `rotate(${-v * 0.65} 434 130)`);
+      rightArm.setAttribute('transform', `rotate(${-v * 0.65} 441 104)`);
     }
   }
 
@@ -106,8 +106,8 @@ function initZ21Interactive() {
 
   slider.addEventListener('input', e => {
     const v = parseFloat(e.target.value);
-    if (leftLink) leftLink.setAttribute('transform', `rotate(${v * 0.5} 280 125)`);
-    if (rightLink) rightLink.setAttribute('transform', `rotate(${-v * 0.5} 440 125)`);
+    if (leftLink) leftLink.setAttribute('transform', `rotate(${v * 0.5} 268 100)`);
+    if (rightLink) rightLink.setAttribute('transform', `rotate(${-v * 0.5} 432 100)`);
   });
 }
 
@@ -132,7 +132,7 @@ function initZ25Interactive() {
     if (leftIris) leftIris.setAttribute('transform', `translate(${eyeX}, 0)`);
     if (rightIris) rightIris.setAttribute('transform', `translate(${eyeX}, 0)`);
     if (jawGroup) jawGroup.setAttribute('transform', `translate(0, ${jawY})`);
-    if (headCage) headCage.setAttribute('transform', `rotate(${neckDeg} 360 280)`);
+    if (headCage) headCage.setAttribute('transform', `rotate(${neckDeg} 350 242)`);
   }
 
   eyeSlider.addEventListener('input', updateZ25);

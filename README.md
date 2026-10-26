@@ -31,9 +31,9 @@ ZainSite/
 ## Verified Core Focus Areas (Strictly Grounded in Resume)
 
 1. **Robotics & Maker Innovation (`robotics.html`)**
-   - ***Zainiac Series (19, 21, 25)***: Designed and fabricated personal autonomous/mobile robots.
-   - **International & Regional Maker Faires**: Exhibited at Brussels (featured on Belgian national news and attended by Brussels government leadership), Philadelphia, Rochester, Cairo, and Tandem at Jefferson.
-   - ***Little Bot & Noggin***: Designed a custom companion robot.
+   - ***Zainiac Series (19, 21, 25 / “Noggin”)***: Designed and fabricated personal humanoid and animatronic robots, culminating in Zainiac 25 (“Noggin”)—an entirely 3D-printed animatronic head that replaces 1980s pneumatics with 7 servo motors and linkage arms for smoother, cheaper, easier, and more programmable motion.
+   - **International & Regional Maker Faires (Zainiac 19)**: Presented Zainiac 19 (the only robot in the series taken to public exhibitions) at Brussels (featured on Belgian national news and attended by Brussels government leadership), Philadelphia, Rochester, Cairo, and Tandem at Jefferson University.
+   - ***Little Bot***: Designed a custom compact companion robot.
    - **VEX V5 Robotics Competition**: Co-President & Head of Design; Quarterfinalist (2026), 6th Place (2025) out of 40+ teams. Led CAD (Onshape), fabrication, and driver controls.
    - **COVID-19 N95 3D-Printed Masks**: Partnered with an open-source medical initiative to 3D print N95 reusable masks for a New York cancer center during PPE shortages.
 

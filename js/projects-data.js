@@ -71,16 +71,16 @@ const PORTFOLIO_DATA = {
   projects: [
     {
       id: "zainiac-series",
-      title: "Zainiac Robot Series — Zainiac 19, Zainiac 21 & Zainiac 25",
+      title: "Zainiac Robot Series — Zainiac 19, Zainiac 21 & Zainiac 25 (“Noggin”)",
       category: "robotics",
-      description: "Original humanoid and animatronic robot lineage. Zainiac 19 and 21 were built on LEGO MINDSTORMS; Zainiac 19 (~5 ft tall) was constructed using wood for the legs, particle board and PVC pipe framework for the body, a sculpted paper-mâché head, and custom 3D-printed parts, with kinematics featuring a panning neck, panning waist, and synchronized straight arm motion (elbows do not bend) moving in opposite directions. Zainiac 25 is an animatronic head based on Creative Engineering's animatronic architecture, featuring dual neck base servos, two servos to move each eye, and a dedicated jaw servo.",
-      tags: ["~5 Ft Full-Scale", "LEGO MINDSTORMS", "Synced Straight Arms", "Pan-Only Kinematics", "Wood & PVC Framing", "Zainiac 25 Animatronic Head", "Creative Engineering", "Multi-Servo Kinematics", "Brussels Maker Faire"]
+      description: "Original humanoid and animatronic robot lineage. Zainiac 19 and 21 were built on LEGO MINDSTORMS; Zainiac 19 (~5 ft tall, and the only robot in the series presented at public Maker Faires and conferences) was constructed using wood for the legs, particle board and PVC pipe framework for the body, a sculpted paper-mâché head, and custom 3D-printed parts, with kinematics featuring a panning neck, panning waist, and synchronized straight arm motion (elbows do not bend) moving in opposite directions. Zainiac 25 (“Noggin”) is an entirely 3D-printed animatronic head based on a 1980s Creative Engineering animatronic head, replacing pneumatic cylinders with seven servo motors and linkage arms (2 at the base of the neck, 2 per eye, and 1 for the jaw) for smoother, cheaper, easier, and more programmable motion.",
+      tags: ["~5 Ft Full-Scale", "LEGO MINDSTORMS", "Synced Straight Arms", "Pan-Only Kinematics", "Wood & PVC Framing", "Zainiac 25 (“Noggin”) Animatronic Head", "Pneumatics to Servo Linkages", "Multi-Servo Kinematics", "Brussels Maker Faire (Zainiac 19)"]
     },
     {
-      id: "little-bot-noggin",
-      title: "Little Bot & Noggin",
+      id: "little-bot",
+      title: "Little Bot",
       category: "robotics",
-      description: "Developed independent robotic projects exploring design, movement, hardware integration, and controls.",
+      description: "Developed an independent compact robotic build exploring small-scale linkages, locomotion, hardware integration, and controls.",
       tags: ["Robotics", "Hardware Integration", "Movement", "Controls"]
     },
     {
@@ -107,11 +107,11 @@ const PORTFOLIO_DATA = {
   ],
 
   exhibitions: [
-    "Brussels Maker Faire (Featured on Belgian national news & opening ceremony with Brussels government leadership)",
-    "Philadelphia Maker Faire",
-    "Rochester Maker Faire",
-    "Cairo Maker Faire",
-    "Tandem Industrial Design Conference at Jefferson University"
+    "Brussels Maker Faire — Zainiac 19 (Featured on Belgian national news & opening ceremony with Brussels government leadership)",
+    "Philadelphia Maker Faire — Zainiac 19",
+    "Rochester Maker Faire — Zainiac 19",
+    "Cairo Maker Faire — Zainiac 19",
+    "Tandem Industrial Design Conference at Jefferson University — Zainiac 19"
   ],
 
   leadership: [
