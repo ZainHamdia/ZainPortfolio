@@ -193,10 +193,10 @@ function initZ21Interactive() {
       headGroup.setAttribute('transform', `translate(${(neckVal * 0.35).toFixed(2)}, 0)`);
     }
     if (leftArm) {
-      leftArm.setAttribute('transform', `rotate(${(leftVal * 0.7).toFixed(2)} 236 97)`);
+      leftArm.setAttribute('transform', `rotate(${(leftVal * 0.7).toFixed(2)} 261 94)`);
     }
     if (rightArm) {
-      rightArm.setAttribute('transform', `rotate(${(-rightVal * 0.7).toFixed(2)} 464 97)`);
+      rightArm.setAttribute('transform', `rotate(${(-rightVal * 0.7).toFixed(2)} 419 94)`);
     }
     if (readout) {
       const jawDeg = Math.round(jawVal * 2);
