@@ -483,19 +483,59 @@
           </div>
         </div>
 
-        <!-- Research Paper Full Write-Up Card -->
+        <!-- Research Paper Full Write-Up & Document Viewer Card -->
         <div class="band-card" style="margin-bottom: 28px; padding: 28px; background: rgba(15, 23, 42, 0.78); border: 1px solid rgba(56, 189, 248, 0.28);">
-          <div class="section-label" style="color: #38bdf8; margin-bottom: 6px;">Internship Research Paper • Zain Hamdia</div>
-          <h3 style="color: #ffffff; font-size: 1.28rem; margin-bottom: 14px;">Engineering Analysis &amp; Single-Sided PCB Redesign</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; color: rgba(255,255,255,0.84); font-size: 0.95rem; line-height: 1.68;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 18px;">
             <div>
-              <strong style="color: #38bdf8; display: block; margin-bottom: 6px;">1. Curriculum Context &amp; Legacy Schematic Analysis</strong>
-              Part of Princeton University’s engineering curriculum is a class centered on microprocessors and their applications. This class uses model train sets as the platform for students to create and test their own automated model train sets, utilizing the knowledge they have gathered from the class. One of the most useful tools given to students is a <strong>DCC railroad track switch thrower with a trickle-charged capacitor</strong> (DCC RR switch thrower). With the board’s design being ~20 years old and its limits becoming clear, it was decided to remake and modernize the board. First, I analyzed the schematic of the old board (Figure 1) to understand what each individual part does: it uses power supplied by the track (plus an optional 5V DC input) and trickle-charges a capacitor over about <strong>12 seconds</strong>. When the relay is triggered, it releases the capacitor’s charge and throws the switch.
+              <div class="section-label" style="color: #38bdf8; margin-bottom: 6px;">Internship Research Paper • Zain Hamdia</div>
+              <h3 style="color: #ffffff; font-size: 1.28rem; margin: 0;">Modernizing the DCC Railroad Track Switch Thrower (MAE 412)</h3>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <a href="princeton-research-paper.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background: #0284c7; border-color: #38bdf8; color: #ffffff; padding: 9px 16px; font-size: 0.86rem;">
+                📄 Open Research Paper (PDF)
+              </a>
+              <a href="princeton-research-paper.pdf" download="Zain_Hamdia_Princeton_Research_Paper.pdf" class="btn btn-outline" style="border-color: rgba(56, 189, 248, 0.5); color: #e2e8f0; padding: 9px 16px; font-size: 0.86rem;">
+                ⬇ Download PDF
+              </a>
+              <a href="princeton-research-paper.docx" download="Zain_Hamdia_Princeton_Research_Paper.docx" class="btn btn-outline" style="border-color: rgba(45, 212, 191, 0.5); color: #e2e8f0; padding: 9px 16px; font-size: 0.86rem;">
+                ⬇ Download Word (.docx)
+              </a>
+            </div>
+          </div>
+
+          <!-- Verbatim Research Paper Text -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; color: rgba(255,255,255,0.88); font-size: 0.95rem; line-height: 1.72; margin-bottom: 24px;">
+            <div>
+              <strong style="color: #38bdf8; display: block; margin-bottom: 6px;">1. Background &amp; Legacy Schematic Analysis (Figure 1)</strong>
+              <p style="margin: 0 0 12px 0;">
+                Part of Princeton University’s engineering curriculum is a class centered on microprocessors and their applications. This class uses model train sets as the platform for students to create and test their own automated model train sets, utilizing the knowledge they have gathered from the class. Students are given several tools to create their models and aid in the automation. One of the most useful is a <strong>DCC railroad track switch thrower with a trickle-charged capacitor</strong> (DCC RR switch thrower). However, with the board’s design being ~20 years old, and the limits becoming clear, it was decided that it was necessary to remake the board with updates to modernize it.
+              </p>
+              <p style="margin: 0;">
+                What was done first was analyze the schematic (<strong>Figure 1</strong>) of the old board. Before remaking it, I had to understand the schematic, and what each individual part does. This schematic used the power supplied by the track, as well as an optional 5V DC input, and charges a capacitor over the course of about <strong>12 seconds</strong>. When the relay is triggered, it releases the charge of the capacitor, and throws the switch.
+              </p>
             </div>
             <div>
-              <strong style="color: #2dd4bf; display: block; margin-bottom: 6px;">2. Modernized Single-Sided Design, Assembly &amp; Deployment</strong>
-              The new board serves the same purpose with two key additions: first, putting an <strong>ATMEGA-328P microprocessor</strong> directly on the board to eliminate external connections and allow the track to be more easily controlled and automated; second, adding a <strong>second 4700µF capacitor</strong> so more charge is stored and two switch actions can be done in swift succession. Unlike the original double-sided board, the new board had to be <strong>single-sided</strong>, making trace routing significantly more complex to design. It took about <strong>two weeks</strong> to finish the design of the new DCC RR switch thrower (Figure 2), and about <strong>one week</strong> to gather all the parts and solder the board together. After review by my superior, two notes were immediately corrected, and the board is now actively put to use.
+              <strong style="color: #2dd4bf; display: block; margin-bottom: 6px;">2. Modernized Single-Sided PCB Design &amp; Deployment (Figures 2 &amp; 3)</strong>
+              <p style="margin: 0;">
+                The new board was to serve the same purpose, but with two key new additions. The first, and most important, was putting an <strong>ATMEGA-328P chip</strong> on the board. By adding a microprocessor, it eliminated the need for external connections, and allowed the track to be more easily controlled and automated. The second addition was a <strong>second capacitor</strong>, so that more charge is stored, and two actions can be done in swift succession. The original DCC RR switch thrower was a double-sided board. This board was to be <strong>single-sided</strong>, which made the board more complex to design. It took about <strong>two weeks</strong> to finish the design of the new DCC RR switch thrower (<strong>New schematic Figure 2</strong>). It took about <strong>a week</strong> to gather all the parts, and solder the board together. After being reviewed by my superior, it was given two notes, which were immediately corrected, and is now being put to use.
+              </p>
             </div>
+          </div>
+
+          <!-- Embedded Interactive PDF Document Viewer -->
+          <div style="border-radius: 10px; overflow: hidden; border: 1px solid rgba(56, 189, 248, 0.35); background: #0f172a;">
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; background: rgba(2, 132, 199, 0.18); border-bottom: 1px solid rgba(56, 189, 248, 0.25); font-size: 0.82rem; color: #bae6fd; font-weight: 600;">
+              <span>📑 Full Research Paper Document Preview (2 Pages • Figures 1–3 Included)</span>
+              <a href="princeton-research-paper.pdf" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;">Open in Full Tab ↗</a>
+            </div>
+            <object data="princeton-research-paper.pdf#view=FitH" type="application/pdf" width="100%" height="620" style="display: block; width: 100%; height: 620px; border: none; background: #ffffff;">
+              <iframe src="princeton-research-paper.pdf" width="100%" height="620" style="border: none;" title="Zain Hamdia Princeton University Research Paper PDF">
+                <p style="padding: 20px; color: #ffffff;">
+                  Your browser does not support inline PDF viewing.
+                  <a href="princeton-research-paper.pdf" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: underline;">Click here to view or download the research paper PDF.</a>
+                </p>
+              </iframe>
+            </object>
           </div>
         </div>
 
