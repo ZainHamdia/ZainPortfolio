@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robotics & Fabrication — Zain Hamdia</title>
   <meta name="description" content="Interactive showcase of Zain Hamdia's robotics builds — Zainiac 19, 21, and 25 (Noggin), VEX V5 Robotics, Little Bot, and 3D-printed N95 masks.">
-  <link rel="stylesheet" href="css/styles.css?v=visual-7">
+  <link rel="stylesheet" href="css/styles.css?v=visual-9">
 </head>
 <body class="theme-robotics">
 
@@ -51,7 +51,7 @@
         <div class="showcase-top-bar">
           <div>
             <h2 class="showcase-title">Zainiac Robot Explorer</h2>
-            <div class="showcase-sub">Switch generations and use the interactive controls to test the kinematics</div>
+            <div class="showcase-sub">Switch generations and use the interactive controls or demo buttons to test the kinematics</div>
           </div>
 
           <div class="lineage-tab-bar" role="tablist">
@@ -69,10 +69,11 @@
           <div id="panel-z19" class="lineage-panel active">
             <div class="control-bar">
               <div class="control-group">
-                <span class="control-label">Test Kinematics (Neck Pan, Waist Pan & Opposing Straight Arms):</span>
-                <input type="range" id="z19-kinematics-slider" class="control-slider" min="-40" max="40" value="0" aria-label="Zainiac 19 motion slider">
+                <label for="z19-kinematics-slider" class="control-label">Kinematics (Neck Pan, Waist Pan &amp; Opposing Straight Arms):</label>
+                <input type="range" id="z19-kinematics-slider" class="control-slider" min="-40" max="40" step="0.5" value="0" aria-label="Zainiac 19 motion slider">
+                <span id="z19-readout" class="servo-readout-pill">Neck: 0° • Waist: 0° • Arms: 0°</span>
               </div>
-              <button type="button" id="z19-demo-btn" class="control-btn">Animate Motion</button>
+              <button type="button" id="z19-demo-btn" class="control-btn">▶ Animate Motion</button>
             </div>
 
             <div class="diagram-stage">
@@ -86,75 +87,84 @@
                   <path d="M 56 22 L 72 22 M 56 344 L 72 344" stroke="#2563eb" stroke-width="2"/>
                   <text x="46" y="183" font-family="'Inter', sans-serif" font-size="10.5" fill="#2563eb" text-anchor="middle" transform="rotate(-90 46 183)" font-weight="700">~5 FEET TALL</text>
 
-                  <!-- Sculpted Silver/Grey Paper-Mâché Head with Googly Eyes (Pans Horizontally) -->
-                  <g id="z19-head-group">
-                    <!-- Paper-mâché sculpted head shell -->
-                    <path d="M 316 52 C 314 28, 330 18, 350 18 C 370 18, 386 28, 384 52 C 383 66, 375 74, 366 76 L 334 76 C 325 74, 317 66, 316 52 Z" fill="#94a3b8" stroke="#1e293b" stroke-width="2.2"/>
-                    <!-- Paper-mâché texture facets -->
-                    <path d="M 326 32 L 344 26 L 362 30 M 322 56 L 338 62 M 376 54 L 362 62" stroke="#64748b" stroke-width="1.3" stroke-linecap="round"/>
-                    <!-- White googly eyes -->
-                    <circle cx="337" cy="46" r="8.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.8"/>
-                    <circle cx="338" cy="47" r="4" fill="#0f172a"/>
-                    <circle cx="363" cy="47" r="9" fill="#ffffff" stroke="#1e293b" stroke-width="1.8"/>
-                    <circle cx="362" cy="48" r="4.2" fill="#0f172a"/>
-                    <!-- Red mouth opening & boxy silver collar -->
-                    <rect x="341" y="66" width="18" height="9" rx="2" fill="#ef4444" stroke="#1e293b" stroke-width="1.4"/>
-                    <rect x="331" y="75" width="38" height="15" rx="2" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.8"/>
-                    <circle cx="336" cy="82" r="1.8" fill="#475569"/>
-                    <circle cx="364" cy="82" r="1.8" fill="#475569"/>
+                  <!-- Upper Torso Assembly (Pans Horizontally at the Waist) -->
+                  <g id="z19-upper-torso">
+                    <!-- Sculpted Silver/Grey Paper-Mâché Head with Googly Eyes (Pans Horizontally) -->
+                    <g id="z19-head-group">
+                      <!-- Paper-mâché sculpted head shell -->
+                      <path d="M 316 52 C 314 28, 330 18, 350 18 C 370 18, 386 28, 384 52 C 383 66, 375 74, 366 76 L 334 76 C 325 74, 317 66, 316 52 Z" fill="#94a3b8" stroke="#1e293b" stroke-width="2.2"/>
+                      <!-- Paper-mâché texture facets -->
+                      <path d="M 326 32 L 344 26 L 362 30 M 322 56 L 338 62 M 376 54 L 362 62" stroke="#64748b" stroke-width="1.3" stroke-linecap="round"/>
+                      <!-- White googly eyes -->
+                      <circle cx="337" cy="46" r="8.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.8"/>
+                      <circle cx="363" cy="47" r="9" fill="#ffffff" stroke="#1e293b" stroke-width="1.8"/>
+                      <g id="z19-pupils">
+                        <circle cx="338" cy="47" r="4" fill="#0f172a"/>
+                        <circle cx="362" cy="48" r="4.2" fill="#0f172a"/>
+                      </g>
+                      <!-- Red mouth opening & boxy silver collar -->
+                      <rect x="341" y="66" width="18" height="9" rx="2" fill="#ef4444" stroke="#1e293b" stroke-width="1.4"/>
+                      <rect x="331" y="75" width="38" height="15" rx="2" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.8"/>
+                      <circle cx="336" cy="82" r="1.8" fill="#475569"/>
+                      <circle cx="364" cy="82" r="1.8" fill="#475569"/>
+                    </g>
+
+                    <!-- Winged Plywood Shoulder Plates (Behind PVC Spine) -->
+                    <polygon points="274,103 341,103 341,152 304,132" fill="#fef3c7" stroke="#b45309" stroke-width="1.8"/>
+                    <polygon points="359,103 426,103 396,132 359,152" fill="#fef3c7" stroke="#b45309" stroke-width="1.8"/>
+                    <!-- "Zainiac 19" White Gear Badge on Right Chest -->
+                    <circle cx="384" cy="117" r="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 1.5"/>
+                    <text x="384" y="119" font-family="'Inter', sans-serif" font-size="4.5" fill="#0f172a" text-anchor="middle" font-weight="700">Z19</text>
+
+                    <!-- Wooden Dowel Shoulder Bar & Orange 3D-Printed Brackets -->
+                    <rect x="260" y="96" width="180" height="7" rx="3" fill="#f59e0b" stroke="#92400e" stroke-width="1.6"/>
+                    <rect x="250" y="92" width="18" height="15" rx="3" fill="#f97316" stroke="#c2410c" stroke-width="1.8"/>
+                    <rect x="432" y="92" width="18" height="15" rx="3" fill="#f97316" stroke="#c2410c" stroke-width="1.8"/>
+
+                    <!-- Central Silver PVC Pipe Spine -->
+                    <rect x="340" y="90" width="20" height="114" rx="2" fill="#cbd5e1" stroke="#334155" stroke-width="2"/>
+                    <line x1="346" y1="92" x2="346" y2="202" stroke="#f8fafc" stroke-width="2"/>
+
+                    <!-- LEGO Mindstorms EV3 Brick & Motor Wiring -->
+                    <rect x="314" y="130" width="26" height="50" rx="3" fill="#ffffff" stroke="#dc2626" stroke-width="1.8"/>
+                    <rect x="318" y="136" width="18" height="14" rx="1.5" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+                    <circle cx="327" cy="168" r="3.5" fill="#22c55e"/>
+                    <path d="M 314 145 C 292 140, 292 175, 314 172" stroke="#dc2626" stroke-width="1.8" fill="none"/>
+
+                    <!-- 3 Horizontal Wire Ribcage Hoops -->
+                    <path d="M 296 130 Q 350 142 404 130" stroke="#e2e8f0" stroke-width="3" fill="none"/>
+                    <path d="M 296 130 Q 350 142 404 130" stroke="#475569" stroke-width="1.4" fill="none"/>
+                    <path d="M 298 152 Q 350 164 402 152" stroke="#e2e8f0" stroke-width="3" fill="none"/>
+                    <path d="M 298 152 Q 350 164 402 152" stroke="#475569" stroke-width="1.4" fill="none"/>
+                    <path d="M 302 174 Q 350 186 398 174" stroke="#e2e8f0" stroke-width="3" fill="none"/>
+                    <path d="M 302 174 Q 350 186 398 174" stroke="#475569" stroke-width="1.4" fill="none"/>
+
+                    <!-- Left Straight Arm (Hanging from Left Orange Bracket at 259,100 — No Elbow Bend) -->
+                    <g id="z19-left-arm">
+                      <line x1="259" y1="100" x2="246" y2="202" stroke="#1e293b" stroke-width="7" stroke-linecap="round"/>
+                      <path d="M 255 118 L 262 128 L 251 140 L 258 152 L 247 166 L 254 180 L 244 194" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+                      <circle cx="259" cy="100" r="3.5" fill="#fed7aa" stroke="#9a3412" stroke-width="1.2"/>
+                      <circle cx="246" cy="202" r="4.5" fill="#f97316" stroke="#1e293b" stroke-width="1.5"/>
+                    </g>
+
+                    <!-- Right Straight Arm (Hanging from Right Orange Bracket at 441,100 — Opposite Swing) -->
+                    <g id="z19-right-arm">
+                      <line x1="441" y1="100" x2="454" y2="202" stroke="#1e293b" stroke-width="7" stroke-linecap="round"/>
+                      <path d="M 445 118 L 438 128 L 449 140 L 442 152 L 453 166 L 446 180 L 456 194" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
+                      <circle cx="441" cy="100" r="3.5" fill="#fed7aa" stroke="#9a3412" stroke-width="1.2"/>
+                      <circle cx="454" cy="202" r="4.5" fill="#f97316" stroke="#1e293b" stroke-width="1.5"/>
+                    </g>
                   </g>
+
+                  <!-- Static Labels for Z19 -->
                   <text x="235" y="42" font-family="'Inter', sans-serif" font-size="9.5" fill="#1e293b" text-anchor="end" font-weight="700">Paper-Mâché Head</text>
                   <text x="235" y="54" font-family="'Inter', sans-serif" font-size="8.5" fill="#2563eb" text-anchor="end" font-weight="600">Googly Eyes • Pans Only</text>
-
-                  <!-- Winged Plywood Shoulder Plates (Behind PVC Spine) -->
-                  <polygon points="274,103 341,103 341,152 304,132" fill="#fef3c7" stroke="#b45309" stroke-width="1.8"/>
-                  <polygon points="359,103 426,103 396,132 359,152" fill="#fef3c7" stroke="#b45309" stroke-width="1.8"/>
-                  <!-- "Zainiac 19" White Gear Badge on Right Chest -->
-                  <circle cx="384" cy="117" r="9" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="3 1.5"/>
-                  <text x="384" y="119" font-family="'Inter', sans-serif" font-size="4.5" fill="#0f172a" text-anchor="middle" font-weight="700">Z19</text>
-
-                  <!-- Wooden Dowel Shoulder Bar & Orange 3D-Printed Brackets -->
-                  <rect x="260" y="96" width="180" height="7" rx="3" fill="#f59e0b" stroke="#92400e" stroke-width="1.6"/>
-                  <rect x="250" y="92" width="18" height="15" rx="3" fill="#f97316" stroke="#c2410c" stroke-width="1.8"/>
-                  <rect x="432" y="92" width="18" height="15" rx="3" fill="#f97316" stroke="#c2410c" stroke-width="1.8"/>
                   <text x="458" y="96" font-family="'Inter', sans-serif" font-size="9" fill="#ea580c" font-weight="700">3D-Printed Mounts</text>
                   <text x="458" y="107" font-family="'Inter', sans-serif" font-size="8.5" fill="#92400e" font-weight="600">+ Wood Shoulder Bar</text>
-
-                  <!-- Central Silver PVC Pipe Spine -->
-                  <rect x="340" y="90" width="20" height="114" rx="2" fill="#cbd5e1" stroke="#334155" stroke-width="2"/>
-                  <line x1="346" y1="92" x2="346" y2="202" stroke="#f8fafc" stroke-width="2"/>
-
-                  <!-- LEGO Mindstorms EV3 Brick & Motor Wiring -->
-                  <rect x="314" y="130" width="26" height="50" rx="3" fill="#ffffff" stroke="#dc2626" stroke-width="1.8"/>
-                  <rect x="318" y="136" width="18" height="14" rx="1.5" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
-                  <circle cx="327" cy="168" r="3.5" fill="#22c55e"/>
-                  <path d="M 314 145 C 292 140, 292 175, 314 172" stroke="#dc2626" stroke-width="1.8" fill="none"/>
-
-                  <!-- 3 Horizontal Wire Ribcage Hoops -->
-                  <path d="M 296 130 Q 350 142 404 130" stroke="#e2e8f0" stroke-width="3" fill="none"/>
-                  <path d="M 296 130 Q 350 142 404 130" stroke="#475569" stroke-width="1.4" fill="none"/>
-                  <path d="M 298 152 Q 350 164 402 152" stroke="#e2e8f0" stroke-width="3" fill="none"/>
-                  <path d="M 298 152 Q 350 164 402 152" stroke="#475569" stroke-width="1.4" fill="none"/>
-                  <path d="M 302 174 Q 350 186 398 174" stroke="#e2e8f0" stroke-width="3" fill="none"/>
-                  <path d="M 302 174 Q 350 186 398 174" stroke="#475569" stroke-width="1.4" fill="none"/>
-                  <text x="415" y="156" font-family="'Inter', sans-serif" font-size="9" fill="#475569" font-weight="700">PVC Spine & Wire Ribs</text>
+                  <text x="415" y="156" font-family="'Inter', sans-serif" font-size="9" fill="#475569" font-weight="700">PVC Spine &amp; Wire Ribs</text>
                   <text x="415" y="168" font-family="'Inter', sans-serif" font-size="8.5" fill="#dc2626" font-weight="600">LEGO Mindstorms EV3</text>
-
-                  <!-- Left Straight Arm (Hanging from Left Orange Bracket, No Elbow Bend) -->
-                  <g id="z19-left-arm">
-                    <line x1="259" y1="104" x2="246" y2="202" stroke="#1e293b" stroke-width="7" stroke-linecap="round"/>
-                    <path d="M 255 118 L 262 128 L 251 140 L 258 152 L 247 166 L 254 180 L 244 194" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
-                    <circle cx="246" cy="202" r="4.5" fill="#f97316" stroke="#1e293b" stroke-width="1.5"/>
-                  </g>
-                  <text x="234" y="146" font-family="'Inter', sans-serif" font-size="9.5" fill="#7c3aed" text-anchor="end" font-weight="700">Straight Rigid Arms</text>
-                  <text x="234" y="158" font-family="'Inter', sans-serif" font-size="8.5" fill="#475569" text-anchor="end" font-weight="600">Opposing Swing • No Elbow</text>
-
-                  <!-- Right Straight Arm (Hanging from Right Orange Bracket, Opposite Swing) -->
-                  <g id="z19-right-arm">
-                    <line x1="441" y1="104" x2="454" y2="202" stroke="#1e293b" stroke-width="7" stroke-linecap="round"/>
-                    <path d="M 445 118 L 438 128 L 449 140 L 442 152 L 453 166 L 446 180 L 456 194" stroke="#cbd5e1" stroke-width="1.5" fill="none"/>
-                    <circle cx="454" cy="202" r="4.5" fill="#f97316" stroke="#1e293b" stroke-width="1.5"/>
-                  </g>
+                  <text x="224" y="146" font-family="'Inter', sans-serif" font-size="9.5" fill="#7c3aed" text-anchor="end" font-weight="700">Straight Rigid Arms</text>
+                  <text x="224" y="158" font-family="'Inter', sans-serif" font-size="8.5" fill="#475569" text-anchor="end" font-weight="600">Opposing Swing • No Elbow</text>
 
                   <!-- Waist Pan Mount & Grey Painted Wood Pelvis Box -->
                   <rect x="332" y="198" width="36" height="10" rx="2" fill="#1e293b"/>
@@ -163,11 +173,13 @@
                   <rect x="400" y="196" width="16" height="12" rx="2" fill="#f8fafc" stroke="#dc2626" stroke-width="1.5"/>
                   <!-- Grey Wooden Hip Box -->
                   <rect x="288" y="208" width="124" height="36" rx="3" fill="#64748b" stroke="#1e293b" stroke-width="2"/>
+                  <!-- Waist Pan Track Slot -->
+                  <rect x="322" y="222" width="56" height="8" rx="4" fill="#334155"/>
                   <!-- Silver Corner L-Brackets -->
                   <rect x="292" y="212" width="14" height="12" rx="1" fill="#e2e8f0" stroke="#475569" stroke-width="1.2"/>
                   <rect x="394" y="212" width="14" height="12" rx="1" fill="#e2e8f0" stroke="#475569" stroke-width="1.2"/>
                   <g id="z19-waist-ind">
-                    <circle cx="350" cy="226" r="5" fill="#38bdf8" stroke="#0f172a" stroke-width="1.5"/>
+                    <circle cx="350" cy="226" r="5.5" fill="#38bdf8" stroke="#0f172a" stroke-width="1.5"/>
                   </g>
                   <text x="272" y="230" font-family="'Inter', sans-serif" font-size="9.5" fill="#7c3aed" text-anchor="end" font-weight="700">Waist: Pans Only</text>
 
@@ -183,30 +195,30 @@
                   <rect x="258" y="323" width="6" height="18" rx="2" fill="#f8fafc"/>
                   <rect x="434" y="318" width="10" height="28" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
                   <rect x="436" y="323" width="6" height="18" rx="2" fill="#f8fafc"/>
-                  <text x="350" y="355" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155" text-anchor="middle" font-weight="700">Painted Wood Legs & Wheeled Platform Base</text>
+                  <text x="350" y="355" font-family="'Inter', sans-serif" font-size="9.5" fill="#334155" text-anchor="middle" font-weight="700">Painted Wood Legs &amp; Wheeled Platform Base</text>
                 </svg>
               </div>
 
               <div class="spec-stack">
                 <div class="spec-card">
-                  <div class="spec-card-label">Scale & Height</div>
+                  <div class="spec-card-label">Scale &amp; Height</div>
                   <div class="spec-card-val">About 5 Feet Tall</div>
                   <div class="spec-card-desc">Full-scale humanoid frame built in 2019</div>
                 </div>
                 <div class="spec-card">
                   <div class="spec-card-label">Materials</div>
-                  <div class="spec-card-val">Wood, PVC & Particle Board</div>
+                  <div class="spec-card-val">Wood, PVC &amp; Particle Board</div>
                   <div class="spec-card-desc">Paper-mâché head + custom 3D-printed brackets</div>
                 </div>
                 <div class="spec-card">
-                  <div class="spec-card-label">Arm & Joint Kinematics</div>
+                  <div class="spec-card-label">Arm &amp; Joint Kinematics</div>
                   <div class="spec-card-val">Opposing Straight Arms</div>
                   <div class="spec-card-desc">Elbows do not bend; neck and waist pan horizontally</div>
                 </div>
                 <div class="spec-card">
-                  <div class="spec-card-label">Control Core & Exhibitions</div>
+                  <div class="spec-card-label">Control Core &amp; Exhibitions</div>
                   <div class="spec-card-val">LEGO Mindstorms</div>
-                  <div class="spec-card-desc">The only robot in the series presented at Maker Faires & conferences</div>
+                  <div class="spec-card-desc">The only robot in the series presented at Maker Faires &amp; conferences</div>
                 </div>
               </div>
             </div>
@@ -225,7 +237,7 @@
                 <img src="img/maker-philly-booth.jpg" alt="Full-scale view of Zainiac 19 at Philadelphia Maker Faire" class="photo-card-img tall">
                 <div class="photo-card-body">
                   <div class="photo-card-tag">Zainiac 19 • Full ~5-Foot Scale</div>
-                  <div class="photo-card-title">Full-Height Humanoid Frame & Wheeled Base</div>
+                  <div class="photo-card-title">Full-Height Humanoid Frame &amp; Wheeled Base</div>
                   <p class="photo-card-desc">Full view of Zainiac 19 on its wooden legs and rolling platform at the Philadelphia Maker Faire booth.</p>
                 </div>
               </div>
@@ -238,10 +250,11 @@
           <div id="panel-z21" class="lineage-panel">
             <div class="control-bar">
               <div class="control-group">
-                <span class="control-label">Flex Braced Linkages:</span>
-                <input type="range" id="z21-linkage-slider" class="control-slider" min="-35" max="35" value="0" aria-label="Zainiac 21 linkage slider">
+                <label for="z21-linkage-slider" class="control-label">Flex Braced Linkages:</label>
+                <input type="range" id="z21-linkage-slider" class="control-slider" min="-35" max="35" step="0.5" value="0" aria-label="Zainiac 21 linkage slider">
+                <span id="z21-readout" class="servo-readout-pill">Linkage Swing: 0°</span>
               </div>
-              <span style="font-size: 0.82rem; color: var(--text-secondary);">Second-generation in-house LEGO Mindstorms build focused on stiffer linkages</span>
+              <button type="button" id="z21-demo-btn" class="control-btn">▶ Animate Linkages</button>
             </div>
 
             <div class="diagram-stage">
@@ -251,12 +264,14 @@
                   <line x1="350" y1="20" x2="350" y2="325" stroke="#e2e8f0" stroke-dasharray="4 4"/>
 
                   <!-- Sculpted & 3D-Bracketed Head Module -->
-                  <path d="M 314 54 C 314 32, 330 24, 350 24 C 370 24, 386 32, 386 54 L 382 78 L 318 78 Z" fill="#cbd5e1" stroke="#0f172a" stroke-width="2.2"/>
-                  <circle cx="336" cy="52" r="8.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
-                  <circle cx="336" cy="52" r="4" fill="#0d9488"/>
-                  <circle cx="364" cy="52" r="8.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
-                  <circle cx="364" cy="52" r="4" fill="#0d9488"/>
-                  <rect x="330" y="78" width="40" height="14" rx="2" fill="#94a3b8" stroke="#0f172a" stroke-width="1.8"/>
+                  <g id="z21-head-group">
+                    <path d="M 314 54 C 314 32, 330 24, 350 24 C 370 24, 386 32, 386 54 L 382 78 L 318 78 Z" fill="#cbd5e1" stroke="#0f172a" stroke-width="2.2"/>
+                    <circle cx="336" cy="52" r="8.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+                    <circle cx="336" cy="52" r="4" fill="#0d9488"/>
+                    <circle cx="364" cy="52" r="8.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+                    <circle cx="364" cy="52" r="4" fill="#0d9488"/>
+                    <rect x="330" y="78" width="40" height="14" rx="2" fill="#94a3b8" stroke="#0f172a" stroke-width="1.8"/>
+                  </g>
 
                   <!-- Reinforced Shoulder Bar & 3D-Printed Gussets -->
                   <polygon points="274,102 338,102 338,156 298,136" fill="#e2e8f0" stroke="#334155" stroke-width="1.8"/>
@@ -270,17 +285,19 @@
                   <text x="350" y="144" font-family="'Inter', sans-serif" font-size="8" fill="#0f766e" text-anchor="middle" font-weight="700">MINDSTORMS</text>
                   <circle cx="350" cy="170" r="5" fill="#dc2626"/>
 
-                  <!-- Left Braced Linkage Arm -->
+                  <!-- Left Braced Linkage Arm (Pivot at 268, 100) -->
                   <g id="z21-left-link">
                     <line x1="268" y1="100" x2="225" y2="195" stroke="#0284c7" stroke-width="6" stroke-linecap="round"/>
                     <line x1="298" y1="136" x2="238" y2="166" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="4 2"/>
+                    <circle cx="268" cy="100" r="4" fill="#f0fdfa" stroke="#0f172a" stroke-width="1.5"/>
                     <circle cx="225" cy="195" r="5.5" fill="#0d9488" stroke="#0f172a" stroke-width="1.5"/>
                   </g>
 
-                  <!-- Right Braced Linkage Arm -->
+                  <!-- Right Braced Linkage Arm (Pivot at 432, 100) -->
                   <g id="z21-right-link">
                     <line x1="432" y1="100" x2="475" y2="195" stroke="#0284c7" stroke-width="6" stroke-linecap="round"/>
                     <line x1="402" y1="136" x2="462" y2="166" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="4 2"/>
+                    <circle cx="432" cy="100" r="4" fill="#f0fdfa" stroke="#0f172a" stroke-width="1.5"/>
                     <circle cx="475" cy="195" r="5.5" fill="#0d9488" stroke="#0f172a" stroke-width="1.5"/>
                   </g>
 
@@ -325,14 +342,15 @@
           <div id="panel-z25" class="lineage-panel">
             <div class="control-bar">
               <div class="control-group">
-                <span class="control-label">Eye Gaze:</span>
-                <input type="range" id="z25-eye-slider" class="control-slider" min="-10" max="10" value="0" aria-label="Eye gaze slider">
-                <span class="control-label">Jaw Linkage:</span>
-                <input type="range" id="z25-jaw-slider" class="control-slider" min="0" max="18" value="0" aria-label="Jaw opening slider">
-                <span class="control-label">Neck Base Tilt:</span>
-                <input type="range" id="z25-neck-slider" class="control-slider" min="-6" max="6" value="0" aria-label="Neck tilt slider">
+                <label for="z25-eye-slider" class="control-label">Eye Gaze (4 Servos):</label>
+                <input type="range" id="z25-eye-slider" class="control-slider" min="-12" max="12" step="0.1" value="0" aria-label="Eye gaze slider">
+                <label for="z25-jaw-slider" class="control-label">Jaw Linkage (1 Servo):</label>
+                <input type="range" id="z25-jaw-slider" class="control-slider" min="0" max="20" step="0.1" value="0" aria-label="Jaw opening slider">
+                <label for="z25-neck-slider" class="control-label">Neck Tilt (2 Servos):</label>
+                <input type="range" id="z25-neck-slider" class="control-slider" min="-10" max="10" step="0.1" value="0" aria-label="Neck tilt slider">
+                <span id="z25-readout" class="servo-readout-pill">Eyes: 0° • Jaw: 0° • Neck: 0°</span>
               </div>
-              <button type="button" id="z25-demo-btn" class="control-btn">Run Servo Demo</button>
+              <button type="button" id="z25-demo-btn" class="control-btn">▶ Run Servo Demo</button>
             </div>
 
             <div class="diagram-stage">
@@ -347,48 +365,61 @@
                   <rect x="202" y="294" width="66" height="32" rx="3" fill="#0284c7" stroke="#0369a1" stroke-width="1.8"/>
                   <rect x="210" y="314" width="14" height="16" rx="2" fill="#38bdf8" stroke="#0284c7" stroke-width="1.4"/>
                   <circle cx="246" cy="304" r="3.5" fill="#60a5fa"/>
-                  <circle cx="256" cy="306" r="2.5" fill="#4ade80"/>
+                  <circle id="z25-arduino-led" cx="256" cy="306" r="2.8" fill="#4ade80"/>
                   <path d="M 217 330 C 218 348, 232 362, 260 368" stroke="#2563eb" stroke-width="5" stroke-linecap="round" fill="none"/>
                   <!-- Servo Jumper Wire Harness -->
                   <path d="M 236 294 C 225 255, 285 210, 315 170" stroke="#ea580c" stroke-width="2" fill="none"/>
                   <path d="M 242 294 C 238 260, 295 220, 338 165" stroke="#dc2626" stroke-width="1.8" fill="none"/>
                   <text x="168" y="308" font-family="'Inter', sans-serif" font-size="9" fill="#0284c7" text-anchor="end" font-weight="700">Arduino Controller</text>
-                  <text x="168" y="320" font-family="'Inter', sans-serif" font-size="8" fill="#475569" text-anchor="end" font-weight="600">+ Blue USB Feed</text>
+                  <text x="168" y="320" font-family="'Inter', sans-serif" font-size="8" fill="#475569" text-anchor="end" font-weight="600">+ 7-Servo PWM Bus</text>
 
                   <!-- Dual Neck Base Servos in 3D-Printed Grey Mount + Central Pivot Post -->
                   <rect x="286" y="298" width="128" height="32" rx="3" fill="#94a3b8" stroke="#1e293b" stroke-width="1.8"/>
                   <!-- Neck Servo 1 (Left) -->
                   <rect x="292" y="286" width="44" height="28" rx="2" fill="#1e293b" stroke="#09090b" stroke-width="1.6"/>
-                  <rect x="280" y="298" width="12" height="6" rx="2" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.2"/>
+                  <g id="z25-neck-horn-left">
+                    <rect x="278" y="297" width="16" height="6" rx="2" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.2"/>
+                    <circle cx="294" cy="300" r="2.5" fill="#ef4444"/>
+                  </g>
                   <!-- Neck Servo 2 (Right) -->
                   <rect x="364" y="286" width="44" height="28" rx="2" fill="#1e293b" stroke="#09090b" stroke-width="1.6"/>
-                  <rect x="408" y="298" width="12" height="6" rx="2" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.2"/>
-                  <!-- Central Cylindrical Neck Post -->
+                  <g id="z25-neck-horn-right">
+                    <rect x="406" y="297" width="16" height="6" rx="2" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.2"/>
+                    <circle cx="406" cy="300" r="2.5" fill="#ef4444"/>
+                  </g>
+                  <!-- Central Cylindrical Neck Post (Pivot at 350, 254) -->
                   <rect x="338" y="242" width="24" height="62" rx="4" fill="#94a3b8" stroke="#1e293b" stroke-width="1.8"/>
-                  <circle cx="350" cy="254" r="4" fill="#1e293b"/>
+                  <circle cx="350" cy="254" r="4.5" fill="#1e293b"/>
 
-                  <!-- Left & Right Metal Neck Pushrod Linkages with Black Ball Ends -->
-                  <line x1="283" y1="298" x2="298" y2="222" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
-                  <rect x="280" y="290" width="6" height="10" rx="2" fill="#09090b"/>
-                  <rect x="294" y="220" width="6" height="10" rx="2" fill="#09090b"/>
+                  <!-- Left & Right Metal Neck Pushrod Linkages with Black Ball Ends (Animated with Neck Tilt) -->
+                  <line id="z25-pushrod-left" x1="283" y1="298" x2="298" y2="222" stroke="#475569" stroke-width="3.2" stroke-linecap="round"/>
+                  <circle id="z25-ball-left-bot" cx="283" cy="298" r="3.5" fill="#09090b"/>
+                  <circle id="z25-ball-left-top" cx="298" cy="222" r="3.5" fill="#09090b"/>
 
-                  <line x1="417" y1="298" x2="402" y2="222" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
-                  <rect x="414" y="290" width="6" height="10" rx="2" fill="#09090b"/>
-                  <rect x="400" y="220" width="6" height="10" rx="2" fill="#09090b"/>
+                  <line id="z25-pushrod-right" x1="417" y1="298" x2="402" y2="222" stroke="#475569" stroke-width="3.2" stroke-linecap="round"/>
+                  <circle id="z25-ball-right-bot" cx="417" cy="298" r="3.5" fill="#09090b"/>
+                  <circle id="z25-ball-right-top" cx="402" cy="222" r="3.5" fill="#09090b"/>
 
                   <text x="518" y="298" font-family="'Inter', sans-serif" font-size="9.5" fill="#0f766e" font-weight="700">2 Base Neck Servos</text>
                   <text x="518" y="310" font-family="'Inter', sans-serif" font-size="8.5" fill="#475569" font-weight="600">Pushrod Tilt Linkages</text>
 
-                  <!-- Tilting 3D-Printed Grey Trapezoidal Head Cage Group -->
+                  <!-- Tilting 3D-Printed Grey Trapezoidal Head Cage Group (Pivots at 350, 254) -->
                   <g id="z25-head-cage">
                     <!-- Rear Top Perimeter Frame & 4 Eye Servos + 3D-Printed Linkage Arms (from z25-top.jpg) -->
-                    <rect x="224" y="42" width="252" height="12" rx="2" fill="#64748b" stroke="#1e293b" stroke-width="1.8"/>
-                    <!-- Left Eye Dual Servos & Linkage Arms -->
-                    <rect x="246" y="54" width="32" height="18" rx="2" fill="#1e293b"/>
-                    <line x1="262" y1="54" x2="276" y2="74" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
-                    <!-- Right Eye Dual Servos & Linkage Arms -->
-                    <rect x="422" y="54" width="32" height="18" rx="2" fill="#1e293b"/>
-                    <line x1="438" y1="54" x2="424" y2="74" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
+                    <rect x="224" y="38" width="252" height="12" rx="2" fill="#64748b" stroke="#1e293b" stroke-width="1.8"/>
+                    <!-- Left Eye Dual Servos & Moving Linkage Arms -->
+                    <rect x="242" y="50" width="38" height="18" rx="2" fill="#1e293b"/>
+                    <circle cx="253" cy="59" r="2.5" fill="#38bdf8"/>
+                    <circle cx="269" cy="59" r="2.5" fill="#38bdf8"/>
+                    <line id="z25-left-eye-link" x1="258" y1="56" x2="274" y2="74" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                    <line id="z25-left-eye-link2" x1="270" y1="56" x2="278" y2="74" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
+
+                    <!-- Right Eye Dual Servos & Moving Linkage Arms -->
+                    <rect x="420" y="50" width="38" height="18" rx="2" fill="#1e293b"/>
+                    <circle cx="431" cy="59" r="2.5" fill="#38bdf8"/>
+                    <circle cx="447" cy="59" r="2.5" fill="#38bdf8"/>
+                    <line id="z25-right-eye-link" x1="442" y1="56" x2="426" y2="74" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+                    <line id="z25-right-eye-link2" x1="430" y1="56" x2="422" y2="74" stroke="#60a5fa" stroke-width="2.5" stroke-linecap="round"/>
 
                     <!-- Tapered V-Shaped Outer Struts (Matches z25-front.jpg & z25-back-dark.jpg) -->
                     <polygon points="226,126 242,126 306,222 292,222" fill="#94a3b8" stroke="#1e293b" stroke-width="2"/>
@@ -436,8 +467,11 @@
                     <text x="502" y="76" font-family="'Inter', sans-serif" font-size="8.5" fill="#2563eb" font-weight="600">2 Servos + Linkage Arms</text>
 
                     <!-- Jaw Servo & Moving 3-Hole D-Shaped Jaw Paddle (Matches z25-front.jpg & z25-top.jpg) -->
-                    <rect x="338" y="132" width="24" height="22" rx="3" fill="#1e293b"/>
-                    <circle cx="350" cy="144" r="3.5" fill="#ef4444"/>
+                    <rect x="336" y="130" width="28" height="24" rx="3" fill="#1e293b"/>
+                    <g id="z25-jaw-horn">
+                      <line x1="350" y1="142" x2="362" y2="142" stroke="#f8fafc" stroke-width="3" stroke-linecap="round"/>
+                      <circle cx="350" cy="142" r="3.5" fill="#ef4444"/>
+                    </g>
 
                     <g id="z25-jaw-group">
                       <rect x="345" y="144" width="10" height="104" rx="2" fill="#64748b" stroke="#1e293b" stroke-width="1.8"/>
@@ -634,6 +668,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=visual-9"></script>
 </body>
 </html>

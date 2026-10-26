@@ -1,9 +1,13 @@
 /**
  * Zain Hamdia — Interactive Portfolio Controls
- * Powers interactive robot kinematics, flight yoke simulation, and Station 46 display preview
+ * Powers interactive robot kinematics, 7-servo animatronic head demo,
+ * dual-axis flight yoke simulation, and Station 46 Raspberry Pi display preview.
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initPortfolioApp() {
+  if (window.__zainPortfolioInitialized) return;
+  window.__zainPortfolioInitialized = true;
+
   initMobileNav();
   initLineageTabs();
   initZ19Interactive();
@@ -11,7 +15,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initZ25Interactive();
   initFlightYokeInteractive();
   initStationDisplayInteractive();
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPortfolioApp);
+} else {
+  initPortfolioApp();
+}
 
 /* Mobile Navigation */
 function initMobileNav() {
@@ -24,17 +34,20 @@ function initMobileNav() {
   }
 }
 
-/* Generation Tab Switcher */
+/* Generation Tab Switcher (Robotics Page) */
 function initLineageTabs() {
-  const tabBtns = document.querySelectorAll('.lineage-tab-btn');
+  const tabBtns = document.querySelectorAll('.lineage-tab-btn[data-gen]');
   const panels = document.querySelectorAll('.lineage-panel');
   if (!tabBtns.length) return;
 
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetGen = btn.getAttribute('data-gen');
+      if (!targetGen) return;
+
       tabBtns.forEach(b => b.classList.remove('active'));
       panels.forEach(p => p.classList.remove('active'));
+
       btn.classList.add('active');
       const activePanel = document.getElementById(`panel-${targetGen}`);
       if (activePanel) activePanel.classList.add('active');
@@ -42,193 +55,539 @@ function initLineageTabs() {
   });
 }
 
-/* Zainiac 19 Interactive Kinematics (Neck Pan, Waist Pan, Opposing Straight Arms) */
+/* ==========================================================================
+   PANEL 1: Zainiac 19 Interactive Kinematics
+   (Neck Pan, Waist Pan, Opposing Straight Rigid Arms)
+   ========================================================================== */
 function initZ19Interactive() {
   const slider = document.getElementById('z19-kinematics-slider');
   const demoBtn = document.getElementById('z19-demo-btn');
   if (!slider) return;
 
+  const upperTorso = document.getElementById('z19-upper-torso');
   const headGroup = document.getElementById('z19-head-group');
+  const pupils = document.getElementById('z19-pupils');
   const leftArm = document.getElementById('z19-left-arm');
   const rightArm = document.getElementById('z19-right-arm');
   const waistInd = document.getElementById('z19-waist-ind');
+  const readout = document.getElementById('z19-readout');
 
-  function updateZ19(val) {
-    const v = parseFloat(val); // -40 to 40
-    if (headGroup) {
-      headGroup.setAttribute('transform', `translate(${v * 0.35}, 0)`);
+  let animId = null;
+
+  function stopAnim() {
+    if (animId) {
+      cancelAnimationFrame(animId);
+      animId = null;
     }
-    if (waistInd) {
-      waistInd.setAttribute('transform', `translate(${v * 0.25}, 0)`);
-    }
-    // Straight rigid arms (no elbow bend) swinging in opposite directions from orange 3D-printed shoulder mounts
-    if (leftArm) {
-      leftArm.setAttribute('transform', `rotate(${v * 0.65} 259 104)`);
-    }
-    if (rightArm) {
-      rightArm.setAttribute('transform', `rotate(${-v * 0.65} 441 104)`);
+    if (demoBtn) {
+      demoBtn.classList.remove('active');
+      demoBtn.textContent = '▶ Animate Motion';
     }
   }
 
-  slider.addEventListener('input', e => updateZ19(e.target.value));
+  function updateZ19(rawVal) {
+    const v = parseFloat(rawVal) || 0; // -40 to 40
 
-  let animId = null;
+    // Waist pans horizontally (shifts upper torso + moves waist track indicator)
+    if (upperTorso) {
+      upperTorso.setAttribute('transform', `translate(${(v * 0.22).toFixed(2)}, 0)`);
+    }
+    if (waistInd) {
+      waistInd.setAttribute('transform', `translate(${(v * 0.45).toFixed(2)}, 0)`);
+    }
+
+    // Neck pans horizontally relative to torso + subtle googly eye shift
+    if (headGroup) {
+      headGroup.setAttribute('transform', `translate(${(v * 0.34).toFixed(2)}, 0)`);
+    }
+    if (pupils) {
+      pupils.setAttribute('transform', `translate(${(v * 0.08).toFixed(2)}, 0)`);
+    }
+
+    // Opposing straight rigid arms (elbows never bend) pivoting at shoulder brackets
+    if (leftArm) {
+      leftArm.setAttribute('transform', `rotate(${(v * 0.65).toFixed(2)} 259 100)`);
+    }
+    if (rightArm) {
+      rightArm.setAttribute('transform', `rotate(${(v * 0.65).toFixed(2)} 441 100)`);
+    }
+
+    if (readout) {
+      const neckDeg = Math.round(v * 0.75);
+      const waistDeg = Math.round(v * 0.5);
+      const armDeg = Math.round(Math.abs(v * 0.65));
+      readout.textContent = `Neck: ${neckDeg > 0 ? '+' : ''}${neckDeg}° • Waist: ${waistDeg > 0 ? '+' : ''}${waistDeg}° • Arms: ±${armDeg}°`;
+    }
+  }
+
+  slider.addEventListener('input', e => {
+    if (animId) stopAnim();
+    updateZ19(e.target.value);
+  });
+
   if (demoBtn) {
     demoBtn.addEventListener('click', () => {
       if (animId) {
-        cancelAnimationFrame(animId);
-        animId = null;
-        demoBtn.classList.remove('active');
-        demoBtn.textContent = 'Animate Motion';
+        stopAnim();
         return;
       }
       demoBtn.classList.add('active');
-      demoBtn.textContent = 'Stop Animation';
-      let t = 0;
+      demoBtn.textContent = '■ Stop Animation';
+      let t = Math.asin(Math.max(-1, Math.min(1, (parseFloat(slider.value) || 0) / 36))) || 0;
+
       function loop() {
-        t += 0.04;
-        const val = Math.sin(t) * 35;
-        slider.value = val;
+        t += 0.045;
+        const val = Math.sin(t) * 36;
+        slider.value = val.toFixed(1);
         updateZ19(val);
         animId = requestAnimationFrame(loop);
       }
       loop();
     });
   }
+
+  updateZ19(slider.value);
 }
 
-/* Zainiac 21 Interactive Linkage */
+/* ==========================================================================
+   PANEL 2: Zainiac 21 Interactive Braced Linkages
+   ========================================================================== */
 function initZ21Interactive() {
   const slider = document.getElementById('z21-linkage-slider');
+  const demoBtn = document.getElementById('z21-demo-btn');
   if (!slider) return;
+
   const leftLink = document.getElementById('z21-left-link');
   const rightLink = document.getElementById('z21-right-link');
-
-  slider.addEventListener('input', e => {
-    const v = parseFloat(e.target.value);
-    if (leftLink) leftLink.setAttribute('transform', `rotate(${v * 0.5} 268 100)`);
-    if (rightLink) rightLink.setAttribute('transform', `rotate(${-v * 0.5} 432 100)`);
-  });
-}
-
-/* Zainiac 25 Interactive Animatronic Head (Eyes, Jaw, Neck Tilt) */
-function initZ25Interactive() {
-  const eyeSlider = document.getElementById('z25-eye-slider');
-  const jawSlider = document.getElementById('z25-jaw-slider');
-  const neckSlider = document.getElementById('z25-neck-slider');
-  const demoBtn = document.getElementById('z25-demo-btn');
-  if (!eyeSlider) return;
-
-  const leftIris = document.getElementById('z25-left-iris');
-  const rightIris = document.getElementById('z25-right-iris');
-  const jawGroup = document.getElementById('z25-jaw-group');
-  const headCage = document.getElementById('z25-head-cage');
-
-  function updateZ25() {
-    const eyeX = parseFloat(eyeSlider.value); // -10 to 10
-    const jawY = parseFloat(jawSlider.value); // 0 to 18
-    const neckDeg = parseFloat(neckSlider ? neckSlider.value : 0); // -6 to 6
-
-    if (leftIris) leftIris.setAttribute('transform', `translate(${eyeX}, 0)`);
-    if (rightIris) rightIris.setAttribute('transform', `translate(${eyeX}, 0)`);
-    if (jawGroup) jawGroup.setAttribute('transform', `translate(0, ${jawY})`);
-    if (headCage) headCage.setAttribute('transform', `rotate(${neckDeg} 350 242)`);
-  }
-
-  eyeSlider.addEventListener('input', updateZ25);
-  jawSlider.addEventListener('input', updateZ25);
-  if (neckSlider) neckSlider.addEventListener('input', updateZ25);
+  const headGroup = document.getElementById('z21-head-group');
+  const readout = document.getElementById('z21-readout');
 
   let animId = null;
+
+  function stopAnim() {
+    if (animId) {
+      cancelAnimationFrame(animId);
+      animId = null;
+    }
+    if (demoBtn) {
+      demoBtn.classList.remove('active');
+      demoBtn.textContent = '▶ Animate Linkages';
+    }
+  }
+
+  function updateZ21(rawVal) {
+    const v = parseFloat(rawVal) || 0; // -35 to 35
+    if (leftLink) {
+      leftLink.setAttribute('transform', `rotate(${(v * 0.65).toFixed(2)} 268 100)`);
+    }
+    if (rightLink) {
+      rightLink.setAttribute('transform', `rotate(${(-v * 0.65).toFixed(2)} 432 100)`);
+    }
+    if (headGroup) {
+      headGroup.setAttribute('transform', `translate(${(v * 0.25).toFixed(2)}, 0)`);
+    }
+    if (readout) {
+      const deg = Math.round(v);
+      readout.textContent = `Linkage Swing: ${deg > 0 ? '+' : ''}${deg}°`;
+    }
+  }
+
+  slider.addEventListener('input', e => {
+    if (animId) stopAnim();
+    updateZ21(e.target.value);
+  });
+
   if (demoBtn) {
     demoBtn.addEventListener('click', () => {
       if (animId) {
-        cancelAnimationFrame(animId);
-        animId = null;
-        demoBtn.classList.remove('active');
-        demoBtn.textContent = 'Run Servo Demo';
+        stopAnim();
         return;
       }
       demoBtn.classList.add('active');
-      demoBtn.textContent = 'Stop Demo';
+      demoBtn.textContent = '■ Stop Animation';
       let t = 0;
       function loop() {
-        t += 0.05;
-        eyeSlider.value = Math.sin(t) * 9;
-        jawSlider.value = (Math.sin(t * 2.2) + 1) * 7.5;
-        if (neckSlider) neckSlider.value = Math.cos(t * 0.7) * 4;
-        updateZ25();
+        t += 0.045;
+        const val = Math.sin(t) * 32;
+        slider.value = val.toFixed(1);
+        updateZ21(val);
         animId = requestAnimationFrame(loop);
       }
       loop();
     });
   }
+
+  updateZ21(slider.value);
 }
 
-/* Flight Simulator Interactive Yoke */
+/* ==========================================================================
+   PANEL 3: Zainiac 25 ("Noggin") 7-Servo Animatronic Head Demo
+   (4 Eye Servos + 3D-Printed Linkages, 1 Jaw Servo + D-Paddle, 2 Base Neck Servos + Pushrods)
+   ========================================================================== */
+function initZ25Interactive() {
+  const eyeSlider = document.getElementById('z25-eye-slider');
+  const jawSlider = document.getElementById('z25-jaw-slider');
+  const neckSlider = document.getElementById('z25-neck-slider');
+  const demoBtn = document.getElementById('z25-demo-btn');
+  if (!eyeSlider || !jawSlider) return;
+
+  const leftIris = document.getElementById('z25-left-iris');
+  const rightIris = document.getElementById('z25-right-iris');
+  const leftEyeLink1 = document.getElementById('z25-left-eye-link');
+  const leftEyeLink2 = document.getElementById('z25-left-eye-link2');
+  const rightEyeLink1 = document.getElementById('z25-right-eye-link');
+  const rightEyeLink2 = document.getElementById('z25-right-eye-link2');
+
+  const jawGroup = document.getElementById('z25-jaw-group');
+  const jawHorn = document.getElementById('z25-jaw-horn');
+  const headCage = document.getElementById('z25-head-cage');
+
+  const neckHornLeft = document.getElementById('z25-neck-horn-left');
+  const neckHornRight = document.getElementById('z25-neck-horn-right');
+  const pushrodLeft = document.getElementById('z25-pushrod-left');
+  const pushrodRight = document.getElementById('z25-pushrod-right');
+  const ballLeftBot = document.getElementById('z25-ball-left-bot');
+  const ballLeftTop = document.getElementById('z25-ball-left-top');
+  const ballRightBot = document.getElementById('z25-ball-right-bot');
+  const ballRightTop = document.getElementById('z25-ball-right-top');
+  const arduinoLed = document.getElementById('z25-arduino-led');
+  const readout = document.getElementById('z25-readout');
+
+  let animId = null;
+
+  function stopDemo() {
+    if (animId) {
+      cancelAnimationFrame(animId);
+      animId = null;
+    }
+    if (demoBtn) {
+      demoBtn.classList.remove('active');
+      demoBtn.textContent = '▶ Run Servo Demo';
+    }
+  }
+
+  function updateZ25(customEyeX, customJawY, customNeckDeg, customEyeY) {
+    const eyeX = typeof customEyeX === 'number' ? customEyeX : (parseFloat(eyeSlider.value) || 0);
+    const jawY = typeof customJawY === 'number' ? customJawY : (parseFloat(jawSlider.value) || 0);
+    const neckDeg = typeof customNeckDeg === 'number' ? customNeckDeg : (neckSlider ? (parseFloat(neckSlider.value) || 0) : 0);
+    const eyeY = typeof customEyeY === 'number' ? customEyeY : 0;
+
+    // 1. Move 3D-printed left & right irises (Pan X + Tilt Y)
+    if (leftIris) {
+      leftIris.setAttribute('transform', `translate(${eyeX.toFixed(2)}, ${eyeY.toFixed(2)})`);
+    }
+    if (rightIris) {
+      rightIris.setAttribute('transform', `translate(${eyeX.toFixed(2)}, ${eyeY.toFixed(2)})`);
+    }
+
+    // 2. Move the 4 overhead eye servo linkage arms to track the eyeballs
+    if (leftEyeLink1) {
+      leftEyeLink1.setAttribute('x1', (258 + eyeX * 0.35).toFixed(2));
+      leftEyeLink1.setAttribute('x2', (274 + eyeX * 0.85).toFixed(2));
+      leftEyeLink1.setAttribute('y2', (74 + eyeY * 0.85).toFixed(2));
+    }
+    if (leftEyeLink2) {
+      leftEyeLink2.setAttribute('x1', (270 + eyeY * 0.4).toFixed(2));
+      leftEyeLink2.setAttribute('x2', (278 + eyeX * 0.85).toFixed(2));
+      leftEyeLink2.setAttribute('y2', (74 + eyeY * 0.85).toFixed(2));
+    }
+    if (rightEyeLink1) {
+      rightEyeLink1.setAttribute('x1', (442 + eyeX * 0.35).toFixed(2));
+      rightEyeLink1.setAttribute('x2', (426 + eyeX * 0.85).toFixed(2));
+      rightEyeLink1.setAttribute('y2', (74 + eyeY * 0.85).toFixed(2));
+    }
+    if (rightEyeLink2) {
+      rightEyeLink2.setAttribute('x1', (430 + eyeY * 0.4).toFixed(2));
+      rightEyeLink2.setAttribute('x2', (422 + eyeX * 0.85).toFixed(2));
+      rightEyeLink2.setAttribute('y2', (74 + eyeY * 0.85).toFixed(2));
+    }
+
+    // 3. Move Jaw Servo Horn & 3-Hole D-Shaped Jaw Paddle
+    if (jawGroup) {
+      jawGroup.setAttribute('transform', `translate(0, ${jawY.toFixed(2)})`);
+    }
+    if (jawHorn) {
+      jawHorn.setAttribute('transform', `rotate(${(jawY * 2.4).toFixed(2)} 350 142)`);
+    }
+
+    // 4. Tilt 3D-Printed Head Cage around central neck pivot (350, 254)
+    if (headCage) {
+      headCage.setAttribute('transform', `rotate(${neckDeg.toFixed(2)} 350 254)`);
+    }
+
+    // 5. Differential Base Neck Servos & Metal Pushrod Linkages
+    const hornAngle = neckDeg * 2.2;
+    if (neckHornLeft) {
+      neckHornLeft.setAttribute('transform', `rotate(${hornAngle.toFixed(2)} 294 300)`);
+    }
+    if (neckHornRight) {
+      neckHornRight.setAttribute('transform', `rotate(${hornAngle.toFixed(2)} 406 300)`);
+    }
+
+    // Calculate pushrod endpoints so pushrods stay connected to the tilting head cage
+    const rad = (neckDeg * Math.PI) / 180;
+    const cosA = Math.cos(rad);
+    const sinA = Math.sin(rad);
+
+    // Upper left mount at (298, 222) rotated around (350, 254)
+    const lx2 = 350 + (298 - 350) * cosA - (222 - 254) * sinA;
+    const ly2 = 254 + (298 - 350) * sinA + (222 - 254) * cosA;
+    const lx1 = 283;
+    const ly1 = 298 - neckDeg * 0.45;
+
+    // Upper right mount at (402, 222) rotated around (350, 254)
+    const rx2 = 350 + (402 - 350) * cosA - (222 - 254) * sinA;
+    const ry2 = 254 + (402 - 350) * sinA + (222 - 254) * cosA;
+    const rx1 = 417;
+    const ry1 = 298 + neckDeg * 0.45;
+
+    if (pushrodLeft) {
+      pushrodLeft.setAttribute('x1', lx1.toFixed(2));
+      pushrodLeft.setAttribute('y1', ly1.toFixed(2));
+      pushrodLeft.setAttribute('x2', lx2.toFixed(2));
+      pushrodLeft.setAttribute('y2', ly2.toFixed(2));
+    }
+    if (ballLeftBot) {
+      ballLeftBot.setAttribute('cx', lx1.toFixed(2));
+      ballLeftBot.setAttribute('cy', ly1.toFixed(2));
+    }
+    if (ballLeftTop) {
+      ballLeftTop.setAttribute('cx', lx2.toFixed(2));
+      ballLeftTop.setAttribute('cy', ly2.toFixed(2));
+    }
+
+    if (pushrodRight) {
+      pushrodRight.setAttribute('x1', rx1.toFixed(2));
+      pushrodRight.setAttribute('y1', ry1.toFixed(2));
+      pushrodRight.setAttribute('x2', rx2.toFixed(2));
+      pushrodRight.setAttribute('y2', ry2.toFixed(2));
+    }
+    if (ballRightBot) {
+      ballRightBot.setAttribute('cx', rx1.toFixed(2));
+      ballRightBot.setAttribute('cy', ry1.toFixed(2));
+    }
+    if (ballRightTop) {
+      ballRightTop.setAttribute('cx', rx2.toFixed(2));
+      ballRightTop.setAttribute('cy', ry2.toFixed(2));
+    }
+
+    if (readout) {
+      const eyeDeg = Math.round(eyeX * 2.5);
+      const jawDeg = Math.round(jawY * 1.8);
+      const nDeg = Math.round(neckDeg * 10) / 10;
+      readout.textContent = `Eyes: ${eyeDeg > 0 ? '+' : ''}${eyeDeg}° • Jaw: ${jawDeg}° • Neck: ${nDeg > 0 ? '+' : ''}${nDeg}°`;
+    }
+  }
+
+  function onManualSliderInput() {
+    if (animId) stopDemo();
+    updateZ25();
+  }
+
+  eyeSlider.addEventListener('input', onManualSliderInput);
+  jawSlider.addEventListener('input', onManualSliderInput);
+  if (neckSlider) neckSlider.addEventListener('input', onManualSliderInput);
+
+  if (demoBtn) {
+    demoBtn.addEventListener('click', () => {
+      if (animId) {
+        stopDemo();
+        return;
+      }
+      demoBtn.classList.add('active');
+      demoBtn.textContent = '■ Stop Servo Demo';
+      let t = 0;
+
+      function loop() {
+        t += 0.05;
+        const eyeX = Math.sin(t * 1.1) * 10.5;
+        const eyeY = Math.cos(t * 1.6) * 3.8;
+        const jawY = (Math.sin(t * 2.6) + 1) * 8.5;
+        const neckDeg = Math.sin(t * 0.65) * 7.5;
+
+        eyeSlider.value = eyeX.toFixed(1);
+        jawSlider.value = jawY.toFixed(1);
+        if (neckSlider) neckSlider.value = neckDeg.toFixed(1);
+
+        if (arduinoLed) {
+          arduinoLed.setAttribute('fill', Math.sin(t * 6) > 0 ? '#4ade80' : '#22d3ee');
+        }
+
+        updateZ25(eyeX, jawY, neckDeg, eyeY);
+        animId = requestAnimationFrame(loop);
+      }
+      loop();
+    });
+  }
+
+  updateZ25();
+}
+
+/* ==========================================================================
+   Aviation Page: Flight Simulator Interactive Yoke
+   ========================================================================== */
 function initFlightYokeInteractive() {
   const rollSlider = document.getElementById('yoke-roll-slider');
   const pitchSlider = document.getElementById('yoke-pitch-slider');
+  const demoBtn = document.getElementById('yoke-demo-btn');
   if (!rollSlider || !pitchSlider) return;
 
   const yokeWheel = document.getElementById('yoke-wheel-group');
   const yokeShaft = document.getElementById('yoke-shaft-group');
   const readout = document.getElementById('yoke-readout');
 
-  function updateYoke() {
-    const roll = parseFloat(rollSlider.value); // -45 to 45
-    const pitch = parseFloat(pitchSlider.value); // -25 to 25
-    if (yokeWheel) {
-      yokeWheel.setAttribute('transform', `translate(${pitch}, 0) rotate(${roll} 500 105)`);
+  let animId = null;
+
+  function stopYokeAnim() {
+    if (animId) {
+      cancelAnimationFrame(animId);
+      animId = null;
     }
-    if (yokeShaft) {
-      yokeShaft.setAttribute('transform', `translate(${pitch}, 0)`);
-    }
-    if (readout) {
-      readout.textContent = `Roll: ${roll > 0 ? '+' : ''}${roll}° • Pitch: ${pitch > 0 ? '+' : ''}${pitch}mm`;
+    if (demoBtn) {
+      demoBtn.classList.remove('active');
+      demoBtn.textContent = '▶ Animate Yoke';
     }
   }
 
-  rollSlider.addEventListener('input', updateYoke);
-  pitchSlider.addEventListener('input', updateYoke);
+  function updateYoke(customRoll, customPitch) {
+    const roll = typeof customRoll === 'number' ? customRoll : (parseFloat(rollSlider.value) || 0);
+    const pitch = typeof customPitch === 'number' ? customPitch : (parseFloat(pitchSlider.value) || 0);
+
+    if (yokeWheel) {
+      yokeWheel.setAttribute('transform', `translate(${pitch.toFixed(2)}, 0) rotate(${roll.toFixed(2)} 500 105)`);
+    }
+    if (yokeShaft) {
+      yokeShaft.setAttribute('transform', `translate(${pitch.toFixed(2)}, 0)`);
+    }
+    if (readout) {
+      const rRound = Math.round(roll);
+      const pRound = Math.round(pitch);
+      readout.textContent = `Roll: ${rRound > 0 ? '+' : ''}${rRound}° • Pitch: ${pRound > 0 ? '+' : ''}${pRound}mm`;
+    }
+  }
+
+  rollSlider.addEventListener('input', () => {
+    if (animId) stopYokeAnim();
+    updateYoke();
+  });
+  pitchSlider.addEventListener('input', () => {
+    if (animId) stopYokeAnim();
+    updateYoke();
+  });
+
+  if (demoBtn) {
+    demoBtn.addEventListener('click', () => {
+      if (animId) {
+        stopYokeAnim();
+        return;
+      }
+      demoBtn.classList.add('active');
+      demoBtn.textContent = '■ Stop Animation';
+      let t = 0;
+      function loop() {
+        t += 0.045;
+        const roll = Math.sin(t) * 38;
+        const pitch = Math.cos(t * 0.7) * 20;
+        rollSlider.value = roll.toFixed(1);
+        pitchSlider.value = pitch.toFixed(1);
+        updateYoke(roll, pitch);
+        animId = requestAnimationFrame(loop);
+      }
+      loop();
+    });
+  }
+
+  updateYoke();
 }
 
-/* Station 46 11" Display Interactive Screen Switcher */
+/* ==========================================================================
+   Fire Service Page: Station 46 11" Display Interactive Screen Switcher
+   ========================================================================== */
 function initStationDisplayInteractive() {
   const modeBtns = document.querySelectorAll('.station-mode-btn');
+  const demoBtn = document.getElementById('station-demo-btn');
   if (!modeBtns.length) return;
 
   const titleEl = document.getElementById('station-screen-title');
   const subEl = document.getElementById('station-screen-sub');
   const graphicEl = document.getElementById('station-screen-graphic');
+  const statusDot = document.getElementById('station-status-dot');
+  const modePill = document.getElementById('station-mode-pill');
+  const radarSweep = document.getElementById('station-radar-sweep');
 
+  const modeOrder = ['radar', 'dispatch', 'comms'];
   const modes = {
     radar: {
       title: 'LIVE DOPPLER RADAR — SOMERSET COUNTY',
       sub: 'Wind: 12 mph NW • Visibility: 10 mi • No Active Warnings',
+      pill: 'Mode 1/3 • Somerset County Doppler Radar & Wind Telemetry',
       color: '#10b981'
     },
     dispatch: {
       title: 'STATION 46 ACTIVE DISPATCH FEED',
       sub: 'Engine 46 & Tower 46 Ready • Montgomery Twp Fire Co. #2',
+      pill: 'Mode 2/3 • Live Emergency Dispatch & Apparatus Status',
       color: '#ef4444'
     },
     comms: {
       title: 'STATION BULLETIN & CREW SCHEDULE',
       sub: 'Weekly Drill: Tuesday 19:00 • Junior Program Check-In',
+      pill: 'Mode 3/3 • Station 46 Drill Schedule & Crew Communications',
       color: '#f59e0b'
     }
   };
 
+  let cycleTimer = null;
+  let currentIdx = 0;
+
+  function applyMode(key) {
+    const mode = modes[key];
+    if (!mode) return;
+    currentIdx = modeOrder.indexOf(key);
+
+    modeBtns.forEach(b => {
+      b.classList.toggle('active', b.getAttribute('data-mode') === key);
+    });
+    if (titleEl) titleEl.textContent = mode.title;
+    if (subEl) subEl.textContent = mode.sub;
+    if (graphicEl) graphicEl.setAttribute('stroke', mode.color);
+    if (statusDot) statusDot.setAttribute('fill', mode.color);
+    if (modePill) modePill.textContent = mode.pill;
+    if (radarSweep) radarSweep.setAttribute('stroke', mode.color);
+  }
+
+  function stopCycle() {
+    if (cycleTimer) {
+      clearInterval(cycleTimer);
+      cycleTimer = null;
+    }
+    if (demoBtn) {
+      demoBtn.classList.remove('active');
+      demoBtn.textContent = '▶ Auto-Cycle Display';
+    }
+  }
+
   modeBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      const mode = modes[btn.getAttribute('data-mode')];
-      if (!mode) return;
-      modeBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      if (titleEl) titleEl.textContent = mode.title;
-      if (subEl) subEl.textContent = mode.sub;
-      if (graphicEl) graphicEl.setAttribute('stroke', mode.color);
+      if (cycleTimer) stopCycle();
+      applyMode(btn.getAttribute('data-mode'));
     });
   });
+
+  if (demoBtn) {
+    demoBtn.addEventListener('click', () => {
+      if (cycleTimer) {
+        stopCycle();
+        return;
+      }
+      demoBtn.classList.add('active');
+      demoBtn.textContent = '■ Stop Auto-Cycle';
+      currentIdx = (currentIdx + 1) % modeOrder.length;
+      applyMode(modeOrder[currentIdx]);
+      cycleTimer = setInterval(() => {
+        currentIdx = (currentIdx + 1) % modeOrder.length;
+        applyMode(modeOrder[currentIdx]);
+      }, 2200);
+    });
+  }
 }

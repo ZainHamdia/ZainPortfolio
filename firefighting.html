@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fire Service & Station 46 — Zain Hamdia</title>
   <meta name="description" content="Junior Firefighter and Technology & Engineering Intern at Montgomery Township Volunteer Fire Company #2 (Station 46).">
-  <link rel="stylesheet" href="css/styles.css?v=visual-7">
+  <link rel="stylesheet" href="css/styles.css?v=visual-9">
 </head>
 <body class="theme-firefighting">
 
@@ -38,20 +38,20 @@
     <section class="page-hero">
       <div class="container">
         <span class="page-kicker">Montgomery Township Volunteer Fire Company #2 • Station 46</span>
-        <h1 class="page-title">Firehouse Hardware & Service</h1>
+        <h1 class="page-title">Firehouse Hardware &amp; Service</h1>
         <p class="page-subtitle">
-          Serving at Station 46 as both an active Junior Firefighter and Technology Intern—building our radio room Raspberry Pi dashboard, 3D-printing its 11-inch wall enclosure, and redesigning the department website.
+          Serving at Station 46 as both an active Junior Firefighter and Technology &amp; Engineering Intern—building our radio room Raspberry Pi dashboard, 3D-printing its 11-inch wall enclosure, redesigning the public department website, and overhauling the Junior Firefighter onboarding program.
         </p>
       </div>
     </section>
 
-    <!-- Section 1: Interactive 11" Station 46 Radio Room Enclosure Showcase -->
+    <!-- Section 1: Interactive 11" Station 46 Radio Room Enclosure & Engineering Lifecycle -->
     <div class="container">
       <section id="tech-intern" class="interactive-showcase">
         <div class="showcase-top-bar">
           <div>
-            <h2 class="showcase-title">Station 46 Radio Room Display & 3D-Printed Enclosure</h2>
-            <div class="showcase-sub">Switch views below to preview the live dashboard inside its custom wall-mounted CAD housing</div>
+            <h2 class="showcase-title">Station 46 Radio Room Display &amp; 3D-Printed Enclosure</h2>
+            <div class="showcase-sub">Switch views below to preview the live Raspberry Pi dashboard inside its custom wall-mounted CAD housing</div>
           </div>
 
           <div class="lineage-tab-bar">
@@ -62,53 +62,81 @@
         </div>
 
         <div class="showcase-body">
+          <div class="control-bar">
+            <div class="control-group">
+              <span class="control-label">Active Screen Mode:</span>
+              <span id="station-mode-pill" class="servo-readout-pill">Mode 1/3 • Somerset County Doppler Radar &amp; Wind Telemetry</span>
+            </div>
+            <button type="button" id="station-demo-btn" class="control-btn">▶ Auto-Cycle Display</button>
+          </div>
+
           <div class="diagram-stage">
             <div class="sketch-frame">
-              <svg class="sketch-svg" viewBox="0 0 700 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg class="sketch-svg" viewBox="0 0 700 240" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <!-- 3D-Printed Wall Enclosure Bezel -->
-                <rect x="130" y="18" width="440" height="194" rx="10" fill="#ffffff" stroke="#1e293b" stroke-width="2.5"/>
-                <rect x="148" y="34" width="404" height="162" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+                <rect x="95" y="16" width="510" height="206" rx="10" fill="#ffffff" stroke="#1e293b" stroke-width="2.5"/>
+                <rect x="113" y="32" width="474" height="174" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
 
                 <!-- 11" LCD Display Cutout -->
-                <rect x="166" y="48" width="260" height="134" rx="4" fill="#0f172a" stroke="#dc2626" stroke-width="2"/>
-                <circle id="station-screen-graphic" cx="296" cy="96" r="24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-dasharray="6 3"/>
-                <text id="station-screen-title" x="296" y="142" font-family="'Inter', sans-serif" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="700">LIVE DOPPLER RADAR — SOMERSET COUNTY</text>
-                <text id="station-screen-sub" x="296" y="158" font-family="'Inter', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Wind: 12 mph NW • Visibility: 10 mi • No Active Warnings</text>
+                <rect x="132" y="46" width="310" height="146" rx="4" fill="#0f172a" stroke="#dc2626" stroke-width="2"/>
+
+                <!-- Top Status Bar inside 11" Screen -->
+                <rect x="134" y="48" width="306" height="18" fill="#1e293b"/>
+                <circle id="station-status-dot" cx="145" cy="57" r="3.5" fill="#10b981"/>
+                <text x="154" y="60" font-family="'Inter', sans-serif" font-size="7.5" fill="#e2e8f0" font-weight="700">STATION 46 RADIO ROOM • 11" KIOSK</text>
+                <text x="432" y="60" font-family="'Inter', sans-serif" font-size="7" fill="#94a3b8" text-anchor="end">RPi 4B • LAN</text>
+
+                <!-- Dynamic Graphic Group (Radar / Dispatch / Bulletin) -->
+                <g id="station-radar-graphic">
+                  <circle cx="287" cy="105" r="27" fill="rgba(16, 185, 129, 0.08)" stroke="#10b981" stroke-width="1.8" stroke-dasharray="5 3"/>
+                  <circle cx="287" cy="105" r="15" fill="none" stroke="#059669" stroke-width="1.2" stroke-dasharray="3 2"/>
+                  <line id="station-radar-sweep" x1="287" y1="105" x2="310" y2="91" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="287" cy="105" r="3" fill="#10b981"/>
+                </g>
+
+                <circle id="station-screen-graphic" cx="287" cy="105" r="27" fill="none" stroke="#10b981" stroke-width="2" opacity="0.35"/>
+
+                <text id="station-screen-title" x="287" y="154" font-family="'Inter', sans-serif" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="700">LIVE DOPPLER RADAR — SOMERSET COUNTY</text>
+                <text id="station-screen-sub" x="287" y="170" font-family="'Inter', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Wind: 12 mph NW • Visibility: 10 mi • No Active Warnings</text>
 
                 <!-- Internal Raspberry Pi Bay -->
-                <rect x="446" y="52" width="88" height="90" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
-                <text x="490" y="94" font-family="'Inter', sans-serif" font-size="9.5" fill="#991b1b" text-anchor="middle" font-weight="700">Raspberry Pi</text>
-                <text x="490" y="108" font-family="'Inter', sans-serif" font-size="8" fill="#dc2626" text-anchor="middle">Internal Bay</text>
+                <rect x="460" y="48" width="110" height="96" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
+                <rect x="472" y="60" width="86" height="52" rx="3" fill="#166534" stroke="#14532d" stroke-width="1.5"/>
+                <text x="515" y="84" font-family="'Inter', sans-serif" font-size="8.5" fill="#ffffff" text-anchor="middle" font-weight="700">Raspberry Pi</text>
+                <text x="515" y="96" font-family="'Inter', sans-serif" font-size="7.5" fill="#bbf7d0" text-anchor="middle">Controller Bay</text>
+                <!-- HDMI & Power Cable Routing -->
+                <path d="M 460 86 L 442 86" stroke="#dc2626" stroke-width="3"/>
+                <text x="515" y="132" font-family="'Inter', sans-serif" font-size="7.5" fill="#991b1b" text-anchor="middle" font-weight="600">Internal Cable Channel</text>
 
                 <!-- Cooling Vents -->
-                <line x1="448" y1="156" x2="532" y2="156" stroke="#64748b" stroke-width="2"/>
-                <line x1="448" y1="163" x2="532" y2="163" stroke="#64748b" stroke-width="2"/>
-                <line x1="448" y1="170" x2="532" y2="170" stroke="#64748b" stroke-width="2"/>
-                <text x="490" y="184" font-family="'Inter', sans-serif" font-size="7.5" fill="#64748b" text-anchor="middle" font-weight="600">Airflow Vents</text>
+                <line x1="466" y1="158" x2="564" y2="158" stroke="#64748b" stroke-width="2"/>
+                <line x1="466" y1="166" x2="564" y2="166" stroke="#64748b" stroke-width="2"/>
+                <line x1="466" y1="174" x2="564" y2="174" stroke="#64748b" stroke-width="2"/>
+                <text x="515" y="190" font-family="'Inter', sans-serif" font-size="7.5" fill="#64748b" text-anchor="middle" font-weight="600">3D-Printed Airflow Vents</text>
 
                 <!-- Wall Mounting Points -->
-                <circle cx="142" cy="30" r="3.5" fill="#64748b"/>
-                <circle cx="558" cy="30" r="3.5" fill="#64748b"/>
-                <circle cx="142" cy="200" r="3.5" fill="#64748b"/>
-                <circle cx="558" cy="200" r="3.5" fill="#64748b"/>
+                <circle cx="107" cy="28" r="3.5" fill="#64748b"/>
+                <circle cx="593" cy="28" r="3.5" fill="#64748b"/>
+                <circle cx="107" cy="210" r="3.5" fill="#64748b"/>
+                <circle cx="593" cy="210" r="3.5" fill="#64748b"/>
               </svg>
             </div>
 
             <div class="spec-stack">
               <div class="spec-card">
-                <div class="spec-card-label">Hardware Core</div>
-                <div class="spec-card-val">Raspberry Pi + 11" Display</div>
-                <div class="spec-card-desc">Permanent dashboard installed in Station 46's radio room</div>
+                <div class="spec-card-label">1. Operational Problem</div>
+                <div class="spec-card-val">Centralized Radio Room Data</div>
+                <div class="spec-card-desc">Replaced scattered weather, alert, and station schedule lookups with one always-on wall dashboard</div>
               </div>
               <div class="spec-card">
-                <div class="spec-card-label">Custom Enclosure</div>
-                <div class="spec-card-val">CAD-Modeled & 3D Printed</div>
-                <div class="spec-card-desc">Wall-mounted housing with ventilation and cable routing</div>
+                <div class="spec-card-label">2. Mechanical CAD &amp; FDM</div>
+                <div class="spec-card-val">Custom 11" Wall Enclosure</div>
+                <div class="spec-card-desc">Engineered in CAD with passive cooling vents, recessed cable routing, and service access ports</div>
               </div>
               <div class="spec-card">
-                <div class="spec-card-label">Public Web Portal</div>
-                <div class="spec-card-val">Department Website Redesign</div>
-                <div class="spec-card-desc">Modernized community information and volunteer recruitment</div>
+                <div class="spec-card-label">3. Systems Engineering</div>
+                <div class="spec-card-val">Full Lifecycle Delivery</div>
+                <div class="spec-card-desc">Took the build from firefighter requirements and prototyping to installation and technical docs</div>
               </div>
             </div>
           </div>
@@ -116,100 +144,121 @@
       </section>
     </div>
 
-    <!-- Section 2: Full-Bleed Crimson Contrast Band for Junior Firefighter Leadership -->
+    <!-- Section 2: Station-Wide Digital & Organizational Initiatives (Website Redesign + Junior Program Overhaul) -->
     <section id="junior-firefighter" class="feature-band">
       <div class="container">
-        <div class="home-hero-grid">
-          <div>
-            <div class="section-label" style="color: #fbbf24;">July 2025 – Present • Active Service</div>
-            <h2 class="section-heading" style="color: #ffffff; margin-bottom: 14px;">
-              Junior Firefighter & Program Redesign
-            </h2>
-            <p style="font-size: 1.02rem; color: rgba(255,255,255,0.84); line-height: 1.65;">
-              Alongside my engineering work at the station, I participate in firefighter training, apparatus drills, and emergency calls—and I’m leading an effort to overhaul our <strong>Junior Firefighter Program</strong> so new recruits have a clearer certification path and easier access to senior firefighter mentors.
-            </p>
+        <div class="section-label" style="color: #fbbf24;">Station 46 Modernization &amp; Leadership Initiatives</div>
+        <h2 class="section-heading" style="color: #ffffff; margin-bottom: 10px;">
+          Department Website Redesign &amp; Junior Program Overhaul
+        </h2>
+        <p style="font-size: 1rem; color: rgba(255,255,255,0.82); max-width: 760px; margin-bottom: 28px;">
+          Beyond building hardware for the radio room, my work at Montgomery Township Volunteer Fire Company #2 focuses on two department-wide systems: modernizing our public web presence for the community and restructuring how new Junior Firefighters train, certify, and connect with mentors.
+        </p>
+
+        <div class="split-grid" style="margin: 0; align-items: stretch;">
+          <!-- Left Column: The Two Purposeful Initiatives -->
+          <div style="display: flex; flex-direction: column; gap: 20px; justify-content: space-between;">
+            <div class="band-card" style="flex: 1;">
+              <div class="section-label" style="color: #fbbf24; margin-bottom: 6px;">Initiative 01 • Technology &amp; Engineering Intern</div>
+              <h3 class="band-card-title" style="font-size: 1.28rem; margin-bottom: 10px;">Redesigning the Fire Company’s Public Website</h3>
+              <p class="band-card-text" style="margin-bottom: 14px;">
+                Led the full redesign and development of Montgomery Township Volunteer Fire Company #2’s public website—transforming an outdated site into a modern, accessible portal for residents and prospective members.
+              </p>
+              <div class="portal-highlights" style="margin-top: 12px; padding-top: 12px;">
+                <span class="portal-pill">Online Volunteer Recruitment</span>
+                <span class="portal-pill">Community Safety Resources</span>
+                <span class="portal-pill">Mobile-Responsive Architecture</span>
+              </div>
+            </div>
+
+            <div class="band-card" style="flex: 1;">
+              <div class="section-label" style="color: #fbbf24; margin-bottom: 6px;">Initiative 02 • Junior Firefighter Program Lead</div>
+              <h3 class="band-card-title" style="font-size: 1.28rem; margin-bottom: 10px;">Overhauling Junior Certification &amp; Mentorship</h3>
+              <p class="band-card-text" style="margin-bottom: 14px;">
+                Spearheading an initiative to strengthen Station 46’s Junior Firefighter Program so incoming high school recruits have a clear roadmap from day one to active apparatus response.
+              </p>
+              <div class="portal-highlights" style="margin-top: 12px; padding-top: 12px;">
+                <span class="portal-pill">Streamlined Response Certification</span>
+                <span class="portal-pill">Senior Firefighter Mentor Matching</span>
+                <span class="portal-pill">Updated Online Onboarding</span>
+              </div>
+            </div>
           </div>
 
-          <div class="stage-tiles">
-            <div class="stage-tile">
-              <span class="stage-tile-tag" style="color: #fbbf24;">Operations</span>
-              <div class="stage-tile-title">Drills & Response</div>
-              <div class="stage-tile-sub">Station 46 training & community service</div>
+          <!-- Right Column: Purposeful Role & Program Context Cards -->
+          <div class="photo-grid-2" style="margin-top: 0;">
+            <div class="band-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <img src="img/fire-portrait-2026.jpg" alt="Zain Hamdia 2026 Montgomery Fire Co. #2 Class A Uniform Portrait" class="band-card-img" style="height: 250px; object-position: top center;">
+                <div class="section-label" style="color: #fbbf24; margin-bottom: 4px;">Dual Station Role • 2025 – Present</div>
+                <div class="band-card-title">Junior Firefighter &amp; Tech Intern</div>
+                <p class="band-card-text">
+                  Bridging active firehouse service with software and hardware engineering at Montgomery Twp. Volunteer Fire Co. #2 (Station 46).
+                </p>
+              </div>
             </div>
-            <div class="stage-tile">
-              <span class="stage-tile-tag" style="color: #fbbf24;">Leadership</span>
-              <div class="stage-tile-title">Junior Program Overhaul</div>
-              <div class="stage-tile-sub">Streamlined certification & mentorship matching</div>
+
+            <div class="band-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+              <div>
+                <img src="img/fire-crew-bay.jpg" alt="Station 46 junior and probationary firefighters training at the forcible entry prop" class="band-card-img" style="height: 250px; object-position: center;">
+                <div class="section-label" style="color: #fbbf24; margin-bottom: 4px;">Program Impact • Peer Training</div>
+                <div class="band-card-title">Junior &amp; Probationary Cohort</div>
+                <p class="band-card-text">
+                  Working alongside fellow Junior and probationary firefighters on SCBA and forcible-entry evolutions—the exact cohort supported by our new mentorship and certification pathway.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 3: Station 46 Service & Training Photo Gallery -->
-    <section class="portal-section" style="padding-top: 8px; padding-bottom: 64px;">
+    <!-- Section 3: How Active Fireground Training Informs My Station Engineering -->
+    <section id="field-operations" class="portal-section" style="padding-top: 8px; padding-bottom: 64px;">
       <div class="container">
         <div class="section-header">
           <div>
-            <div class="section-label">Montgomery Township Volunteer Fire Company #2</div>
-            <h2 class="section-heading">Station 46 in Action</h2>
+            <div class="section-label">Field Operations &amp; Firefighter-Centered Design</div>
+            <h2 class="section-heading">How Active Training Shapes What I Build</h2>
           </div>
         </div>
 
-        <div class="photo-grid-3">
-          <div class="photo-card">
-            <img src="img/fire-portrait-2026.jpg" alt="Zain Hamdia 2026 Montgomery Fire Co. #2 Class A Uniform Portrait" class="photo-card-img tall" style="object-position: top center;">
-            <div class="photo-card-body">
-              <div class="photo-card-tag">Company Portrait • 2026</div>
-              <div class="photo-card-title">Station 46 Dress Uniform</div>
-              <p class="photo-card-desc">Official 2026 portrait for Montgomery Township Volunteer Fire Company #2 (Station 46).</p>
-            </div>
-          </div>
+        <p style="font-size: 0.98rem; color: var(--text-secondary); max-width: 780px; margin-bottom: 24px;">
+          Designing hardware and software for a firehouse requires understanding what happens when dispatch tones drop. Participating in weekly apparatus drills, SCBA evolutions, and live-burn training directly informs how I engineer tools for Station 46 crews.
+        </p>
 
-          <div class="photo-card">
-            <img src="img/fire-night-drill.jpg" alt="Zain Hamdia at night live-burn and smoke training drill with Truck 46" class="photo-card-img tall">
-            <div class="photo-card-body">
-              <div class="photo-card-tag">Training Tower • Night Drill</div>
-              <div class="photo-card-title">Smoke & Live-Burn Training</div>
-              <p class="photo-card-desc">Night training operations in turnout gear with Montgomery Truck 46 on scene.</p>
+        <div class="split-grid" style="margin-top: 0;">
+          <article class="photo-card">
+            <img src="img/fire-night-drill.jpg" alt="Zain Hamdia at night live-burn and smoke training drill with Montgomery Truck 46" class="photo-card-img tall">
+            <div class="photo-card-body" style="padding: 22px;">
+              <div class="photo-card-tag">Live-Burn &amp; Smoke Tower Evolutions • Truck 46</div>
+              <h3 class="photo-card-title" style="font-size: 1.2rem; margin-bottom: 8px;">Fireground Operations &amp; Crew Coordination</h3>
+              <p class="photo-card-desc" style="font-size: 0.92rem; margin-bottom: 14px;">
+                Training at the county smoke house and burn building with Montgomery Truck 46 builds hands-on proficiency in hose advancement, aerial ladder support, and accountability under low-visibility conditions—teaching me how crews communicate and rely on clear situational data.
+              </p>
+              <div class="skill-pills">
+                <span class="skill-pill">Live-Burn Evolutions</span>
+                <span class="skill-pill">Truck 46 Aerial Support</span>
+                <span class="skill-pill">Fireground Comms</span>
+              </div>
             </div>
-          </div>
+          </article>
 
-          <div class="photo-card">
-            <img src="img/fire-bay-turnout.jpg" alt="Zain Hamdia in full turnout gear inside Station 46 engine bay" class="photo-card-img tall" style="object-position: top center;">
-            <div class="photo-card-body">
-              <div class="photo-card-tag">Station 46 • Engine Bay</div>
-              <div class="photo-card-title">Turnout Gear & SCBA</div>
-              <p class="photo-card-desc">Geared up inside the Station 46 apparatus bay ahead of company drills.</p>
+          <article class="photo-card">
+            <img src="img/fire-bay-turnout.jpg" alt="Zain Hamdia in full turnout gear and SCBA inside Station 46 engine bay" class="photo-card-img tall" style="object-position: top center;">
+            <div class="photo-card-body" style="padding: 22px;">
+              <div class="photo-card-tag">Station 46 Engine Bay • Rapid Turnout &amp; SCBA</div>
+              <h3 class="photo-card-title" style="font-size: 1.2rem; margin-bottom: 8px;">Designing for the 60-Second Dispatch Window</h3>
+              <p class="photo-card-desc" style="font-size: 0.92rem; margin-bottom: 14px;">
+                Gearing up in full PPE and SCBA in the apparatus bay means firefighters only have seconds to check weather hazards, road closures, and dispatch notes before rolling out. That firsthand constraint drove the zero-click, high-contrast layout of my 11-inch Radio Room Dashboard.
+              </p>
+              <div class="skill-pills">
+                <span class="skill-pill">SCBA &amp; Turnout Drills</span>
+                <span class="skill-pill">Zero-Click UI Design</span>
+                <span class="skill-pill">Apparatus Readiness</span>
+              </div>
             </div>
-          </div>
-
-          <div class="photo-card">
-            <img src="img/fire-crew-bay.jpg" alt="Station 46 firefighters in full turnout gear and SCBA masks" class="photo-card-img">
-            <div class="photo-card-body">
-              <div class="photo-card-tag">Company #2 Crew</div>
-              <div class="photo-card-title">SCBA & Forcible Entry Drills</div>
-              <p class="photo-card-desc">Training alongside fellow Station 46 firefighters in the apparatus bay.</p>
-            </div>
-          </div>
-
-          <div class="photo-card">
-            <img src="img/fire-engine-cab.jpg" alt="Zain Hamdia riding in the fire apparatus cab during winter response" class="photo-card-img">
-            <div class="photo-card-body">
-              <div class="photo-card-tag">Apparatus Operations</div>
-              <div class="photo-card-title">En Route in the Cab</div>
-              <p class="photo-card-desc">Inside the apparatus cab during winter training and response runs.</p>
-            </div>
-          </div>
-
-          <div class="photo-card">
-            <img src="img/fire-truck-46.jpg" alt="Montgomery Township Volunteer Fire Co. #2 Truck 46 aerial ladder" class="photo-card-img">
-            <div class="photo-card-body">
-              <div class="photo-card-tag">Station 46 Fleet</div>
-              <div class="photo-card-title">Montgomery Truck 46</div>
-              <p class="photo-card-desc">Station 46’s aerial ladder truck set up with outriggers deployed during daytime drills.</p>
-            </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
@@ -250,6 +299,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=visual-9"></script>
 </body>
 </html>
