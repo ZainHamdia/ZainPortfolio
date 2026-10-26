@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zain Hamdia — Engineering & Robotics Portfolio</title>
   <meta name="description" content="Portfolio of Zain Hamdia — Student at Princeton Day School (Class of 2027), innovator, maker and robotics student, volunteer firefighter, and aspiring mechanical engineer.">
-  <link rel="stylesheet" href="css/styles.css?v=visual-17">
+  <link rel="stylesheet" href="css/styles.css?v=paper-1">
 </head>
 <body class="theme-home">
 
@@ -25,6 +25,7 @@
           <li><a href="aviation.html" class="nav-link">Aviation</a></li>
           <li><a href="research.html" class="nav-link">Research</a></li>
           <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="travel.html" class="nav-link">Global Travel</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -35,147 +36,118 @@
   </header>
 
   <main>
-    <!-- Section 1: Full-Bleed Deep Indigo Hero with Interactive Tile Grid -->
+    <!-- Intro -->
     <section class="home-hero">
       <div class="container">
         <div class="home-hero-grid">
           <div>
-            <span class="hero-kicker">Princeton Day School • Class of 2027</span>
-            <h1 class="home-hero-title">
-              Building robots, flight controls &amp; fire station hardware.
-            </h1>
+            <span class="hero-kicker">Princeton Day School, Class of 2027 · Princeton, NJ</span>
+            <h1 class="home-hero-title">Hi, I’m Zain. I build robots, flight sim controls, and things my fire station actually uses.</h1>
             <p class="home-hero-bio">
-              I’m an aspiring mechanical engineer in Princeton, NJ. I design and build full-scale humanoid robots, 3D-printed animatronics, custom flight simulator controls, and Raspberry Pi dispatch hardware for Fire Station 46.
+              I want to study mechanical engineering. Since 2019 I’ve been building the Zainiac robots. The first one was a five-foot humanoid made of wood, PVC, and LEGO Mindstorms that I took to Maker Faires in Brussels, Cairo, Philadelphia, and Rochester. The latest is a 3D-printed animatronic head that runs on seven servos.
+            </p>
+            <p class="home-hero-bio">
+              I’m also a volunteer firefighter at Station 46 in Montgomery Township. There I built the radio room display and redid the department’s website.
             </p>
             <div class="home-hero-actions">
-              <a href="robotics.html" class="btn btn-primary">Interactive Robotics →</a>
-              <a href="firefighting.html" class="btn btn-secondary">Fire Station 46 Projects</a>
-              <a href="aviation.html" class="btn btn-secondary">Flight Simulator</a>
-              <a href="research.html" class="btn btn-secondary">Princeton Research</a>
+              <a href="docs/zain-hamdia-resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Resume (PDF)</a>
+              <a href="mailto:zainhamdia@gmail.com" class="btn btn-secondary">zainhamdia@gmail.com</a>
+              <a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
             </div>
           </div>
 
-          <!-- Visual Stage Tiles -->
-          <div class="hero-visual-stage">
-            <div class="stage-tiles">
-              <a href="robotics.html#zainiac" class="stage-tile tile-robotics">
-                <span class="stage-tile-tag" style="color: #60a5fa;">Robotics</span>
-                <div>
-                  <div class="stage-tile-title">Zainiac 19, 21 &amp; 25 (“Noggin”)</div>
-                  <div class="stage-tile-sub">5-ft humanoid &amp; 7-servo 3D-printed animatronic head</div>
-                </div>
-              </a>
-
-              <a href="firefighting.html#tech-intern" class="stage-tile tile-fire">
-                <span class="stage-tile-tag" style="color: #f87171;">Fire Service</span>
-                <div>
-                  <div class="stage-tile-title">Fire Station 46 Radio Display</div>
-                  <div class="stage-tile-sub">11" Raspberry Pi dashboard &amp; 3D-printed wall mount</div>
-                </div>
-              </a>
-
-              <a href="aviation.html#flight-sim" class="stage-tile tile-aviation">
-                <span class="stage-tile-tag" style="color: #38bdf8;">Aviation</span>
-                <div>
-                  <div class="stage-tile-title">3D Flight Simulator</div>
-                  <div class="stage-tile-sub">Spring-centered yoke, 4-section throttle quadrant &amp; potentiometers</div>
-                </div>
-              </a>
-
-              <a href="research.html" class="stage-tile tile-lab">
-                <span class="stage-tile-tag" style="color: #fb923c;">Princeton Research</span>
-                <div>
-                  <div class="stage-tile-title">Princeton University LLP</div>
-                  <div class="stage-tile-sub">ATmega328P DCC railroad switch thrower PCB redesign</div>
-                </div>
-              </a>
-            </div>
-          </div>
+          <figure class="hero-photo">
+            <img src="img/maker-brussels-booth.jpg" alt="Zain Hamdia standing next to Zainiac 19 at his booth at Maker Faire Brussels">
+            <figcaption>Me and Zainiac 19 at Maker Faire Brussels.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- Section 2: Large Color-Themed Project Showcases (Ordered: Zainiac Series, Fire Station, Flight Sim, Princeton Research) -->
+    <!-- Projects -->
     <section class="portal-section">
       <div class="container">
         <div class="section-header">
-          <div>
-            <h2 class="section-heading">Interactive Project Showcases</h2>
-          </div>
+          <h2 class="section-heading">Projects</h2>
         </div>
 
-        <div class="portal-grid">
-          <!-- 1. Robotics Portal (Cobalt & Violet) -->
-          <a href="robotics.html" class="portal-card portal-robotics">
+        <ul class="project-list">
+          <li class="project-row">
+            <a href="robotics.html"><img class="project-row-img" src="img/zainiac-25-head.jpg" alt="Zainiac 25 animatronic head with servo-driven eyes"></a>
             <div>
-              <span class="portal-kicker">Robotics &amp; Fabrication</span>
-              <h3 class="portal-title">Zainiac Series &amp; VEX V5</h3>
-              <p class="portal-desc">
-                Three generations of homemade robots—including Zainiac 19, the robot I presented at Maker Faires in Brussels, Cairo, Philadelphia, and Rochester—plus VEX V5 leadership at Princeton Day School.
+              <div class="project-meta">Robotics · 2019 – 2025</div>
+              <h3 class="project-title"><a href="robotics.html">The Zainiac robots</a></h3>
+              <p class="project-desc">
+                Three robots I built at home. Zainiac 19 is the five-foot humanoid I brought to Maker Faires and showed on Belgian national TV. Zainiac 25 (“Noggin”) is an animatronic head that’s entirely 3D-printed. The page also covers my VEX V5 work at Princeton Day School.
               </p>
-              <div class="portal-highlights">
-                <span class="portal-pill">~5 ft Humanoid</span>
-                <span class="portal-pill">3D-Printed Animatronic Head</span>
-                <span class="portal-pill">Brussels TV Feature</span>
-              </div>
+              <a href="robotics.html" class="project-link">See the robots</a>
             </div>
-            <div class="portal-cta">Launch Robotics Showcase →</div>
-          </a>
+          </li>
 
-          <!-- 2. Fire Service Portal (Crimson & Amber) -->
-          <a href="firefighting.html" class="portal-card portal-fire">
+          <li class="project-row">
+            <a href="firefighting.html"><img class="project-row-img" src="img/fire-crew-bay.jpg" alt="Zain with fellow volunteer firefighters in turnout gear at Station 46"></a>
             <div>
-              <span class="portal-kicker">Fire Service Engineering</span>
-              <h3 class="portal-title">Fire Station 46</h3>
-              <p class="portal-desc">
-                Volunteer Firefighter and Technology &amp; Engineering Intern at Montgomery Township Volunteer Fire Co. #2 (Fire Station 46). Built the radio room display and redesigned the department website.
+              <div class="project-meta">Fire Station 46 · 2025 – present</div>
+              <h3 class="project-title"><a href="firefighting.html">Fire Station 46</a></h3>
+              <p class="project-desc">
+                I volunteer as a firefighter and an engineering intern at Montgomery Township Volunteer Fire Co. #2. I built the Raspberry Pi display in our radio room and designed its 3D-printed wall mount in CAD. I also rebuilt the department’s website.
               </p>
-              <div class="portal-highlights">
-                <span class="portal-pill">11" CAD Wall Mount</span>
-                <span class="portal-pill">Raspberry Pi Dashboard</span>
-                <span class="portal-pill">Volunteer Firefighter</span>
-              </div>
+              <a href="firefighting.html" class="project-link">Station 46 work</a>
             </div>
-            <div class="portal-cta">Open Fire Station Showcase →</div>
-          </a>
+          </li>
 
-          <!-- 3. Aviation Portal (Aerospace Navy & Cyan) -->
-          <a href="aviation.html" class="portal-card portal-aviation">
+          <li class="project-row">
+            <a href="aviation.html"><img class="project-row-img contain" src="img/throttle-quadrant-iso.png" alt="CAD render of the four-lever throttle quadrant"></a>
             <div>
-              <span class="portal-kicker">Aviation &amp; Flight Sim</span>
-              <h3 class="portal-title">3D Flight Simulator</h3>
-              <p class="portal-desc">
-                Custom 3D-printed flight simulator yoke using springs to stay centered across its pitch and roll axes, paired with a 4-section airliner throttle quadrant wired to individual potentiometers.
+              <div class="project-meta">Aviation</div>
+              <h3 class="project-title"><a href="aviation.html">Flight simulator controls</a></h3>
+              <p class="project-desc">
+                A 3D-printed yoke that springs back to center on pitch and roll, plus a four-lever airliner throttle quadrant. Each lever has its own potentiometer.
               </p>
-              <div class="portal-highlights">
-                <span class="portal-pill">Spring-Centered Yoke</span>
-                <span class="portal-pill">4-Section Quadrant</span>
-                <span class="portal-pill">Individual Potentiometers</span>
-              </div>
+              <a href="aviation.html" class="project-link">How it’s built</a>
             </div>
-            <div class="portal-cta">Explore Flight Simulator →</div>
-          </a>
+          </li>
 
-          <!-- 4. Princeton University Research Portal (Princeton Orange & Black) -->
-          <a href="research.html" class="portal-card portal-research">
+          <li class="project-row">
+            <a href="research.html"><img class="project-row-img" src="img/princeton-llp-2.jpg" alt="Hand-soldered PCB with an ATmega328P for the DCC switch thrower"></a>
             <div>
-              <span class="portal-kicker">Princeton University (MAE 412)</span>
-              <h3 class="portal-title">DCC Switch Thrower PCB</h3>
-              <p class="portal-desc">
-                Modernized Princeton’s ~20-year-old model railroad track switch thrower—designing and hand-soldering a single-sided PCB with an onboard ATmega328P microprocessor and dual 4700µF capacitors.
+              <div class="project-meta">Princeton University LLP · Summer 2025</div>
+              <h3 class="project-title"><a href="research.html">A new switch thrower board for MAE 412</a></h3>
+              <p class="project-desc">
+                Princeton’s model railroad switch thrower board was about 20 years old. I redesigned it as a single-sided PCB with an onboard ATmega328P and two 4700µF capacitors, then soldered it by hand and wrote a paper on it.
               </p>
-              <div class="portal-highlights">
-                <span class="portal-pill">Onboard ATmega328P</span>
-                <span class="portal-pill">Dual 4700µF Caps</span>
-                <span class="portal-pill">Research Paper &amp; Sim</span>
-              </div>
+              <a href="research.html" class="project-link">Read the paper</a>
             </div>
-            <div class="portal-cta">Read Paper &amp; Test PCB →</div>
-          </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Writing + elsewhere -->
+    <section class="portal-section" style="padding-top: 0;">
+      <div class="container home-aside">
+        <div>
+          <h2>Writing</h2>
+          <ul>
+            <li><a href="docs/from-covid-19-to-zainiac-19.pdf" target="_blank" rel="noopener noreferrer">From COVID-19 to Zainiac 19</a><span class="aside-source">The Big Smoke</span></li>
+            <li><a href="docs/the-clandestine-side-of-3d-printing.pdf" target="_blank" rel="noopener noreferrer">The Clandestine Side of 3D Printing</a><span class="aside-source">The Big Smoke</span></li>
+            <li><a href="docs/virtual-reality-just-what-the-doctor-ordered.pdf" target="_blank" rel="noopener noreferrer">Virtual Reality: Just What the Doctor Ordered</a><span class="aside-source">The Big Smoke</span></li>
+            <li><a href="docs/have-we-been-here-before.pdf" target="_blank" rel="noopener noreferrer">Have We Been Here Before?</a><span class="aside-source">The Big Smoke</span></li>
+          </ul>
+        </div>
+        <div>
+          <h2>At school</h2>
+          <ul>
+            <li>Co-president and team captain, Robotics Club<span class="aside-source">VEX V5 · Tournament quarterfinalist, 2026</span></li>
+            <li>Co-president, Maker Club<span class="aside-source">2024 – present</span></li>
+            <li>Co-president, Moslem Student Association<span class="aside-source">2024 – present</span></li>
+            <li><a href="about.html">Everything else is on the About page</a></li>
+          </ul>
         </div>
       </div>
     </section>
   </main>
+
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -188,7 +160,7 @@
           </p>
         </div>
         <div>
-          <div class="footer-col-title">Showcases</div>
+          <div class="footer-col-title">Pages</div>
           <ul class="footer-col-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="robotics.html">Robotics</a></li>
@@ -196,10 +168,11 @@
             <li><a href="aviation.html">Aviation</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="publications.html">Publications</a></li>
+            <li><a href="travel.html">Global Travel</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-col-title">Connect</div>
+          <div class="footer-col-title">Elsewhere</div>
           <ul class="footer-col-links">
             <li><a href="about.html">About &amp; Resume</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -214,6 +187,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=visual-17"></script>
+  <script src="js/app.js?v=paper-1"></script>
 </body>
 </html>

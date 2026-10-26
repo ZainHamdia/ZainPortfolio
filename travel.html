@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Travel — Zain Hamdia</title>
+  <meta name="description" content="Interactive travel map documenting visited destinations across Europe, Asia, the Middle East, and the Americas by Zain Hamdia.">
+  <!-- Leaflet Map Styles (Local + CDN fallback) -->
+  <link rel="stylesheet" href="css/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/styles.css?v=visual-17">
+</head>
+<body class="theme-travel">
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link">
+        <span class="brand-dot"></span>
+        <span class="brand-text-name">Zain Hamdia</span>
+        <span class="brand-text-sub">Princeton, NJ</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="robotics.html" class="nav-link">Robotics</a></li>
+          <li><a href="firefighting.html" class="nav-link">Fire Service</a></li>
+          <li><a href="aviation.html" class="nav-link">Aviation</a></li>
+          <li><a href="research.html" class="nav-link">Research</a></li>
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
+          <li><a href="travel.html" class="nav-link active">Global Travel</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button id="mobile-toggle" class="mobile-menu-toggle" aria-label="Toggle menu">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Ocean Cyan Global Travel Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-kicker">Global Exploration • 14 Destinations • 8 Countries • 4 Continents</span>
+        <h1 class="page-title">Global Travel</h1>
+        <p class="page-subtitle">
+          An interactive record of destinations visited worldwide—spanning international robotics exhibitions at European and North African Maker Faires, historical and architectural explorations, and cultural discovery across the Americas, Europe, Asia, and the Middle East.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Section: Stats Bar + Map & Visited Locations Card -->
+    <section class="section" style="padding-top: 32px;">
+      <div class="container">
+        <!-- Stats Summary Strip -->
+        <div class="travel-stats-bar">
+          <div class="travel-stat-tile">
+            <span class="travel-stat-num">14</span>
+            <span class="travel-stat-label">Destinations Visited</span>
+          </div>
+          <div class="travel-stat-tile">
+            <span class="travel-stat-num">8</span>
+            <span class="travel-stat-label">Sovereign Nations</span>
+          </div>
+          <div class="travel-stat-tile">
+            <span class="travel-stat-num">4</span>
+            <span class="travel-stat-label">Global Continents</span>
+          </div>
+          <div class="travel-stat-tile">
+            <span class="travel-stat-num">2</span>
+            <span class="travel-stat-label">International Maker Faires</span>
+          </div>
+        </div>
+
+        <!-- Split Grid: Sidebar List + Interactive Dark Map -->
+        <div class="travel-layout-grid">
+          <!-- Left Column: Visited Locations Card (Grounded in upload screenshot) -->
+          <aside class="visited-locations-card" aria-label="Visited Locations List">
+            <div class="visited-card-header">
+              <h2 class="visited-card-title">
+                <span class="visited-card-title-icon" aria-hidden="true">🌍</span>
+                <span>Visited Locations</span>
+              </h2>
+            </div>
+
+            <!-- Search Filter -->
+            <div class="visited-search-box">
+              <span class="visited-search-icon" aria-hidden="true">🔍</span>
+              <input type="text" id="visited-search" class="visited-search-input" placeholder="Search destination or country..." aria-label="Search destinations">
+            </div>
+
+            <!-- Region Filter Chips -->
+            <div class="visited-filter-pills" role="tablist" aria-label="Filter locations by region">
+              <button type="button" class="visited-filter-btn active" data-region="all">All (14)</button>
+              <button type="button" class="visited-filter-btn" data-region="europe">Europe (7)</button>
+              <button type="button" class="visited-filter-btn" data-region="asia">Asia (3)</button>
+              <button type="button" class="visited-filter-btn" data-region="middle east & africa">Mideast (2)</button>
+              <button type="button" class="visited-filter-btn" data-region="americas">Americas (1)</button>
+            </div>
+
+            <!-- Scrollable Location Items (Populated & Synced via JS) -->
+            <ul id="visited-locations-list" class="visited-locations-list">
+              <!-- Rendered dynamically by travel-map.js -->
+            </ul>
+          </aside>
+
+          <!-- Right Column: Interactive Dark Matter World Map -->
+          <div class="map-container-wrapper">
+            <div class="map-floating-controls">
+              <button type="button" id="reset-world-view" class="map-control-btn" title="Reset to global view showing all markers">
+                <span>🌍</span>
+                <span>World View</span>
+              </button>
+            </div>
+            <div id="travel-map" role="region" aria-label="Interactive world travel map"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Regional Spotlights & Travel Highlights -->
+    <section class="portal-section" style="padding-top: 16px;">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="section-label">Regional Breakdown</div>
+            <h2 class="section-heading">Travel Highlights &amp; Cultural Notes</h2>
+          </div>
+        </div>
+
+        <div class="visual-card-grid">
+          <!-- Europe Spotlight -->
+          <article class="visual-card">
+            <div class="visual-card-kicker">Europe • 7 Destinations</div>
+            <h3 class="visual-card-title">Western &amp; Southern Europe</h3>
+            <p style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              Exhibited the ~5-foot humanoid robot <strong>Zainiac 19</strong> at the <strong>Brussels Maker Faire</strong> (featured on Belgian National TV News and welcomed at the official opening ceremony). Explored classical structural engineering across Italy (Milan, Florence, Pisa, Venice), cultural institutions in London and Paris, and the historic crossroads of Sarajevo.
+            </p>
+            <div class="skill-pills">
+              <span class="skill-pill">Brussels Maker Faire</span>
+              <span class="skill-pill">Belgian National TV</span>
+              <span class="skill-pill">Italian Architecture</span>
+              <span class="skill-pill">Sarajevo History</span>
+            </div>
+          </article>
+
+          <!-- Asia Spotlight -->
+          <article class="visual-card">
+            <div class="visual-card-kicker">Asia • 3 Destinations</div>
+            <h3 class="visual-card-title">Japan (Tokyo, Kyoto, Kanazawa)</h3>
+            <p style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              Explored the convergence of advanced robotics technology, automated high-speed transit networks (Shinkansen), and centuries-old architectural heritage—from traditional Japanese master timber carpentry without nails in Kyoto to samurai district preservation and modern art curation in Kanazawa.
+            </p>
+            <div class="skill-pills">
+              <span class="skill-pill">Robotics Innovation</span>
+              <span class="skill-pill">Transit Engineering</span>
+              <span class="skill-pill">Timber Joinery</span>
+              <span class="skill-pill">Contemporary Art</span>
+            </div>
+          </article>
+
+          <!-- Middle East & Africa Spotlight -->
+          <article class="visual-card">
+            <div class="visual-card-kicker">Middle East &amp; Africa • 2 Destinations</div>
+            <h3 class="visual-card-title">Egypt (Cairo &amp; El Gouna)</h3>
+            <p style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              Presented <strong>Zainiac 19</strong> at the <strong>Cairo Maker Faire</strong> at the Smart Village youth robotics exchange. In El Gouna along the Red Sea coast, studied eco-sustainable lagoon community planning, renewable energy infrastructure, and coastal marine engineering.
+            </p>
+            <div class="skill-pills">
+              <span class="skill-pill">Cairo Maker Faire</span>
+              <span class="skill-pill">Ancient Engineering</span>
+              <span class="skill-pill">Red Sea Coast</span>
+              <span class="skill-pill">Lagoon Architecture</span>
+            </div>
+          </article>
+
+          <!-- Americas Spotlight -->
+          <article class="visual-card">
+            <div class="visual-card-kicker">Americas • 1 Destination</div>
+            <h3 class="visual-card-title">Costa Rica (Orosi Valley)</h3>
+            <p style="font-size: 0.94rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+              Visited the lush volcanic river basin of the Orosi Valley in Cartago Province, exploring colonial architectural landmarks including the Iglesia de San José de Orosi (built 1743), thermal waters, geothermal geology, and sustainable shade-grown coffee cultivation.
+            </p>
+            <div class="skill-pills">
+              <span class="skill-pill">Cartago Province</span>
+              <span class="skill-pill">Colonial Heritage</span>
+              <span class="skill-pill">Volcanic Geology</span>
+              <span class="skill-pill">Biodiversity</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-text-name" style="margin-bottom: 8px;">Zain Hamdia</div>
+          <p style="font-size: 0.9rem; max-width: 340px;">
+            Princeton Day School (Class of 2027) • Innovator, maker and robotics student, volunteer firefighter at Fire Station 46, and aspiring mechanical engineer.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Showcases</div>
+          <ul class="footer-col-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="robotics.html">Robotics</a></li>
+            <li><a href="firefighting.html">Fire Service</a></li>
+            <li><a href="aviation.html">Aviation</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="publications.html">Publications</a></li>
+            <li><a href="travel.html">Global Travel</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Connect</div>
+          <ul class="footer-col-links">
+            <li><a href="about.html">About &amp; Resume</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Zain Hamdia</span>
+        <span>Princeton, New Jersey</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/leaflet.js"></script>
+  <script>
+    // Fallback if local leaflet.js failed for any reason
+    if (typeof L === 'undefined') {
+      const fallbackScript = document.createElement('script');
+      fallbackScript.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+      fallbackScript.onload = () => {
+        const travelScript = document.createElement('script');
+        travelScript.src = 'js/travel-map.js?v=visual-17';
+        document.body.appendChild(travelScript);
+      };
+      document.body.appendChild(fallbackScript);
+    }
+  </script>
+  <script src="js/travel-map.js?v=visual-17"></script>
+  <script src="js/app.js?v=visual-17"></script>
+</body>
+</html>
