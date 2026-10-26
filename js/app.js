@@ -14,6 +14,7 @@ function initPortfolioApp() {
   initZ21Interactive();
   initZ25Interactive();
   initFlightYokeInteractive();
+  initPrincetonDccSwitchInteractive();
   initStationDisplayInteractive();
 }
 
@@ -688,3 +689,176 @@ function initStationDisplayInteractive() {
     });
   }
 }
+
+/* ==========================================================================
+   Aviation & Research Page: Princeton MAE 412 Modernized DCC Track Switch Thrower
+   (Onboard ATmega328P + Dual 4700uF Trickle-Charged Capacitors)
+   ========================================================================== */
+function initPrincetonDccSwitchInteractive() {
+  const dirBtn = document.getElementById('dcc-dir-btn');
+  const trigBtn = document.getElementById('dcc-trig-btn');
+  const doubleBtn = document.getElementById('dcc-double-btn');
+  if (!dirBtn || !trigBtn) return;
+
+  const readout = document.getElementById('dcc-readout');
+  const mcuLed = document.getElementById('dcc-mcu-led');
+  const dirPinLabel = document.getElementById('dcc-dir-pin-label');
+  const trigPinLabel = document.getElementById('dcc-trig-pin-label');
+  const cap1Fill = document.getElementById('dcc-cap1-fill');
+  const cap2Fill = document.getElementById('dcc-cap2-fill');
+  const cap1Pct = document.getElementById('dcc-cap1-pct');
+  const cap2Pct = document.getElementById('dcc-cap2-pct');
+  const pulseBar = document.getElementById('dcc-pulse-bar');
+  const pulseText = document.getElementById('dcc-pulse-text');
+  const dischargeWire = document.getElementById('dcc-discharge-wire');
+  const railStraight = document.getElementById('dcc-rail-straight');
+  const railTurnout = document.getElementById('dcc-rail-turnout');
+  const switchBlade = document.getElementById('dcc-switch-blade');
+  const trackStatus = document.getElementById('dcc-track-status');
+
+  let isTurnout = false; // false = Straight (GREEN), true = Turnout (RED)
+  let cap1 = 100;
+  let cap2 = 100;
+
+  function renderState(activePulseMsg) {
+    const c1 = Math.round(cap1);
+    const c2 = Math.round(cap2);
+
+    // Update Capacitor 1 bar (max height 54 at y=68..122)
+    if (cap1Fill) {
+      const h1 = Math.max(2, (c1 / 100) * 54);
+      cap1Fill.setAttribute('y', (122 - h1).toFixed(1));
+      cap1Fill.setAttribute('height', h1.toFixed(1));
+    }
+    if (cap1Pct) cap1Pct.textContent = `${c1}%`;
+
+    // Update Capacitor 2 bar (max height 54 at y=68..122)
+    if (cap2Fill) {
+      const h2 = Math.max(2, (c2 / 100) * 54);
+      cap2Fill.setAttribute('y', (122 - h2).toFixed(1));
+      cap2Fill.setAttribute('height', h2.toFixed(1));
+    }
+    if (cap2Pct) cap2Pct.textContent = `${c2}%`;
+
+    if (dirPinLabel) {
+      dirPinLabel.textContent = isTurnout ? 'DIR Pin: HIGH (Turnout)' : 'DIR Pin: LOW (Straight)';
+      dirPinLabel.setAttribute('fill', isTurnout ? '#f87171' : '#4ade80');
+    }
+
+    if (railStraight && railTurnout) {
+      railStraight.setAttribute('opacity', isTurnout ? '0.32' : '1');
+      railTurnout.setAttribute('opacity', isTurnout ? '1' : '0.32');
+    }
+
+    if (switchBlade) {
+      switchBlade.setAttribute('transform', isTurnout ? 'rotate(-16 508 175)' : 'rotate(0 508 175)');
+    }
+
+    if (trackStatus) {
+      trackStatus.textContent = isTurnout
+        ? 'ACTIVE PATH: TURNOUT (RED WIRE)'
+        : 'ACTIVE PATH: STRAIGHT (GREEN WIRE)';
+      trackStatus.setAttribute('fill', isTurnout ? '#f87171' : '#4ade80');
+    }
+
+    if (pulseText && !activePulseMsg) {
+      pulseText.textContent = isTurnout
+        ? 'Relay: N.O. (9) Turnout'
+        : 'Relay: N.C. (11) Straight';
+    }
+
+    if (readout) {
+      const modeName = isTurnout ? 'TURNOUT (Red)' : 'STRAIGHT (Green)';
+      const readyStatus = (c1 >= 80 && c2 >= 80)
+        ? 'Ready for 2 Rapid Throws'
+        : (c1 >= 80 || c2 >= 80)
+          ? '1 Cap Charged (Trickle-Charging...)'
+          : 'Trickle-Charging (~12s Cycle)...';
+      readout.textContent = `Track: ${modeName} • Cap 1: ${c1}% • Cap 2: ${c2}% • ${readyStatus}`;
+    }
+  }
+
+  function triggerSwitchThrow(toggleFirst) {
+    if (toggleFirst) {
+      isTurnout = !isTurnout;
+    }
+
+    // Discharge whichever capacitor has higher stored charge (demonstrating dual-capacitor advantage)
+    let usedCap = 'C1';
+    if (cap1 >= cap2 && cap1 >= 25) {
+      cap1 = Math.max(8, cap1 - 88);
+      usedCap = 'C1 (4700µF)';
+    } else if (cap2 >= 25) {
+      cap2 = Math.max(8, cap2 - 88);
+      usedCap = 'C3 (2nd 4700µF)';
+    } else {
+      cap1 = Math.max(5, cap1 - 30);
+    }
+
+    if (mcuLed) mcuLed.setAttribute('fill', '#4ade80');
+    if (trigPinLabel) {
+      trigPinLabel.textContent = 'TRIG Pin: PULSING 4N25';
+      trigPinLabel.setAttribute('fill', '#fde047');
+    }
+    if (pulseBar) pulseBar.setAttribute('fill', '#fef08a');
+    if (pulseText) pulseText.textContent = `Discharged ${usedCap}!`;
+    if (dischargeWire) {
+      dischargeWire.setAttribute('stroke', '#f59e0b');
+      dischargeWire.setAttribute('stroke-width', '5');
+    }
+
+    renderState(true);
+
+    setTimeout(() => {
+      if (mcuLed) mcuLed.setAttribute('fill', '#ef4444');
+      if (trigPinLabel) {
+        trigPinLabel.textContent = 'TRIG Pin: IDLE';
+        trigPinLabel.setAttribute('fill', '#38bdf8');
+      }
+      if (pulseBar) pulseBar.setAttribute('fill', '#e2e8f0');
+      if (dischargeWire) {
+        dischargeWire.setAttribute('stroke', '#64748b');
+        dischargeWire.setAttribute('stroke-width', '3');
+      }
+      renderState(false);
+    }, 550);
+  }
+
+  dirBtn.addEventListener('click', () => {
+    isTurnout = !isTurnout;
+    renderState(false);
+  });
+
+  trigBtn.addEventListener('click', () => {
+    triggerSwitchThrow(false);
+  });
+
+  if (doubleBtn) {
+    doubleBtn.addEventListener('click', () => {
+      // Throw 1 immediately using Cap 1, then Throw 2 in swift succession (650ms later) using Cap 2
+      triggerSwitchThrow(true);
+      setTimeout(() => {
+        triggerSwitchThrow(true);
+      }, 650);
+    });
+  }
+
+  // Continuous trickle-charge loop (~12 seconds for a full 0 -> 100% recharge)
+  setInterval(() => {
+    let changed = false;
+    if (cap1 < 100) {
+      cap1 = Math.min(100, cap1 + 1.7);
+      changed = true;
+    }
+    if (cap2 < 100) {
+      cap2 = Math.min(100, cap2 + 1.7);
+      changed = true;
+    }
+    if (changed) {
+      renderState(false);
+    }
+  }, 200);
+
+  renderState(false);
+}
+

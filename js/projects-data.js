@@ -53,8 +53,10 @@ const PORTFOLIO_DATA = {
       role: "Summer Research Intern",
       period: "Summer 2025",
       bullets: [
-        "Participated in the Joseph Henry Project research program.",
-        "Conducted scientific research and contributed to academic project work."
+        "Analyzed the ~20-year-old schematic of Princeton University’s MAE 412 DCC railroad track switch thrower with a trickle-charged capacitor (~12-second charge cycle from track power and optional 5V DC input).",
+        "Redesigned the board from a double-sided PCB into a more complex single-sided PCB over ~2 weeks, adding an onboard ATMEGA-328P microprocessor to eliminate external connections and automate track control.",
+        "Added a second 4700µF trickle-charged capacitor so more charge is stored and two switch-throwing actions can be performed in swift succession.",
+        "Sourced all components and hand-soldered the board in ~1 week; incorporated two supervisor review corrections and deployed the board for active use in the curriculum."
       ]
     },
     {

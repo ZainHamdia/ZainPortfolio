@@ -39,7 +39,7 @@ ZainSite/
 
 2. **Aviation & Academic Research (`aviation.html`)**
    - **3D-Printed Flight Simulator**: Custom-designed and 3D-printed flight yoke using springs to stay centered across its axes, paired with a 4-section throttle quadrant—all connected to individual potentiometers.
-   - **Princeton University Laboratory Learning Program (LLP)**: Summer 2025 research intern on the Joseph Henry Project under Prof. Michael Littman. Researched and helped reconstruct historical electromechanical scientific apparatus and electromagnetic motor physics.
+   - **Princeton University Laboratory Learning Program (LLP)**: Summer 2025 research intern modernizing Princeton’s ~20-year-old MAE 412 DCC railroad track switch thrower with a trickle-charged capacitor (~12s charge cycle). Designed (~2 weeks) and hand-soldered (~1 week) a single-sided PCB adding an onboard ATMEGA-328P microprocessor (eliminating external connections for easier track automation) and a second 4700µF capacitor (enabling two switch throws in swift succession).
 
 3. **Firefighting & Applied Technology (`firefighting.html`)**
    - **Montgomery Township Volunteer Fire Company #2**:
