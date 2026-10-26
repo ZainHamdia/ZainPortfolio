@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fire Service & Station 46 — Zain Hamdia</title>
-  <meta name="description" content="Junior Firefighter and Technology & Engineering Intern at Montgomery Township Volunteer Fire Company #2 (Station 46).">
-  <link rel="stylesheet" href="css/styles.css?v=visual-9">
+  <title>Fire Service &amp; Fire Station 46 — Zain Hamdia</title>
+  <meta name="description" content="Volunteer Firefighter and Technology & Engineering Intern at Montgomery Township Volunteer Fire Company #2 (Fire Station 46).">
+  <link rel="stylesheet" href="css/styles.css?v=visual-17">
 </head>
 <body class="theme-firefighting">
 
@@ -15,16 +15,16 @@
       <a href="index.html" class="brand-link">
         <span class="brand-dot"></span>
         <span class="brand-text-name">Zain Hamdia</span>
-        <span class="brand-text-sub">Princeton, NJ</span>
       </a>
 
       <nav aria-label="Main Navigation">
         <ul class="nav-menu" id="nav-menu">
           <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="robotics.html" class="nav-link">Robotics</a></li>
+          <li><a href="firefighting.html" class="nav-link active">Fire Service</a></li>
           <li><a href="aviation.html" class="nav-link">Aviation</a></li>
           <li><a href="research.html" class="nav-link">Research</a></li>
-          <li><a href="firefighting.html" class="nav-link active">Fire Service</a></li>
+          <li><a href="publications.html" class="nav-link">Publications</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
@@ -38,10 +38,10 @@
     <!-- Crimson & Amber Fire Service Hero -->
     <section class="page-hero">
       <div class="container">
-        <span class="page-kicker">Montgomery Township Volunteer Fire Company #2 • Station 46</span>
+        <span class="page-kicker">Montgomery Township Volunteer Fire Company #2 • Fire Station 46</span>
         <h1 class="page-title">Firehouse Hardware &amp; Service</h1>
         <p class="page-subtitle">
-          Serving at Station 46 as both an active Junior Firefighter and Technology &amp; Engineering Intern—building our radio room Raspberry Pi dashboard, 3D-printing its 11-inch wall enclosure, redesigning the public department website (<a href="https://firestation46.pages.dev/" target="_blank" rel="noopener noreferrer" style="color: #fde047; text-decoration: underline; font-weight: 700;">firestation46.pages.dev ↗</a>), and overhauling the Junior Firefighter onboarding program.
+          Serving at Fire Station 46 as both an active Volunteer Firefighter and Technology &amp; Engineering Intern—building our radio room Raspberry Pi dashboard, 3D-printing its 11-inch wall enclosure, redesigning the public department website (<a href="https://firestation46.pages.dev/" target="_blank" rel="noopener noreferrer" style="color: #fde047; text-decoration: underline; font-weight: 700;">firestation46.pages.dev ↗</a>), and overhauling the Junior Firefighter onboarding program.
         </p>
       </div>
     </section>
@@ -68,37 +68,185 @@
               <span class="control-label">Active Screen Mode:</span>
               <span id="station-mode-pill" class="servo-readout-pill">Mode 1/3 • Somerset County Doppler Radar &amp; Wind Telemetry</span>
             </div>
-            <button type="button" id="station-demo-btn" class="control-btn">▶ Auto-Cycle Display</button>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button type="button" id="station-demo-btn" class="control-btn">▶ Auto-Cycle Display</button>
+              <button type="button" id="station-cad-modal-btn" class="control-btn" style="border-color: #ef4444; color: #ef4444;">🔍 Full-Res CAD Feed</button>
+            </div>
           </div>
 
           <div class="diagram-stage">
             <div class="sketch-frame">
               <svg class="sketch-svg" viewBox="0 0 700 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <clipPath id="station-screen-clip">
+                    <rect x="132" y="46" width="310" height="146" rx="4"/>
+                  </clipPath>
+                </defs>
+
                 <!-- 3D-Printed Wall Enclosure Bezel -->
                 <rect x="95" y="16" width="510" height="206" rx="10" fill="#ffffff" stroke="#1e293b" stroke-width="2.5"/>
                 <rect x="113" y="32" width="474" height="174" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
 
-                <!-- 11" LCD Display Cutout -->
+                <!-- 11" LCD Display Cutout (clipped screen viewport) -->
                 <rect x="132" y="46" width="310" height="146" rx="4" fill="#0f172a" stroke="#dc2626" stroke-width="2"/>
 
-                <!-- Top Status Bar inside 11" Screen -->
-                <rect x="134" y="48" width="306" height="18" fill="#1e293b"/>
-                <circle id="station-status-dot" cx="145" cy="57" r="3.5" fill="#10b981"/>
-                <text x="154" y="60" font-family="'Inter', sans-serif" font-size="7.5" fill="#e2e8f0" font-weight="700">STATION 46 RADIO ROOM • 11" KIOSK</text>
-                <text x="432" y="60" font-family="'Inter', sans-serif" font-size="7" fill="#94a3b8" text-anchor="end">RPi 4B • LAN</text>
+                <g clip-path="url(#station-screen-clip)">
+                  <!-- View 1: Radar Mode (Default) -->
+                  <g id="station-view-radar">
+                    <!-- Top Status Bar inside 11" Screen -->
+                    <rect x="132" y="46" width="310" height="16" fill="#1e293b"/>
+                    <circle id="station-status-dot" cx="145" cy="54" r="3.5" fill="#10b981"/>
+                    <text x="154" y="57" font-family="'Inter', sans-serif" font-size="7" fill="#e2e8f0" font-weight="700">STATION 46 RADIO ROOM • 11" KIOSK</text>
+                    <text x="432" y="57" font-family="'Inter', sans-serif" font-size="6.5" fill="#94a3b8" text-anchor="end">RPi 4B • LAN</text>
 
-                <!-- Dynamic Graphic Group (Radar / Dispatch / Bulletin) -->
-                <g id="station-radar-graphic">
-                  <circle cx="287" cy="105" r="27" fill="rgba(16, 185, 129, 0.08)" stroke="#10b981" stroke-width="1.8" stroke-dasharray="5 3"/>
-                  <circle cx="287" cy="105" r="15" fill="none" stroke="#059669" stroke-width="1.2" stroke-dasharray="3 2"/>
-                  <line id="station-radar-sweep" x1="287" y1="105" x2="310" y2="91" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
-                  <circle cx="287" cy="105" r="3" fill="#10b981"/>
+                    <!-- Dynamic Radar Graphics -->
+                    <circle cx="287" cy="108" r="42" fill="rgba(16, 185, 129, 0.04)" stroke="#10b981" stroke-width="1.2" stroke-dasharray="4 2"/>
+                    <circle cx="287" cy="108" r="26" fill="rgba(16, 185, 129, 0.06)" stroke="#059669" stroke-width="1" stroke-dasharray="3 2"/>
+                    <circle cx="287" cy="108" r="10" fill="rgba(16, 185, 129, 0.1)" stroke="#34d399" stroke-width="1"/>
+                    <line id="station-radar-sweep" x1="287" y1="108" x2="322" y2="88" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
+                    <circle cx="287" cy="108" r="3" fill="#10b981"/>
+                    <text x="287" y="99" font-family="'Inter', sans-serif" font-size="5" fill="#6ee7b7" text-anchor="middle">Station 46</text>
+
+                    <circle id="station-screen-graphic" cx="287" cy="108" r="42" fill="none" stroke="#10b981" stroke-width="2" opacity="0.35"/>
+
+                    <text id="station-screen-title" x="287" y="160" font-family="'Inter', sans-serif" font-size="9" fill="#ffffff" text-anchor="middle" font-weight="700">LIVE DOPPLER RADAR — SOMERSET COUNTY</text>
+                    <text id="station-screen-sub" x="287" y="174" font-family="'Inter', sans-serif" font-size="7" fill="#94a3b8" text-anchor="middle">Wind: 12 mph NW • Visibility: 10 mi • No Active Warnings</text>
+                  </g>
+
+                  <!-- View 2: Active Dispatch (IamResponding CAD Feed Recreation) -->
+                  <g id="station-view-dispatch" style="display: none;" class="station-screen-interactive">
+                    <!-- Header Bar -->
+                    <rect x="132" y="46" width="310" height="15" fill="#0b1320"/>
+                    <path d="M 136.5 53.5 A 3 3 0 0 1 136.5 57.5 M 138.5 51.5 A 5.5 5.5 0 0 1 138.5 59.5" stroke="#ef4444" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+                    <text x="142" y="56" font-family="'Inter', sans-serif" font-size="4.8" fill="#ffffff" font-weight="800">IamResponding</text>
+                    <text x="178" y="56" font-family="'Inter', sans-serif" font-size="3.5" fill="#94a3b8">by RapidSOS</text>
+                    <text x="210" y="56" font-family="'Inter', sans-serif" font-size="4.2" fill="#e2e8f0" font-weight="700">MONTGOMERY TWP. #2</text>
+                    <text id="station-cad-clock" x="328" y="56" font-family="monospace" font-size="5.2" fill="#38bdf8" font-weight="700">13:12:18</text>
+                    <rect x="362" y="49" width="36" height="9" rx="2" fill="#0284c7"/>
+                    <text x="380" y="55.2" font-family="'Inter', sans-serif" font-size="3.8" fill="#ffffff" font-weight="700" text-anchor="middle">Respond Now</text>
+                    <circle cx="408" cy="53.5" r="4.5" fill="#ef4444"/>
+                    <text x="408" y="55" font-family="'Inter', sans-serif" font-size="3.6" fill="#ffffff" font-weight="800" text-anchor="middle">ZH</text>
+                    <rect x="418" y="49" width="20" height="9" rx="1.5" fill="#1e293b" stroke="#475569" stroke-width="0.6"/>
+                    <text x="428" y="55.2" font-family="'Inter', sans-serif" font-size="3.5" fill="#94a3b8" text-anchor="middle">🔍 Full</text>
+
+                    <!-- 3-Column Split -->
+                    <!-- Left Col: Personnel & Duty -->
+                    <rect x="134" y="63" width="48" height="55" rx="2" fill="#131d2e" stroke="#1e293b" stroke-width="0.7"/>
+                    <text x="137" y="70" font-family="'Inter', sans-serif" font-size="3.8" fill="#94a3b8" font-weight="700">ON DUTY</text>
+                    <text x="179" y="70" font-family="'Inter', sans-serif" font-size="3.8" fill="#f87171" font-weight="700" text-anchor="end">0 On Duty</text>
+                    <path d="M 158 79 L 164 89 L 152 89 Z" fill="#475569"/>
+                    <text x="158" y="87.5" font-family="'Inter', sans-serif" font-size="4" fill="#f8fafc" font-weight="800" text-anchor="middle">!</text>
+                    <text x="158" y="96" font-family="'Inter', sans-serif" font-size="3.2" fill="#cbd5e1" text-anchor="middle">No members on duty</text>
+                    <text x="158" y="103" font-family="'Inter', sans-serif" font-size="2.8" fill="#64748b" text-anchor="middle">Stay alert for alarms</text>
+
+                    <rect x="134" y="120" width="48" height="56" rx="2" fill="#131d2e" stroke="#1e293b" stroke-width="0.7"/>
+                    <text x="137" y="128" font-family="'Inter', sans-serif" font-size="3.4" fill="#94a3b8" font-weight="700">RESPONDING</text>
+                    <text x="179" y="128" font-family="'Inter', sans-serif" font-size="3.6" fill="#f87171" font-weight="700" text-anchor="end">0</text>
+                    <path d="M 158 137 L 164 147 L 152 147 Z" fill="#475569"/>
+                    <text x="158" y="145.5" font-family="'Inter', sans-serif" font-size="4" fill="#f8fafc" font-weight="800" text-anchor="middle">!</text>
+                    <text x="158" y="154" font-family="'Inter', sans-serif" font-size="3.2" fill="#cbd5e1" text-anchor="middle">No responders yet</text>
+                    <text x="158" y="161" font-family="'Inter', sans-serif" font-size="2.8" fill="#64748b" text-anchor="middle">Ready for dispatch tones</text>
+
+                    <!-- Center Col: CAD / Text Incidents -->
+                    <text x="186" y="69" font-family="'Inter', sans-serif" font-size="4.4" fill="#f8fafc" font-weight="800">CAD/TEXT INCIDENTS</text>
+                    <rect x="246" y="62" width="38" height="8" rx="2" fill="#ef4444"/>
+                    <text x="265" y="67.5" font-family="'Inter', sans-serif" font-size="3.4" fill="#ffffff" font-weight="700" text-anchor="middle">4 Active Calls</text>
+
+                    <!-- Call 1: Montgomery High School -->
+                    <rect x="184" y="72" width="184" height="33" rx="2" fill="#172236" stroke="#ef4444" stroke-width="0.8"/>
+                    <circle cx="191" cy="79" r="2.8" fill="#ef4444"/>
+                    <text x="191" y="80.2" font-family="'Inter', sans-serif" font-size="3" fill="#ffffff" font-weight="800" text-anchor="middle">!</text>
+                    <text x="197" y="80" font-family="'Inter', sans-serif" font-size="3.4" fill="#fde047" font-weight="700">Oct 26, 2026 • 10:14:17</text>
+                    <text x="188" y="87" font-family="'Inter', sans-serif" font-size="4.2" fill="#ffffff" font-weight="800">SMOKE CONDITION — OUTSIDE: MONTGOMERY</text>
+                    <text x="188" y="94" font-family="'Inter', sans-serif" font-size="3.8" fill="#e2e8f0" font-weight="700">MONTGOMERY HIGH SCHOOL</text>
+                    <text x="188" y="100" font-family="'Inter', sans-serif" font-size="3.2" fill="#94a3b8">1016 COUNTY ROUTE 601 HWY</text>
+
+                    <!-- Call 2: Carrier Foundation -->
+                    <rect x="184" y="107" width="184" height="33" rx="2" fill="#131c2c" stroke="#3b82f6" stroke-width="0.7"/>
+                    <circle cx="191" cy="114" r="2.8" fill="#3b82f6"/>
+                    <text x="191" y="115.2" font-family="'Inter', sans-serif" font-size="3" fill="#ffffff" font-weight="800" text-anchor="middle">!</text>
+                    <text x="197" y="115" font-family="'Inter', sans-serif" font-size="3.4" fill="#93c5fd" font-weight="700">Oct 26, 2026 • 07:24:05</text>
+                    <text x="188" y="122" font-family="'Inter', sans-serif" font-size="4.2" fill="#ffffff" font-weight="800">FIRE ALARM — MAIN HOSPITAL GYM</text>
+                    <text x="188" y="129" font-family="'Inter', sans-serif" font-size="3.8" fill="#cbd5e1" font-weight="700">CARRIER FOUNDATION</text>
+                    <text x="188" y="135" font-family="'Inter', sans-serif" font-size="3.2" fill="#94a3b8">252 COUNTY ROUTE 601 HWY</text>
+
+                    <!-- Call 3: Open Burn Notification -->
+                    <rect x="184" y="142" width="184" height="34" rx="2" fill="#131c2c" stroke="#334155" stroke-width="0.6"/>
+                    <circle cx="191" cy="149" r="2.8" fill="#64748b"/>
+                    <text x="191" y="150.2" font-family="'Inter', sans-serif" font-size="3" fill="#ffffff" font-weight="800" text-anchor="middle">!</text>
+                    <text x="197" y="150" font-family="'Inter', sans-serif" font-size="3.4" fill="#94a3b8" font-weight="700">Oct 26, 2026 • 09:18:10</text>
+                    <text x="188" y="157" font-family="'Inter', sans-serif" font-size="4" fill="#cbd5e1" font-weight="700">NOTIFICATION — OPEN BURN UNTIL 1800</text>
+                    <text x="188" y="164" font-family="'Inter', sans-serif" font-size="3.5" fill="#94a3b8">64 HOLLOW ROAD: MONTGOMERY</text>
+                    <text x="188" y="171" font-family="'Inter', sans-serif" font-size="3" fill="#64748b">Permitted controlled agricultural burn</text>
+
+                    <!-- Right Col: Events & Apparatus Status -->
+                    <rect x="370" y="62" width="70" height="36" rx="2" fill="#131d2e" stroke="#1e293b" stroke-width="0.7"/>
+                    <text x="374" y="70" font-family="'Inter', sans-serif" font-size="3.8" fill="#cbd5e1" font-weight="700">EVENTS</text>
+                    <text x="374" y="78" font-family="'Inter', sans-serif" font-size="3.3" fill="#f87171" font-weight="700">📅 Oct 28 • 19:00</text>
+                    <text x="374" y="85" font-family="'Inter', sans-serif" font-size="3.8" fill="#ffffff" font-weight="700">Drill night</text>
+                    <text x="374" y="93" font-family="'Inter', sans-serif" font-size="3.1" fill="#94a3b8">📅 Nov 04 • Work Mtg</text>
+
+                    <rect x="370" y="100" width="70" height="76" rx="2" fill="#131d2e" stroke="#1e293b" stroke-width="0.7"/>
+                    <text x="374" y="108" font-family="'Inter', sans-serif" font-size="3.8" fill="#22c55e" font-weight="800">APPARATUS (READY)</text>
+
+                    <rect x="373" y="111" width="20" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="383" y="117.5" font-family="'Inter', sans-serif" font-size="3.6" fill="#f8fafc" font-weight="700" text-anchor="middle">B46</text>
+                    <rect x="395" y="111" width="20" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="405" y="117.5" font-family="'Inter', sans-serif" font-size="3.6" fill="#f8fafc" font-weight="700" text-anchor="middle">C46</text>
+                    <rect x="417" y="111" width="20" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="427" y="117.5" font-family="'Inter', sans-serif" font-size="3.4" fill="#f8fafc" font-weight="700" text-anchor="middle">DC46</text>
+
+                    <rect x="373" y="122" width="20" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="383" y="128.5" font-family="'Inter', sans-serif" font-size="3.4" fill="#f8fafc" font-weight="700" text-anchor="middle">E467</text>
+                    <rect x="395" y="122" width="20" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="405" y="128.5" font-family="'Inter', sans-serif" font-size="3.4" fill="#f8fafc" font-weight="700" text-anchor="middle">E468</text>
+                    <rect x="417" y="122" width="20" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="427" y="128.5" font-family="'Inter', sans-serif" font-size="3.4" fill="#f8fafc" font-weight="700" text-anchor="middle">FP46</text>
+
+                    <rect x="373" y="133" width="20" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="383" y="139.5" font-family="'Inter', sans-serif" font-size="3.6" fill="#f8fafc" font-weight="700" text-anchor="middle">M46</text>
+                    <rect x="395" y="133" width="20" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="405" y="139.5" font-family="'Inter', sans-serif" font-size="3.6" fill="#f8fafc" font-weight="700" text-anchor="middle">R46</text>
+                    <rect x="417" y="133" width="20" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="427" y="139.5" font-family="'Inter', sans-serif" font-size="3.4" fill="#f8fafc" font-weight="700" text-anchor="middle">BASE</text>
+
+                    <rect x="373" y="144" width="31" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="388.5" y="150.5" font-family="'Inter', sans-serif" font-size="3.4" fill="#f8fafc" font-weight="700" text-anchor="middle">TRK46</text>
+                    <rect x="407" y="144" width="30" height="9" rx="1.5" fill="#1e293b" stroke="#ef4444" stroke-width="0.7"/>
+                    <text x="422" y="150.5" font-family="'Inter', sans-serif" font-size="3.4" fill="#f8fafc" font-weight="700" text-anchor="middle">U46</text>
+
+                    <circle cx="377" cy="160" r="1.8" fill="#10b981"/>
+                    <text x="382" y="161.5" font-family="'Inter', sans-serif" font-size="3.2" fill="#10b981" font-weight="700">100% In Service</text>
+                    <text x="374" y="169" font-family="'Inter', sans-serif" font-size="3" fill="#64748b">0 Apparatus Out of Service</text>
+
+                    <!-- Bottom Red Training Ticker -->
+                    <rect x="132" y="178" width="310" height="14" fill="#dc2626"/>
+                    <text x="136" y="187.5" font-family="'Inter', sans-serif" font-size="3.6" fill="#ffffff" font-weight="800" letter-spacing="0.1">EXPECT FIRE... EXPECT VICTIMS * PROPER FIREFIGHTING IS BUILT UPON A FOUNDATION OF PERISHABLE SKILLS. TRAIN HARD AND TRAIN OFTEN * STATION 46</text>
+                  </g>
+
+                  <!-- View 3: Station Bulletin & Comms -->
+                  <g id="station-view-comms" style="display: none;">
+                    <rect x="132" y="46" width="310" height="16" fill="#1e293b"/>
+                    <circle cx="145" cy="54" r="3.5" fill="#f59e0b"/>
+                    <text x="154" y="57" font-family="'Inter', sans-serif" font-size="7" fill="#e2e8f0" font-weight="700">STATION 46 BULLETIN &amp; TRAINING ROTATION</text>
+                    <text x="432" y="57" font-family="'Inter', sans-serif" font-size="6.5" fill="#f59e0b" text-anchor="end">WEEK 43 • LIVE</text>
+
+                    <rect x="140" y="68" width="294" height="34" rx="3" fill="#131d2e" stroke="#f59e0b" stroke-width="0.8"/>
+                    <text x="148" y="78" font-family="'Inter', sans-serif" font-size="4.5" fill="#fde047" font-weight="800">WEEKLY COMPANY DRILL • TUESDAY 19:00</text>
+                    <text x="148" y="87" font-family="'Inter', sans-serif" font-size="3.8" fill="#e2e8f0" font-weight="700">Apparatus: Truck 46 &amp; Engine 46-7</text>
+                    <text x="148" y="95" font-family="'Inter', sans-serif" font-size="3.4" fill="#94a3b8">Focus: Low-visibility SCBA search evolutions &amp; aerial ladder placement</text>
+
+                    <rect x="140" y="108" width="294" height="34" rx="3" fill="#131d2e" stroke="#3b82f6" stroke-width="0.8"/>
+                    <text x="148" y="118" font-family="'Inter', sans-serif" font-size="4.5" fill="#93c5fd" font-weight="800">JUNIOR FIREFIGHTER MENTORSHIP PROGRAM</text>
+                    <text x="148" y="127" font-family="'Inter', sans-serif" font-size="3.8" fill="#e2e8f0" font-weight="700">Station 46 Mentorship Onboarding Cohort</text>
+                    <text x="148" y="135" font-family="'Inter', sans-serif" font-size="3.4" fill="#94a3b8">Active mentoring pairing incoming high school recruits with senior officers</text>
+
+                    <rect x="140" y="148" width="294" height="36" rx="3" fill="#131d2e" stroke="#10b981" stroke-width="0.8"/>
+                    <text x="148" y="158" font-family="'Inter', sans-serif" font-size="4.5" fill="#6ee7b7" font-weight="800">RADIO ROOM HARDWARE &amp; ENCLOSURE STATUS</text>
+                    <text x="148" y="167" font-family="'Inter', sans-serif" font-size="3.8" fill="#e2e8f0" font-weight="700">Raspberry Pi 4B Kiosk • LAN CAD Feed Synced</text>
+                    <text x="148" y="175" font-family="'Inter', sans-serif" font-size="3.4" fill="#94a3b8">Zero-click 11" wall-mounted display operational with 99.98% uptime</text>
+                  </g>
                 </g>
-
-                <circle id="station-screen-graphic" cx="287" cy="105" r="27" fill="none" stroke="#10b981" stroke-width="2" opacity="0.35"/>
-
-                <text id="station-screen-title" x="287" y="154" font-family="'Inter', sans-serif" font-size="9.5" fill="#ffffff" text-anchor="middle" font-weight="700">LIVE DOPPLER RADAR — SOMERSET COUNTY</text>
-                <text id="station-screen-sub" x="287" y="170" font-family="'Inter', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Wind: 12 mph NW • Visibility: 10 mi • No Active Warnings</text>
 
                 <!-- Internal Raspberry Pi Bay -->
                 <rect x="460" y="48" width="110" height="96" rx="4" fill="#fef2f2" stroke="#dc2626" stroke-width="1.8"/>
@@ -125,19 +273,19 @@
 
             <div class="spec-stack">
               <div class="spec-card">
-                <div class="spec-card-label">1. Operational Problem</div>
-                <div class="spec-card-val">Centralized Radio Room Data</div>
-                <div class="spec-card-desc">Replaced scattered weather, alert, and station schedule lookups with one always-on wall dashboard</div>
+                <div class="spec-card-label" id="spec-step-1-label">1. Operational Problem</div>
+                <div class="spec-card-val" id="spec-step-1-val">Centralized Radio Room Data</div>
+                <div class="spec-card-desc" id="spec-step-1-desc">Replaced scattered weather, alert, and station schedule lookups with one always-on wall dashboard</div>
               </div>
               <div class="spec-card">
-                <div class="spec-card-label">2. Mechanical CAD &amp; FDM</div>
-                <div class="spec-card-val">Custom 11" Wall Enclosure</div>
-                <div class="spec-card-desc">Engineered in CAD with passive cooling vents, recessed cable routing, and service access ports</div>
+                <div class="spec-card-label" id="spec-step-2-label">2. Mechanical CAD &amp; FDM</div>
+                <div class="spec-card-val" id="spec-step-2-val">Custom 11" Wall Enclosure</div>
+                <div class="spec-card-desc" id="spec-step-2-desc">Engineered in CAD with passive cooling vents, recessed cable routing, and service access ports</div>
               </div>
               <div class="spec-card">
-                <div class="spec-card-label">3. Systems Engineering</div>
-                <div class="spec-card-val">Full Lifecycle Delivery</div>
-                <div class="spec-card-desc">Took the build from firefighter requirements and prototyping to installation and technical docs</div>
+                <div class="spec-card-label" id="spec-step-3-label">3. Systems Engineering</div>
+                <div class="spec-card-val" id="spec-step-3-val">Full Lifecycle Delivery</div>
+                <div class="spec-card-desc" id="spec-step-3-desc">Took the build from firefighter requirements and prototyping to installation and technical docs</div>
               </div>
             </div>
           </div>
@@ -199,9 +347,9 @@
               <div>
                 <img src="img/fire-portrait-2026.jpg" alt="Zain Hamdia 2026 Montgomery Fire Co. #2 Class A Uniform Portrait" class="band-card-img" style="height: 250px; object-position: top center;">
                 <div class="section-label" style="color: #fbbf24; margin-bottom: 4px;">Dual Station Role • 2025 – Present</div>
-                <div class="band-card-title">Junior Firefighter &amp; Tech Intern</div>
+                <div class="band-card-title">Volunteer Firefighter &amp; Tech Intern</div>
                 <p class="band-card-text">
-                  Bridging active firehouse service with software and hardware engineering at Montgomery Twp. Volunteer Fire Co. #2 (Station 46).
+                  Bridging active firehouse service with software and hardware engineering at Montgomery Twp. Volunteer Fire Co. #2 (Fire Station 46).
                 </p>
               </div>
             </div>
@@ -212,7 +360,7 @@
                 <div class="section-label" style="color: #fbbf24; margin-bottom: 4px;">Program Impact • Peer Training</div>
                 <div class="band-card-title">Junior &amp; Probationary Cohort</div>
                 <p class="band-card-text">
-                  Working alongside fellow Junior and probationary firefighters on SCBA and forcible-entry evolutions—the exact cohort supported by our new mentorship and certification pathway.
+                  Working alongside fellow volunteer and probationary firefighters on SCBA and forcible-entry evolutions—the exact cohort supported by our new mentorship and certification pathway.
                 </p>
               </div>
             </div>
@@ -299,7 +447,7 @@
         <div>
           <div class="brand-text-name" style="margin-bottom: 8px;">Zain Hamdia</div>
           <p style="font-size: 0.9rem; max-width: 340px;">
-            Princeton Day School (Class of 2027) • Robotics builder, junior firefighter at Station 46, and aspiring mechanical engineer.
+            Princeton Day School (Class of 2027) • Innovator, maker and robotics student, volunteer firefighter at Fire Station 46, and aspiring mechanical engineer.
           </p>
         </div>
         <div>
@@ -307,15 +455,16 @@
           <ul class="footer-col-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="robotics.html">Robotics</a></li>
+            <li><a href="firefighting.html">Fire Service</a></li>
             <li><a href="aviation.html">Aviation</a></li>
             <li><a href="research.html">Research</a></li>
-            <li><a href="firefighting.html">Fire Service</a></li>
+            <li><a href="publications.html">Publications</a></li>
           </ul>
         </div>
         <div>
           <div class="footer-col-title">Connect</div>
           <ul class="footer-col-links">
-            <li><a href="about.html">About & Resume</a></li>
+            <li><a href="about.html">About &amp; Resume</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="https://github.com/ZainHamdia" target="_blank" rel="noopener noreferrer">GitHub</a></li>
           </ul>
@@ -328,6 +477,48 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=visual-15"></script>
+  <!-- High-Res IamResponding CAD Feed Modal -->
+  <div id="station-cad-modal" class="station-modal" style="display: none;" aria-hidden="true">
+    <div class="station-modal-backdrop" id="station-cad-modal-backdrop"></div>
+    <div class="station-modal-dialog">
+      <div class="station-modal-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 8px #ef4444;"></span>
+          <div>
+            <h3 style="margin: 0; font-size: 1.05rem; color: #ffffff;">Station 46 IamResponding CAD Dashboard (by RapidSOS)</h3>
+            <p style="margin: 0; font-size: 0.78rem; color: #94a3b8;">Montgomery Township Volunteer Fire Company #2 — Live Emergency Dispatch Stream</p>
+          </div>
+        </div>
+        <button type="button" id="station-cad-modal-close" class="station-modal-close" aria-label="Close modal">✕</button>
+      </div>
+      <div class="station-modal-body">
+        <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 12px 30px rgba(0,0,0,0.5);">
+          <img src="img/iamresponding-station46.png" alt="Station 46 IamResponding Dispatch Dashboard" style="width: 100%; display: block; height: auto;">
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 18px;">
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 12px;">
+            <div style="font-size: 0.72rem; font-weight: 700; color: #f87171; text-transform: uppercase; margin-bottom: 4px;">1. Live CAD Incident Tones</div>
+            <p style="font-size: 0.84rem; color: #cbd5e1; margin: 0; line-height: 1.45;">
+              Somerset County CAD stream showing the 10:14 outside smoke condition at Montgomery High School (1016 CR-601) and 07:24 fire alarm at Carrier Foundation (252 CR-601).
+            </p>
+          </div>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 12px;">
+            <div style="font-size: 0.72rem; font-weight: 700; color: #34d399; text-transform: uppercase; margin-bottom: 4px;">2. Complete Fleet Readiness</div>
+            <p style="font-size: 0.84rem; color: #cbd5e1; margin: 0; line-height: 1.45;">
+              Active in-service badges for Station 46 apparatus: B46, C46, DC46, E467, E468, FP46, M46, R46, BASE, TRK46, and U46 with 0 units out of service.
+            </p>
+          </div>
+          <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; padding: 12px;">
+            <div style="font-size: 0.72rem; font-weight: 700; color: #38bdf8; text-transform: uppercase; margin-bottom: 4px;">3. 11" Radio Room Kiosk Integration</div>
+            <p style="font-size: 0.84rem; color: #cbd5e1; margin: 0; line-height: 1.45;">
+              Continuous 24/7 zero-click display powered by Raspberry Pi 4B in the custom 3D-printed enclosure, giving gearing-up crews immediate situational awareness.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js?v=visual-17"></script>
 </body>
 </html>

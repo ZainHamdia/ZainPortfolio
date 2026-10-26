@@ -16,6 +16,7 @@ function initPortfolioApp() {
   initFlightYokeInteractive();
   initPrincetonDccSwitchInteractive();
   initStationDisplayInteractive();
+  initPublicationViewers();
 }
 
 if (document.readyState === 'loading') {
@@ -613,25 +614,50 @@ function initStationDisplayInteractive() {
   const modePill = document.getElementById('station-mode-pill');
   const radarSweep = document.getElementById('station-radar-sweep');
 
+  const viewRadar = document.getElementById('station-view-radar');
+  const viewDispatch = document.getElementById('station-view-dispatch');
+  const viewComms = document.getElementById('station-view-comms');
+
+  const spec1Label = document.getElementById('spec-step-1-label');
+  const spec1Val = document.getElementById('spec-step-1-val');
+  const spec1Desc = document.getElementById('spec-step-1-desc');
+
+  const spec2Label = document.getElementById('spec-step-2-label');
+  const spec2Val = document.getElementById('spec-step-2-val');
+  const spec2Desc = document.getElementById('spec-step-2-desc');
+
+  const spec3Label = document.getElementById('spec-step-3-label');
+  const spec3Val = document.getElementById('spec-step-3-val');
+  const spec3Desc = document.getElementById('spec-step-3-desc');
+
   const modeOrder = ['radar', 'dispatch', 'comms'];
   const modes = {
     radar: {
       title: 'LIVE DOPPLER RADAR — SOMERSET COUNTY',
       sub: 'Wind: 12 mph NW • Visibility: 10 mi • No Active Warnings',
       pill: 'Mode 1/3 • Somerset County Doppler Radar & Wind Telemetry',
-      color: '#10b981'
+      color: '#10b981',
+      spec1: ['1. Operational Need', 'Centralized Radio Room Data', 'Replaced scattered weather, alert, and station schedule lookups with one always-on wall dashboard'],
+      spec2: ['2. Mechanical CAD & FDM', 'Custom 11" Wall Enclosure', 'Engineered in CAD with passive cooling vents, recessed cable routing, and service access ports'],
+      spec3: ['3. Systems Engineering', 'Full Lifecycle Delivery', 'Took the build from firefighter requirements and prototyping to installation and technical docs']
     },
     dispatch: {
-      title: 'STATION 46 ACTIVE DISPATCH FEED',
-      sub: 'Engine 46 & Tower 46 Ready • Montgomery Twp Fire Co. #2',
-      pill: 'Mode 2/3 • Live Emergency Dispatch & Apparatus Status',
-      color: '#ef4444'
+      title: 'IAMRESPONDING DISPATCH FEED — STATION 46 CAD',
+      sub: 'Montgomery High School Smoke Call • Carrier Foundation Alarm • Fleet 100% Ready',
+      pill: 'Mode 2/3 • Live IamResponding CAD Feed & Somerset County Alert Stream',
+      color: '#ef4444',
+      spec1: ['1. Real-Time CAD Alerts', 'IamResponding & County 911', 'Pulls live alerts (Montgomery High School outside smoke, Carrier Hospital gym alarm) direct to the radio room'],
+      spec2: ['2. Fleet Readiness Tracking', '11 Station 46 Units Ready', 'Real-time in-service monitoring for B46, C46, DC46, E467, E468, FP46, M46, R46, BASE, TRK46, and U46'],
+      spec3: ['3. Turnout Acceleration', 'Zero-Click Bay Intelligence', 'Gives gearing-up firefighters crucial street addresses and call hazards before opening apparatus bay doors']
     },
     comms: {
       title: 'STATION BULLETIN & CREW SCHEDULE',
-      sub: 'Weekly Drill: Tuesday 19:00 • Junior Program Check-In',
+      sub: 'Weekly Drill: Tuesday 19:00 • Junior Program Mentorship Check-In',
       pill: 'Mode 3/3 • Station 46 Drill Schedule & Crew Communications',
-      color: '#f59e0b'
+      color: '#f59e0b',
+      spec1: ['1. Operational Training', 'Weekly Tuesday Drill', 'Previews drill topics (Truck 46 aerial placement, forcible entry, and low-visibility SCBA evolutions)'],
+      spec2: ['2. Junior Mentorship', 'High School Recruit Cohort', 'Directly connects junior firefighters with senior firefighter mentors for practical gear checkoffs'],
+      spec3: ['3. Hardware Reliability', '24/7 LAN Kiosk Uptime', 'Raspberry Pi 4B display maintains continuous zero-maintenance operation in the radio room']
     }
   };
 
@@ -646,12 +672,33 @@ function initStationDisplayInteractive() {
     modeBtns.forEach(b => {
       b.classList.toggle('active', b.getAttribute('data-mode') === key);
     });
+
+    if (viewRadar) viewRadar.style.display = (key === 'radar') ? 'inline' : 'none';
+    if (viewDispatch) viewDispatch.style.display = (key === 'dispatch') ? 'inline' : 'none';
+    if (viewComms) viewComms.style.display = (key === 'comms') ? 'inline' : 'none';
+
     if (titleEl) titleEl.textContent = mode.title;
     if (subEl) subEl.textContent = mode.sub;
     if (graphicEl) graphicEl.setAttribute('stroke', mode.color);
     if (statusDot) statusDot.setAttribute('fill', mode.color);
     if (modePill) modePill.textContent = mode.pill;
     if (radarSweep) radarSweep.setAttribute('stroke', mode.color);
+
+    if (spec1Label && mode.spec1) {
+      spec1Label.textContent = mode.spec1[0];
+      spec1Val.textContent = mode.spec1[1];
+      spec1Desc.textContent = mode.spec1[2];
+    }
+    if (spec2Label && mode.spec2) {
+      spec2Label.textContent = mode.spec2[0];
+      spec2Val.textContent = mode.spec2[1];
+      spec2Desc.textContent = mode.spec2[2];
+    }
+    if (spec3Label && mode.spec3) {
+      spec3Label.textContent = mode.spec3[0];
+      spec3Val.textContent = mode.spec3[1];
+      spec3Desc.textContent = mode.spec3[2];
+    }
   }
 
   function stopCycle() {
@@ -685,9 +732,51 @@ function initStationDisplayInteractive() {
       cycleTimer = setInterval(() => {
         currentIdx = (currentIdx + 1) % modeOrder.length;
         applyMode(modeOrder[currentIdx]);
-      }, 2200);
+      }, 2600);
     });
   }
+
+  // Live Digital Clock on IamResponding CAD Feed
+  const cadClockEl = document.getElementById('station-cad-clock');
+  function updateCadClock() {
+    if (!cadClockEl) return;
+    const now = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    cadClockEl.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+  }
+  setInterval(updateCadClock, 1000);
+  updateCadClock();
+
+  // Full-Res CAD Modal Handlers
+  const modal = document.getElementById('station-cad-modal');
+  const openModalBtn = document.getElementById('station-cad-modal-btn');
+  const closeModalBtn = document.getElementById('station-cad-modal-close');
+  const modalBackdrop = document.getElementById('station-cad-modal-backdrop');
+
+  function openCadModal() {
+    if (!modal) return;
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCadModal() {
+    if (!modal) return;
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (openModalBtn) openModalBtn.addEventListener('click', openCadModal);
+  if (closeModalBtn) closeModalBtn.addEventListener('click', closeCadModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeCadModal);
+  if (viewDispatch) viewDispatch.addEventListener('click', openCadModal);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+      closeCadModal();
+    }
+  });
 
   // Live Station 46 Website Preview Tab Switcher (firestation46.pages.dev)
   const siteTabs = document.querySelectorAll('.station-site-tab[data-url]');
@@ -715,7 +804,6 @@ function initPrincetonDccSwitchInteractive() {
   const doubleBtn = document.getElementById('dcc-double-btn');
   if (!dirBtn || !trigBtn) return;
 
-  const readout = document.getElementById('dcc-readout');
   const mcuLed = document.getElementById('dcc-mcu-led');
   const dirPinLabel = document.getElementById('dcc-dir-pin-label');
   const trigPinLabel = document.getElementById('dcc-trig-pin-label');
@@ -731,11 +819,16 @@ function initPrincetonDccSwitchInteractive() {
   const switchBlade = document.getElementById('dcc-switch-blade');
   const trackStatus = document.getElementById('dcc-track-status');
 
-  let isTurnout = false; // false = Straight (GREEN), true = Turnout (RED)
+  // trackTurnout = current physical position of the railroad turnout points
+  // dirTurnout = target direction set on the ATmega328P DIR pin & KS2E DPDT relay
+  let trackTurnout = false; // false = Straight (GREEN), true = Turnout (RED)
+  let dirTurnout = true;    // armed for next throw so clicking TRIG immediately throws the switch
   let cap1 = 100;
   let cap2 = 100;
+  let isPulsing = false;
+  let pulseTimer = null;
 
-  function renderState(activePulseMsg) {
+  function renderState() {
     const c1 = Math.round(cap1);
     const c2 = Math.round(cap2);
 
@@ -755,106 +848,119 @@ function initPrincetonDccSwitchInteractive() {
     }
     if (cap2Pct) cap2Pct.textContent = `${c2}%`;
 
+    // Update ATmega328P DIR pin & Relay coil state
     if (dirPinLabel) {
-      dirPinLabel.textContent = isTurnout ? 'DIR Pin: HIGH (Turnout)' : 'DIR Pin: LOW (Straight)';
-      dirPinLabel.setAttribute('fill', isTurnout ? '#f87171' : '#4ade80');
+      dirPinLabel.textContent = dirTurnout ? 'DIR Pin: HIGH (Turnout)' : 'DIR Pin: LOW (Straight)';
+      dirPinLabel.setAttribute('fill', dirTurnout ? '#f87171' : '#4ade80');
     }
 
+    // Physical track rails & moving switch blade only move when TRIG discharges a capacitor!
     if (railStraight && railTurnout) {
-      railStraight.setAttribute('opacity', isTurnout ? '0.32' : '1');
-      railTurnout.setAttribute('opacity', isTurnout ? '1' : '0.32');
+      railStraight.setAttribute('opacity', trackTurnout ? '0.28' : '1');
+      railTurnout.setAttribute('opacity', trackTurnout ? '1' : '0.28');
     }
 
     if (switchBlade) {
-      switchBlade.setAttribute('transform', isTurnout ? 'rotate(-16 508 175)' : 'rotate(0 508 175)');
+      switchBlade.setAttribute('transform', trackTurnout ? 'rotate(-16 508 175)' : 'rotate(0 508 175)');
+      switchBlade.setAttribute('stroke', trackTurnout ? '#ef4444' : '#22c55e');
     }
 
     if (trackStatus) {
-      trackStatus.textContent = isTurnout
+      trackStatus.textContent = trackTurnout
         ? 'ACTIVE PATH: TURNOUT (RED WIRE)'
         : 'ACTIVE PATH: STRAIGHT (GREEN WIRE)';
-      trackStatus.setAttribute('fill', isTurnout ? '#f87171' : '#4ade80');
+      trackStatus.setAttribute('fill', trackTurnout ? '#f87171' : '#4ade80');
     }
 
-    if (pulseText && !activePulseMsg) {
-      pulseText.textContent = isTurnout
-        ? 'Relay: N.O. (9) Turnout'
-        : 'Relay: N.C. (11) Straight';
-    }
-
-    if (readout) {
-      const modeName = isTurnout ? 'TURNOUT (Red)' : 'STRAIGHT (Green)';
-      const readyStatus = (c1 >= 80 && c2 >= 80)
-        ? 'Ready for 2 Rapid Throws'
-        : (c1 >= 80 || c2 >= 80)
-          ? '1 Cap Charged (Trickle-Charging...)'
-          : 'Trickle-Charging (~12s Cycle)...';
-      readout.textContent = `Track: ${modeName} • Cap 1: ${c1}% • Cap 2: ${c2}% • ${readyStatus}`;
+    if (pulseText && !isPulsing) {
+      pulseText.textContent = dirTurnout
+        ? 'Relay Armed: N.O. (9) Turnout'
+        : 'Relay Armed: N.C. (11) Straight';
     }
   }
 
-  function triggerSwitchThrow(toggleFirst) {
-    if (toggleFirst) {
-      isTurnout = !isTurnout;
+  function triggerSwitchThrow(forceTargetTurnout) {
+    // If user clicks TRIG directly while track already matches dirTurnout, flip dirTurnout so every TRIG click throws the switch
+    if (typeof forceTargetTurnout === 'boolean') {
+      dirTurnout = forceTargetTurnout;
+    } else if (trackTurnout === dirTurnout) {
+      dirTurnout = !trackTurnout;
     }
 
     // Discharge whichever capacitor has higher stored charge (demonstrating dual-capacitor advantage)
-    let usedCap = 'C1';
-    if (cap1 >= cap2 && cap1 >= 25) {
-      cap1 = Math.max(8, cap1 - 88);
+    let usedCap = 'C1 (4700µF)';
+    if (cap1 >= cap2 && cap1 >= 20) {
+      cap1 = Math.max(6, cap1 - 88);
       usedCap = 'C1 (4700µF)';
-    } else if (cap2 >= 25) {
-      cap2 = Math.max(8, cap2 - 88);
+    } else if (cap2 >= 20) {
+      cap2 = Math.max(6, cap2 - 88);
       usedCap = 'C3 (2nd 4700µF)';
     } else {
-      cap1 = Math.max(5, cap1 - 30);
+      cap1 = Math.max(4, cap1 - 35);
     }
+
+    // Throw the physical railroad switch points to match the armed relay direction
+    trackTurnout = dirTurnout;
+    isPulsing = true;
 
     if (mcuLed) mcuLed.setAttribute('fill', '#4ade80');
     if (trigPinLabel) {
-      trigPinLabel.textContent = 'TRIG Pin: PULSING 4N25';
+      trigPinLabel.textContent = 'TRIG Pin: PULSING 4N25!';
       trigPinLabel.setAttribute('fill', '#fde047');
     }
-    if (pulseBar) pulseBar.setAttribute('fill', '#fef08a');
-    if (pulseText) pulseText.textContent = `Discharged ${usedCap}!`;
+    if (pulseBar) {
+      pulseBar.setAttribute('fill', '#fef08a');
+      pulseBar.setAttribute('stroke', '#e77500');
+    }
+    if (pulseText) {
+      pulseText.textContent = `⚡ Threw Switch via ${usedCap}!`;
+    }
     if (dischargeWire) {
-      dischargeWire.setAttribute('stroke', '#f59e0b');
-      dischargeWire.setAttribute('stroke-width', '5');
+      dischargeWire.setAttribute('stroke', '#e77500');
+      dischargeWire.setAttribute('stroke-width', '5.5');
     }
 
-    renderState(true);
+    renderState();
 
-    setTimeout(() => {
+    if (pulseTimer) clearTimeout(pulseTimer);
+    pulseTimer = setTimeout(() => {
+      isPulsing = false;
+      // Pre-arm DIR for the opposite direction so another click of TRIG immediately throws back
+      dirTurnout = !trackTurnout;
       if (mcuLed) mcuLed.setAttribute('fill', '#ef4444');
       if (trigPinLabel) {
         trigPinLabel.textContent = 'TRIG Pin: IDLE';
         trigPinLabel.setAttribute('fill', '#fb923c');
       }
-      if (pulseBar) pulseBar.setAttribute('fill', '#e2e8f0');
+      if (pulseBar) {
+        pulseBar.setAttribute('fill', '#e4e4e7');
+        pulseBar.setAttribute('stroke', '#71717a');
+      }
       if (dischargeWire) {
-        dischargeWire.setAttribute('stroke', '#64748b');
+        dischargeWire.setAttribute('stroke', '#52525b');
         dischargeWire.setAttribute('stroke-width', '3');
       }
-      renderState(false);
-    }, 550);
+      renderState();
+    }, 600);
   }
 
   dirBtn.addEventListener('click', () => {
-    isTurnout = !isTurnout;
-    renderState(false);
+    dirTurnout = !dirTurnout;
+    renderState();
   });
 
   trigBtn.addEventListener('click', () => {
-    triggerSwitchThrow(false);
+    triggerSwitchThrow();
   });
 
   if (doubleBtn) {
     doubleBtn.addEventListener('click', () => {
-      // Throw 1 immediately using Cap 1, then Throw 2 in swift succession (650ms later) using Cap 2
-      triggerSwitchThrow(true);
+      // Throw 1 immediately using Cap 1, then Throw 2 in swift succession (700ms later) using Cap 2
+      const firstTarget = !trackTurnout;
+      triggerSwitchThrow(firstTarget);
       setTimeout(() => {
-        triggerSwitchThrow(true);
-      }, 650);
+        triggerSwitchThrow(!firstTarget);
+      }, 700);
     });
   }
 
@@ -870,10 +976,62 @@ function initPrincetonDccSwitchInteractive() {
       changed = true;
     }
     if (changed) {
-      renderState(false);
+      renderState();
     }
   }, 200);
 
-  renderState(false);
+  renderState();
 }
+
+/* ==========================================================================
+   Publications Reader & Inline Viewer Toggles
+   ========================================================================== */
+function initPublicationViewers() {
+  const toggleButtons = document.querySelectorAll('[data-toggle-reader]');
+  if (!toggleButtons.length) return;
+
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-toggle-reader');
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+
+      const isHidden = targetEl.style.display === 'none' || getComputedStyle(targetEl).display === 'none';
+
+      if (isHidden) {
+        targetEl.style.display = 'block';
+        btn.setAttribute('aria-expanded', 'true');
+        const activeLabel = btn.getAttribute('data-active-text') || 'Hide Article ↑';
+        btn.innerHTML = activeLabel;
+      } else {
+        targetEl.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+        const defaultLabel = btn.getAttribute('data-default-text') || '📖 Read Full Text ↓';
+        btn.innerHTML = defaultLabel;
+      }
+    });
+  });
+
+  const pdfToggles = document.querySelectorAll('[data-toggle-pdf]');
+  pdfToggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-toggle-pdf');
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+
+      const isHidden = targetEl.style.display === 'none' || getComputedStyle(targetEl).display === 'none';
+
+      if (isHidden) {
+        targetEl.style.display = 'block';
+        btn.setAttribute('aria-expanded', 'true');
+        btn.innerHTML = 'Close PDF Preview ✕';
+      } else {
+        targetEl.style.display = 'none';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.innerHTML = '📑 Inline PDF Preview ↓';
+      }
+    });
+  });
+}
+
 

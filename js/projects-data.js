@@ -6,7 +6,7 @@
 const PORTFOLIO_DATA = {
   profile: {
     name: "Zain Hamdia",
-    tagline: "Engineering & Robotics Student | Builder | Innovator | Junior Firefighter",
+    tagline: "Engineering & Robotics Student | Builder | Innovator | Volunteer Firefighter",
     aspiring: "Aspiring Mechanical Engineer",
     school: "Princeton Day School",
     expectedGraduation: "2027",
@@ -17,7 +17,16 @@ const PORTFOLIO_DATA = {
 
   experience: [
     {
-      organization: "Montgomery Township Volunteer Fire Company #2",
+      organization: "Montgomery Township Volunteer Fire Company #2 (Fire Station 46)",
+      role: "Volunteer Firefighter",
+      period: "Summer 2025 – Present",
+      bullets: [
+        "Participate in firefighter training, emergency response, station operations, and community service with Fire Station 46.",
+        "Leading an initiative to overhaul and strengthen the department's Junior Firefighter Program, updating digital resources, streamlining response certifications, and pairing youth recruits with senior firefighter mentors."
+      ]
+    },
+    {
+      organization: "Montgomery Township Volunteer Fire Company #2 (Fire Station 46)",
       role: "Technology & Engineering Intern",
       period: "Summer 2026 – Present",
       bullets: [
@@ -28,18 +37,9 @@ const PORTFOLIO_DATA = {
       ]
     },
     {
-      organization: "Montgomery Township Volunteer Fire Company #2",
-      role: "Junior Firefighter",
-      period: "July 2025 – Present",
-      bullets: [
-        "Participate in firefighter training, station operations, emergency response activities, and community service as a member of the department's Junior Firefighter Program.",
-        "Leading an initiative to redesign and strengthen the department's Junior Firefighter Program, including updating online information on junior firefighting, streamlining the process for certifying Juniors to respond, and making the mentor-finding process easier between all the firefighters."
-      ]
-    },
-    {
       organization: "Ivy Tutoring",
-      role: "Software/Technology Intern",
-      period: "Summer 2026 – Present",
+      role: "Software & Technology Intern",
+      period: "Spring 2026 – Present",
       bullets: [
         "Develop and enhance features for a startup SAT preparation platform using JavaScript, Java, and C++.",
         "Built functionality enabling users to log and track SAT practice and test scores over time.",
@@ -49,23 +49,23 @@ const PORTFOLIO_DATA = {
       ]
     },
     {
+      organization: "True Value",
+      role: "Sales Associate",
+      period: "Summer 2026 – Present",
+      bullets: [
+        "Assist customers with product questions, merchandise selection, and general store needs in a customer-facing retail environment.",
+        "Stock and organize new merchandise and support day-to-day store operations while balancing ongoing school, extracurricular, and community commitments."
+      ]
+    },
+    {
       organization: "Princeton University Laboratory Learning Program",
-      role: "Summer Research Intern",
+      role: "Mechanical Engineering Summer Research Intern",
       period: "Summer 2025",
       bullets: [
         "Analyzed the ~20-year-old schematic of Princeton University’s MAE 412 DCC railroad track switch thrower with a trickle-charged capacitor (~12-second charge cycle from track power and optional 5V DC input).",
         "Redesigned the board from a double-sided PCB into a more complex single-sided PCB over ~2 weeks, adding an onboard ATMEGA-328P microprocessor to eliminate external connections and automate track control.",
         "Added a second 4700µF trickle-charged capacitor so more charge is stored and two switch-throwing actions can be performed in swift succession.",
         "Sourced all components and hand-soldered the board in ~1 week; incorporated two supervisor review corrections and deployed the board for active use in the curriculum."
-      ]
-    },
-    {
-      organization: "True Value",
-      role: "Part-Time Associate",
-      period: "July 2026 – Present",
-      bullets: [
-        "Assist customers with product questions, merchandise selection, and general store needs in a customer-facing retail environment.",
-        "Stock and organize new merchandise and support day-to-day store operations while balancing ongoing school, extracurricular, and community commitments."
       ]
     }
   ],
