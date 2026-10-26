@@ -265,104 +265,131 @@
 
             <div class="diagram-stage">
               <div class="sketch-frame">
-                <svg class="sketch-svg" viewBox="0 0 600 365" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="sketch-svg" viewBox="0 0 600 370" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <line x1="30" y1="180" x2="570" y2="180" stroke="#e2e8f0" stroke-dasharray="4 4"/>
-                  <line x1="350" y1="15" x2="350" y2="350" stroke="#e2e8f0" stroke-dasharray="4 4"/>
+                  <line x1="350" y1="12" x2="350" y2="355" stroke="#e2e8f0" stroke-dasharray="4 4"/>
 
                   <!-- Height Marker: ~4.5 Feet Tall -->
-                  <line x1="64" y1="26" x2="64" y2="342" stroke="#0d9488" stroke-width="2"/>
-                  <path d="M 56 26 L 72 26 M 56 342 L 72 342" stroke="#0d9488" stroke-width="2"/>
-                  <text x="46" y="184" font-family="'Inter', sans-serif" font-size="10.5" fill="#0d9488" text-anchor="middle" transform="rotate(-90 46 184)" font-weight="700">~4.5 FEET TALL</text>
+                  <line x1="64" y1="18" x2="64" y2="346" stroke="#0d9488" stroke-width="2"/>
+                  <path d="M 56 18 L 72 18 M 56 346 L 72 346" stroke="#0d9488" stroke-width="2"/>
+                  <text x="46" y="182" font-family="'Inter', sans-serif" font-size="10.5" fill="#0d9488" text-anchor="middle" transform="rotate(-90 46 182)" font-weight="700">~4.5 FEET TALL</text>
 
-                  <!-- Neck Rotation Guide Arc -->
-                  <path d="M 316 98 A 36 10 0 0 0 384 98" stroke="#0d9488" stroke-width="1.6" stroke-dasharray="3 2" fill="none"/>
-                  <text x="412" y="96" font-family="'Inter', sans-serif" font-size="9" fill="#0d9488" font-weight="700">Neck: Rotates (Pan)</text>
+                  <!-- Red LEGO Technic Neck Bushing & Rotation Arc -->
+                  <rect x="342" y="83" width="16" height="7" rx="1.5" fill="#dc2626" stroke="#991b1b" stroke-width="1.5"/>
+                  <path d="M 320 87 A 32 8 0 0 0 380 87" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3 2" fill="none"/>
+                  <text x="425" y="76" font-family="'Inter', sans-serif" font-size="9" fill="#0d9488" font-weight="700">Neck: Rotates (Pan)</text>
 
-                  <!-- White 3D-Printed Head & Articulated Jaw (Rotates Horizontally via Neck) -->
+                  <!-- White 3D-Printed Rectangular Head, Cylindrical Peg Eyes & Articulated Jaw -->
                   <g id="z21-head-group">
-                    <!-- White 3D-Printed Upper Cranium -->
-                    <rect x="314" y="24" width="72" height="50" rx="10" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
-                    <line x1="314" y1="40" x2="386" y2="40" stroke="#e2e8f0" stroke-width="1.4"/>
-                    <!-- Eyes -->
-                    <circle cx="334" cy="52" r="8" fill="#f8fafc" stroke="#0f172a" stroke-width="1.8"/>
-                    <circle cx="334" cy="52" r="3.8" fill="#0d9488"/>
-                    <circle cx="366" cy="52" r="8" fill="#f8fafc" stroke="#0f172a" stroke-width="1.8"/>
-                    <circle cx="366" cy="52" r="3.8" fill="#0d9488"/>
+                    <!-- Wide Rectangular White 3D-Printed Upper Cranium Block -->
+                    <rect x="304" y="16" width="92" height="38" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+                    <line x1="304" y1="48" x2="396" y2="48" stroke="#cbd5e1" stroke-width="1.5"/>
 
-                    <!-- Articulated White 3D-Printed Jaw (Moves Up/Down via LEGO Mindstorms) -->
+                    <!-- Protruding Cylindrical White 3D-Printed Peg Eyes -->
+                    <line x1="328" y1="34" x2="324" y2="38" stroke="#0f172a" stroke-width="9" stroke-linecap="round"/>
+                    <line x1="328" y1="34" x2="324" y2="38" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+                    <circle cx="324" cy="38" r="4.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.6"/>
+
+                    <line x1="372" y1="34" x2="368" y2="38" stroke="#0f172a" stroke-width="9" stroke-linecap="round"/>
+                    <line x1="372" y1="34" x2="368" y2="38" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+                    <circle cx="368" cy="38" r="4.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.6"/>
+
+                    <!-- Narrower Square White 3D-Printed Lower Face / Jaw Housing -->
+                    <rect x="326" y="54" width="48" height="29" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+                    <!-- Recessed Jaw Cavity with LEGO Technic Bracket & Pin -->
+                    <rect x="335" y="59" width="30" height="16" rx="1.5" fill="#e2e8f0" stroke="#475569" stroke-width="1.4"/>
+                    <rect x="341" y="61" width="18" height="10" rx="1" fill="#94a3b8" stroke="#1e293b" stroke-width="1.4"/>
+                    <circle cx="350" cy="69" r="2.2" fill="#d97706"/>
+
+                    <!-- Articulated Horizontal White 3D-Printed Lower Jaw Shelf -->
                     <g id="z21-jaw-group">
-                      <path d="M 322 72 L 378 72 L 374 88 C 373 91, 368 93, 350 93 C 332 93, 327 91, 326 88 Z" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
-                      <rect x="334" y="75" width="32" height="6" rx="1.5" fill="#1e293b"/>
+                      <polygon points="330,72 370,72 375,79 325,79" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                      <line x1="332" y1="76" x2="368" y2="76" stroke="#cbd5e1" stroke-width="1.2"/>
                     </g>
                   </g>
-                  <text x="298" y="46" font-family="'Inter', sans-serif" font-size="9.5" fill="#0f172a" text-anchor="end" font-weight="700">White 3D-Printed Head</text>
-                  <text x="298" y="58" font-family="'Inter', sans-serif" font-size="8.5" fill="#0d9488" text-anchor="end" font-weight="600">+ Motorized Moving Jaw</text>
+                  <text x="288" y="34" font-family="'Inter', sans-serif" font-size="9.5" fill="#0f172a" text-anchor="end" font-weight="700">3D-Printed Block Head</text>
+                  <text x="288" y="46" font-family="'Inter', sans-serif" font-size="8.5" fill="#0d9488" text-anchor="end" font-weight="600">Peg Eyes + Moving Jaw</text>
 
-                  <!-- White 3D-Printed Rotary Neck Column -->
-                  <rect x="336" y="92" width="28" height="16" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
-                  <line x1="342" y1="92" x2="342" y2="108" stroke="#cbd5e1" stroke-width="1.5"/>
-                  <line x1="358" y1="92" x2="358" y2="108" stroke="#cbd5e1" stroke-width="1.5"/>
+                  <!-- LEGO Mindstorms EV3 Brick Mounted Behind Central Spine + Cables -->
+                  <rect x="334" y="132" width="36" height="50" rx="3" fill="#e2e8f0" stroke="#dc2626" stroke-width="1.8"/>
+                  <path d="M 382 104 C 394 124, 422 124, 434 104" stroke="#0f172a" stroke-width="2.2" fill="none"/>
+                  <path d="M 308 104 C 314 118, 330 118, 338 112" stroke="#0f172a" stroke-width="2" fill="none"/>
+                  <line x1="364" y1="182" x2="362" y2="218" stroke="#0f172a" stroke-width="2.5"/>
 
-                  <!-- White 3D-Printed Modular Torso & Shoulder Housing -->
-                  <path d="M 276 108 L 424 108 L 414 214 L 286 214 Z" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
-                  <!-- 3D-Printed Part Seam Lines & Assembly Bolts -->
-                  <line x1="281" y1="142" x2="419" y2="142" stroke="#e2e8f0" stroke-width="1.5"/>
-                  <line x1="284" y1="184" x2="416" y2="184" stroke="#e2e8f0" stroke-width="1.5"/>
-                  <circle cx="290" cy="118" r="2.5" fill="#94a3b8"/>
-                  <circle cx="410" cy="118" r="2.5" fill="#94a3b8"/>
-                  <circle cx="296" cy="204" r="2.5" fill="#94a3b8"/>
-                  <circle cx="404" cy="204" r="2.5" fill="#94a3b8"/>
+                  <!-- Central Vertical White 3D-Printed Cylindrical Spine -->
+                  <rect x="337" y="90" width="26" height="128" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+                  <line x1="344" y1="92" x2="344" y2="216" stroke="#f1f5f9" stroke-width="2"/>
 
-                  <!-- Left & Right Shoulder Motor Pods -->
-                  <rect x="256" y="110" width="22" height="24" rx="4" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
-                  <rect x="422" y="110" width="22" height="24" rx="4" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+                  <!-- Wide Horizontal White 3D-Printed Rectangular Shoulder Bar -->
+                  <rect x="242" y="90" width="216" height="14" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+                  <!-- Shoulder Motor Box & Duct/Electrical Tape Bands (Matches Photo) -->
+                  <rect x="376" y="82" width="26" height="9" rx="2" fill="#94a3b8" stroke="#1e293b" stroke-width="1.5"/>
+                  <rect x="250" y="90" width="16" height="14" fill="#334155"/>
+                  <rect x="368" y="90" width="8" height="14" fill="#334155"/>
+                  <rect x="382" y="90" width="10" height="14" fill="#334155"/>
+                  <rect x="424" y="90" width="18" height="14" fill="#475569"/>
 
-                  <!-- LEGO Mindstorms EV3 Control Hub in Chest -->
-                  <rect x="316" y="122" width="68" height="68" rx="4" fill="#f8fafc" stroke="#dc2626" stroke-width="2"/>
-                  <rect x="326" y="130" width="48" height="22" rx="2" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.2"/>
-                  <text x="350" y="144" font-family="'Inter', sans-serif" font-size="8" fill="#0f766e" text-anchor="middle" font-weight="700">MINDSTORMS</text>
-                  <circle cx="350" cy="170" r="5" fill="#dc2626"/>
-                  <!-- Motor Drive Lines to Jaw, Neck, Left Arm, Right Arm -->
-                  <line x1="350" y1="122" x2="350" y2="92" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3 2"/>
-                  <line x1="316" y1="132" x2="278" y2="122" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="3 2"/>
-                  <line x1="384" y1="132" x2="422" y2="122" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="3 2"/>
+                  <!-- 3 Horizontal Rectangular White 3D-Printed Rib Bars -->
+                  <rect x="292" y="116" width="116" height="12" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                  <rect x="292" y="146" width="116" height="12" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                  <rect x="292" y="176" width="116" height="12" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
 
-                  <!-- Independent Left White 3D-Printed Arm (Pivots at 267, 122) -->
+                  <!-- Black Tape Wrap & Zip-Ties Around Middle/Lower Spine (Matches Photo) -->
+                  <rect x="336" y="160" width="28" height="15" rx="1.5" fill="#18181b"/>
+                  <rect x="330" y="175" width="4" height="14" rx="1" fill="#18181b"/>
+                  <rect x="366" y="175" width="4" height="14" rx="1" fill="#18181b"/>
+
+                  <text x="418" y="152" font-family="'Inter', sans-serif" font-size="9" fill="#0f172a" font-weight="700">3D-Printed Spine &amp; 3 Ribs</text>
+                  <text x="418" y="164" font-family="'Inter', sans-serif" font-size="8.5" fill="#dc2626" font-weight="600">+ Rear LEGO Mindstorms Brick</text>
+
+                  <!-- Independent Left Slender White 3D-Printed Arm (Pivots at 236, 97) -->
                   <g id="z21-left-link">
-                    <rect x="257" y="116" width="20" height="96" rx="8" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
-                    <line x1="257" y1="158" x2="277" y2="158" stroke="#cbd5e1" stroke-width="1.6"/>
-                    <circle cx="267" cy="122" r="4" fill="#0d9488" stroke="#0f172a" stroke-width="1.5"/>
-                    <circle cx="267" cy="204" r="5" fill="#f8fafc" stroke="#0f172a" stroke-width="1.8"/>
+                    <rect x="237" y="94" width="6" height="6" fill="#d97706" stroke="#0f172a" stroke-width="1.2"/>
+                    <polygon points="229,88 239,88 243,152 233,152" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                    <polygon points="233,152 243,152 235,214 225,214" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
                   </g>
-                  <text x="242" y="152" font-family="'Inter', sans-serif" font-size="9.5" fill="#0f766e" text-anchor="end" font-weight="700">Independent Left Arm</text>
-                  <text x="242" y="164" font-family="'Inter', sans-serif" font-size="8.5" fill="#475569" text-anchor="end" font-weight="600">White 3D-Printed Shell</text>
+                  <text x="218" y="138" font-family="'Inter', sans-serif" font-size="9.5" fill="#0f766e" text-anchor="end" font-weight="700">Independent Left Arm</text>
+                  <text x="218" y="150" font-family="'Inter', sans-serif" font-size="8.5" fill="#475569" text-anchor="end" font-weight="600">3D-Printed White Bar</text>
 
-                  <!-- Independent Right White 3D-Printed Arm (Pivots at 433, 122) -->
+                  <!-- Independent Right Slender White 3D-Printed Arm (Pivots at 464, 97) -->
                   <g id="z21-right-link">
-                    <rect x="423" y="116" width="20" height="96" rx="8" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
-                    <line x1="423" y1="158" x2="443" y2="158" stroke="#cbd5e1" stroke-width="1.6"/>
-                    <circle cx="433" cy="122" r="4" fill="#0284c7" stroke="#0f172a" stroke-width="1.5"/>
-                    <circle cx="433" cy="204" r="5" fill="#f8fafc" stroke="#0f172a" stroke-width="1.8"/>
+                    <rect x="457" y="94" width="6" height="6" fill="#d97706" stroke="#0f172a" stroke-width="1.2"/>
+                    <polygon points="461,88 471,88 467,152 457,152" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                    <polygon points="457,152 467,152 455,214 445,214" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
                   </g>
-                  <text x="458" y="152" font-family="'Inter', sans-serif" font-size="9.5" fill="#0284c7" font-weight="700">Independent Right Arm</text>
-                  <text x="458" y="164" font-family="'Inter', sans-serif" font-size="8.5" fill="#475569" font-weight="600">Separate Motor Channel</text>
+                  <text x="480" y="138" font-family="'Inter', sans-serif" font-size="9.5" fill="#0284c7" font-weight="700">Independent Right Arm</text>
+                  <text x="480" y="150" font-family="'Inter', sans-serif" font-size="8.5" fill="#475569" font-weight="600">Separate Motor Channel</text>
 
-                  <!-- White 3D-Printed Pelvis, Legs & Base -->
-                  <rect x="286" y="214" width="128" height="28" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
-                  <line x1="350" y1="214" x2="350" y2="242" stroke="#cbd5e1" stroke-width="1.6"/>
+                  <!-- Flat Rectangular White 3D-Printed Pelvis / Hip Plate -->
+                  <rect x="284" y="218" width="132" height="14" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
+                  <circle cx="314" cy="225" r="2" fill="#64748b"/>
+                  <circle cx="386" cy="225" r="2" fill="#64748b"/>
 
-                  <!-- Left & Right White 3D-Printed Legs -->
-                  <rect x="298" y="242" width="30" height="86" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
-                  <line x1="298" y1="270" x2="328" y2="270" stroke="#e2e8f0" stroke-width="1.5"/>
-                  <line x1="298" y1="298" x2="328" y2="298" stroke="#e2e8f0" stroke-width="1.5"/>
+                  <!-- Wooden Base Board Under Feet -->
+                  <polygon points="242,324 458,324 474,350 226,350" fill="#fde68a" stroke="#b45309" stroke-width="2.2"/>
+                  <line x1="248" y1="336" x2="452" y2="336" stroke="#f59e0b" stroke-width="1.2"/>
 
-                  <rect x="372" y="242" width="30" height="86" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
-                  <line x1="372" y1="270" x2="402" y2="270" stroke="#e2e8f0" stroke-width="1.5"/>
-                  <line x1="372" y1="298" x2="402" y2="298" stroke="#e2e8f0" stroke-width="1.5"/>
+                  <!-- Left White 3D-Printed Cylindrical Leg with Bulbous Knee & 3-Toed Foot -->
+                  <rect x="302" y="232" width="26" height="40" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                  <ellipse cx="315" cy="276" rx="15.5" ry="9.5" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                  <rect x="302" y="284" width="26" height="42" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                  <!-- Left 3-Toed Foot -->
+                  <rect x="296" y="324" width="38" height="8" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+                  <rect x="294" y="330" width="8" height="9" rx="1.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.6"/>
+                  <rect x="311" y="331" width="8" height="9" rx="1.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.6"/>
+                  <rect x="328" y="330" width="8" height="9" rx="1.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.6"/>
 
-                  <!-- White 3D-Printed Foot Base -->
-                  <rect x="272" y="328" width="156" height="14" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="2.2"/>
-                  <text x="350" y="356" font-family="'Inter', sans-serif" font-size="9.5" fill="#0f172a" text-anchor="middle" font-weight="700">Fully 3D-Printed White Body, Limbs &amp; Frame</text>
+                  <!-- Right White 3D-Printed Cylindrical Leg with Bulbous Knee & 3-Toed Foot -->
+                  <rect x="372" y="232" width="26" height="40" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                  <ellipse cx="385" cy="276" rx="15.5" ry="9.5" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                  <rect x="372" y="284" width="26" height="42" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                  <!-- Right 3-Toed Foot -->
+                  <rect x="366" y="324" width="38" height="8" rx="2" fill="#ffffff" stroke="#0f172a" stroke-width="1.8"/>
+                  <rect x="364" y="330" width="8" height="9" rx="1.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.6"/>
+                  <rect x="381" y="331" width="8" height="9" rx="1.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.6"/>
+                  <rect x="398" y="330" width="8" height="9" rx="1.5" fill="#ffffff" stroke="#0f172a" stroke-width="1.6"/>
+
+                  <text x="350" y="363" font-family="'Inter', sans-serif" font-size="9.5" fill="#92400e" text-anchor="middle" font-weight="700">3D-Printed Cylindrical Legs, Bulbous Knees &amp; 3-Toed Feet on Wood Base</text>
                 </svg>
               </div>
 
@@ -386,6 +413,18 @@
                   <div class="spec-card-label">Control Core</div>
                   <div class="spec-card-val">LEGO Mindstorms</div>
                   <div class="spec-card-desc">Drives the jaw, rotating neck, and both independent arms</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Zainiac 21 Real Build Photo -->
+            <div class="photo-grid-2" style="grid-template-columns: minmax(280px, 460px); justify-content: center;">
+              <div class="photo-card">
+                <img src="img/zainiac-21.jpg" alt="Zainiac 21 (~4.5 ft tall) fully 3D printed in white with LEGO Mindstorms" class="photo-card-img tall" style="height: 460px; object-fit: contain; background: #0f172a;">
+                <div class="photo-card-body">
+                  <div class="photo-card-tag">Zainiac 21 • ~4.5-Foot White 3D-Printed Build</div>
+                  <div class="photo-card-title">Zainiac 21 Full-Scale 3D-Printed Humanoid</div>
+                  <p class="photo-card-desc">Fully 3D printed in white—featuring a rectangular head with peg eyes and a motorized LEGO Mindstorms jaw, rotating neck, cylindrical spine with 3 horizontal ribs, independently swinging arms, cylindrical legs with bulbous knees, and 3-toed feet mounted to a wooden base.</p>
                 </div>
               </div>
             </div>
@@ -730,6 +769,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=visual-11"></script>
+  <script src="js/app.js?v=visual-12"></script>
 </body>
 </html>

@@ -187,16 +187,16 @@ function initZ21Interactive() {
     const rightVal = parseFloat(rightArmSlider ? rightArmSlider.value : 0) || 0; // -40 to 40
 
     if (jawGroup) {
-      jawGroup.setAttribute('transform', `translate(0, ${jawVal.toFixed(2)})`);
+      jawGroup.setAttribute('transform', `translate(0, ${(jawVal * 0.55).toFixed(2)})`);
     }
     if (headGroup) {
       headGroup.setAttribute('transform', `translate(${(neckVal * 0.35).toFixed(2)}, 0)`);
     }
     if (leftArm) {
-      leftArm.setAttribute('transform', `rotate(${(leftVal * 0.7).toFixed(2)} 267 122)`);
+      leftArm.setAttribute('transform', `rotate(${(leftVal * 0.7).toFixed(2)} 236 97)`);
     }
     if (rightArm) {
-      rightArm.setAttribute('transform', `rotate(${(-rightVal * 0.7).toFixed(2)} 433 122)`);
+      rightArm.setAttribute('transform', `rotate(${(-rightVal * 0.7).toFixed(2)} 464 97)`);
     }
     if (readout) {
       const jawDeg = Math.round(jawVal * 2);
