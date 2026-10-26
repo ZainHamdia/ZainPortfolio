@@ -494,10 +494,10 @@ function initFlightYokeInteractive() {
     document.getElementById('quad-lever-4')
   ];
   const quadPots = [
-    { el: document.getElementById('quad-pot-1'), cx: 454, cy: 186 },
-    { el: document.getElementById('quad-pot-2'), cx: 519, cy: 186 },
-    { el: document.getElementById('quad-pot-3'), cx: 584, cy: 186 },
-    { el: document.getElementById('quad-pot-4'), cx: 649, cy: 186 }
+    { el: document.getElementById('quad-pot-1'), cx: 468, cy: 204 },
+    { el: document.getElementById('quad-pot-2'), cx: 518, cy: 204 },
+    { el: document.getElementById('quad-pot-3'), cx: 568, cy: 204 },
+    { el: document.getElementById('quad-pot-4'), cx: 618, cy: 204 }
   ];
   const readout = document.getElementById('yoke-readout');
 

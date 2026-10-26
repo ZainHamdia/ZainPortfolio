@@ -142,73 +142,104 @@
                 <text x="296" y="230" font-family="'Inter', sans-serif" font-size="8" fill="#475569" text-anchor="middle" font-weight="600">Spring-Centered Roll &amp; Pitch</text>
 
                 <!-- =========================================================
-                     RIGHT SIDE: 4-Section Throttle Quadrant + 4 Individual Pots
+                     RIGHT SIDE: 3D-Printed Airliner Throttle Quadrant + 4 Pots
+                     (Matches CAD: Curved Ribbed Base, Left Spoiler, 4 White-Spool Throttles, Right FLAP)
                      ========================================================= -->
-                <text x="552" y="24" font-family="'Inter', sans-serif" font-size="10.5" fill="#0f172a" text-anchor="middle" font-weight="800">4-SECTION THROTTLE QUADRANT (4 POTENTIOMETERS)</text>
+                <text x="554" y="24" font-family="'Inter', sans-serif" font-size="10.2" fill="#0f172a" text-anchor="middle" font-weight="800">3D-PRINTED THROTTLE QUADRANT (CAD MODEL + POTS)</text>
 
-                <!-- 3D-Printed 4-Section Quadrant Enclosure -->
-                <rect x="416" y="148" width="272" height="78" rx="7" fill="#f8fafc" stroke="#0f172a" stroke-width="2.2"/>
-                <!-- 4 Parallel Quadrant Slots -->
-                <rect x="448" y="64" width="12" height="96" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="1.6"/>
-                <rect x="513" y="64" width="12" height="96" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="1.6"/>
-                <rect x="578" y="64" width="12" height="96" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="1.6"/>
-                <rect x="643" y="64" width="12" height="96" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="1.6"/>
+                <!-- Curved Dark-Grey Ribbed Quadrant Drum Housing -->
+                <path d="M 404 226 L 414 118 C 416 106, 424 100, 436 100 L 674 100 C 686 100, 694 106, 696 118 L 706 226 Z" fill="#475569" stroke="#1e293b" stroke-width="2.2"/>
+                <!--Ribbed Slot Dividers & Curved Tracks -->
+                <rect x="424" y="102" width="10" height="92" rx="3" fill="#1e293b" stroke="#64748b" stroke-width="1.2"/>
+                <rect x="462" y="102" width="12" height="92" rx="3" fill="#1e293b" stroke="#64748b" stroke-width="1.2"/>
+                <rect x="512" y="102" width="12" height="92" rx="3" fill="#1e293b" stroke="#64748b" stroke-width="1.2"/>
+                <rect x="562" y="102" width="12" height="92" rx="3" fill="#1e293b" stroke="#64748b" stroke-width="1.2"/>
+                <rect x="612" y="102" width="12" height="92" rx="3" fill="#1e293b" stroke="#64748b" stroke-width="1.2"/>
+                <rect x="658" y="102" width="10" height="92" rx="3" fill="#1e293b" stroke="#64748b" stroke-width="1.2"/>
 
-                <!-- SECTION 1 LEVER & POTENTIOMETER 1 -->
+                <!-- Far-Left Slot: Angled Black Speedbrake / Spoiler Lever -->
+                <g id="quad-spoiler-lever">
+                  <line x1="429" y1="146" x2="414" y2="92" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+                  <polygon points="396,72 418,68 426,98 408,100" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
+                </g>
+
+                <!-- SECTION 1 THROTTLE LEVER (Black Contoured Block + White Concave Top & Reverser Spool) -->
                 <g id="quad-lever-1">
-                  <rect x="451" y="92" width="6" height="62" rx="2" fill="#334155"/>
-                  <rect x="438" y="82" width="32" height="16" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8"/>
+                  <rect x="465" y="88" width="6" height="66" rx="2" fill="#0f172a"/>
+                  <!-- Angled White Reverse-Thrust Spool (Side/Front) -->
+                  <circle cx="452" cy="84" r="6.5" fill="#f8fafc" stroke="#475569" stroke-width="1.4"/>
+                  <circle cx="452" cy="84" r="2" fill="#334155"/>
+                  <!-- Contoured Black Throttle Body -->
+                  <rect x="452" y="64" width="32" height="34" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+                  <!-- Top White Concave Spool Knob -->
+                  <path d="M 451 44 Q 468 48 485 44 L 485 61 Q 468 57 451 61 Z" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
                 </g>
-                <circle cx="454" cy="186" r="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                <circle cx="468" cy="204" r="11" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8"/>
                 <g id="quad-pot-1">
-                  <line x1="454" y1="186" x2="454" y2="175" stroke="#0369a1" stroke-width="2.4" stroke-linecap="round"/>
-                  <circle cx="454" cy="186" r="3" fill="#0f172a"/>
+                  <line x1="468" y1="204" x2="468" y2="194" stroke="#0369a1" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="468" cy="204" r="3" fill="#0f172a"/>
                 </g>
-                <text x="454" y="54" font-family="'Inter', sans-serif" font-size="8.5" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 1</text>
-                <text x="454" y="212" font-family="'Inter', sans-serif" font-size="7.5" fill="#0369a1" text-anchor="middle" font-weight="700">Pot 1</text>
+                <text x="468" y="38" font-family="'Inter', sans-serif" font-size="8" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 1</text>
+                <text x="468" y="223" font-family="'Inter', sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle" font-weight="700">Pot 1</text>
 
-                <!-- SECTION 2 LEVER & POTENTIOMETER 2 -->
+                <!-- SECTION 2 THROTTLE LEVER -->
                 <g id="quad-lever-2">
-                  <rect x="516" y="92" width="6" height="62" rx="2" fill="#334155"/>
-                  <rect x="503" y="82" width="32" height="16" rx="4" fill="#0284c7" stroke="#0f172a" stroke-width="1.8"/>
+                  <rect x="515" y="88" width="6" height="66" rx="2" fill="#0f172a"/>
+                  <circle cx="502" cy="84" r="6.5" fill="#f8fafc" stroke="#475569" stroke-width="1.4"/>
+                  <circle cx="502" cy="84" r="2" fill="#334155"/>
+                  <rect x="502" y="64" width="32" height="34" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+                  <path d="M 501 44 Q 518 48 535 44 L 535 61 Q 518 57 501 61 Z" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
                 </g>
-                <circle cx="519" cy="186" r="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                <circle cx="518" cy="204" r="11" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.8"/>
                 <g id="quad-pot-2">
-                  <line x1="519" y1="186" x2="519" y2="175" stroke="#0369a1" stroke-width="2.4" stroke-linecap="round"/>
-                  <circle cx="519" cy="186" r="3" fill="#0f172a"/>
+                  <line x1="518" y1="204" x2="518" y2="194" stroke="#0369a1" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="518" cy="204" r="3" fill="#0f172a"/>
                 </g>
-                <text x="519" y="54" font-family="'Inter', sans-serif" font-size="8.5" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 2</text>
-                <text x="519" y="212" font-family="'Inter', sans-serif" font-size="7.5" fill="#0369a1" text-anchor="middle" font-weight="700">Pot 2</text>
+                <text x="518" y="38" font-family="'Inter', sans-serif" font-size="8" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 2</text>
+                <text x="518" y="223" font-family="'Inter', sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle" font-weight="700">Pot 2</text>
 
-                <!-- SECTION 3 LEVER & POTENTIOMETER 3 -->
+                <!-- SECTION 3 THROTTLE LEVER -->
                 <g id="quad-lever-3">
-                  <rect x="581" y="92" width="6" height="62" rx="2" fill="#334155"/>
-                  <rect x="568" y="82" width="32" height="16" rx="4" fill="#0d9488" stroke="#0f172a" stroke-width="1.8"/>
+                  <rect x="565" y="88" width="6" height="66" rx="2" fill="#0f172a"/>
+                  <circle cx="552" cy="84" r="6.5" fill="#f8fafc" stroke="#475569" stroke-width="1.4"/>
+                  <circle cx="552" cy="84" r="2" fill="#334155"/>
+                  <rect x="552" y="64" width="32" height="34" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+                  <path d="M 551 44 Q 568 48 585 44 L 585 61 Q 568 57 551 61 Z" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
                 </g>
-                <circle cx="584" cy="186" r="12" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+                <circle cx="568" cy="204" r="11" fill="#ccfbf1" stroke="#2dd4bf" stroke-width="1.8"/>
                 <g id="quad-pot-3">
-                  <line x1="584" y1="186" x2="584" y2="175" stroke="#0f766e" stroke-width="2.4" stroke-linecap="round"/>
-                  <circle cx="584" cy="186" r="3" fill="#0f172a"/>
+                  <line x1="568" y1="204" x2="568" y2="194" stroke="#0f766e" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="568" cy="204" r="3" fill="#0f172a"/>
                 </g>
-                <text x="584" y="54" font-family="'Inter', sans-serif" font-size="8.5" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 3</text>
-                <text x="584" y="212" font-family="'Inter', sans-serif" font-size="7.5" fill="#0f766e" text-anchor="middle" font-weight="700">Pot 3</text>
+                <text x="568" y="38" font-family="'Inter', sans-serif" font-size="8" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 3</text>
+                <text x="568" y="223" font-family="'Inter', sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle" font-weight="700">Pot 3</text>
 
-                <!-- SECTION 4 LEVER & POTENTIOMETER 4 -->
+                <!-- SECTION 4 THROTTLE LEVER -->
                 <g id="quad-lever-4">
-                  <rect x="646" y="92" width="6" height="62" rx="2" fill="#334155"/>
-                  <rect x="633" y="82" width="32" height="16" rx="4" fill="#dc2626" stroke="#0f172a" stroke-width="1.8"/>
+                  <rect x="615" y="88" width="6" height="66" rx="2" fill="#0f172a"/>
+                  <circle cx="602" cy="84" r="6.5" fill="#f8fafc" stroke="#475569" stroke-width="1.4"/>
+                  <circle cx="602" cy="84" r="2" fill="#334155"/>
+                  <rect x="602" y="64" width="32" height="34" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+                  <path d="M 601 44 Q 618 48 635 44 L 635 61 Q 618 57 601 61 Z" fill="#f8fafc" stroke="#475569" stroke-width="1.5"/>
                 </g>
-                <circle cx="649" cy="186" r="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+                <circle cx="618" cy="204" r="11" fill="#ccfbf1" stroke="#2dd4bf" stroke-width="1.8"/>
                 <g id="quad-pot-4">
-                  <line x1="649" y1="186" x2="649" y2="175" stroke="#b91c1c" stroke-width="2.4" stroke-linecap="round"/>
-                  <circle cx="649" cy="186" r="3" fill="#0f172a"/>
+                  <line x1="618" y1="204" x2="618" y2="194" stroke="#0f766e" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="618" cy="204" r="3" fill="#0f172a"/>
                 </g>
-                <text x="649" y="54" font-family="'Inter', sans-serif" font-size="8.5" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 4</text>
-                <text x="649" y="212" font-family="'Inter', sans-serif" font-size="7.5" fill="#b91c1c" text-anchor="middle" font-weight="700">Pot 4</text>
+                <text x="618" y="38" font-family="'Inter', sans-serif" font-size="8" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 4</text>
+                <text x="618" y="223" font-family="'Inter', sans-serif" font-size="7" fill="#e2e8f0" text-anchor="middle" font-weight="700">Pot 4</text>
+
+                <!-- Far-Right Slot: Embossed "FLAP" Lever -->
+                <g id="quad-flap-lever">
+                  <rect x="660" y="92" width="5" height="54" rx="2" fill="#0f172a"/>
+                  <rect x="646" y="80" width="34" height="14" rx="4" fill="#0f172a" stroke="#475569" stroke-width="1.5"/>
+                  <text x="663" y="89.5" font-family="'Inter', sans-serif" font-size="6.5" fill="#94a3b8" text-anchor="middle" font-weight="800">FLAP</text>
+                </g>
 
                 <!-- Common Analog Potentiometer Wiring Harness -->
-                <line x1="72" y1="194" x2="649" y2="240" stroke="#0284c7" stroke-width="1.6" stroke-dasharray="3 2"/>
-                <text x="552" y="248" font-family="'Inter', sans-serif" font-size="8.5" fill="#0369a1" text-anchor="middle" font-weight="700">All 4 Quadrant Sections + Yoke Axes Connected to Individual Potentiometers</text>
+                <line x1="72" y1="194" x2="618" y2="240" stroke="#0284c7" stroke-width="1.6" stroke-dasharray="3 2"/>
+                <text x="554" y="248" font-family="'Inter', sans-serif" font-size="8.5" fill="#0369a1" text-anchor="middle" font-weight="700">All 4 Quadrant Sections + Yoke Axes Connected to Individual Potentiometers</text>
               </svg>
             </div>
 
@@ -220,13 +251,43 @@
               </div>
               <div class="spec-card">
                 <div class="spec-card-label">Throttle Control</div>
-                <div class="spec-card-val">4-Section Throttle Quadrant</div>
-                <div class="spec-card-desc">Four independent 3D-printed quadrant lever sections alongside the yoke</div>
+                <div class="spec-card-val">4-Engine Airliner Quadrant</div>
+                <div class="spec-card-desc">Curved ribbed housing with 4 dual-spool throttle levers, left speedbrake lever, and embossed FLAP lever</div>
               </div>
               <div class="spec-card">
                 <div class="spec-card-label">Sensors &amp; Electronics</div>
                 <div class="spec-card-val">Individual Potentiometers</div>
-                <div class="spec-card-desc">Every yoke axis and all 4 throttle quadrant sections wired to individual potentiometers</div>
+                <div class="spec-card-desc">Every yoke axis and throttle quadrant section wired to its own individual potentiometer</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3D-Printed Throttle Quadrant CAD Model Renders -->
+          <div class="photo-grid-3" style="margin-top: 24px;">
+            <div class="photo-card">
+              <img src="img/throttle-quadrant-iso.png" alt="Isometric 3D CAD view of the 4-engine throttle quadrant with white spool rollers and embossed FLAP lever" class="photo-card-img" style="object-fit: contain; background: #f8fafc; padding: 12px;">
+              <div class="photo-card-body">
+                <div class="photo-card-tag">3D CAD Model • Isometric View</div>
+                <div class="photo-card-title">Multi-Slot Quadrant &amp; Embossed FLAP Lever</div>
+                <p class="photo-card-desc">Top-angled CAD view showing the curved ribbed housing, 4 central throttle levers with dual white concave spool rollers, left speedbrake lever, and right embossed “FLAP” lever.</p>
+              </div>
+            </div>
+
+            <div class="photo-card">
+              <img src="img/throttle-quadrant-front.png" alt="Front 3D CAD view of the 4-section throttle quadrant showing the 4 aligned throttle levers and base mounting holes" class="photo-card-img" style="object-fit: contain; background: #f8fafc; padding: 12px;">
+              <div class="photo-card-body">
+                <div class="photo-card-tag">3D CAD Model • Front Elevation</div>
+                <div class="photo-card-title">4-Section Throttle Levers &amp; Track Slots</div>
+                <p class="photo-card-desc">Front elevation showing the four aligned black throttle bodies, white concave top spool knobs, parallel quadrant slots, and lower potentiometer/fastener bores.</p>
+              </div>
+            </div>
+
+            <div class="photo-card">
+              <img src="img/throttle-quadrant-side.png" alt="Side profile 3D CAD view of the throttle quadrant showing the curved drum housing and dual white spool rollers" class="photo-card-img" style="object-fit: contain; background: #f8fafc; padding: 12px;">
+              <div class="photo-card-body">
+                <div class="photo-card-tag">3D CAD Model • Side Profile</div>
+                <div class="photo-card-title">Curved Quadrant Profile &amp; Reverser Spool</div>
+                <p class="photo-card-desc">Side profile highlighting the curved quadrant arc, ergonomic finger contour on the black throttle block, top white throttle spool, and angled forward reverse-thrust spool.</p>
               </div>
             </div>
           </div>
