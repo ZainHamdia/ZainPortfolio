@@ -482,11 +482,10 @@ function initFlightYokeInteractive() {
   const demoBtn = document.getElementById('yoke-demo-btn');
   if (!rollSlider || !pitchSlider) return;
 
+  const yokeAssembly = document.getElementById('yoke-assembly');
   const yokeWheel = document.getElementById('yoke-wheel-group');
-  const yokeShaft = document.getElementById('yoke-shaft-group');
-  const pitchSpring = document.getElementById('yoke-pitch-spring');
-  const pitchPot = document.getElementById('yoke-pitch-pot');
-  const rollPot = document.getElementById('yoke-roll-pot');
+  const pitchHallInd = document.getElementById('yoke-pitch-hall-ind');
+  const rollHallInd = document.getElementById('yoke-roll-hall-ind');
 
   const quadLevers = [
     document.getElementById('quad-lever-1'),
@@ -516,8 +515,8 @@ function initFlightYokeInteractive() {
   }
 
   function updateYoke() {
-    const roll = parseFloat(rollSlider.value) || 0; // -45 to 45
-    const pitch = parseFloat(pitchSlider.value) || 0; // -20 to 20
+    const roll = parseFloat(rollSlider.value) || 0; // -45 to 45 deg
+    const pitch = parseFloat(pitchSlider.value) || 0; // -15 to 15 deg base tilt
     const qVals = [
       quad1Slider ? (parseFloat(quad1Slider.value) || 0) : 50,
       quad2Slider ? (parseFloat(quad2Slider.value) || 0) : 50,
@@ -525,21 +524,22 @@ function initFlightYokeInteractive() {
       quad4Slider ? (parseFloat(quad4Slider.value) || 0) : 50
     ];
 
+    // Pitch: Column tilts back and forth at base pivot (185, 225)
+    if (yokeAssembly) {
+      yokeAssembly.setAttribute('transform', `rotate(${pitch.toFixed(2)} 185 225)`);
+    }
+
+    // Roll: Yoke wheel rotates at center hub (185, 95)
     if (yokeWheel) {
-      yokeWheel.setAttribute('transform', `translate(${(pitch * 0.7).toFixed(2)}, 0) rotate(${roll.toFixed(2)} 296 128)`);
+      yokeWheel.setAttribute('transform', `rotate(${roll.toFixed(2)} 185 95)`);
     }
-    if (yokeShaft) {
-      yokeShaft.setAttribute('transform', `translate(${(pitch * 0.7).toFixed(2)}, 0)`);
+
+    // Contactless Hall Effect Sensor flux visualization
+    if (pitchHallInd) {
+      pitchHallInd.setAttribute('opacity', (0.4 + Math.abs(pitch) / 25).toFixed(2));
     }
-    if (pitchSpring) {
-      const scaleX = 1 + (pitch / 65);
-      pitchSpring.setAttribute('transform', `translate(44, 0) scale(${scaleX.toFixed(3)}, 1) translate(-44, 0)`);
-    }
-    if (pitchPot) {
-      pitchPot.setAttribute('transform', `rotate(${(pitch * 5.5).toFixed(1)} 72 166)`);
-    }
-    if (rollPot) {
-      rollPot.setAttribute('transform', `rotate(${(roll * 2.6).toFixed(1)} 138 166)`);
+    if (rollHallInd) {
+      rollHallInd.setAttribute('opacity', (0.4 + Math.abs(roll) / 60).toFixed(2));
     }
 
     // 4-Section Throttle Quadrant Levers & Individual Potentiometers
@@ -559,7 +559,7 @@ function initFlightYokeInteractive() {
       const rRound = Math.round(roll);
       const pRound = Math.round(pitch);
       const qStr = qVals.map(v => `${Math.round(v)}%`).join(' / ');
-      readout.textContent = `Roll: ${rRound > 0 ? '+' : ''}${rRound}° • Pitch: ${pRound > 0 ? '+' : ''}${pRound}mm • Quad: ${qStr}`;
+      readout.textContent = `Roll: ${rRound > 0 ? '+' : ''}${rRound}° • Pitch: ${pRound > 0 ? '+' : ''}${pRound}° (Base Tilt) • Hall Effect: Active • Quad: ${qStr}`;
     }
   }
 
@@ -583,8 +583,8 @@ function initFlightYokeInteractive() {
       let t = 0;
       function loop() {
         t += 0.045;
-        rollSlider.value = (Math.sin(t) * 38).toFixed(1);
-        pitchSlider.value = (Math.cos(t * 0.7) * 16).toFixed(1);
+        rollSlider.value = (Math.sin(t) * 35).toFixed(1);
+        pitchSlider.value = (Math.cos(t * 0.7) * 12).toFixed(1);
         if (quad1Slider) quad1Slider.value = Math.round(50 + Math.sin(t * 0.9) * 42);
         if (quad2Slider) quad2Slider.value = Math.round(50 + Math.sin(t * 0.9 + 0.6) * 42);
         if (quad3Slider) quad3Slider.value = Math.round(50 + Math.cos(t * 1.1) * 40);

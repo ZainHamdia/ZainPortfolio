@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aviation &amp; Flight Controls — Zain Hamdia</title>
-  <meta name="description" content="Custom 3D-printed flight simulator hardware—spring-centered dual-axis flight yoke and 4-section airliner throttle quadrant wired to individual potentiometers—by Zain Hamdia.">
+  <meta name="description" content="Custom 3D-printed flight simulator hardware: base-tilting dual-axis flight yoke with contactless Hall effect sensors and 4-section airliner throttle quadrant by Zain Hamdia.">
   <link rel="stylesheet" href="css/styles.css?v=paper-1">
 </head>
 <body class="theme-aviation">
@@ -42,7 +42,7 @@
         <span class="page-kicker">Aviation &amp; Flight Simulation Hardware</span>
         <h1 class="page-title">3D-Printed Flight Controls</h1>
         <p class="page-subtitle">
-          Custom 3D-printed flight simulator yoke with multi-axis centering springs and a 4-section airliner throttle quadrant—featuring dual white concave spool rollers, speedbrake lever, and embossed FLAP lever—all wired to individual potentiometers.
+          Custom 3D-printed flight simulator hardware: a dual-axis flight yoke featuring a base-tilting column for pitch, center-hub wheel rotation for roll, and contactless Hall effect sensors—paired with a 4-engine airliner throttle quadrant with dual white spool rollers, speedbrake lever, and embossed FLAP lever.
         </p>
       </div>
     </section>
@@ -53,20 +53,20 @@
         <div class="showcase-top-bar">
           <div>
             <h2 class="showcase-title">3D-Printed Flight Yoke &amp; 4-Section Throttle Quadrant</h2>
-            <div class="showcase-sub">Spring-centered yoke axes and 4 throttle quadrant sections, each wired to dedicated potentiometers.</div>
+            <div class="showcase-sub">Interactive kinematics: column tilts back and forth at the desk-mount base (pitch), wheel rotates at the center hub (roll), detected by contactless Hall effect sensors.</div>
           </div>
           <span id="yoke-readout" style="font-size: 0.82rem; font-weight: 700; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 8px;">
-            Roll: 0° • Pitch: 0mm • Quad: 50% / 50% / 50% / 50%
+            Roll: 0° • Pitch: 0° (Base Tilt) • Hall Effect: Active • Quad: 50% / 50% / 50% / 50%
           </span>
         </div>
 
         <div class="showcase-body">
           <div class="control-bar">
             <div class="control-group">
-              <label for="yoke-roll-slider" class="control-label">Yoke Roll:</label>
+              <label for="yoke-roll-slider" class="control-label">Wheel Roll:</label>
               <input type="range" id="yoke-roll-slider" class="control-slider" min="-45" max="45" step="0.5" value="0" aria-label="Yoke roll slider">
-              <label for="yoke-pitch-slider" class="control-label">Yoke Pitch:</label>
-              <input type="range" id="yoke-pitch-slider" class="control-slider" min="-20" max="20" step="0.5" value="0" aria-label="Yoke pitch slider">
+              <label for="yoke-pitch-slider" class="control-label">Base Tilt (Pitch):</label>
+              <input type="range" id="yoke-pitch-slider" class="control-slider" min="-15" max="15" step="0.5" value="0" aria-label="Yoke base tilt pitch slider">
               <label for="quad-1-slider" class="control-label">Sec 1:</label>
               <input type="range" id="quad-1-slider" class="control-slider" min="0" max="100" step="1" value="50" aria-label="Throttle section 1 slider">
               <label for="quad-2-slider" class="control-label">Sec 2:</label>
@@ -82,66 +82,118 @@
           <div class="diagram-stage">
             <div class="sketch-frame">
               <svg class="sketch-svg" viewBox="0 0 720 275" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="20" y1="128" x2="368" y2="128" stroke="#e2e8f0" stroke-dasharray="4 4"/>
+                <!-- Center Divider -->
                 <line x1="382" y1="20" x2="382" y2="255" stroke="#cbd5e1" stroke-dasharray="5 4" stroke-width="1.5"/>
 
                 <!-- =========================================================
-                     LEFT SIDE: Spring-Centered Dual-Axis Flight Yoke + 2 Pots
+                     LEFT SIDE: Base-Tilting Flight Yoke + Hall Effect Sensors
+                     (Matches user build: Desk clamp, base housing, column tilt,
+                      center wheel roll, dual thumb rockers, checklist plate)
                      ========================================================= -->
-                <text x="195" y="24" font-family="'Inter', sans-serif" font-size="10.5" fill="#0f172a" text-anchor="middle" font-weight="800">SPRING-CENTERED FLIGHT YOKE (2 POTENTIOMETERS)</text>
+                <text x="195" y="24" font-family="'Inter', sans-serif" font-size="10.2" fill="#0f172a" text-anchor="middle" font-weight="800">BASE-TILTING FLIGHT YOKE (HALL EFFECT SENSORS)</text>
 
-                <!-- 3D-Printed Internal Yoke Mechanism Housing -->
-                <rect x="28" y="64" width="154" height="128" rx="6" fill="#f8fafc" stroke="#0f172a" stroke-width="2.2"/>
-                <rect x="36" y="72" width="138" height="72" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
-                <text x="105" y="56" font-family="'Inter', sans-serif" font-size="9" fill="#0284c7" text-anchor="middle" font-weight="700">Multi-Axis Return Springs</text>
+                <!-- Desk Surface Reference Line & Clamp Bracket -->
+                <line x1="30" y1="172" x2="360" y2="172" stroke="#94a3b8" stroke-dasharray="4 4"/>
+                <text x="42" y="167" font-family="'Inter', sans-serif" font-size="7.5" fill="#64748b" font-weight="700">DESK SURFACE</text>
 
-                <!-- Pitch Axis Centering Spring (Stretches/Compresses with Pitch) -->
-                <g id="yoke-pitch-spring">
-                  <path d="M 44 92 L 54 82 L 64 102 L 74 82 L 84 102 L 94 82 L 104 102 L 114 82 L 122 92" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <!-- Desk Mounting Clamp Bracket -->
+                <rect x="135" y="162" width="100" height="18" rx="3" fill="#334155" stroke="#0f172a" stroke-width="1.8"/>
+                <rect x="142" y="154" width="86" height="8" rx="2" fill="#1e293b"/>
+                <circle cx="152" cy="171" r="3" fill="#f8fafc"/>
+                <circle cx="218" cy="171" r="3" fill="#f8fafc"/>
+
+                <!-- Contoured Lower Base Enclosure (Fixed Desk-Mount Housing) -->
+                <path d="M 148 180 L 150 248 C 150 262, 220 262, 220 248 L 222 180 Z" fill="#475569" stroke="#0f172a" stroke-width="2.2"/>
+                <!-- Base Channel Slot (Allows Column to Tilt Back & Forth) -->
+                <rect x="175" y="184" width="20" height="52" rx="10" fill="#1e293b"/>
+                <!-- 4 Base Fastener Bores (Matches photo) -->
+                <circle cx="164" cy="246" r="2.8" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.2"/>
+                <circle cx="178" cy="249" r="2.8" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.2"/>
+                <circle cx="192" cy="249" r="2.8" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.2"/>
+                <circle cx="206" cy="246" r="2.8" fill="#cbd5e1" stroke="#1e293b" stroke-width="1.2"/>
+
+                <!-- HALL EFFECT SENSOR 1: Pitch Axis at Base Pivot -->
+                <g id="pitch-hall-module">
+                  <rect x="100" y="214" width="36" height="22" rx="3" fill="#0284c7" stroke="#0f172a" stroke-width="1.5"/>
+                  <text x="118" y="226" font-family="'Inter', sans-serif" font-size="7" fill="#ffffff" text-anchor="middle" font-weight="700">HALL 1</text>
+                  <text x="118" y="234" font-family="'Inter', sans-serif" font-size="5.8" fill="#e0f2fe" text-anchor="middle">PITCH</text>
+                  <!-- Flux lines connecting sensor to base pivot -->
+                  <path id="yoke-pitch-hall-ind" d="M 138 225 C 152 221, 166 222, 176 225" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3 2" fill="none"/>
+                </g>
+                <text x="75" y="222" font-family="'Inter', sans-serif" font-size="8.5" fill="#0284c7" font-weight="700" text-anchor="end">Pitch Axis</text>
+                <text x="75" y="233" font-family="'Inter', sans-serif" font-size="7.5" fill="#64748b" font-weight="600" text-anchor="end">Tilts at Base Pivot</text>
+
+                <!-- Base Pivot Joint (185, 225) -->
+                <circle cx="185" cy="225" r="9" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+                <circle cx="185" cy="225" r="3.5" fill="#38bdf8"/>
+
+                <!-- =========================================================
+                     TILTING COLUMN ASSEMBLY (Pivots around 185, 225 for Pitch)
+                     ========================================================= -->
+                <g id="yoke-assembly" transform="rotate(0 185 225)">
+                  <!-- Vertical Contoured 3D-Printed Column Tube -->
+                  <rect x="175" y="94" width="20" height="132" rx="4" fill="#64748b" stroke="#0f172a" stroke-width="2"/>
+                  <!-- Internal sensor wiring ribbon running up column -->
+                  <line x1="185" y1="220" x2="185" y2="102" stroke="#38bdf8" stroke-width="1.6" stroke-dasharray="3 2"/>
+
+                  <!-- Upper Column Collar -->
+                  <rect x="171" y="90" width="28" height="10" rx="2" fill="#334155" stroke="#0f172a" stroke-width="1.6"/>
+
+                  <!-- Center Wheel Hub Housing -->
+                  <circle cx="185" cy="95" r="15" fill="#334155" stroke="#0f172a" stroke-width="2"/>
+
+                  <!-- HALL EFFECT SENSOR 2: Roll Axis at Center Hub -->
+                  <circle cx="185" cy="95" r="5.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5"/>
+                  <g id="yoke-roll-hall-ind">
+                    <circle cx="185" cy="95" r="10" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
+                  </g>
+                  <text x="185" y="74" font-family="'Inter', sans-serif" font-size="7.5" fill="#0284c7" text-anchor="middle" font-weight="700">HALL 2 (Roll Sensor)</text>
+
+                  <!-- =======================================================
+                       YOKE CONTROL WHEEL (Rotates around 185, 95 for Roll)
+                       Includes U-shaped horns, dual rocker switches, and
+                       angled flight deck checklist plate
+                       ======================================================= -->
+                  <g id="yoke-wheel-group" transform="rotate(0 185 95)">
+                    <!-- Central Crossbar / Hub Bracket -->
+                    <rect x="160" y="87" width="50" height="16" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.8"/>
+
+                    <!-- Angled Flight Deck Checklist / Chart Plate (Mounted right of hub) -->
+                    <g id="yoke-checklist-plate">
+                      <!-- Mounting linkage arm -->
+                      <line x1="195" y1="92" x2="208" y2="76" stroke="#1e293b" stroke-width="3" stroke-linecap="round"/>
+                      <circle cx="208" cy="76" r="2.5" fill="#cbd5e1"/>
+                      <!-- Checklist clipboard plate -->
+                      <polygon points="202,32 238,44 224,124 188,112" fill="#94a3b8" stroke="#1e293b" stroke-width="2"/>
+                      <line x1="205" y1="48" x2="231" y2="56" stroke="#f8fafc" stroke-width="1.4"/>
+                      <line x1="203" y1="62" x2="228" y2="70" stroke="#f8fafc" stroke-width="1.4"/>
+                      <line x1="201" y1="76" x2="225" y2="84" stroke="#f8fafc" stroke-width="1.4"/>
+                      <line x1="199" y1="90" x2="222" y2="98" stroke="#f8fafc" stroke-width="1.4"/>
+                      <text x="214" y="66" font-family="'Inter', sans-serif" font-size="5.2" fill="#1e293b" font-weight="800" transform="rotate(18 214 66)" text-anchor="middle">CHECKLIST</text>
+                    </g>
+
+                    <!-- Ergonomic U-Shaped Horns (Wide aircraft yoke body matching photo) -->
+                    <path d="M 122 108 L 248 108 C 266 108, 274 96, 274 60 L 274 44 C 274 37, 264 37, 264 44 L 264 60 C 264 86, 256 94, 242 94 L 128 94 C 114 94, 106 86, 106 60 L 106 44 C 106 37, 96 37, 96 44 L 96 60 C 96 96, 104 108, 122 108 Z" fill="#64748b" stroke="#0f172a" stroke-width="2.4"/>
+                    <!-- Grip contour highlights -->
+                    <path d="M 101 48 L 101 78 C 101 90, 107 98, 118 100" stroke="#94a3b8" stroke-width="1.6" fill="none"/>
+                    <path d="M 269 48 L 269 78 C 269 90, 263 98, 252 100" stroke="#94a3b8" stroke-width="1.6" fill="none"/>
+
+                    <!-- Left Horn Thumb Rocker Switch (Matches photo) -->
+                    <rect x="94" y="30" width="14" height="15" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.4"/>
+                    <rect x="96" y="34" width="10" height="7" rx="1.5" fill="#38bdf8"/>
+
+                    <!-- Right Horn Thumb Rocker Switch (Matches photo) -->
+                    <rect x="262" y="30" width="14" height="15" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.4"/>
+                    <rect x="264" y="34" width="10" height="7" rx="1.5" fill="#38bdf8"/>
+
+                    <!-- Center Hub Cap -->
+                    <circle cx="185" cy="95" r="7.5" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+                  </g>
                 </g>
 
-                <!-- Roll Axis Centering Springs -->
-                <g id="yoke-roll-spring">
-                  <path d="M 148 76 L 156 82 L 148 88 L 156 94 L 148 100 L 152 106" stroke="#0d9488" stroke-width="2" stroke-linecap="round" fill="none"/>
-                </g>
-
-                <!-- Individual Pitch & Roll Potentiometers Inside Yoke Base -->
-                <circle cx="72" cy="166" r="11" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-                <g id="yoke-pitch-pot">
-                  <line x1="72" y1="166" x2="72" y2="156" stroke="#0369a1" stroke-width="2.4" stroke-linecap="round"/>
-                  <circle cx="72" cy="166" r="3" fill="#0f172a"/>
-                </g>
-                <text x="72" y="186" font-family="'Inter', sans-serif" font-size="7.5" fill="#0369a1" text-anchor="middle" font-weight="700">Pitch Pot</text>
-
-                <circle cx="138" cy="166" r="11" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
-                <g id="yoke-roll-pot">
-                  <line x1="138" y1="166" x2="138" y2="156" stroke="#0f766e" stroke-width="2.4" stroke-linecap="round"/>
-                  <circle cx="138" cy="166" r="3" fill="#0f172a"/>
-                </g>
-                <text x="138" y="186" font-family="'Inter', sans-serif" font-size="7.5" fill="#0f766e" text-anchor="middle" font-weight="700">Roll Pot</text>
-
-                <!-- Sliding Pitch Shaft Group -->
-                <g id="yoke-shaft-group">
-                  <rect x="116" y="120" width="160" height="16" rx="3" fill="#e2e8f0" stroke="#0f172a" stroke-width="2"/>
-                  <rect x="116" y="112" width="12" height="32" rx="2" fill="#0284c7" stroke="#0f172a" stroke-width="1.6"/>
-                  <circle cx="276" cy="128" r="16" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
-                  <circle cx="276" cy="128" r="5" fill="#0284c7"/>
-                </g>
-
-                <!-- Rotating & Sliding 3D-Printed Yoke Handle Group (Pivots at 296, 128) -->
-                <g id="yoke-wheel-group">
-                  <!-- Yoke Central Hub & Crossbar -->
-                  <path d="M 252 128 L 340 128" stroke="#1e293b" stroke-width="9" stroke-linecap="round"/>
-                  <rect x="282" y="116" width="28" height="24" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8"/>
-                  <!-- Left Yoke Horn Handle -->
-                  <path d="M 252 78 L 252 162 C 252 170, 260 174, 268 174" stroke="#0f172a" stroke-width="9" stroke-linecap="round" fill="none"/>
-                  <rect x="246" y="72" width="12" height="24" rx="4" fill="#0284c7" stroke="#0f172a" stroke-width="1.6"/>
-                  <!-- Right Yoke Horn Handle -->
-                  <path d="M 340 78 L 340 162 C 340 170, 332 174, 324 174" stroke="#0f172a" stroke-width="9" stroke-linecap="round" fill="none"/>
-                  <rect x="334" y="72" width="12" height="24" rx="4" fill="#0284c7" stroke="#0f172a" stroke-width="1.6"/>
-                </g>
-                <text x="296" y="218" font-family="'Inter', sans-serif" font-size="9" fill="#0f172a" text-anchor="middle" font-weight="700">3D-Printed Yoke</text>
-                <text x="296" y="230" font-family="'Inter', sans-serif" font-size="8" fill="#475569" text-anchor="middle" font-weight="600">Spring-Centered Roll &amp; Pitch</text>
+                <!-- Static Motion Indicators -->
+                <text x="65" y="88" font-family="'Inter', sans-serif" font-size="8.5" fill="#0284c7" font-weight="700" text-anchor="end">Roll Axis</text>
+                <text x="65" y="99" font-family="'Inter', sans-serif" font-size="7.5" fill="#64748b" font-weight="600" text-anchor="end">Rotates at Wheel Center</text>
 
                 <!-- =========================================================
                      RIGHT SIDE: 3D-Printed Airliner Throttle Quadrant + 4 Pots
@@ -239,38 +291,52 @@
                   <text x="663" y="89.5" font-family="'Inter', sans-serif" font-size="6.5" fill="#94a3b8" text-anchor="middle" font-weight="800">FLAP</text>
                 </g>
 
-                <!-- Common Analog Potentiometer Wiring Harness -->
-                <line x1="72" y1="194" x2="618" y2="240" stroke="#0284c7" stroke-width="1.6" stroke-dasharray="3 2"/>
-                <text x="554" y="248" font-family="'Inter', sans-serif" font-size="8.5" fill="#0369a1" text-anchor="middle" font-weight="700">All 4 Quadrant Sections + Yoke Axes Connected to Individual Potentiometers</text>
+                <!-- Sensor Wiring Bus -->
+                <line x1="185" y1="234" x2="618" y2="242" stroke="#0284c7" stroke-width="1.6" stroke-dasharray="3 2"/>
+                <text x="400" y="262" font-family="'Inter', sans-serif" font-size="8.2" fill="#0369a1" text-anchor="middle" font-weight="700">Dual Hall Effect Sensors (Yoke Pitch &amp; Roll) + 4 Throttle Potentiometers</text>
               </svg>
             </div>
 
             <div class="spec-stack">
               <div class="spec-card">
-                <div class="spec-card-label">Yoke Mechanism</div>
-                <div class="spec-card-val">Spring-Centered Dual-Axis Yoke</div>
-                <div class="spec-card-desc">Uses springs to keep the yoke centered across its pitch and roll axes</div>
+                <div class="spec-card-label">Yoke Kinematics</div>
+                <div class="spec-card-val">Base-Tilting Column + Center Roll</div>
+                <div class="spec-card-desc">Column tilts forward and backward at the desk-mount base pivot for pitch; yoke wheel rotates around the center hub for roll</div>
+              </div>
+              <div class="spec-card">
+                <div class="spec-card-label">Position Sensing</div>
+                <div class="spec-card-val">Contactless Hall Effect Sensors</div>
+                <div class="spec-card-desc">Uses magnetic Hall effect sensors on both axes to detect precise pitch and roll position without potentiometer friction or wear</div>
+              </div>
+              <div class="spec-card">
+                <div class="spec-card-label">Hardware Architecture</div>
+                <div class="spec-card-val">Dual Rockers &amp; Checklist Plate</div>
+                <div class="spec-card-desc">FDM 3D-printed body with desk-mount clamp housing, thumb rocker switches on both horn tips, and an angled flight-deck checklist plate</div>
               </div>
               <div class="spec-card">
                 <div class="spec-card-label">Throttle Control</div>
                 <div class="spec-card-val">4-Engine Airliner Quadrant</div>
-                <div class="spec-card-desc">Curved ribbed housing with 4 dual-spool throttle levers, left speedbrake lever, and embossed FLAP lever</div>
-              </div>
-              <div class="spec-card">
-                <div class="spec-card-label">Sensors &amp; Electronics</div>
-                <div class="spec-card-val">Individual Potentiometers</div>
-                <div class="spec-card-desc">Every yoke axis and throttle quadrant section wired to its own individual potentiometer</div>
+                <div class="spec-card-desc">Curved housing with 4 dual-spool throttle levers, speedbrake lever, and embossed FLAP lever wired to individual potentiometers</div>
               </div>
             </div>
           </div>
 
-          <!-- 3D-Printed Throttle Quadrant CAD Model Renders -->
-          <div class="photo-grid-3" style="margin-top: 24px;">
+          <!-- Physical Build Photo + 3D-Printed Throttle Quadrant CAD Renders -->
+          <div class="photo-grid-4" style="margin-top: 24px;">
+            <div class="photo-card">
+              <img src="img/flight-yoke-hardware.jpg" alt="Zain Hamdia 3D-printed flight simulator yoke with desk clamp, tilting column, dual thumb rocker switches, and checklist plate" class="photo-card-img tall">
+              <div class="photo-card-body">
+                <div class="photo-card-tag">Assembled Hardware</div>
+                <div class="photo-card-title">3D-Printed Flight Yoke Build</div>
+                <p class="photo-card-desc">Fully assembled flight yoke mounted to desk, featuring base-tilting pitch column, center-hub roll, dual thumb rockers, checklist plate, and Hall effect sensor wiring.</p>
+              </div>
+            </div>
+
             <div class="photo-card">
               <img src="img/throttle-quadrant-iso.png" alt="Isometric 3D CAD view of the 4-engine throttle quadrant with white spool rollers and embossed FLAP lever" class="photo-card-img" style="object-fit: contain; background: #f8fafc; padding: 12px;">
               <div class="photo-card-body">
-                <div class="photo-card-tag">3D CAD Model • Isometric View</div>
-                <div class="photo-card-title">Multi-Slot Quadrant &amp; Embossed FLAP Lever</div>
+                <div class="photo-card-tag">3D CAD Model • Isometric</div>
+                <div class="photo-card-title">Throttle Quadrant &amp; FLAP Lever</div>
                 <p class="photo-card-desc">Top-angled CAD view showing the curved ribbed housing, 4 central throttle levers with dual white concave spool rollers, left speedbrake lever, and right embossed “FLAP” lever.</p>
               </div>
             </div>
@@ -279,8 +345,8 @@
               <img src="img/throttle-quadrant-front.png" alt="Front 3D CAD view of the 4-section throttle quadrant showing the 4 aligned throttle levers and base mounting holes" class="photo-card-img" style="object-fit: contain; background: #f8fafc; padding: 12px;">
               <div class="photo-card-body">
                 <div class="photo-card-tag">3D CAD Model • Front Elevation</div>
-                <div class="photo-card-title">4-Section Throttle Levers &amp; Track Slots</div>
-                <p class="photo-card-desc">Front elevation showing the four aligned black throttle bodies, white concave top spool knobs, parallel quadrant slots, and lower potentiometer/fastener bores.</p>
+                <div class="photo-card-title">4-Section Levers &amp; Slots</div>
+                <p class="photo-card-desc">Front elevation showing the four aligned black throttle bodies, white concave top spool knobs, parallel quadrant slots, and lower potentiometer bores.</p>
               </div>
             </div>
 
@@ -288,8 +354,8 @@
               <img src="img/throttle-quadrant-side.png" alt="Side profile 3D CAD view of the throttle quadrant showing the curved drum housing and dual white spool rollers" class="photo-card-img" style="object-fit: contain; background: #f8fafc; padding: 12px;">
               <div class="photo-card-body">
                 <div class="photo-card-tag">3D CAD Model • Side Profile</div>
-                <div class="photo-card-title">Curved Quadrant Profile &amp; Reverser Spool</div>
-                <p class="photo-card-desc">Side profile highlighting the curved quadrant arc, ergonomic finger contour on the black throttle block, top white throttle spool, and angled forward reverse-thrust spool.</p>
+                <div class="photo-card-title">Curved Profile &amp; Reverser Spool</div>
+                <p class="photo-card-desc">Side profile highlighting the curved quadrant arc, ergonomic finger contour on the black throttle block, top white throttle spool, and forward reverse-thrust spool.</p>
               </div>
             </div>
           </div>

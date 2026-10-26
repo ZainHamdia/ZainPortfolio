@@ -2156,11 +2156,14 @@ strong {
   .contact-grid,
   .photo-grid-2,
   .photo-grid-3,
-  .photo-grid-4,
   .band-card-img-pair,
   .travel-stats-bar,
   .travel-map-stage-grid {
     grid-template-columns: 1fr;
+  }
+
+  .photo-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .band-card.featured-span {
@@ -2194,7 +2197,8 @@ strong {
     display: flex;
   }
 
-  .stage-tiles {
+  .stage-tiles,
+  .photo-grid-4 {
     grid-template-columns: 1fr;
   }
 
