@@ -482,8 +482,11 @@ function initFlightYokeInteractive() {
   const demoBtn = document.getElementById('yoke-demo-btn');
   if (!rollSlider || !pitchSlider) return;
 
-  const yokeAssembly = document.getElementById('yoke-assembly');
+  const yokeHead = document.getElementById('yoke-head');
+  const yokeColumn = document.getElementById('yoke-column');
+  const yokeWire = document.getElementById('yoke-wire');
   const yokeWheel = document.getElementById('yoke-wheel-group');
+  const pitchMagnetInd = document.getElementById('yoke-pitch-magnet-ind');
   const pitchHallInd = document.getElementById('yoke-pitch-hall-ind');
   const rollHallInd = document.getElementById('yoke-roll-hall-ind');
 
@@ -516,7 +519,7 @@ function initFlightYokeInteractive() {
 
   function updateYoke() {
     const roll = parseFloat(rollSlider.value) || 0; // -45 to 45 deg
-    const pitch = parseFloat(pitchSlider.value) || 0; // -15 to 15 deg base tilt
+    const pitch = parseFloat(pitchSlider.value) || 0; // -15 to 15 deg forward/backward tilt
     const qVals = [
       quad1Slider ? (parseFloat(quad1Slider.value) || 0) : 50,
       quad2Slider ? (parseFloat(quad2Slider.value) || 0) : 50,
@@ -524,19 +527,42 @@ function initFlightYokeInteractive() {
       quad4Slider ? (parseFloat(quad4Slider.value) || 0) : 50
     ];
 
-    // Pitch: Column tilts back and forth at base pivot (185, 225)
-    if (yokeAssembly) {
-      yokeAssembly.setAttribute('transform', `rotate(${pitch.toFixed(2)} 185 225)`);
+    // Pitch: Column tilts forward (push) and backward (pull) at base pivot
+    // Perspective kinematics: Top gets smaller when tilted forward (-15°), bigger when tilted backward (+15°)
+    const pNorm = pitch / 15; // -1 to +1
+    const scale = 1 + pNorm * 0.22; // 0.78 (tilted forward) to 1.22 (tilted back)
+    const hubY = 95 - pNorm * 9; // Foreshortened vertical shift (104 down to 86 up)
+
+    // 1. Scale and translate upper yoke assembly (wheel horns, center hub, switches, checklist)
+    if (yokeHead) {
+      yokeHead.setAttribute('transform', `translate(185, ${hubY.toFixed(2)}) scale(${scale.toFixed(3)}) translate(-185, -95)`);
     }
 
-    // Roll: Yoke wheel rotates at center hub (185, 95)
+    // 2. Roll: Yoke wheel rotates at center hub (185, 95)
     if (yokeWheel) {
       yokeWheel.setAttribute('transform', `rotate(${roll.toFixed(2)} 185 95)`);
     }
 
-    // Contactless Hall Effect Sensor flux visualization
+    // 3. Dynamic Column Taper (perspective connects fixed desk pivot at base to tilting head)
+    if (yokeColumn) {
+      const topHalfW = 10 * scale;
+      const xTopLeft = (185 - topHalfW).toFixed(2);
+      const xTopRight = (185 + topHalfW).toFixed(2);
+      const yTop = (hubY - 1).toFixed(2);
+      yokeColumn.setAttribute('points', `${xTopLeft},${yTop} ${xTopRight},${yTop} 195,225 175,225`);
+    }
+
+    if (yokeWire) {
+      yokeWire.setAttribute('x2', '185');
+      yokeWire.setAttribute('y2', (hubY + 5 * scale).toFixed(2));
+    }
+
+    // 4. Base Pivot Magnetic Orientation & Hall Effect Sensor 1 visualization
+    if (pitchMagnetInd) {
+      pitchMagnetInd.setAttribute('transform', `rotate(${(pitch * 2.2).toFixed(1)} 185 225)`);
+    }
     if (pitchHallInd) {
-      pitchHallInd.setAttribute('opacity', (0.4 + Math.abs(pitch) / 25).toFixed(2));
+      pitchHallInd.setAttribute('opacity', (0.35 + Math.abs(pitch) / 22).toFixed(2));
     }
     if (rollHallInd) {
       rollHallInd.setAttribute('opacity', (0.4 + Math.abs(roll) / 60).toFixed(2));
@@ -558,8 +584,11 @@ function initFlightYokeInteractive() {
     if (readout) {
       const rRound = Math.round(roll);
       const pRound = Math.round(pitch);
+      let pStatus = '0° (Neutral)';
+      if (pRound > 0) pStatus = `+${pRound}° (Tilt Back / Pull)`;
+      else if (pRound < 0) pStatus = `${pRound}° (Tilt Fwd / Push)`;
       const qStr = qVals.map(v => `${Math.round(v)}%`).join(' / ');
-      readout.textContent = `Roll: ${rRound > 0 ? '+' : ''}${rRound}° • Pitch: ${pRound > 0 ? '+' : ''}${pRound}° (Base Tilt) • Hall Effect: Active • Quad: ${qStr}`;
+      readout.textContent = `Roll: ${rRound > 0 ? '+' : ''}${rRound}° • Pitch: ${pStatus} • Hall Effect: Active • Quad: ${qStr}`;
     }
   }
 

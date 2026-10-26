@@ -53,10 +53,10 @@
         <div class="showcase-top-bar">
           <div>
             <h2 class="showcase-title">3D-Printed Flight Yoke &amp; 4-Section Throttle Quadrant</h2>
-            <div class="showcase-sub">Interactive kinematics: column tilts back and forth at the desk-mount base (pitch), wheel rotates at the center hub (roll), detected by contactless Hall effect sensors.</div>
+            <div class="showcase-sub">Interactive kinematics: column tilts forward and backward at the desk-mount base (pitch: top tilts smaller/bigger in perspective), wheel rotates at the center hub (roll), detected by contactless Hall effect sensors.</div>
           </div>
           <span id="yoke-readout" style="font-size: 0.82rem; font-weight: 700; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 8px;">
-            Roll: 0° • Pitch: 0° (Base Tilt) • Hall Effect: Active • Quad: 50% / 50% / 50% / 50%
+            Roll: 0° • Pitch: 0° (Neutral) • Hall Effect: Active • Quad: 50% / 50% / 50% / 50%
           </span>
         </div>
 
@@ -65,8 +65,8 @@
             <div class="control-group">
               <label for="yoke-roll-slider" class="control-label">Wheel Roll:</label>
               <input type="range" id="yoke-roll-slider" class="control-slider" min="-45" max="45" step="0.5" value="0" aria-label="Yoke roll slider">
-              <label for="yoke-pitch-slider" class="control-label">Base Tilt (Pitch):</label>
-              <input type="range" id="yoke-pitch-slider" class="control-slider" min="-15" max="15" step="0.5" value="0" aria-label="Yoke base tilt pitch slider">
+              <label for="yoke-pitch-slider" class="control-label">Pitch (Tilt Fwd/Back):</label>
+              <input type="range" id="yoke-pitch-slider" class="control-slider" min="-15" max="15" step="0.5" value="0" aria-label="Yoke pitch forward and backward tilt slider">
               <label for="quad-1-slider" class="control-label">Sec 1:</label>
               <input type="range" id="quad-1-slider" class="control-slider" min="0" max="100" step="1" value="50" aria-label="Throttle section 1 slider">
               <label for="quad-2-slider" class="control-label">Sec 2:</label>
@@ -121,84 +121,94 @@
                   <path id="yoke-pitch-hall-ind" d="M 138 225 C 152 221, 166 222, 176 225" stroke="#38bdf8" stroke-width="2" stroke-dasharray="3 2" fill="none"/>
                 </g>
                 <text x="75" y="222" font-family="'Inter', sans-serif" font-size="8.5" fill="#0284c7" font-weight="700" text-anchor="end">Pitch Axis</text>
-                <text x="75" y="233" font-family="'Inter', sans-serif" font-size="7.5" fill="#64748b" font-weight="600" text-anchor="end">Tilts at Base Pivot</text>
-
-                <!-- Base Pivot Joint (185, 225) -->
-                <circle cx="185" cy="225" r="9" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
-                <circle cx="185" cy="225" r="3.5" fill="#38bdf8"/>
+                <text x="75" y="233" font-family="'Inter', sans-serif" font-size="7.5" fill="#64748b" font-weight="600" text-anchor="end">Tilts Forward / Back</text>
 
                 <!-- =========================================================
-                     TILTING COLUMN ASSEMBLY (Pivots around 185, 225 for Pitch)
+                     BASE-TILTING FLIGHT YOKE ASSEMBLY
+                     Column tilts forward & back for pitch (top scales smaller/bigger in perspective)
+                     Wheel rotates at center hub for roll
                      ========================================================= -->
-                <g id="yoke-assembly" transform="rotate(0 185 225)">
-                  <!-- Vertical Contoured 3D-Printed Column Tube -->
-                  <rect x="175" y="94" width="20" height="132" rx="4" fill="#64748b" stroke="#0f172a" stroke-width="2"/>
+                <g id="yoke-assembly">
+                  <!-- Vertical Contoured 3D-Printed Column Tube (Dynamic perspective taper) -->
+                  <polygon id="yoke-column" points="175,94 195,94 195,226 175,226" fill="#64748b" stroke="#0f172a" stroke-width="2"/>
                   <!-- Internal sensor wiring ribbon running up column -->
-                  <line x1="185" y1="220" x2="185" y2="102" stroke="#38bdf8" stroke-width="1.6" stroke-dasharray="3 2"/>
+                  <line id="yoke-wire" x1="185" y1="220" x2="185" y2="102" stroke="#38bdf8" stroke-width="1.6" stroke-dasharray="3 2"/>
 
-                  <!-- Upper Column Collar -->
-                  <rect x="171" y="90" width="28" height="10" rx="2" fill="#334155" stroke="#0f172a" stroke-width="1.6"/>
+                  <!-- Upper Column Collar, Center Hub & Yoke Wheel Group (Tilts forward/back in perspective) -->
+                  <g id="yoke-head">
+                    <!-- Upper Column Collar -->
+                    <rect x="171" y="90" width="28" height="10" rx="2" fill="#334155" stroke="#0f172a" stroke-width="1.6"/>
 
-                  <!-- Center Wheel Hub Housing -->
-                  <circle cx="185" cy="95" r="15" fill="#334155" stroke="#0f172a" stroke-width="2"/>
+                    <!-- Center Wheel Hub Housing -->
+                    <circle cx="185" cy="95" r="15" fill="#334155" stroke="#0f172a" stroke-width="2"/>
 
-                  <!-- HALL EFFECT SENSOR 2: Roll Axis at Center Hub -->
-                  <circle cx="185" cy="95" r="5.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5"/>
-                  <g id="yoke-roll-hall-ind">
-                    <circle cx="185" cy="95" r="11" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
-                  </g>
-
-                  <!-- =======================================================
-                       YOKE CONTROL WHEEL (Rotates around 185, 95 for Roll)
-                       Includes U-shaped horns, dual rocker switches, and
-                       front-mounted preflight checklist card
-                       ======================================================= -->
-                  <g id="yoke-wheel-group" transform="rotate(0 185 95)">
-                    <!-- Central Crossbar / Hub Bracket -->
-                    <rect x="156" y="87" width="58" height="16" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.8"/>
-
-                    <!-- Ergonomic U-Shaped Horns (Wide aircraft yoke body matching photo) -->
-                    <path d="M 122 108 L 248 108 C 266 108, 274 96, 274 60 L 274 44 C 274 37, 264 37, 264 44 L 264 60 C 264 86, 256 94, 242 94 L 128 94 C 114 94, 106 86, 106 60 L 106 44 C 106 37, 96 37, 96 44 L 96 60 C 96 96, 104 108, 122 108 Z" fill="#64748b" stroke="#0f172a" stroke-width="2.4"/>
-                    <!-- Grip contour highlights -->
-                    <path d="M 101 48 L 101 78 C 101 90, 107 98, 118 100" stroke="#94a3b8" stroke-width="1.6" fill="none"/>
-                    <path d="M 269 48 L 269 78 C 269 90, 263 98, 252 100" stroke="#94a3b8" stroke-width="1.6" fill="none"/>
-
-                    <!-- Left Horn Thumb Rocker Switch (Matches photo) -->
-                    <rect x="94" y="30" width="14" height="15" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.4"/>
-                    <rect x="96" y="34" width="10" height="7" rx="1.5" fill="#38bdf8"/>
-
-                    <!-- Right Horn Thumb Rocker Switch (Matches photo) -->
-                    <rect x="262" y="30" width="14" height="15" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.4"/>
-                    <rect x="264" y="34" width="10" height="7" rx="1.5" fill="#38bdf8"/>
-
-                    <!-- FRONT PREFLIGHT CHECKLIST (Rectangular card centered on front hub face) -->
-                    <g id="yoke-preflight-checklist">
-                      <!-- Backing plate / holder -->
-                      <rect x="159" y="64" width="52" height="62" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.8"/>
-                      <!-- Top binder clip / retention clamp -->
-                      <rect x="178" y="61" width="14" height="5" rx="1.5" fill="#475569" stroke="#0f172a" stroke-width="1"/>
-                      <circle cx="185" cy="63.5" r="1.2" fill="#cbd5e1"/>
-                      <!-- Checklist card sheet -->
-                      <rect x="162" y="67" width="46" height="56" rx="2" fill="#f8fafc" stroke="#94a3b8" stroke-width="0.8"/>
-                      <!-- Preflight header banner -->
-                      <rect x="162" y="67" width="46" height="11" rx="1.5" fill="#0284c7"/>
-                      <text x="185" y="75" font-family="'Inter', sans-serif" font-size="3.7" fill="#ffffff" font-weight="800" text-anchor="middle" letter-spacing="0.3">PREFLIGHT CHECKLIST</text>
-                      <!-- Checklist item rows with checkbox indicators -->
-                      <rect x="165" y="81" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
-                      <line x1="171" y1="83" x2="204" y2="83" stroke="#475569" stroke-width="1"/>
-                      <rect x="165" y="87" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
-                      <line x1="171" y1="89" x2="204" y2="89" stroke="#475569" stroke-width="1"/>
-                      <rect x="165" y="93" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
-                      <line x1="171" y1="95" x2="204" y2="95" stroke="#475569" stroke-width="1"/>
-                      <rect x="165" y="99" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
-                      <line x1="171" y1="101" x2="204" y2="101" stroke="#475569" stroke-width="1"/>
-                      <rect x="165" y="105" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
-                      <line x1="171" y1="107" x2="204" y2="107" stroke="#475569" stroke-width="1"/>
-                      <rect x="165" y="111" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
-                      <line x1="171" y1="113" x2="198" y2="113" stroke="#475569" stroke-width="1"/>
-                      <rect x="165" y="117" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
-                      <line x1="171" y1="119" x2="194" y2="119" stroke="#475569" stroke-width="1"/>
+                    <!-- HALL EFFECT SENSOR 2: Roll Axis at Center Hub -->
+                    <circle cx="185" cy="95" r="5.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5"/>
+                    <g id="yoke-roll-hall-ind">
+                      <circle cx="185" cy="95" r="11" stroke="#38bdf8" stroke-width="1" stroke-dasharray="2 2" fill="none"/>
                     </g>
+
+                    <!-- =======================================================
+                         YOKE CONTROL WHEEL (Rotates around 185, 95 for Roll)
+                         Includes U-shaped horns, dual rocker switches, and
+                         front-mounted preflight checklist card
+                         ======================================================= -->
+                    <g id="yoke-wheel-group" transform="rotate(0 185 95)">
+                      <!-- Central Crossbar / Hub Bracket -->
+                      <rect x="156" y="87" width="58" height="16" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.8"/>
+
+                      <!-- Ergonomic U-Shaped Horns (Wide aircraft yoke body matching photo) -->
+                      <path d="M 122 108 L 248 108 C 266 108, 274 96, 274 60 L 274 44 C 274 37, 264 37, 264 44 L 264 60 C 264 86, 256 94, 242 94 L 128 94 C 114 94, 106 86, 106 60 L 106 44 C 106 37, 96 37, 96 44 L 96 60 C 96 96, 104 108, 122 108 Z" fill="#64748b" stroke="#0f172a" stroke-width="2.4"/>
+                      <!-- Grip contour highlights -->
+                      <path d="M 101 48 L 101 78 C 101 90, 107 98, 118 100" stroke="#94a3b8" stroke-width="1.6" fill="none"/>
+                      <path d="M 269 48 L 269 78 C 269 90, 263 98, 252 100" stroke="#94a3b8" stroke-width="1.6" fill="none"/>
+
+                      <!-- Left Horn Thumb Rocker Switch (Matches photo) -->
+                      <rect x="94" y="30" width="14" height="15" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.4"/>
+                      <rect x="96" y="34" width="10" height="7" rx="1.5" fill="#38bdf8"/>
+
+                      <!-- Right Horn Thumb Rocker Switch (Matches photo) -->
+                      <rect x="262" y="30" width="14" height="15" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.4"/>
+                      <rect x="264" y="34" width="10" height="7" rx="1.5" fill="#38bdf8"/>
+
+                      <!-- FRONT PREFLIGHT CHECKLIST (Rectangular card centered on front hub face) -->
+                      <g id="yoke-preflight-checklist">
+                        <!-- Backing plate / holder -->
+                        <rect x="159" y="64" width="52" height="62" rx="3" fill="#1e293b" stroke="#0f172a" stroke-width="1.8"/>
+                        <!-- Top binder clip / retention clamp -->
+                        <rect x="178" y="61" width="14" height="5" rx="1.5" fill="#475569" stroke="#0f172a" stroke-width="1"/>
+                        <circle cx="185" cy="63.5" r="1.2" fill="#cbd5e1"/>
+                        <!-- Checklist card sheet -->
+                        <rect x="162" y="67" width="46" height="56" rx="2" fill="#f8fafc" stroke="#94a3b8" stroke-width="0.8"/>
+                        <!-- Preflight header banner -->
+                        <rect x="162" y="67" width="46" height="11" rx="1.5" fill="#0284c7"/>
+                        <text x="185" y="75" font-family="'Inter', sans-serif" font-size="3.7" fill="#ffffff" font-weight="800" text-anchor="middle" letter-spacing="0.3">PREFLIGHT CHECKLIST</text>
+                        <!-- Checklist item rows with checkbox indicators -->
+                        <rect x="165" y="81" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
+                        <line x1="171" y1="83" x2="204" y2="83" stroke="#475569" stroke-width="1"/>
+                        <rect x="165" y="87" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
+                        <line x1="171" y1="89" x2="204" y2="89" stroke="#475569" stroke-width="1"/>
+                        <rect x="165" y="93" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
+                        <line x1="171" y1="95" x2="204" y2="95" stroke="#475569" stroke-width="1"/>
+                        <rect x="165" y="99" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
+                        <line x1="171" y1="101" x2="204" y2="101" stroke="#475569" stroke-width="1"/>
+                        <rect x="165" y="105" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
+                        <line x1="171" y1="107" x2="204" y2="107" stroke="#475569" stroke-width="1"/>
+                        <rect x="165" y="111" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
+                        <line x1="171" y1="113" x2="198" y2="113" stroke="#475569" stroke-width="1"/>
+                        <rect x="165" y="117" width="3.2" height="3.2" rx="0.6" fill="#e0f2fe" stroke="#0284c7" stroke-width="0.7"/>
+                        <line x1="171" y1="119" x2="194" y2="119" stroke="#475569" stroke-width="1"/>
+                      </g>
+                    </g>
+                  </g>
+                </g>
+
+                <!-- Base Pivot Joint (185, 225) (Drawn over base of column) -->
+                <g id="yoke-base-pivot">
+                  <circle cx="185" cy="225" r="9" fill="#0f172a" stroke="#38bdf8" stroke-width="2"/>
+                  <circle cx="185" cy="225" r="3.5" fill="#38bdf8"/>
+                  <g id="yoke-pitch-magnet-ind">
+                    <line x1="185" y1="225" x2="185" y2="218" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/>
                   </g>
                 </g>
 
