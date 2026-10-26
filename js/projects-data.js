@@ -85,10 +85,10 @@ const PORTFOLIO_DATA = {
     },
     {
       id: "flight-simulator",
-      title: "3D-Printed Flight Simulator",
+      title: "3D-Printed Flight Simulator (Yoke & 4-Section Throttle Quadrant)",
       category: "aviation",
-      description: "Designed and constructed a flight simulator incorporating custom-designed and 3D-printed components.",
-      tags: ["Flight Simulator", "CAD Design", "3D Printing", "Mechanical Assembly"]
+      description: "Designed and constructed a 3D-printed flight simulator featuring a flight yoke that uses springs to stay centered across its axes and a 4-section throttle quadrant, with all axes and quadrant sections connected to individual potentiometers.",
+      tags: ["Spring-Centered Flight Yoke", "4-Section Throttle Quadrant", "Individual Potentiometers", "CAD Design", "3D Printing"]
     },
     {
       id: "n95-masks",

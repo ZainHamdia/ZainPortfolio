@@ -468,16 +468,36 @@ function initZ25Interactive() {
 }
 
 /* ==========================================================================
-   Aviation Page: Flight Simulator Interactive Yoke
+   Aviation Page: Flight Simulator Interactive Yoke & 4-Section Throttle Quadrant
    ========================================================================== */
 function initFlightYokeInteractive() {
   const rollSlider = document.getElementById('yoke-roll-slider');
   const pitchSlider = document.getElementById('yoke-pitch-slider');
+  const quad1Slider = document.getElementById('quad-1-slider');
+  const quad2Slider = document.getElementById('quad-2-slider');
+  const quad3Slider = document.getElementById('quad-3-slider');
+  const quad4Slider = document.getElementById('quad-4-slider');
   const demoBtn = document.getElementById('yoke-demo-btn');
   if (!rollSlider || !pitchSlider) return;
 
   const yokeWheel = document.getElementById('yoke-wheel-group');
   const yokeShaft = document.getElementById('yoke-shaft-group');
+  const pitchSpring = document.getElementById('yoke-pitch-spring');
+  const pitchPot = document.getElementById('yoke-pitch-pot');
+  const rollPot = document.getElementById('yoke-roll-pot');
+
+  const quadLevers = [
+    document.getElementById('quad-lever-1'),
+    document.getElementById('quad-lever-2'),
+    document.getElementById('quad-lever-3'),
+    document.getElementById('quad-lever-4')
+  ];
+  const quadPots = [
+    { el: document.getElementById('quad-pot-1'), cx: 454, cy: 186 },
+    { el: document.getElementById('quad-pot-2'), cx: 519, cy: 186 },
+    { el: document.getElementById('quad-pot-3'), cx: 584, cy: 186 },
+    { el: document.getElementById('quad-pot-4'), cx: 649, cy: 186 }
+  ];
   const readout = document.getElementById('yoke-readout');
 
   let animId = null;
@@ -489,34 +509,65 @@ function initFlightYokeInteractive() {
     }
     if (demoBtn) {
       demoBtn.classList.remove('active');
-      demoBtn.textContent = '▶ Animate Yoke';
+      demoBtn.textContent = '▶ Animate Controls';
     }
   }
 
-  function updateYoke(customRoll, customPitch) {
-    const roll = typeof customRoll === 'number' ? customRoll : (parseFloat(rollSlider.value) || 0);
-    const pitch = typeof customPitch === 'number' ? customPitch : (parseFloat(pitchSlider.value) || 0);
+  function updateYoke() {
+    const roll = parseFloat(rollSlider.value) || 0; // -45 to 45
+    const pitch = parseFloat(pitchSlider.value) || 0; // -20 to 20
+    const qVals = [
+      quad1Slider ? (parseFloat(quad1Slider.value) || 0) : 50,
+      quad2Slider ? (parseFloat(quad2Slider.value) || 0) : 50,
+      quad3Slider ? (parseFloat(quad3Slider.value) || 0) : 50,
+      quad4Slider ? (parseFloat(quad4Slider.value) || 0) : 50
+    ];
 
     if (yokeWheel) {
-      yokeWheel.setAttribute('transform', `translate(${pitch.toFixed(2)}, 0) rotate(${roll.toFixed(2)} 500 105)`);
+      yokeWheel.setAttribute('transform', `translate(${(pitch * 0.7).toFixed(2)}, 0) rotate(${roll.toFixed(2)} 296 128)`);
     }
     if (yokeShaft) {
-      yokeShaft.setAttribute('transform', `translate(${pitch.toFixed(2)}, 0)`);
+      yokeShaft.setAttribute('transform', `translate(${(pitch * 0.7).toFixed(2)}, 0)`);
     }
+    if (pitchSpring) {
+      const scaleX = 1 + (pitch / 65);
+      pitchSpring.setAttribute('transform', `translate(44, 0) scale(${scaleX.toFixed(3)}, 1) translate(-44, 0)`);
+    }
+    if (pitchPot) {
+      pitchPot.setAttribute('transform', `rotate(${(pitch * 5.5).toFixed(1)} 72 166)`);
+    }
+    if (rollPot) {
+      rollPot.setAttribute('transform', `rotate(${(roll * 2.6).toFixed(1)} 138 166)`);
+    }
+
+    // 4-Section Throttle Quadrant Levers & Individual Potentiometers
+    qVals.forEach((val, idx) => {
+      // 0% -> +18px down, 50% -> 0px, 100% -> -18px up
+      const dy = (50 - val) * 0.36;
+      const potAngle = (val - 50) * 2.4; // -120 deg to +120 deg
+      if (quadLevers[idx]) {
+        quadLevers[idx].setAttribute('transform', `translate(0, ${dy.toFixed(2)})`);
+      }
+      if (quadPots[idx].el) {
+        quadPots[idx].el.setAttribute('transform', `rotate(${potAngle.toFixed(1)} ${quadPots[idx].cx} ${quadPots[idx].cy})`);
+      }
+    });
+
     if (readout) {
       const rRound = Math.round(roll);
       const pRound = Math.round(pitch);
-      readout.textContent = `Roll: ${rRound > 0 ? '+' : ''}${rRound}° • Pitch: ${pRound > 0 ? '+' : ''}${pRound}mm`;
+      const qStr = qVals.map(v => `${Math.round(v)}%`).join(' / ');
+      readout.textContent = `Roll: ${rRound > 0 ? '+' : ''}${rRound}° • Pitch: ${pRound > 0 ? '+' : ''}${pRound}mm • Quad: ${qStr}`;
     }
   }
 
-  rollSlider.addEventListener('input', () => {
-    if (animId) stopYokeAnim();
-    updateYoke();
-  });
-  pitchSlider.addEventListener('input', () => {
-    if (animId) stopYokeAnim();
-    updateYoke();
+  [rollSlider, pitchSlider, quad1Slider, quad2Slider, quad3Slider, quad4Slider].forEach(s => {
+    if (s) {
+      s.addEventListener('input', () => {
+        if (animId) stopYokeAnim();
+        updateYoke();
+      });
+    }
   });
 
   if (demoBtn) {
@@ -530,11 +581,13 @@ function initFlightYokeInteractive() {
       let t = 0;
       function loop() {
         t += 0.045;
-        const roll = Math.sin(t) * 38;
-        const pitch = Math.cos(t * 0.7) * 20;
-        rollSlider.value = roll.toFixed(1);
-        pitchSlider.value = pitch.toFixed(1);
-        updateYoke(roll, pitch);
+        rollSlider.value = (Math.sin(t) * 38).toFixed(1);
+        pitchSlider.value = (Math.cos(t * 0.7) * 16).toFixed(1);
+        if (quad1Slider) quad1Slider.value = Math.round(50 + Math.sin(t * 0.9) * 42);
+        if (quad2Slider) quad2Slider.value = Math.round(50 + Math.sin(t * 0.9 + 0.6) * 42);
+        if (quad3Slider) quad3Slider.value = Math.round(50 + Math.cos(t * 1.1) * 40);
+        if (quad4Slider) quad4Slider.value = Math.round(50 + Math.sin(t * 1.3 + 1.2) * 40);
+        updateYoke();
         animId = requestAnimationFrame(loop);
       }
       loop();

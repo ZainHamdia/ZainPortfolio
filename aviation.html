@@ -40,78 +40,193 @@
         <span class="page-kicker">Aviation & Laboratory Research</span>
         <h1 class="page-title">Flight Controls & Princeton LLP</h1>
         <p class="page-subtitle">
-          Custom 3D-printed flight simulator controls engineered in CAD, alongside summer laboratory research in Princeton University’s Joseph Henry Project.
+          Custom 3D-printed flight simulator yoke with multi-axis centering springs and a 4-section throttle quadrant—all wired to individual potentiometers—alongside summer laboratory research in Princeton University’s Joseph Henry Project.
         </p>
       </div>
     </section>
 
-    <!-- Section 1: Interactive 3D-Printed Flight Yoke Stage -->
+    <!-- Section 1: Interactive 3D-Printed Flight Yoke & 4-Section Throttle Quadrant Stage -->
     <div class="container">
       <section id="flight-sim" class="interactive-showcase">
         <div class="showcase-top-bar">
           <div>
-            <h2 class="showcase-title">3D-Printed Flight Simulator Controls</h2>
-            <div class="showcase-sub">Use the sliders or demo button below to test the dual-axis roll gimbal and linear pitch shaft</div>
+            <h2 class="showcase-title">3D-Printed Flight Yoke &amp; 4-Section Throttle Quadrant</h2>
+            <div class="showcase-sub">Test the spring-centered yoke axes and the 4 throttle quadrant sections—each connected to its own individual potentiometer</div>
           </div>
-          <span id="yoke-readout" style="font-size: 0.85rem; font-weight: 700; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 8px;">
-            Roll: 0° • Pitch: 0mm
+          <span id="yoke-readout" style="font-size: 0.82rem; font-weight: 700; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 8px;">
+            Roll: 0° • Pitch: 0mm • Quad: 50% / 50% / 50% / 50%
           </span>
         </div>
 
         <div class="showcase-body">
           <div class="control-bar">
             <div class="control-group">
-              <label for="yoke-roll-slider" class="control-label">Roll Axis (±45°):</label>
+              <label for="yoke-roll-slider" class="control-label">Yoke Roll:</label>
               <input type="range" id="yoke-roll-slider" class="control-slider" min="-45" max="45" step="0.5" value="0" aria-label="Yoke roll slider">
-              <label for="yoke-pitch-slider" class="control-label">Pitch Travel (Push / Pull):</label>
-              <input type="range" id="yoke-pitch-slider" class="control-slider" min="-25" max="25" step="0.5" value="0" aria-label="Yoke pitch slider">
+              <label for="yoke-pitch-slider" class="control-label">Yoke Pitch:</label>
+              <input type="range" id="yoke-pitch-slider" class="control-slider" min="-20" max="20" step="0.5" value="0" aria-label="Yoke pitch slider">
+              <label for="quad-1-slider" class="control-label">Sec 1:</label>
+              <input type="range" id="quad-1-slider" class="control-slider" min="0" max="100" step="1" value="50" aria-label="Throttle section 1 slider">
+              <label for="quad-2-slider" class="control-label">Sec 2:</label>
+              <input type="range" id="quad-2-slider" class="control-slider" min="0" max="100" step="1" value="50" aria-label="Throttle section 2 slider">
+              <label for="quad-3-slider" class="control-label">Sec 3:</label>
+              <input type="range" id="quad-3-slider" class="control-slider" min="0" max="100" step="1" value="50" aria-label="Throttle section 3 slider">
+              <label for="quad-4-slider" class="control-label">Sec 4:</label>
+              <input type="range" id="quad-4-slider" class="control-slider" min="0" max="100" step="1" value="50" aria-label="Throttle section 4 slider">
             </div>
-            <button type="button" id="yoke-demo-btn" class="control-btn">▶ Animate Yoke</button>
+            <button type="button" id="yoke-demo-btn" class="control-btn">▶ Animate Controls</button>
           </div>
 
           <div class="diagram-stage">
             <div class="sketch-frame">
-              <svg class="sketch-svg" viewBox="0 0 680 210" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="30" y1="105" x2="650" y2="105" stroke="#e2e8f0" stroke-dasharray="4 4"/>
+              <svg class="sketch-svg" viewBox="0 0 720 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="20" y1="128" x2="368" y2="128" stroke="#e2e8f0" stroke-dasharray="4 4"/>
+                <line x1="382" y1="20" x2="382" y2="255" stroke="#cbd5e1" stroke-dasharray="5 4" stroke-width="1.5"/>
 
-                <!-- Stationary Desk Clamp -->
-                <rect x="55" y="72" width="95" height="66" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
-                <text x="102" y="109" font-family="'Inter', sans-serif" font-size="10" fill="#0369a1" text-anchor="middle" font-weight="700">Desk Clamp</text>
+                <!-- =========================================================
+                     LEFT SIDE: Spring-Centered Dual-Axis Flight Yoke + 2 Pots
+                     ========================================================= -->
+                <text x="195" y="24" font-family="'Inter', sans-serif" font-size="10.5" fill="#0f172a" text-anchor="middle" font-weight="800">SPRING-CENTERED FLIGHT YOKE (2 POTENTIOMETERS)</text>
+
+                <!-- 3D-Printed Internal Yoke Mechanism Housing -->
+                <rect x="28" y="64" width="154" height="128" rx="6" fill="#f8fafc" stroke="#0f172a" stroke-width="2.2"/>
+                <rect x="36" y="72" width="138" height="72" rx="4" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+                <text x="105" y="56" font-family="'Inter', sans-serif" font-size="9" fill="#0284c7" text-anchor="middle" font-weight="700">Multi-Axis Return Springs</text>
+
+                <!-- Pitch Axis Centering Spring (Stretches/Compresses with Pitch) -->
+                <g id="yoke-pitch-spring">
+                  <path d="M 44 92 L 54 82 L 64 102 L 74 82 L 84 102 L 94 82 L 104 102 L 114 82 L 122 92" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </g>
+
+                <!-- Roll Axis Centering Springs -->
+                <g id="yoke-roll-spring">
+                  <path d="M 148 76 L 156 82 L 148 88 L 156 94 L 148 100 L 152 106" stroke="#0d9488" stroke-width="2" stroke-linecap="round" fill="none"/>
+                </g>
+
+                <!-- Individual Pitch & Roll Potentiometers Inside Yoke Base -->
+                <circle cx="72" cy="166" r="11" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                <g id="yoke-pitch-pot">
+                  <line x1="72" y1="166" x2="72" y2="156" stroke="#0369a1" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="72" cy="166" r="3" fill="#0f172a"/>
+                </g>
+                <text x="72" y="186" font-family="'Inter', sans-serif" font-size="7.5" fill="#0369a1" text-anchor="middle" font-weight="700">Pitch Pot</text>
+
+                <circle cx="138" cy="166" r="11" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+                <g id="yoke-roll-pot">
+                  <line x1="138" y1="166" x2="138" y2="156" stroke="#0f766e" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="138" cy="166" r="3" fill="#0f172a"/>
+                </g>
+                <text x="138" y="186" font-family="'Inter', sans-serif" font-size="7.5" fill="#0f766e" text-anchor="middle" font-weight="700">Roll Pot</text>
 
                 <!-- Sliding Pitch Shaft Group -->
                 <g id="yoke-shaft-group">
-                  <rect x="150" y="91" width="230" height="28" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
-                  <path d="M 215 70 L 225 58 L 235 78 L 245 58 L 255 78 L 265 58 L 275 70" stroke="#0284c7" stroke-width="2" fill="none"/>
-                  <text x="245" y="48" font-family="'Inter', sans-serif" font-size="9.5" fill="#0284c7" text-anchor="middle" font-weight="700">Centering Tension Spring</text>
-                  <circle cx="380" cy="105" r="30" fill="none" stroke="#0284c7" stroke-width="2"/>
-                  <circle cx="380" cy="105" r="6" fill="#0284c7"/>
+                  <rect x="116" y="120" width="160" height="16" rx="3" fill="#e2e8f0" stroke="#0f172a" stroke-width="2"/>
+                  <rect x="116" y="112" width="12" height="32" rx="2" fill="#0284c7" stroke="#0f172a" stroke-width="1.6"/>
+                  <circle cx="276" cy="128" r="16" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+                  <circle cx="276" cy="128" r="5" fill="#0284c7"/>
                 </g>
 
-                <!-- Rotating & Sliding Yoke Handle Group -->
+                <!-- Rotating & Sliding 3D-Printed Yoke Handle Group (Pivots at 296, 128) -->
                 <g id="yoke-wheel-group">
-                  <path d="M 410 105 L 495 105" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
-                  <path d="M 495 62 C 518 62, 535 78, 535 105 C 535 132, 518 148, 495 148" stroke="#0f172a" stroke-width="8" stroke-linecap="round" fill="none"/>
-                  <path d="M 465 50 C 485 45, 515 45, 535 62" stroke="#0f172a" stroke-width="7" stroke-linecap="round" fill="none"/>
-                  <path d="M 465 160 C 485 165, 515 165, 535 148" stroke="#0f172a" stroke-width="7" stroke-linecap="round" fill="none"/>
+                  <!-- Yoke Central Hub & Crossbar -->
+                  <path d="M 252 128 L 340 128" stroke="#1e293b" stroke-width="9" stroke-linecap="round"/>
+                  <rect x="282" y="116" width="28" height="24" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8"/>
+                  <!-- Left Yoke Horn Handle -->
+                  <path d="M 252 78 L 252 162 C 252 170, 260 174, 268 174" stroke="#0f172a" stroke-width="9" stroke-linecap="round" fill="none"/>
+                  <rect x="246" y="72" width="12" height="24" rx="4" fill="#0284c7" stroke="#0f172a" stroke-width="1.6"/>
+                  <!-- Right Yoke Horn Handle -->
+                  <path d="M 340 78 L 340 162 C 340 170, 332 174, 324 174" stroke="#0f172a" stroke-width="9" stroke-linecap="round" fill="none"/>
+                  <rect x="334" y="72" width="12" height="24" rx="4" fill="#0284c7" stroke="#0f172a" stroke-width="1.6"/>
                 </g>
+                <text x="296" y="218" font-family="'Inter', sans-serif" font-size="9" fill="#0f172a" text-anchor="middle" font-weight="700">3D-Printed Yoke</text>
+                <text x="296" y="230" font-family="'Inter', sans-serif" font-size="8" fill="#475569" text-anchor="middle" font-weight="600">Spring-Centered Roll &amp; Pitch</text>
+
+                <!-- =========================================================
+                     RIGHT SIDE: 4-Section Throttle Quadrant + 4 Individual Pots
+                     ========================================================= -->
+                <text x="552" y="24" font-family="'Inter', sans-serif" font-size="10.5" fill="#0f172a" text-anchor="middle" font-weight="800">4-SECTION THROTTLE QUADRANT (4 POTENTIOMETERS)</text>
+
+                <!-- 3D-Printed 4-Section Quadrant Enclosure -->
+                <rect x="416" y="148" width="272" height="78" rx="7" fill="#f8fafc" stroke="#0f172a" stroke-width="2.2"/>
+                <!-- 4 Parallel Quadrant Slots -->
+                <rect x="448" y="64" width="12" height="96" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="1.6"/>
+                <rect x="513" y="64" width="12" height="96" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="1.6"/>
+                <rect x="578" y="64" width="12" height="96" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="1.6"/>
+                <rect x="643" y="64" width="12" height="96" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="1.6"/>
+
+                <!-- SECTION 1 LEVER & POTENTIOMETER 1 -->
+                <g id="quad-lever-1">
+                  <rect x="451" y="92" width="6" height="62" rx="2" fill="#334155"/>
+                  <rect x="438" y="82" width="32" height="16" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.8"/>
+                </g>
+                <circle cx="454" cy="186" r="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                <g id="quad-pot-1">
+                  <line x1="454" y1="186" x2="454" y2="175" stroke="#0369a1" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="454" cy="186" r="3" fill="#0f172a"/>
+                </g>
+                <text x="454" y="54" font-family="'Inter', sans-serif" font-size="8.5" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 1</text>
+                <text x="454" y="212" font-family="'Inter', sans-serif" font-size="7.5" fill="#0369a1" text-anchor="middle" font-weight="700">Pot 1</text>
+
+                <!-- SECTION 2 LEVER & POTENTIOMETER 2 -->
+                <g id="quad-lever-2">
+                  <rect x="516" y="92" width="6" height="62" rx="2" fill="#334155"/>
+                  <rect x="503" y="82" width="32" height="16" rx="4" fill="#0284c7" stroke="#0f172a" stroke-width="1.8"/>
+                </g>
+                <circle cx="519" cy="186" r="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                <g id="quad-pot-2">
+                  <line x1="519" y1="186" x2="519" y2="175" stroke="#0369a1" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="519" cy="186" r="3" fill="#0f172a"/>
+                </g>
+                <text x="519" y="54" font-family="'Inter', sans-serif" font-size="8.5" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 2</text>
+                <text x="519" y="212" font-family="'Inter', sans-serif" font-size="7.5" fill="#0369a1" text-anchor="middle" font-weight="700">Pot 2</text>
+
+                <!-- SECTION 3 LEVER & POTENTIOMETER 3 -->
+                <g id="quad-lever-3">
+                  <rect x="581" y="92" width="6" height="62" rx="2" fill="#334155"/>
+                  <rect x="568" y="82" width="32" height="16" rx="4" fill="#0d9488" stroke="#0f172a" stroke-width="1.8"/>
+                </g>
+                <circle cx="584" cy="186" r="12" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+                <g id="quad-pot-3">
+                  <line x1="584" y1="186" x2="584" y2="175" stroke="#0f766e" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="584" cy="186" r="3" fill="#0f172a"/>
+                </g>
+                <text x="584" y="54" font-family="'Inter', sans-serif" font-size="8.5" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 3</text>
+                <text x="584" y="212" font-family="'Inter', sans-serif" font-size="7.5" fill="#0f766e" text-anchor="middle" font-weight="700">Pot 3</text>
+
+                <!-- SECTION 4 LEVER & POTENTIOMETER 4 -->
+                <g id="quad-lever-4">
+                  <rect x="646" y="92" width="6" height="62" rx="2" fill="#334155"/>
+                  <rect x="633" y="82" width="32" height="16" rx="4" fill="#dc2626" stroke="#0f172a" stroke-width="1.8"/>
+                </g>
+                <circle cx="649" cy="186" r="12" fill="#fee2e2" stroke="#dc2626" stroke-width="2"/>
+                <g id="quad-pot-4">
+                  <line x1="649" y1="186" x2="649" y2="175" stroke="#b91c1c" stroke-width="2.4" stroke-linecap="round"/>
+                  <circle cx="649" cy="186" r="3" fill="#0f172a"/>
+                </g>
+                <text x="649" y="54" font-family="'Inter', sans-serif" font-size="8.5" fill="#0f172a" text-anchor="middle" font-weight="700">Sec 4</text>
+                <text x="649" y="212" font-family="'Inter', sans-serif" font-size="7.5" fill="#b91c1c" text-anchor="middle" font-weight="700">Pot 4</text>
+
+                <!-- Common Analog Potentiometer Wiring Harness -->
+                <line x1="72" y1="194" x2="649" y2="240" stroke="#0284c7" stroke-width="1.6" stroke-dasharray="3 2"/>
+                <text x="552" y="248" font-family="'Inter', sans-serif" font-size="8.5" fill="#0369a1" text-anchor="middle" font-weight="700">All 4 Quadrant Sections + Yoke Axes Connected to Individual Potentiometers</text>
               </svg>
             </div>
 
             <div class="spec-stack">
               <div class="spec-card">
-                <div class="spec-card-label">Mechanism</div>
-                <div class="spec-card-val">Dual-Axis Flight Yoke</div>
-                <div class="spec-card-desc">Translates physical pitch & roll into simulator inputs</div>
+                <div class="spec-card-label">Yoke Mechanism</div>
+                <div class="spec-card-val">Spring-Centered Dual-Axis Yoke</div>
+                <div class="spec-card-desc">Uses springs to keep the yoke centered across its pitch and roll axes</div>
               </div>
               <div class="spec-card">
-                <div class="spec-card-label">CAD & Fabrication</div>
-                <div class="spec-card-val">Onshape, Fusion 360 & FDM</div>
-                <div class="spec-card-desc">Iterated on bearing fits, shaft travel, and ergonomics</div>
+                <div class="spec-card-label">Throttle Control</div>
+                <div class="spec-card-val">4-Section Throttle Quadrant</div>
+                <div class="spec-card-desc">Four independent 3D-printed quadrant lever sections alongside the yoke</div>
               </div>
               <div class="spec-card">
-                <div class="spec-card-label">Feel & Return</div>
-                <div class="spec-card-val">Spring-Centered Linkages</div>
-                <div class="spec-card-desc">Self-centering tension across both axes</div>
+                <div class="spec-card-label">Sensors &amp; Electronics</div>
+                <div class="spec-card-val">Individual Potentiometers</div>
+                <div class="spec-card-desc">Every yoke axis and all 4 throttle quadrant sections wired to individual potentiometers</div>
               </div>
             </div>
           </div>
@@ -185,6 +300,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=visual-9"></script>
+  <script src="js/app.js?v=visual-13"></script>
 </body>
 </html>

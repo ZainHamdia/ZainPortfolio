@@ -38,7 +38,7 @@ ZainSite/
    - **COVID-19 N95 3D-Printed Masks**: Partnered with an open-source medical initiative to 3D print N95 reusable masks for a New York cancer center during PPE shortages.
 
 2. **Aviation & Academic Research (`aviation.html`)**
-   - **3D-Printed Flight Simulator**: Custom-designed and 3D-printed flight simulator components, controls, and ergonomic mounts for flight physics simulation.
+   - **3D-Printed Flight Simulator**: Custom-designed and 3D-printed flight yoke using springs to stay centered across its axes, paired with a 4-section throttle quadrant—all connected to individual potentiometers.
    - **Princeton University Laboratory Learning Program (LLP)**: Summer 2025 research intern on the Joseph Henry Project under Prof. Michael Littman. Researched and helped reconstruct historical electromechanical scientific apparatus and electromagnetic motor physics.
 
 3. **Firefighting & Applied Technology (`firefighting.html`)**
