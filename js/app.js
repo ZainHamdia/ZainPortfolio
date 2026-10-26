@@ -688,6 +688,21 @@ function initStationDisplayInteractive() {
       }, 2200);
     });
   }
+
+  // Live Station 46 Website Preview Tab Switcher (firestation46.pages.dev)
+  const siteTabs = document.querySelectorAll('.station-site-tab[data-url]');
+  const siteIframe = document.getElementById('station46-live-iframe');
+  if (siteTabs.length && siteIframe) {
+    siteTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetUrl = tab.getAttribute('data-url');
+        if (!targetUrl) return;
+        siteTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        siteIframe.setAttribute('src', targetUrl);
+      });
+    });
+  }
 }
 
 /* ==========================================================================
