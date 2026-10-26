@@ -5,14 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aviation & Research — Zain Hamdia</title>
   <meta name="description" content="3D-printed flight simulator hardware and Princeton University Laboratory Learning Program research by Zain Hamdia.">
-  <link rel="stylesheet" href="css/styles.css?v=clean-2">
+  <link rel="stylesheet" href="css/styles.css?v=visual-4">
 </head>
-<body>
+<body class="theme-aviation">
 
   <!-- Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-link">
+        <span class="brand-dot"></span>
         <span class="brand-text-name">Zain Hamdia</span>
         <span class="brand-text-sub">Princeton, NJ</span>
       </a>
@@ -33,120 +34,133 @@
   </header>
 
   <main>
-    <!-- Page Hero -->
+    <!-- Aerospace Navy & Sky Cyan Hero -->
     <section class="page-hero">
       <div class="container">
-        <span class="page-kicker">Flight Simulation & Laboratory Work</span>
-        <h1 class="page-title">Aviation & Research</h1>
+        <span class="page-kicker">Aviation & Laboratory Research</span>
+        <h1 class="page-title">Flight Controls & Princeton LLP</h1>
         <p class="page-subtitle">
-          Designing and 3D-printing physical flight simulator controls at home, paired with summer research in Princeton University’s Laboratory Learning Program.
+          Custom 3D-printed flight simulator controls engineered in CAD, alongside summer laboratory research in Princeton University’s Joseph Henry Project.
         </p>
       </div>
     </section>
 
-    <div class="container" style="padding-top: 56px;">
-
-      <!-- 3D-Printed Flight Simulator -->
-      <article id="flight-sim" class="story-block">
-        <div class="story-header">
+    <!-- Section 1: Interactive 3D-Printed Flight Yoke Stage -->
+    <div class="container">
+      <section id="flight-sim" class="interactive-showcase">
+        <div class="showcase-top-bar">
           <div>
-            <div class="story-kicker">CAD & Additive Manufacturing</div>
-            <h2 class="story-title">3D-Printed Flight Simulator</h2>
-            <div class="story-subtitle">Custom mechanical controls designed in CAD and printed from scratch</div>
+            <h2 class="showcase-title">3D-Printed Flight Simulator Controls</h2>
+            <div class="showcase-sub">Use the sliders below to test the dual-axis roll gimbal and linear pitch shaft</div>
           </div>
-          <span class="story-year">Personal Build</span>
+          <span id="yoke-readout" style="font-size: 0.85rem; font-weight: 700; background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 8px;">
+            Roll: 0° • Pitch: 0mm
+          </span>
         </div>
 
-        <p class="story-lead">
-          Commercial flight simulator hardware is expensive, so I decided to design and 3D-print my own flight controls. The project meant figuring out how to turn smooth physical pilot inputs—pitch, roll, and throttle movement—into reliable mechanical linkages that don’t bind or flex under load, and iterating on part tolerances until everything fit together cleanly.
-        </p>
-
-        <div class="sketch-frame">
-          <div class="sketch-caption-bar">
-            <span>Control Yoke & Pitch/Roll Linkage Concept</span>
-            <span>CAD-Modeled & FDM 3D Printed</span>
+        <div class="showcase-body">
+          <div class="control-bar">
+            <div class="control-group">
+              <span class="control-label">Roll Axis (±45°):</span>
+              <input type="range" id="yoke-roll-slider" class="control-slider" min="-45" max="45" value="0" aria-label="Yoke roll slider">
+              <span class="control-label">Pitch Travel (Push / Pull):</span>
+              <input type="range" id="yoke-pitch-slider" class="control-slider" min="-25" max="25" value="0" aria-label="Yoke pitch slider">
+            </div>
           </div>
 
-          <svg class="sketch-svg" viewBox="0 0 720 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="40" y1="100" x2="680" y2="100" stroke="#e4dfd3" stroke-dasharray="4 4" stroke-width="1"/>
+          <div class="diagram-stage">
+            <div class="sketch-frame">
+              <svg class="sketch-svg" viewBox="0 0 680 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="30" y1="105" x2="650" y2="105" stroke="#e2e8f0" stroke-dasharray="4 4"/>
 
-            <!-- Clamp Base -->
-            <rect x="70" y="70" width="96" height="60" rx="4" fill="#ede8dd" stroke="#161614" stroke-width="2"/>
-            <text x="118" y="104" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#161614" text-anchor="middle" font-weight="700">Desk Mount</text>
+                <!-- Stationary Desk Clamp -->
+                <rect x="55" y="72" width="95" height="66" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+                <text x="102" y="109" font-family="'Inter', sans-serif" font-size="10" fill="#0369a1" text-anchor="middle" font-weight="700">Desk Clamp</text>
 
-            <!-- Linear Pitch Shaft -->
-            <rect x="166" y="86" width="214" height="28" rx="3" fill="#fcfaf6" stroke="#161614" stroke-width="2"/>
-            <text x="273" y="76" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#3f3e3a" text-anchor="middle" font-weight="600">Sliding Pitch Axis</text>
+                <!-- Sliding Pitch Shaft Group -->
+                <g id="yoke-shaft-group">
+                  <rect x="150" y="91" width="230" height="28" rx="4" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+                  <path d="M 215 70 L 225 58 L 235 78 L 245 58 L 255 78 L 265 58 L 275 70" stroke="#0284c7" stroke-width="2" fill="none"/>
+                  <text x="245" y="48" font-family="'Inter', sans-serif" font-size="9.5" fill="#0284c7" text-anchor="middle" font-weight="700">Centering Tension Spring</text>
+                  <circle cx="380" cy="105" r="30" fill="none" stroke="#0284c7" stroke-width="2"/>
+                  <circle cx="380" cy="105" r="6" fill="#0284c7"/>
+                </g>
 
-            <!-- Return Spring -->
-            <path d="M 235 64 L 245 54 L 255 72 L 265 54 L 275 72 L 285 54 L 295 64" stroke="#c84127" stroke-width="2" fill="none"/>
-            <text x="265" y="45" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#c84127" text-anchor="middle" font-weight="700">Centering Tension</text>
+                <!-- Rotating & Sliding Yoke Handle Group -->
+                <g id="yoke-wheel-group">
+                  <path d="M 410 105 L 495 105" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+                  <path d="M 495 62 C 518 62, 535 78, 535 105 C 535 132, 518 148, 495 148" stroke="#0f172a" stroke-width="8" stroke-linecap="round" fill="none"/>
+                  <path d="M 465 50 C 485 45, 515 45, 535 62" stroke="#0f172a" stroke-width="7" stroke-linecap="round" fill="none"/>
+                  <path d="M 465 160 C 485 165, 515 165, 535 148" stroke="#0f172a" stroke-width="7" stroke-linecap="round" fill="none"/>
+                </g>
+              </svg>
+            </div>
 
-            <!-- Roll Gimbal -->
-            <circle cx="380" cy="100" r="32" fill="none" stroke="#161614" stroke-width="2"/>
-            <circle cx="380" cy="100" r="6" fill="#c84127"/>
-            <text x="380" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#161614" text-anchor="middle" font-weight="700">Roll Pivot</text>
-
-            <!-- Yoke Handle -->
-            <path d="M 412 100 L 490 100" stroke="#161614" stroke-width="6" stroke-linecap="round"/>
-            <path d="M 490 60 C 512 60, 530 76, 530 100 C 530 124, 512 140, 490 140" stroke="#161614" stroke-width="8" stroke-linecap="round" fill="none"/>
-            <path d="M 462 50 C 482 46, 510 46, 530 60" stroke="#161614" stroke-width="7" stroke-linecap="round" fill="none"/>
-            <path d="M 462 150 C 482 154, 510 154, 530 140" stroke="#161614" stroke-width="7" stroke-linecap="round" fill="none"/>
-            <text x="556" y="104" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" fill="#161614" font-weight="700">3D-Printed Yoke</text>
-          </svg>
+            <div class="spec-stack">
+              <div class="spec-card">
+                <div class="spec-card-label">Mechanism</div>
+                <div class="spec-card-val">Dual-Axis Flight Yoke</div>
+                <div class="spec-card-desc">Translates physical pitch & roll into simulator inputs</div>
+              </div>
+              <div class="spec-card">
+                <div class="spec-card-label">CAD & Fabrication</div>
+                <div class="spec-card-val">Onshape, Fusion 360 & FDM</div>
+                <div class="spec-card-desc">Iterated on bearing fits, shaft travel, and ergonomics</div>
+              </div>
+              <div class="spec-card">
+                <div class="spec-card-label">Feel & Return</div>
+                <div class="spec-card-val">Spring-Centered Linkages</div>
+                <div class="spec-card-desc">Self-centering tension across both axes</div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div class="facts-grid">
-          <div class="fact-item">
-            <div class="fact-label">Design Tools</div>
-            <div class="fact-value">Onshape & Fusion 360</div>
-          </div>
-          <div class="fact-item">
-            <div class="fact-label">Manufacturing</div>
-            <div class="fact-value">FDM 3D Printing</div>
-          </div>
-          <div class="fact-item">
-            <div class="fact-label">Focus</div>
-            <div class="fact-value">Fit, Feel & Tolerances</div>
-          </div>
-          <div class="fact-item">
-            <div class="fact-label">Category</div>
-            <div class="fact-value">Mechanical Controls</div>
-          </div>
-        </div>
-      </article>
-
-      <!-- Princeton University LLP -->
-      <article id="princeton-llp" class="story-block">
-        <div class="story-header">
-          <div>
-            <div class="story-kicker">University Research</div>
-            <h2 class="story-title">Princeton University Laboratory Learning Program</h2>
-            <div class="story-subtitle">Summer Research Intern • The Joseph Henry Project</div>
-          </div>
-          <span class="story-year">Summer 2025</span>
-        </div>
-
-        <p class="story-lead" style="margin-bottom: 0;">
-          During the summer of 2025, I worked as a research intern in Princeton University’s Laboratory Learning Program as part of the <strong>Joseph Henry Project</strong>. Working inside a university physics and engineering lab gave me the chance to study early electromechanical instruments, run hands-on experiments, and see how careful measurement and mechanical design work together in academic research.
-        </p>
-      </article>
-
+      </section>
     </div>
+
+    <!-- Section 2: Full-Bleed Deep Aerospace Band for Princeton University LLP -->
+    <section id="princeton-llp" class="feature-band" style="margin-bottom: 0;">
+      <div class="container">
+        <div class="home-hero-grid">
+          <div>
+            <div class="section-label" style="color: #38bdf8;">Summer 2025 • University Lab Internship</div>
+            <h2 class="section-heading" style="color: #ffffff; margin-bottom: 14px;">
+              Princeton University Laboratory Learning Program
+            </h2>
+            <p style="font-size: 1.02rem; color: rgba(255,255,255,0.82); line-height: 1.65;">
+              Worked as a summer research intern in Princeton University’s <strong>Joseph Henry Project</strong>, studying historical electromechanical apparatus and running hands-on experimental setups in a formal university laboratory.
+            </p>
+          </div>
+
+          <div class="stage-tiles">
+            <div class="stage-tile">
+              <span class="stage-tile-tag" style="color: #38bdf8;">Program</span>
+              <div class="stage-tile-title">Laboratory Learning Program</div>
+              <div class="stage-tile-sub">Princeton University Campus</div>
+            </div>
+            <div class="stage-tile">
+              <span class="stage-tile-tag" style="color: #38bdf8;">Research Focus</span>
+              <div class="stage-tile-title">The Joseph Henry Project</div>
+              <div class="stage-tile-sub">Electromechanical instruments & physics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
+  <footer class="site-footer" style="margin-top: 0;">
     <div class="container">
       <div class="footer-grid">
         <div>
           <div class="brand-text-name" style="margin-bottom: 8px;">Zain Hamdia</div>
-          <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 340px;">
-            Student at Princeton Day School (Class of 2027), robotics builder, junior firefighter at Station 46, and aspiring mechanical engineer.
+          <p style="font-size: 0.9rem; max-width: 340px;">
+            Princeton Day School (Class of 2027) • Robotics builder, junior firefighter at Station 46, and aspiring mechanical engineer.
           </p>
         </div>
         <div>
-          <div class="footer-col-title">Pages</div>
+          <div class="footer-col-title">Showcases</div>
           <ul class="footer-col-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="robotics.html">Robotics</a></li>
@@ -155,7 +169,7 @@
           </ul>
         </div>
         <div>
-          <div class="footer-col-title">More</div>
+          <div class="footer-col-title">Connect</div>
           <ul class="footer-col-links">
             <li><a href="about.html">About & Resume</a></li>
             <li><a href="contact.html">Contact</a></li>
