@@ -1140,12 +1140,12 @@ function initPublicationViewers() {
       if (isHidden) {
         targetEl.style.display = 'block';
         btn.setAttribute('aria-expanded', 'true');
-        const activeLabel = btn.getAttribute('data-active-text') || '✕ Close Article ↑';
+        const activeLabel = btn.getAttribute('data-active-text') || 'Hide Full Text ↑';
         btn.innerHTML = activeLabel;
       } else {
         targetEl.style.display = 'none';
         btn.setAttribute('aria-expanded', 'false');
-        const defaultLabel = btn.getAttribute('data-default-text') || '📖 Read Full Text ↓';
+        const defaultLabel = btn.getAttribute('data-default-text') || 'Read Full Text ↓';
         btn.innerHTML = defaultLabel;
       }
     });
@@ -1164,7 +1164,7 @@ function initPublicationViewers() {
       const mainBtn = document.querySelector(`[data-toggle-reader="${targetId}"]`);
       if (mainBtn) {
         mainBtn.setAttribute('aria-expanded', 'false');
-        const defaultLabel = mainBtn.getAttribute('data-default-text') || '📖 Read Full Text ↓';
+        const defaultLabel = mainBtn.getAttribute('data-default-text') || 'Read Full Text ↓';
         mainBtn.innerHTML = defaultLabel;
       }
 
@@ -1190,11 +1190,11 @@ function initPublicationViewers() {
       if (isHidden) {
         targetEl.style.display = 'block';
         btn.setAttribute('aria-expanded', 'true');
-        btn.innerHTML = '✕ Close PDF Preview';
+        btn.innerHTML = 'Close PDF ✕';
       } else {
         targetEl.style.display = 'none';
         btn.setAttribute('aria-expanded', 'false');
-        btn.innerHTML = '📄 Inline PDF Preview ↓';
+        btn.innerHTML = 'Inline PDF Preview ↓';
       }
     });
   });
