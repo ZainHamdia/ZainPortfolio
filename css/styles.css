@@ -372,6 +372,54 @@ strong {
   text-underline-offset: 3px;
 }
 
+/* Fire Service Hero Insignia Crest */
+.fire-hero-grid {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.fire-hero-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.fire-hero-emblem-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fire-hero-emblem-link {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 8px;
+  outline: none;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), filter 0.28s ease;
+}
+
+.fire-hero-emblem {
+  width: 170px;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.6)) drop-shadow(0 2px 14px rgba(220, 38, 38, 0.4));
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), filter 0.28s ease;
+  user-select: none;
+}
+
+.fire-hero-emblem-link:hover .fire-hero-emblem,
+.fire-hero-emblem:hover {
+  transform: translateY(-4px) scale(1.03);
+  filter: drop-shadow(0 20px 36px rgba(0, 0, 0, 0.75)) drop-shadow(0 4px 20px rgba(239, 68, 68, 0.6));
+}
+
+.fire-hero-emblem-link:focus-visible {
+  outline: 2px solid var(--theme-secondary);
+  outline-offset: 6px;
+}
+
 .home-hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -2979,9 +3027,32 @@ strong {
   .footer-grid {
     grid-template-columns: 1fr;
   }
+
+  .fire-hero-grid {
+    gap: 32px;
+  }
+
+  .fire-hero-emblem {
+    width: 145px;
+  }
 }
 
 @media (max-width: 720px) {
+  .fire-hero-grid {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .fire-hero-emblem-wrap {
+    order: -1;
+    margin-bottom: 6px;
+  }
+
+  .fire-hero-emblem {
+    width: 110px;
+  }
+
   .mobile-menu-toggle {
     display: block;
   }

@@ -882,37 +882,6 @@ function initStationDisplayInteractive() {
   setInterval(updateCadClock, 1000);
   updateCadClock();
 
-  // Full-Res CAD Modal Handlers
-  const modal = document.getElementById('station-cad-modal');
-  const openModalBtn = document.getElementById('station-cad-modal-btn');
-  const closeModalBtn = document.getElementById('station-cad-modal-close');
-  const modalBackdrop = document.getElementById('station-cad-modal-backdrop');
-
-  function openCadModal() {
-    if (!modal) return;
-    modal.style.display = 'flex';
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeCadModal() {
-    if (!modal) return;
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  if (openModalBtn) openModalBtn.addEventListener('click', openCadModal);
-  if (closeModalBtn) closeModalBtn.addEventListener('click', closeCadModal);
-  if (modalBackdrop) modalBackdrop.addEventListener('click', closeCadModal);
-  if (viewDispatch) viewDispatch.addEventListener('click', openCadModal);
-
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
-      closeCadModal();
-    }
-  });
-
   // Live Station 46 Website Preview Tab Switcher (firestation46.pages.dev)
   const siteTabs = document.querySelectorAll('.station-site-tab[data-url]');
   const siteIframe = document.getElementById('station46-live-iframe');
