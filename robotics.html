@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Robotics & Fabrication — Zain Hamdia</title>
   <meta name="description" content="Interactive showcase of Zain Hamdia's robotics builds — Zainiac 19, 21, and 25 (Noggin), VEX V5 Robotics, Little Bot, and community relief initiatives.">
-  <link rel="stylesheet" href="css/styles.css?v=paper-1">
+  <link rel="stylesheet" href="css/styles.css?v=cockpit-deck-1">
 </head>
 <body class="theme-robotics">
 
@@ -71,11 +71,13 @@
           <div id="panel-z19" class="lineage-panel active">
             <div class="control-bar">
               <div class="control-group">
-                <label for="z19-kinematics-slider" class="control-label">Kinematics (Neck Pan, Waist Pan &amp; Opposing Straight Arms):</label>
+                <label for="z19-kinematics-slider" class="control-label">Kinematics (Neck, Waist &amp; Arms):</label>
                 <input type="range" id="z19-kinematics-slider" class="control-slider" min="-40" max="40" step="0.5" value="0" aria-label="Zainiac 19 motion slider">
                 <span id="z19-readout" class="servo-readout-pill">Neck: 0° • Waist: 0° • Arms: 0°</span>
               </div>
-              <button type="button" id="z19-demo-btn" class="control-btn">▶ Animate Motion</button>
+              <div class="control-actions">
+                <button type="button" id="z19-demo-btn" class="control-btn animate-toggle-btn">▶ Animate Controls</button>
+              </div>
             </div>
 
             <div class="diagram-stage">
@@ -262,7 +264,9 @@
                 <input type="range" id="z21-right-arm-slider" class="control-slider" min="-40" max="40" step="0.5" value="0" aria-label="Zainiac 21 right arm slider">
                 <span id="z21-readout" class="servo-readout-pill">Jaw: 0° • Neck: 0° • L Arm: 0° • R Arm: 0°</span>
               </div>
-              <button type="button" id="z21-demo-btn" class="control-btn">▶ Animate Mindstorms</button>
+              <div class="control-actions">
+                <button type="button" id="z21-demo-btn" class="control-btn animate-toggle-btn">▶ Animate Controls</button>
+              </div>
             </div>
 
             <div class="diagram-stage">
@@ -450,7 +454,9 @@
                 <input type="range" id="z25-neck-pitch-slider" class="control-slider" min="-10" max="10" step="0.1" value="0" aria-label="Neck pitch up and down slider">
                 <span id="z25-readout" class="servo-readout-pill">Eyes: 0°, 0° • Jaw: 0° • Head: 0°, 0°</span>
               </div>
-              <button type="button" id="z25-demo-btn" class="control-btn">▶ Run Servo Demo</button>
+              <div class="control-actions">
+                <button type="button" id="z25-demo-btn" class="control-btn animate-toggle-btn">▶ Animate Controls</button>
+              </div>
             </div>
 
             <div class="diagram-stage">
@@ -787,6 +793,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=paper-1"></script>
+  <script src="js/app.js?v=cockpit-deck-1"></script>
 </body>
 </html>

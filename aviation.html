@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aviation &amp; Flight Controls — Zain Hamdia</title>
   <meta name="description" content="Custom 3D-printed flight simulator hardware: base-tilting dual-axis flight yoke with contactless Hall effect sensors and 4-section airliner throttle quadrant by Zain Hamdia.">
-  <link rel="stylesheet" href="css/styles.css?v=cockpit-deck-1">
+  <link rel="stylesheet" href="css/styles.css?v=cockpit-deck-2">
 </head>
 <body class="theme-aviation">
 
@@ -72,13 +72,16 @@
               </div>
               <div class="flight-deck-actions">
                 <button type="button" id="quad-sync-btn" class="flight-action-btn" title="Toggle Synchronized Throttle Quadrant Movement">
-                  <span>🔗</span> Sync Throttles: <strong id="quad-sync-status">OFF</strong>
+                  <svg class="flight-btn-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                  <span>Sync Throttles: <strong id="quad-sync-status">OFF</strong></span>
                 </button>
                 <button type="button" id="yoke-reset-btn" class="flight-action-btn" title="Reset all controls to neutral position">
-                  <span>↺</span> Neutral Reset
+                  <svg class="flight-btn-svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg>
+                  <span>Neutral Reset</span>
                 </button>
-                <button type="button" id="yoke-demo-btn" class="control-btn flight-animate-btn">
-                  ▶ Animate Controls
+                <button type="button" id="yoke-demo-btn" class="flight-animate-btn">
+                  <svg class="flight-btn-svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  <span>Animate Controls</span>
                 </button>
               </div>
             </div>
@@ -89,7 +92,9 @@
               <div class="flight-bay yoke-bay">
                 <div class="flight-bay-header">
                   <div class="flight-bay-title-wrap">
-                    <span class="flight-bay-icon" aria-hidden="true">✈️</span>
+                    <div class="flight-bay-icon-box" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+                    </div>
                     <div>
                       <h3 class="flight-bay-title">Dual-Axis Flight Yoke</h3>
                       <span class="flight-bay-sub">Base-Tilting Pitch &amp; Wheel Roll</span>
@@ -103,16 +108,16 @@
                   <div class="flight-control-row">
                     <div class="flight-control-label-row">
                       <label for="yoke-roll-slider" class="flight-control-label">
-                        Wheel Roll (Aileron):
+                        Wheel Roll (Aileron)
                       </label>
                       <span id="yoke-roll-val" class="flight-val-pill">0.0° Neutral</span>
                     </div>
                     <div class="flight-slider-wrap">
                       <input type="range" id="yoke-roll-slider" class="flight-slider" min="-45" max="45" step="0.5" value="0" aria-label="Flight yoke roll slider">
                       <div class="flight-scale-ticks">
-                        <span>◀ -45° Left</span>
+                        <span>−45° Left</span>
                         <span>0° Center</span>
-                        <span>+45° Right ▶</span>
+                        <span>+45° Right</span>
                       </div>
                     </div>
                   </div>
@@ -121,16 +126,16 @@
                   <div class="flight-control-row">
                     <div class="flight-control-label-row">
                       <label for="yoke-pitch-slider" class="flight-control-label">
-                        Column Pitch (Elevator):
+                        Column Pitch (Elevator)
                       </label>
                       <span id="yoke-pitch-val" class="flight-val-pill">0.0° Level</span>
                     </div>
                     <div class="flight-slider-wrap">
                       <input type="range" id="yoke-pitch-slider" class="flight-slider" min="-15" max="15" step="0.5" value="0" aria-label="Flight yoke pitch forward and backward tilt slider">
                       <div class="flight-scale-ticks">
-                        <span>▼ -15° (Push / Down)</span>
+                        <span>−15° Push / Down</span>
                         <span>0° Level</span>
-                        <span>+15° (Pull / Up) ▲</span>
+                        <span>+15° Pull / Up</span>
                       </div>
                     </div>
                   </div>
@@ -141,7 +146,9 @@
               <div class="flight-bay throttle-bay">
                 <div class="flight-bay-header">
                   <div class="flight-bay-title-wrap">
-                    <span class="flight-bay-icon" aria-hidden="true">🎛️</span>
+                    <div class="flight-bay-icon-box" aria-hidden="true">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+                    </div>
                     <div>
                       <h3 class="flight-bay-title">4-Section Throttle Quadrant</h3>
                       <span class="flight-bay-sub">Airliner Lever Rack &amp; Potentiometers</span>

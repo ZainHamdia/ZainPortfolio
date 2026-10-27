@@ -83,7 +83,7 @@ function initZ19Interactive() {
     }
     if (demoBtn) {
       demoBtn.classList.remove('active');
-      demoBtn.textContent = '▶ Animate Motion';
+      demoBtn.textContent = '▶ Animate Controls';
     }
   }
 
@@ -178,7 +178,7 @@ function initZ21Interactive() {
     }
     if (demoBtn) {
       demoBtn.classList.remove('active');
-      demoBtn.textContent = '▶ Animate Mindstorms';
+      demoBtn.textContent = '▶ Animate Controls';
     }
   }
 
@@ -289,7 +289,7 @@ function initZ25Interactive() {
     }
     if (demoBtn) {
       demoBtn.classList.remove('active');
-      demoBtn.textContent = '▶ Run Servo Demo';
+      demoBtn.textContent = '▶ Animate Controls';
     }
   }
 
@@ -438,7 +438,7 @@ function initZ25Interactive() {
         return;
       }
       demoBtn.classList.add('active');
-      demoBtn.textContent = '■ Stop Servo Demo';
+      demoBtn.textContent = '■ Stop Animation';
       let t = 0;
 
       function loop() {

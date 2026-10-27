@@ -176,45 +176,132 @@
       </div>
     </section>
 
-    <!-- Section 3: Published Writing & Campus Leadership -->
+    <!-- Section 3: Published Articles Display Piece (Picture from Each Article) -->
     <section class="portal-section" style="padding-top: 0;">
       <div class="container">
-        <div class="split-grid">
-          <div class="visual-card">
-            <div class="visual-card-kicker">Articles</div>
-            <h3 class="visual-card-title">Published Writing</h3>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 14px;">Articles published in <em>The Big Smoke</em> exploring robotics, 3D printing materials, virtual reality in medicine, and neuroscience.</p>
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-              <a href="docs/from-covid-19-to-zainiac-19.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.88rem; font-weight: 600; color: var(--theme-primary);">“From COVID-19 to Zainiac 19” (PDF) ↗</a>
-              <a href="docs/the-clandestine-side-of-3d-printing.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.88rem; font-weight: 600; color: var(--theme-primary);">“The Clandestine Side of 3D Printing” (PDF) ↗</a>
-              <a href="docs/virtual-reality-just-what-the-doctor-ordered.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.88rem; font-weight: 600; color: var(--theme-primary);">“Virtual Reality: Just What the Doctor Ordered” (PDF) ↗</a>
-              <a href="docs/have-we-been-here-before.pdf" target="_blank" rel="noopener noreferrer" style="font-size: 0.88rem; font-weight: 600; color: var(--theme-primary);">“Have We Been Here Before?” (PDF) ↗</a>
+        <div class="section-header" style="margin-bottom: 24px; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div class="section-label">Published Writing · The Big Smoke</div>
+            <h2 class="section-heading">Featured Articles &amp; Essays</h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 6px; max-width: 640px;">
+              Technical and scientific essays published in <em>The Big Smoke</em> exploring robotics fabrication, zero-waste sustainable materials, virtual reality analgesia, and memory neuroscience.
+            </p>
+          </div>
+          <a href="publications.html" class="btn btn-secondary" style="border-color: var(--border); color: var(--text-primary); background: var(--bg-surface);">
+            Browse All Publications →
+          </a>
+        </div>
+
+        <div class="photo-grid-4">
+          <!-- Article 1: From COVID-19 to Zainiac 19 -->
+          <article class="photo-card">
+            <a href="publications.html#article-zainiac" style="display: block; overflow: hidden;">
+              <img src="img/article-zainiac-19.jpg" alt="Zain Hamdia presenting Zainiac 19 at Maker Faire" class="photo-card-img article-thumb">
+            </a>
+            <div class="photo-card-body">
+              <div class="photo-card-tag">01 · Robotics</div>
+              <h3 class="photo-card-title">
+                <a href="publications.html#article-zainiac">From COVID-19 to Zainiac 19</a>
+              </h3>
+              <p class="photo-card-desc">
+                Building a five-foot humanoid robot, exhibiting across Maker Faires in Brussels, Cairo, Philadelphia, and Rochester, and pivoting through pandemic shutdowns.
+              </p>
+              <div style="margin-top: auto; padding-top: 12px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); font-size: 0.82rem;">
+                <a href="publications.html#article-zainiac" style="font-weight: 700; color: var(--theme-primary);">Read Article →</a>
+                <a href="docs/from-covid-19-to-zainiac-19.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); font-family: var(--font-mono);">PDF ↗</a>
+              </div>
             </div>
-            <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border);">
-              <a href="publications.html" style="font-size: 0.84rem; font-weight: 600; color: var(--text-muted);">Browse all published articles &amp; readers →</a>
+          </article>
+
+          <!-- Article 2: The Clandestine Side of 3D Printing -->
+          <article class="photo-card">
+            <a href="publications.html#article-3d-printing" style="display: block; overflow: hidden;">
+              <img src="img/article-3d-printing.png" alt="Cardboard shipping crisis and dissolvable PVA filament" class="photo-card-img article-thumb">
+            </a>
+            <div class="photo-card-body">
+              <div class="photo-card-tag">02 · Materials Science</div>
+              <h3 class="photo-card-title">
+                <a href="publications.html#article-3d-printing">The Clandestine Side of 3D Printing</a>
+              </h3>
+              <p class="photo-card-desc">
+                Investigating water-soluble PolyVinyl Alcohol (PVA) filament as a clean zero-waste replacement for 80 billion discarded cardboard shipping boxes.
+              </p>
+              <div style="margin-top: auto; padding-top: 12px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); font-size: 0.82rem;">
+                <a href="publications.html#article-3d-printing" style="font-weight: 700; color: var(--theme-primary);">Read Article →</a>
+                <a href="docs/the-clandestine-side-of-3d-printing.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); font-family: var(--font-mono);">PDF ↗</a>
+              </div>
             </div>
+          </article>
+
+          <!-- Article 3: Virtual Reality: Just What the Doctor Ordered -->
+          <article class="photo-card">
+            <a href="publications.html#article-vr" style="display: block; overflow: hidden;">
+              <img src="img/article-vr-healthcare.png" alt="Virtual reality headset medical analgesia in healthcare" class="photo-card-img article-thumb">
+            </a>
+            <div class="photo-card-body">
+              <div class="photo-card-tag">03 · Medical VR</div>
+              <h3 class="photo-card-title">
+                <a href="publications.html#article-vr">Virtual Reality: Just What the Doctor Ordered</a>
+              </h3>
+              <p class="photo-card-desc">
+                From Sutherland’s 1968 headset to FDA-cleared clinical analgesia systems helping hospital patients reduce acute and chronic pain by 30%+ without medication.
+              </p>
+              <div style="margin-top: auto; padding-top: 12px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); font-size: 0.82rem;">
+                <a href="publications.html#article-vr" style="font-weight: 700; color: var(--theme-primary);">Read Article →</a>
+                <a href="docs/virtual-reality-just-what-the-doctor-ordered.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); font-family: var(--font-mono);">PDF ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Article 4: Have We Been Here Before? -->
+          <article class="photo-card">
+            <a href="publications.html#article-deja-vu" style="display: block; overflow: hidden;">
+              <img src="img/article-deja-vu.jpg" alt="Cognitive neuroscience of memory recall and déjà vu" class="photo-card-img article-thumb">
+            </a>
+            <div class="photo-card-body">
+              <div class="photo-card-tag">04 · Neuroscience</div>
+              <h3 class="photo-card-title">
+                <a href="publications.html#article-deja-vu">Have We Been Here Before?</a>
+              </h3>
+              <p class="photo-card-desc">
+                Exploring the neurology of déjà vu—temporal lobe split perception, millisecond circuit delays, and VR experiments unraveling the illusion of familiarity.
+              </p>
+              <div style="margin-top: auto; padding-top: 12px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); font-size: 0.82rem;">
+                <a href="publications.html#article-deja-vu" style="font-weight: 700; color: var(--theme-primary);">Read Article →</a>
+                <a href="docs/have-we-been-here-before.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); font-family: var(--font-mono);">PDF ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Campus & Community Leadership Grid Below Articles -->
+        <div class="visual-card" style="margin-top: 36px;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 18px; border-bottom: 1px solid var(--border); padding-bottom: 14px;">
+            <div>
+              <div class="visual-card-kicker">Leadership &amp; Community</div>
+              <h3 class="visual-card-title" style="margin-bottom: 4px;">Campus &amp; Community Roles</h3>
+              <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Club leadership, competitive robotics engineering at Princeton Day School, and local fire service.</p>
+            </div>
+            <a href="about.html" style="font-size: 0.84rem; font-weight: 600; color: var(--theme-primary); text-decoration: underline;">
+              View Full Background &amp; Resume →
+            </a>
           </div>
 
-          <div class="visual-card">
-            <div class="visual-card-kicker">Leadership</div>
-            <h3 class="visual-card-title">Campus &amp; Community</h3>
-            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 14px;">Club leadership and competition roles at Princeton Day School and the local community.</p>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <div>
-                <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);">Co-President &amp; Team Captain · Robotics Club</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">Princeton Day School · VEX V5 Tournament Quarterfinalist (2026)</div>
-              </div>
-              <div>
-                <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);">Co-President · Maker Club</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">Princeton Day School · 3D printing &amp; hardware fabrication</div>
-              </div>
-              <div>
-                <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);">Junior Firefighter Program Lead</div>
-                <div style="font-size: 0.8rem; color: var(--text-muted); font-family: var(--font-mono);">Station 46 · Recruitment, training certification &amp; mentorship</div>
-              </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;" class="leadership-grid">
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius-xs); padding: 16px;">
+              <div style="font-size: 0.92rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Co-President &amp; Team Captain</div>
+              <div style="font-size: 0.8rem; color: var(--theme-primary); font-family: var(--font-mono); font-weight: 600; margin-bottom: 6px;">Robotics Club · PDS</div>
+              <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">Princeton Day School · VEX V5 Robotics Tournament Quarterfinalist (2026).</p>
             </div>
-            <div style="margin-top: 14px; padding-top: 10px; border-top: 1px solid var(--border);">
-              <a href="about.html" style="font-size: 0.84rem; font-weight: 600; color: var(--text-muted);">View complete background &amp; resume →</a>
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius-xs); padding: 16px;">
+              <div style="font-size: 0.92rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Co-President</div>
+              <div style="font-size: 0.8rem; color: var(--theme-primary); font-family: var(--font-mono); font-weight: 600; margin-bottom: 6px;">Maker Club · PDS</div>
+              <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">Leading hands-on 3D printing, CAD design, and hardware prototyping workshops.</p>
+            </div>
+            <div style="background: var(--bg-subtle); border: 1px solid var(--border); border-radius: var(--radius-xs); padding: 16px;">
+              <div style="font-size: 0.92rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">Junior Firefighter Lead</div>
+              <div style="font-size: 0.8rem; color: var(--theme-primary); font-family: var(--font-mono); font-weight: 600; margin-bottom: 6px;">Fire Station 46</div>
+              <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.5; margin: 0;">Junior firefighter training certification, emergency response, and mentor matching.</p>
             </div>
           </div>
         </div>
