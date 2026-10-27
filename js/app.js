@@ -1151,6 +1151,23 @@ function initPublicationViewers() {
     });
   });
 
+  // 1b. Publication Figure Card Triggers (Delegates to main toggle reader button)
+  const figureTriggers = document.querySelectorAll('[data-card-reader-trigger]');
+  figureTriggers.forEach(trigger => {
+    const handleTrigger = () => {
+      const targetId = trigger.getAttribute('data-card-reader-trigger');
+      const mainBtn = document.querySelector(`[data-toggle-reader="${targetId}"]`);
+      if (mainBtn) mainBtn.click();
+    };
+    trigger.addEventListener('click', handleTrigger);
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleTrigger();
+      }
+    });
+  });
+
   // 2. Dedicated Close Buttons (Inside Reader Header and Footer)
   closeButtons.forEach(btn => {
     btn.addEventListener('click', () => {

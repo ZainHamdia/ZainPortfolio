@@ -2065,6 +2065,96 @@ strong {
   color: #e77500;
 }
 
+/* Publication Card Media Layout & Figure Display */
+.pub-card-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 22px;
+  align-items: stretch;
+  margin-bottom: 20px;
+}
+
+.pub-card-grid .pub-takeaways {
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.pub-card-figure {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pub-card-figure:hover {
+  border-color: var(--theme-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.pub-card-figure-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  background: #111116;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+}
+
+.pub-card-figure-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.pub-card-figure-img-wrap:hover .pub-card-figure-img {
+  transform: scale(1.04);
+}
+
+.pub-card-figure-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  pointer-events: none;
+}
+
+.pub-card-figure-caption {
+  padding: 10px 14px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  border-top: 1px solid var(--border);
+  background: var(--bg-surface);
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.pub-card-figure-caption strong {
+  color: var(--text-secondary);
+  margin-right: 4px;
+}
+
 .pub-takeaways {
   background: var(--bg-subtle);
   border: 1px solid var(--border);
@@ -2259,11 +2349,21 @@ strong {
   .pub-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .pub-card-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .pub-card-figure-img-wrap {
+    height: 220px;
+  }
 }
 
 @media (max-width: 640px) {
   .pub-stats-grid {
     grid-template-columns: 1fr;
+  }
+  .pub-card-figure-img-wrap {
+    height: 180px;
   }
   .pub-reading-body {
     padding: 20px 14px;
