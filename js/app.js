@@ -482,6 +482,19 @@ function initFlightYokeInteractive() {
   const demoBtn = document.getElementById('yoke-demo-btn');
   if (!rollSlider || !pitchSlider) return;
 
+  const rollVal = document.getElementById('yoke-roll-val');
+  const pitchVal = document.getElementById('yoke-pitch-val');
+  const quadVals = [
+    document.getElementById('quad-1-val'),
+    document.getElementById('quad-2-val'),
+    document.getElementById('quad-3-val'),
+    document.getElementById('quad-4-val')
+  ];
+  const resetBtn = document.getElementById('yoke-reset-btn');
+  const syncBtn = document.getElementById('quad-sync-btn');
+  const syncStatus = document.getElementById('quad-sync-status');
+  const presetBtns = document.querySelectorAll('.throttle-preset-btn');
+
   const yokeHead = document.getElementById('yoke-head');
   const yokeColumn = document.getElementById('yoke-column');
   const yokeWire = document.getElementById('yoke-wire');
@@ -505,6 +518,7 @@ function initFlightYokeInteractive() {
   const readout = document.getElementById('yoke-readout');
 
   let animId = null;
+  let throttlesSynced = false;
 
   function stopYokeAnim() {
     if (animId) {
@@ -576,11 +590,39 @@ function initFlightYokeInteractive() {
       if (quadLevers[idx]) {
         quadLevers[idx].setAttribute('transform', `translate(0, ${dy.toFixed(2)})`);
       }
-      if (quadPots[idx].el) {
+      if (quadPots[idx] && quadPots[idx].el) {
         quadPots[idx].el.setAttribute('transform', `rotate(${potAngle.toFixed(1)} ${quadPots[idx].cx} ${quadPots[idx].cy})`);
+      }
+      // Update individual channel readout badge
+      if (quadVals[idx]) {
+        quadVals[idx].textContent = `${Math.round(val)}%`;
       }
     });
 
+    // Update individual yoke readout badges
+    if (rollVal) {
+      const rNum = parseFloat(roll.toFixed(1));
+      if (rNum < -0.1) {
+        rollVal.textContent = `${Math.abs(rNum).toFixed(1)}° Left`;
+      } else if (rNum > 0.1) {
+        rollVal.textContent = `+${rNum.toFixed(1)}° Right`;
+      } else {
+        rollVal.textContent = '0.0° Neutral';
+      }
+    }
+
+    if (pitchVal) {
+      const pNum = parseFloat(pitch.toFixed(1));
+      if (pNum < -0.1) {
+        pitchVal.textContent = `${Math.abs(pNum).toFixed(1)}° (Push / Down)`;
+      } else if (pNum > 0.1) {
+        pitchVal.textContent = `+${pNum.toFixed(1)}° (Pull / Up)`;
+      } else {
+        pitchVal.textContent = '0.0° Level';
+      }
+    }
+
+    // Master readout
     if (readout) {
       const rRound = Math.round(roll);
       const pRound = Math.round(pitch);
@@ -592,7 +634,8 @@ function initFlightYokeInteractive() {
     }
   }
 
-  [rollSlider, pitchSlider, quad1Slider, quad2Slider, quad3Slider, quad4Slider].forEach(s => {
+  // Yoke sliders input listener
+  [rollSlider, pitchSlider].forEach(s => {
     if (s) {
       s.addEventListener('input', () => {
         if (animId) stopYokeAnim();
@@ -601,6 +644,69 @@ function initFlightYokeInteractive() {
     }
   });
 
+  // Throttle sliders input listeners with optional sync
+  const quadSliders = [quad1Slider, quad2Slider, quad3Slider, quad4Slider];
+  quadSliders.forEach((s, idx) => {
+    if (s) {
+      s.addEventListener('input', () => {
+        if (animId) stopYokeAnim();
+        if (throttlesSynced) {
+          const syncedVal = s.value;
+          quadSliders.forEach((other, oIdx) => {
+            if (oIdx !== idx && other) {
+              other.value = syncedVal;
+            }
+          });
+        }
+        updateYoke();
+      });
+    }
+  });
+
+  // Throttle Sync Toggle Button
+  if (syncBtn) {
+    syncBtn.addEventListener('click', () => {
+      throttlesSynced = !throttlesSynced;
+      if (throttlesSynced) {
+        syncBtn.classList.add('active');
+        if (syncStatus) syncStatus.textContent = 'ON';
+        // When turning sync ON, align all throttles to quad1Slider
+        if (quad1Slider) {
+          const leadVal = quad1Slider.value;
+          quadSliders.forEach(s => { if (s) s.value = leadVal; });
+          updateYoke();
+        }
+      } else {
+        syncBtn.classList.remove('active');
+        if (syncStatus) syncStatus.textContent = 'OFF';
+      }
+    });
+  }
+
+  // Neutral Reset Button
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      stopYokeAnim();
+      rollSlider.value = 0;
+      pitchSlider.value = 0;
+      quadSliders.forEach(s => { if (s) s.value = 50; });
+      updateYoke();
+    });
+  }
+
+  // Throttle Presets
+  presetBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      stopYokeAnim();
+      const presetVal = btn.getAttribute('data-val');
+      if (presetVal !== null) {
+        quadSliders.forEach(s => { if (s) s.value = presetVal; });
+        updateYoke();
+      }
+    });
+  });
+
+  // Animate Controls Demo Button
   if (demoBtn) {
     demoBtn.addEventListener('click', () => {
       if (animId) {
@@ -1013,12 +1119,16 @@ function initPrincetonDccSwitchInteractive() {
 }
 
 /* ==========================================================================
-   Publications Reader & Inline Viewer Toggles
+   Publications Reader, Filters & Inline Viewer Toggles
    ========================================================================== */
 function initPublicationViewers() {
   const toggleButtons = document.querySelectorAll('[data-toggle-reader]');
-  if (!toggleButtons.length) return;
+  const closeButtons = document.querySelectorAll('[data-close-reader]');
+  const pdfToggles = document.querySelectorAll('[data-toggle-pdf]');
+  const filterButtons = document.querySelectorAll('[data-pub-filter]');
+  const articleCards = document.querySelectorAll('.pub-article-card');
 
+  // 1. Article Reader Full-Text Toggles
   toggleButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('data-toggle-reader');
@@ -1030,18 +1140,45 @@ function initPublicationViewers() {
       if (isHidden) {
         targetEl.style.display = 'block';
         btn.setAttribute('aria-expanded', 'true');
-        const activeLabel = btn.getAttribute('data-active-text') || 'Hide Article ↑';
+        const activeLabel = btn.getAttribute('data-active-text') || '✕ Close Article ↑';
         btn.innerHTML = activeLabel;
       } else {
         targetEl.style.display = 'none';
         btn.setAttribute('aria-expanded', 'false');
-        const defaultLabel = btn.getAttribute('data-default-text') || 'Read Full Text ↓';
+        const defaultLabel = btn.getAttribute('data-default-text') || '📖 Read Full Text ↓';
         btn.innerHTML = defaultLabel;
       }
     });
   });
 
-  const pdfToggles = document.querySelectorAll('[data-toggle-pdf]');
+  // 2. Dedicated Close Buttons (Inside Reader Header and Footer)
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-close-reader');
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+
+      targetEl.style.display = 'none';
+
+      // Reset corresponding main toggle button
+      const mainBtn = document.querySelector(`[data-toggle-reader="${targetId}"]`);
+      if (mainBtn) {
+        mainBtn.setAttribute('aria-expanded', 'false');
+        const defaultLabel = mainBtn.getAttribute('data-default-text') || '📖 Read Full Text ↓';
+        mainBtn.innerHTML = defaultLabel;
+      }
+
+      // Smoothly scroll back to the article card top
+      const parentCard = targetEl.closest('.pub-article-card');
+      if (parentCard) {
+        const navOffset = 90;
+        const cardTop = parentCard.getBoundingClientRect().top + window.pageYOffset - navOffset;
+        window.scrollTo({ top: cardTop, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // 3. Inline PDF Viewer Toggles
   pdfToggles.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetId = btn.getAttribute('data-toggle-pdf');
@@ -1053,14 +1190,35 @@ function initPublicationViewers() {
       if (isHidden) {
         targetEl.style.display = 'block';
         btn.setAttribute('aria-expanded', 'true');
-        btn.innerHTML = 'Close PDF ✕';
+        btn.innerHTML = '✕ Close PDF Preview';
       } else {
         targetEl.style.display = 'none';
         btn.setAttribute('aria-expanded', 'false');
-        btn.innerHTML = 'Inline PDF ↓';
+        btn.innerHTML = '📄 Inline PDF Preview ↓';
       }
     });
   });
+
+  // 4. Category Filter Tabs (All / The Big Smoke / Academic Research)
+  if (filterButtons.length && articleCards.length) {
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filterVal = btn.getAttribute('data-pub-filter');
+
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        articleCards.forEach(card => {
+          const category = card.getAttribute('data-pub-category') || '';
+          if (filterVal === 'all' || category.includes(filterVal)) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
 }
 
 

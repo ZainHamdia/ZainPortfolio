@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aviation &amp; Flight Controls — Zain Hamdia</title>
   <meta name="description" content="Custom 3D-printed flight simulator hardware: base-tilting dual-axis flight yoke with contactless Hall effect sensors and 4-section airliner throttle quadrant by Zain Hamdia.">
-  <link rel="stylesheet" href="css/styles.css?v=paper-1">
+  <link rel="stylesheet" href="css/styles.css?v=cockpit-deck-1">
 </head>
 <body class="theme-aviation">
 
@@ -61,22 +61,153 @@
         </div>
 
         <div class="showcase-body">
-          <div class="control-bar">
-            <div class="control-group">
-              <label for="yoke-roll-slider" class="control-label">Wheel Roll:</label>
-              <input type="range" id="yoke-roll-slider" class="control-slider" min="-45" max="45" step="0.5" value="0" aria-label="Yoke roll slider">
-              <label for="yoke-pitch-slider" class="control-label">Pitch (Tilt Fwd/Back):</label>
-              <input type="range" id="yoke-pitch-slider" class="control-slider" min="-15" max="15" step="0.5" value="0" aria-label="Yoke pitch forward and backward tilt slider">
-              <label for="quad-1-slider" class="control-label">Sec 1:</label>
-              <input type="range" id="quad-1-slider" class="control-slider" min="0" max="100" step="1" value="50" aria-label="Throttle section 1 slider">
-              <label for="quad-2-slider" class="control-label">Sec 2:</label>
-              <input type="range" id="quad-2-slider" class="control-slider" min="0" max="100" step="1" value="50" aria-label="Throttle section 2 slider">
-              <label for="quad-3-slider" class="control-label">Sec 3:</label>
-              <input type="range" id="quad-3-slider" class="control-slider" min="0" max="100" step="1" value="50" aria-label="Throttle section 3 slider">
-              <label for="quad-4-slider" class="control-label">Sec 4:</label>
-              <input type="range" id="quad-4-slider" class="control-slider" min="0" max="100" step="1" value="50" aria-label="Throttle section 4 slider">
+          <!-- Cockpit Flight Controls Deck -->
+          <div class="flight-deck">
+            <!-- Master Toolbar -->
+            <div class="flight-deck-toolbar">
+              <div class="flight-deck-status">
+                <span class="flight-status-dot" aria-hidden="true"></span>
+                <span class="flight-status-title">Hardware Telemetry</span>
+                <span class="flight-status-badge">Hall Sensors + 4x Pots Active</span>
+              </div>
+              <div class="flight-deck-actions">
+                <button type="button" id="quad-sync-btn" class="flight-action-btn" title="Toggle Synchronized Throttle Quadrant Movement">
+                  <span>🔗</span> Sync Throttles: <strong id="quad-sync-status">OFF</strong>
+                </button>
+                <button type="button" id="yoke-reset-btn" class="flight-action-btn" title="Reset all controls to neutral position">
+                  <span>↺</span> Neutral Reset
+                </button>
+                <button type="button" id="yoke-demo-btn" class="control-btn flight-animate-btn">
+                  ▶ Animate Controls
+                </button>
+              </div>
             </div>
-            <button type="button" id="yoke-demo-btn" class="control-btn">▶ Animate Controls</button>
+
+            <!-- Two Hardware Control Bays (Yoke & Throttle Quadrant) -->
+            <div class="flight-deck-bays">
+              <!-- Left Bay: Flight Yoke -->
+              <div class="flight-bay yoke-bay">
+                <div class="flight-bay-header">
+                  <div class="flight-bay-title-wrap">
+                    <span class="flight-bay-icon" aria-hidden="true">✈️</span>
+                    <div>
+                      <h3 class="flight-bay-title">Dual-Axis Flight Yoke</h3>
+                      <span class="flight-bay-sub">Base-Tilting Pitch &amp; Wheel Roll</span>
+                    </div>
+                  </div>
+                  <span class="flight-sensor-chip">Contactless Hall Sensors</span>
+                </div>
+
+                <div class="flight-bay-controls">
+                  <!-- Roll Control -->
+                  <div class="flight-control-row">
+                    <div class="flight-control-label-row">
+                      <label for="yoke-roll-slider" class="flight-control-label">
+                        Wheel Roll (Aileron):
+                      </label>
+                      <span id="yoke-roll-val" class="flight-val-pill">0.0° Neutral</span>
+                    </div>
+                    <div class="flight-slider-wrap">
+                      <input type="range" id="yoke-roll-slider" class="flight-slider" min="-45" max="45" step="0.5" value="0" aria-label="Flight yoke roll slider">
+                      <div class="flight-scale-ticks">
+                        <span>◀ -45° Left</span>
+                        <span>0° Center</span>
+                        <span>+45° Right ▶</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Pitch Control -->
+                  <div class="flight-control-row">
+                    <div class="flight-control-label-row">
+                      <label for="yoke-pitch-slider" class="flight-control-label">
+                        Column Pitch (Elevator):
+                      </label>
+                      <span id="yoke-pitch-val" class="flight-val-pill">0.0° Level</span>
+                    </div>
+                    <div class="flight-slider-wrap">
+                      <input type="range" id="yoke-pitch-slider" class="flight-slider" min="-15" max="15" step="0.5" value="0" aria-label="Flight yoke pitch forward and backward tilt slider">
+                      <div class="flight-scale-ticks">
+                        <span>▼ -15° (Push / Down)</span>
+                        <span>0° Level</span>
+                        <span>+15° (Pull / Up) ▲</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Bay: Throttle Quadrant -->
+              <div class="flight-bay throttle-bay">
+                <div class="flight-bay-header">
+                  <div class="flight-bay-title-wrap">
+                    <span class="flight-bay-icon" aria-hidden="true">🎛️</span>
+                    <div>
+                      <h3 class="flight-bay-title">4-Section Throttle Quadrant</h3>
+                      <span class="flight-bay-sub">Airliner Lever Rack &amp; Potentiometers</span>
+                    </div>
+                  </div>
+                  <div class="flight-presets-group" aria-label="Throttle presets">
+                    <button type="button" class="throttle-preset-btn" data-val="0" title="Set throttles to Idle (0%)">IDLE (0%)</button>
+                    <button type="button" class="throttle-preset-btn" data-val="75" title="Set throttles to Cruise (75%)">CRZ (75%)</button>
+                    <button type="button" class="throttle-preset-btn" data-val="100" title="Set throttles to Takeoff / Go-Around (100%)">TOGA (100%)</button>
+                  </div>
+                </div>
+
+                <div class="flight-bay-controls">
+                  <!-- 4-Lever Throttle Rack -->
+                  <div class="throttle-rack">
+                    <!-- Lever 1 -->
+                    <div class="throttle-channel">
+                      <div class="throttle-channel-top">
+                        <span class="throttle-eng-tag">ENG 1</span>
+                        <span id="quad-1-val" class="flight-val-pill mini">50%</span>
+                      </div>
+                      <div class="throttle-fader-slot">
+                        <input type="range" id="quad-1-slider" class="throttle-fader" min="0" max="100" step="1" value="50" orient="vertical" aria-label="Throttle section 1 slider">
+                      </div>
+                      <span class="throttle-pot-label">Sec 1 • Pot 1</span>
+                    </div>
+
+                    <!-- Lever 2 -->
+                    <div class="throttle-channel">
+                      <div class="throttle-channel-top">
+                        <span class="throttle-eng-tag">ENG 2</span>
+                        <span id="quad-2-val" class="flight-val-pill mini">50%</span>
+                      </div>
+                      <div class="throttle-fader-slot">
+                        <input type="range" id="quad-2-slider" class="throttle-fader" min="0" max="100" step="1" value="50" orient="vertical" aria-label="Throttle section 2 slider">
+                      </div>
+                      <span class="throttle-pot-label">Sec 2 • Pot 2</span>
+                    </div>
+
+                    <!-- Lever 3 -->
+                    <div class="throttle-channel">
+                      <div class="throttle-channel-top">
+                        <span class="throttle-eng-tag">ENG 3</span>
+                        <span id="quad-3-val" class="flight-val-pill mini">50%</span>
+                      </div>
+                      <div class="throttle-fader-slot">
+                        <input type="range" id="quad-3-slider" class="throttle-fader" min="0" max="100" step="1" value="50" orient="vertical" aria-label="Throttle section 3 slider">
+                      </div>
+                      <span class="throttle-pot-label">Sec 3 • Pot 3</span>
+                    </div>
+
+                    <!-- Lever 4 -->
+                    <div class="throttle-channel">
+                      <div class="throttle-channel-top">
+                        <span class="throttle-eng-tag">ENG 4</span>
+                        <span id="quad-4-val" class="flight-val-pill mini">50%</span>
+                      </div>
+                      <div class="throttle-fader-slot">
+                        <input type="range" id="quad-4-slider" class="throttle-fader" min="0" max="100" step="1" value="50" orient="vertical" aria-label="Throttle section 4 slider">
+                      </div>
+                      <span class="throttle-pot-label">Sec 4 • Pot 4</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div class="diagram-stage">
@@ -430,6 +561,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=paper-1"></script>
+  <script src="js/app.js?v=cockpit-deck-1"></script>
 </body>
 </html>
