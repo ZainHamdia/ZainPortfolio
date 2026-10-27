@@ -212,17 +212,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   const satelliteLayer = L.layerGroup([satBase, satRef]);
 
-  // 3. OpenStreetMap (Streets)
-  const osmLayer = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors',
-    maxZoom: 19
-  });
-
   // Layer lookup
   const mapLayers = {
     dark: darkLayer,
-    satellite: satelliteLayer,
-    streets: osmLayer
+    satellite: satelliteLayer
   };
 
   let activeLayer = darkLayer;
@@ -386,26 +379,6 @@ document.addEventListener("DOMContentLoaded", () => {
           el.classList.remove("active");
         }
       }
-    });
-  }
-
-  // Reset to World View Button
-  const resetBtn = document.getElementById("reset-world-view");
-  if (resetBtn) {
-    resetBtn.addEventListener("click", () => {
-      const bounds = L.latLngBounds(allLatLngs);
-      map.flyToBounds(bounds, {
-        padding: [60, 60],
-        duration: 1.2
-      });
-      // Close open popups
-      map.closePopup();
-      // Remove active states
-      document.querySelectorAll(".visited-location-item").forEach((it) => it.classList.remove("active"));
-      markerMap.forEach((m) => {
-        const el = m.getElement();
-        if (el) el.classList.remove("active");
-      });
     });
   }
 
