@@ -10,9 +10,7 @@ const PORTFOLIO_DATA = {
     aspiring: "Aspiring Mechanical Engineer",
     school: "Princeton Day School",
     expectedGraduation: "2027",
-    github: "https://github.com/ZainHamdia",
-    repoUrl: "https://github.com/ZainHamdia/ZainPortfolio",
-    email: "zainhamdia@gmail.com"
+    email: "zaiham27@pds.org"
   },
 
   experience: [

@@ -2,7 +2,7 @@
 
 > **High School Student • Aspiring Mechanical Engineer • Volunteer Firefighter**  
 > Princeton Day School • Expected Graduation: 2027  
-> GitHub: [@ZainHamdia](https://github.com/ZainHamdia) | Repository: [ZainPortfolio](https://github.com/ZainHamdia/ZainPortfolio)
+> Contact: [zaiham27@pds.org](mailto:zaiham27@pds.org)
 
 A professional, multi-page engineering portfolio website highlighting Zain Hamdia's verified achievements, leadership, and projects across **Robotics & Maker Engineering**, **Aviation & Academic Research**, and **Volunteer Firefighting & Applied Technology**.
 
@@ -17,13 +17,13 @@ ZainSite/
 ├── aviation.html         # Aviation & Research: 3D-Printed Flight Simulator, Princeton University LLP Research Internship
 ├── firefighting.html     # Firefighting: Montgomery Township VFC #2, Tech Intern (Dashboard & 3D Enclosure), Volunteer Firefighter
 ├── about.html            # About & Skills: Resume education, Technical skills matrix, Work experience, Leadership, 4 Articles
-├── contact.html          # Contact: Inquiries desk, direct email, and GitHub links
+├── contact.html          # Contact: Inquiries desk and direct email
 ├── css/
 │   └── styles.css        # Responsive design system with distinct visual themes per discipline + Info Gap UI
 ├── js/
-│   ├── app.js            # Theme toggle (Light/Dark mode) and mobile navigation controller
+│   ├── app.js            # Mobile navigation controller and interactive kinematics/simulations
 │   └── projects-data.js  # Grounded structured data model strictly mapped to verified resume
-└── README.md             # Project documentation & GitHub Pages deployment guide
+└── README.md             # Project documentation & deployment guide
 ```
 
 ---
@@ -48,7 +48,7 @@ ZainSite/
 
 4. **About, Skills & Experience (`about.html`)**
    - **Education**: Princeton Day School (Expected Graduation: 2027), Aspiring Mechanical Engineer.
-   - **Technical Skills**: Programming (Python, C++, Java, JavaScript, HTML/CSS), Design & CAD (Onshape, Fusion 360, 3D Printing, Laser Cutting, Rapid Prototyping), Applied Tech (Raspberry Pi, Microcontrollers, Git/GitHub, Linux), Fire Service (Volunteer Firefighter, Fireground Ops, Apparatus Maintenance, ICS).
+   - **Technical Skills**: Programming (Python, C++, Java, JavaScript, HTML/CSS), Design & CAD (Onshape, Fusion 360, 3D Printing, Laser Cutting, Rapid Prototyping), Applied Tech (Raspberry Pi, Microcontrollers, Git, Linux), Fire Service (Volunteer Firefighter, Fireground Ops, Apparatus Maintenance, ICS).
    - **Work Experience**: Montgomery Township Volunteer Fire Company #2, Ivy Tutoring (SAT Prep Software Platform Intern), Princeton University LLP (Research Intern), True Value Hardware (Part-time Associate).
    - **Leadership**: Co-President & Head of Design (PDS Robotics Club), Maker Club Leader, Muslim Student Association (MSA) Leadership.
    - **Published Articles**:
