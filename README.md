@@ -38,7 +38,7 @@ ZainSite/
    - **COVID-19 N95 3D-Printed Masks**: Partnered with an open-source medical initiative to 3D print N95 reusable masks for a New York cancer center during PPE shortages.
 
 2. **Aviation & Academic Research (`aviation.html`)**
-   - **3D-Printed Flight Simulator**: Custom-designed and 3D-printed flight yoke using springs to stay centered across its axes, paired with a 4-section throttle quadrant—all connected to individual potentiometers.
+   - **3D-Printed Flight Simulator**: Custom-designed and 3D-printed flight yoke paired with a modular throttle quadrant designed to mimic a Boeing 747. The quadrant is modular so builders can attach any number of thrust levers with no issues, and the throttle levers house internal potentiometers that activate and modulate reverse thrust.
    - **Princeton University Laboratory Learning Program (LLP)**: Summer 2025 research intern modernizing Princeton’s ~20-year-old MAE 412 DCC railroad track switch thrower with a trickle-charged capacitor (~12s charge cycle). Designed (~2 weeks) and hand-soldered (~1 week) a single-sided PCB adding an onboard ATMEGA-328P microprocessor (eliminating external connections for easier track automation) and a second 4700µF capacitor (enabling two switch throws in swift succession).
 
 3. **Firefighting & Applied Technology (`firefighting.html`)**
