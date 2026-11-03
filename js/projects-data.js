@@ -87,7 +87,7 @@ const PORTFOLIO_DATA = {
       id: "flight-simulator",
       title: "3D-Printed Flight Simulator (Yoke & Modular Boeing 747 Throttle Quadrant)",
       category: "aviation",
-      description: "Designed and constructed a 3D-printed flight simulator featuring a dual-axis flight yoke with contactless Hall effect sensors and a modular throttle quadrant designed to mimic a Boeing 747. The quadrant is modular so builders can attach any number of thrust levers with no issues, and the throttle levers have potentiometers housed inside of them that activate and modulate reverse thrust.",
+      description: "Designed and 3D printed a flight yoke, with Hall effect sensors measuring pitch and roll, and a throttle quadrant based on the Boeing 747. The quadrant is modular, so any number of thrust levers can be attached, and potentiometers inside the levers activate and control reverse thrust.",
       tags: ["Spring-Centered Flight Yoke", "Modular Boeing 747 Quadrant", "Internal Reverse Thrust Pots", "CAD Design", "3D Printing"]
     },
     {
