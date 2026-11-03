@@ -882,7 +882,7 @@ function initStationDisplayInteractive() {
   setInterval(updateCadClock, 1000);
   updateCadClock();
 
-  // Live Station 46 Website Preview Tab Switcher (firestation46.pages.dev)
+  // Live Station 46 Website Preview Tab Switcher (mtvfc2.com)
   const siteTabs = document.querySelectorAll('.station-site-tab[data-url]');
   const siteIframe = document.getElementById('station46-live-iframe');
   if (siteTabs.length && siteIframe) {
