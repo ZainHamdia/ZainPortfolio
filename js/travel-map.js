@@ -14,8 +14,8 @@ const VISITED_LOCATIONS = [
     lat: 9.7997,
     lng: -83.8567,
     flag: "🇨🇷",
-    description: "Lush volcanic coffee valley, Cartago Province cloud forests, and colonial heritage.",
-    tag: "Central America"
+    description: "",
+    tag: ""
   },
   {
     id: "london",
@@ -26,8 +26,8 @@ const VISITED_LOCATIONS = [
     lat: 51.5074,
     lng: -0.1278,
     flag: "🇬🇧",
-    description: "Historic cultural center, world-renowned engineering museums, and urban exploration.",
-    tag: "Western Europe"
+    description: "",
+    tag: ""
   },
   {
     id: "paris",
@@ -38,8 +38,8 @@ const VISITED_LOCATIONS = [
     lat: 48.8566,
     lng: 2.3522,
     flag: "🇫🇷",
-    description: "Iconic architecture, classical bridges across the Seine, and global art collections.",
-    tag: "Western Europe"
+    description: "",
+    tag: ""
   },
   {
     id: "cairo",
@@ -50,8 +50,8 @@ const VISITED_LOCATIONS = [
     lat: 30.0444,
     lng: 31.2357,
     flag: "🇪🇬",
-    description: "Exhibited the ~5-foot humanoid robot Zainiac 19 at Cairo Maker Faire; historic pyramids and ancient civil engineering.",
-    tag: "Maker Faire & Heritage"
+    description: "Exhibited Zainiac 19 at the Cairo Maker Faire.",
+    tag: "Cairo Maker Faire"
   },
   {
     id: "el-gouna",
@@ -62,8 +62,8 @@ const VISITED_LOCATIONS = [
     lat: 27.3949,
     lng: 33.6765,
     flag: "🇪🇬",
-    description: "Red Sea lagoon town celebrated for sustainable coastal architecture and marine engineering.",
-    tag: "Red Sea Coast"
+    description: "",
+    tag: ""
   },
   {
     id: "milan",
@@ -74,8 +74,8 @@ const VISITED_LOCATIONS = [
     lat: 45.4642,
     lng: 9.1900,
     flag: "🇮🇹",
-    description: "Global capital of industrial design, Italian precision engineering, and Lombardy architecture.",
-    tag: "Design & Technology"
+    description: "",
+    tag: ""
   },
   {
     id: "pisa",
@@ -86,8 +86,8 @@ const VISITED_LOCATIONS = [
     lat: 43.7228,
     lng: 10.4017,
     flag: "🇮🇹",
-    description: "Piazza dei Miracoli and the world-renowned structural engineering study, the Leaning Tower.",
-    tag: "Historic Engineering"
+    description: "",
+    tag: ""
   },
   {
     id: "venice",
@@ -98,8 +98,8 @@ const VISITED_LOCATIONS = [
     lat: 45.4408,
     lng: 12.3155,
     flag: "🇮🇹",
-    description: "Lagoon maritime navigation, tidal civil defense engineering, and Venetian Gothic architecture.",
-    tag: "Maritime & Canals"
+    description: "",
+    tag: ""
   },
   {
     id: "florence",
@@ -110,8 +110,8 @@ const VISITED_LOCATIONS = [
     lat: 43.7696,
     lng: 11.2558,
     flag: "🇮🇹",
-    description: "Birthplace of the Renaissance; Brunelleschi’s revolutionary cathedral dome engineering.",
-    tag: "Renaissance Engineering"
+    description: "",
+    tag: ""
   },
   {
     id: "brussels",
@@ -122,8 +122,8 @@ const VISITED_LOCATIONS = [
     lat: 50.8503,
     lng: 4.3517,
     flag: "🇧🇪",
-    description: "Presented Zainiac 19 at Brussels Maker Faire; featured on Belgian National TV News and invited to join Brussels leadership at the opening ceremony.",
-    tag: "Maker Faire Exhibition"
+    description: "Presented Zainiac 19 at the Brussels Maker Faire; featured on Belgian national news and participated in the opening ceremony.",
+    tag: "Brussels Maker Faire"
   },
   {
     id: "sarajevo",
@@ -134,8 +134,8 @@ const VISITED_LOCATIONS = [
     lat: 43.8563,
     lng: 18.4131,
     flag: "🇧🇦",
-    description: "Historic valley crossroads connecting Ottoman, Austro-Hungarian, and modern Balkan architecture.",
-    tag: "Balkan History"
+    description: "",
+    tag: ""
   },
   {
     id: "tokyo",
@@ -146,8 +146,8 @@ const VISITED_LOCATIONS = [
     lat: 35.6762,
     lng: 139.6503,
     flag: "🇯🇵",
-    description: "Global center of cutting-edge humanoid robotics, Shinkansen high-speed rail, and futuristic city planning.",
-    tag: "Robotics & Innovation"
+    description: "",
+    tag: ""
   },
   {
     id: "kyoto",
@@ -158,8 +158,8 @@ const VISITED_LOCATIONS = [
     lat: 35.0116,
     lng: 135.7681,
     flag: "🇯🇵",
-    description: "Ancient imperial capital; master carpentry, joinery without nails, and classical Zen temple architecture.",
-    tag: "Timber Architecture"
+    description: "",
+    tag: ""
   },
   {
     id: "kanazawa",
@@ -170,8 +170,8 @@ const VISITED_LOCATIONS = [
     lat: 36.5613,
     lng: 136.6562,
     flag: "🇯🇵",
-    description: "Hokuriku cultural heritage, Edo-period samurai preservation, and contemporary art curation.",
-    tag: "Art & Craftsmanship"
+    description: "",
+    tag: ""
   }
 ];
 
@@ -263,10 +263,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const popupContent = `
       <div class="travel-popup">
-        <div class="travel-popup-tag">${loc.region} • ${loc.tag}</div>
+        <div class="travel-popup-tag">${loc.tag ? loc.region + " • " + loc.tag : loc.region}</div>
         <h4 class="travel-popup-title">${loc.flag} ${loc.name}</h4>
-        <p class="travel-popup-desc">${loc.description}</p>
-        <div class="travel-popup-meta">Coordinates: ${loc.lat.toFixed(4)}°, ${loc.lng.toFixed(4)}°</div>
+        ${loc.description ? `<p class="travel-popup-desc">${loc.description}</p>` : ""}
       </div>
     `;
 

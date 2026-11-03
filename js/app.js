@@ -786,13 +786,13 @@ function initStationDisplayInteractive() {
       spec3: ['3. Turnout Acceleration', 'Zero-Click Bay Intelligence', 'Gives gearing-up firefighters crucial street addresses and call hazards before opening apparatus bay doors']
     },
     comms: {
-      title: 'STATION BULLETIN & CREW SCHEDULE',
-      sub: 'Weekly Drill: Tuesday 19:00 • Junior Program Mentorship Check-In',
-      pill: 'Mode 3/3 • Station 46 Drill Schedule & Crew Communications',
+      title: 'STATION COMMUNICATIONS & NEWS',
+      sub: 'Station Updates • Junior Firefighter Program • Enclosure & Display',
+      pill: 'Mode 3/3 • Station Communications & Junior Firefighter Program',
       color: '#f59e0b',
-      spec1: ['1. Operational Training', 'Weekly Tuesday Drill', 'Previews drill topics (Truck 46 aerial placement, forcible entry, and low-visibility SCBA evolutions)'],
-      spec2: ['2. Junior Mentorship', 'High School Recruit Cohort', 'Directly connects junior firefighters with senior firefighter mentors for practical gear checkoffs'],
-      spec3: ['3. Hardware Reliability', '24/7 LAN Kiosk Uptime', 'Raspberry Pi 4B display maintains continuous zero-maintenance operation in the radio room']
+      spec1: ['1. Station Communications', 'Centralized Dashboard', 'Integrates operational information, weather radar and forecasts, emergency alerts, news, and station communications'],
+      spec2: ['2. Junior Program', 'Mentorship & Certification', 'Streamlines the process for certifying Juniors to respond and makes finding mentors easier across the station'],
+      spec3: ['3. Custom Hardware', 'Raspberry Pi & 11" Display', 'Custom wall-mounted 3D-printed enclosure with ventilation, cable management, and power/network access']
     }
   };
 
